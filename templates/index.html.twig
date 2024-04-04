@@ -2,21 +2,11 @@
 {% extends 'base.html.twig' %}
 {% block title %}Hello!{% endblock %}
 {% block stylesheets %}
-    <link rel="stylesheet" href="css/app.css">
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script type="module" src="js/app.js"></script>
 {% endblock %}
 {% block importmap %}
-    {{ parent() }}
-    <script type="importmap">
-        {
-            "imports": {
-                "app": "/js/app.js"
-            }
-        }
-    </script>
 {% endblock %}
 
 {% block body %}
