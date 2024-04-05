@@ -7,11 +7,24 @@
     <div>
       <h1>Hello and welcome!</h1>
       <p>I'm Karl. I'm 37 years old. I like IT, programming and web development. That is one of the reasons why I'm
-        attending some courses at <a href="https://bth.se">BTH</a> within the area of web development and programming.</p>  
+        attending some courses at <a href="https://bth.se">BTH</a> within the area of web development and programming.
+      </p>
     </div>
     <picture>
       <img class="rounded-lg" src="{{ asset('images/karl_large.jpg') }}" alt="This is me!">
     </picture>
+  </article>
+  <article>
+    <h2>Quote of the moment</h2>
+    <p>
+      Within the book series Department Q, by Jussi Adler-Olsen, the main character is polce officer Carl Mørck. One of his assistants is Assad. Assad is of Syrian origin and still uses his local proverbs which sometimes puzzles Mørck. I asked ChatGPT to provide quotes, but due to copyright reasons, it could only provide paraphrased quotes. Here is one of them. (The quotes are available through an API and on this page, it is delivered through a service.) 
+    </p>
+    <blockquote>
+      {{ quoteData.quote }}
+    </blockquote>
+    <h3>Explanation</h3>
+    <p> {{ quoteData.explanation }}    </p>
+
   </article>
 </main>
 {% endblock %}
