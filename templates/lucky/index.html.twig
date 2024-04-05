@@ -1,0 +1,20 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Lucky you!{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>Lucky you!</h1>
+    <small>Below text is AI generated.</small>
+    <p>
+      You have found the lucky number! It is <strong>{{ number }}</strong>.
+    </p>
+    <p>
+      <a href="{{ path('app_lucky') }}">Get a new lucky number</a>
+    </p>
+    <picture>
+      <img class="max-h-36" src="{{ asset('images/tiger.svg') }}" alt="A lucky cat">
+    </picture>
+  </section>
+</main>
+{% endblock %}
