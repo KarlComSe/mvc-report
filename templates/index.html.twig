@@ -2,8 +2,16 @@
 {% extends 'base.html.twig' %}
 {% block title %}Hello!{% endblock %}
 {% block body %}
-    <h1>Tralala</h1>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+<main class="mt-3">
+  <article class="md:flex">
+    <div>
+      <h1>Hello and welcome!</h1>
+      <p>I'm Karl. I'm 37 years old. I like IT, programming and web development. That is one of the reasons why I'm
+        attending some courses at <a href="https://bth.se">BTH</a> within the area of web development and programming.</p>  
+    </div>
+    <picture>
+      <img class="rounded-lg" src="{{ asset('images/karl_large.jpg') }}" alt="This is me!">
+    </picture>
+  </article>
+</main>
 {% endblock %}

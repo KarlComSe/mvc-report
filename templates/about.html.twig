@@ -1,0 +1,41 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}About{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>About</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <article>
+        <h2>The page</h2>
+        <p>
+          This page is created within a course at BTH. The nick name for the course is MVC and the official name is Object-oriented Web Technology. The page is used as a learning aid and will be developed during the course. Hopefully, thanks to this page, I will be able to improve my knowledge within the course subject and demonstrate that I've acquired the expected knowledge.</p>
+        <h2>The course</h2>
+        <p>
+          The course is all about web technologies and web development. It covers common topics that are relevant to develop web applications irrespective of programming language, through a focus on how to do so based on an object oriented paradigm. Some topics that are included are design patterns, unit testing, databases, package  managers (Node, Composer), templating, web framework (Symfony and optionally Laravel) and associated tools. The main programming language in which these concepts are explored in is PHP, although, JavaScript, HTML and CSS, can never be ignored in a web context.
+        </p>
+        <p>
+          The course is part of two study programs at BTH with a focus on web development. The courses within these program are all focusing on learning by doing. There is approx. 1 assignment per week for the first 5 weeks and then there is a final project for the last 2 weeks, tieing it all together. The assignments in this course seems to be quite open, in terms of how to meet the requirements, and giving me a good opportunity to explore adjoining topics and technologies.    
+        </p>
+        <h3>Purpose</h3>
+        <p>
+          The purpose of the course is to teach concepts of object oriented programming. Furthermore, the course aims at applying (and thus also giving the student the knowledge in how to apply) these concepts in the programming language PHP, including concepts such as unit testing, databases, and web frameworks.
+        </p>
+      </article>
+      <article>
+        <h2>Course picture</h2>
+        <picture>
+          <img class="rounded-lg" src="{{ asset('images/pexels-pixabay-55814.jpg') }}" alt="A roaring lioness">
+        </picture>
+        <p>I belive this course will make me feel as majestic as a lion that roars, but within the context of web development.</p>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://github.com/dbwebb-se/mvc/">The course GITHUB-repo</a></li>
+          <li><a href="https://github.com/KarlComSe/mvc-report">My GITHUP-repo for this web page (private, at this moment)</a></li>
+          <li><a href="https://dbwebb.se/kurser/mvc-v2">The course page at dbwebb.se</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</main>
+{% endblock %}

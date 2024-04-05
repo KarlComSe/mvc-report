@@ -1,0 +1,76 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Redovisningstexter{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>Redovisningstexter</h1>
+    <p>På svenska.</p>
+    <nav>
+      <ul>
+        <li><a href="#kmom01">KMOM01</a></li>
+        <li><a href="#kmom02">KMOM02</a></li>
+        <li><a href="#kmom03">KMOM03</a></li>
+        <li><a href="#kmom04">KMOM04</a></li>
+        <li><a href="#kmom05">KMOM05</a></li>
+        <li><a href="#kmom06">KMOM06</a></li>
+        <li><a href="#kmom10">KMOM10</a></li>
+      </ul>
+    </nav>
+    <article id="kmom01">
+      <h2>KMOM01</h2>
+      <h3>Förkunskaper om objektorientering</h3>
+      <p>I Python-kursen som jag tog på BTH under LP2 2023, OOP, berörde vi objektorienterad programmering. Jag har tidigare studerat objektorienterad programmering i JAVA, men det var 2009. En överlag positiv erfarenhet. Mitt minne gällande de teoretiska konstruktionerna och även att praktiskt följa ett strikt objekt-orienterat paradigm lämnar lite att önska, t.ex. vad är polymorfism, vad är the Law of Demeter, vad är fördelarna med OO vs. procedural coding? </p>
+      <h3>PHPs modell för klasser och objekt</h3>
+      <p></p>
+      <p>PHP har ett väl utbyggt stöd för objektorienterad programmering med hjälp av klasser och objekt. Den mest grundläggande syntaxen är:</p>
+      <ul>
+        <li>Definiera en klass: class KlassNamn {}</li>
+        <li>Konstruktorer och destruktorer: public function __construct($param1, ...) {}</li>
+        <li>Metoder: class KlassNamn { ... public function methodName() {}}</li>
+        <li>Egenskaper: class KlassNamn { public $egenskap;}</li>
+        <li>Skapa statiska metoder: public static function statiskMetod(){}</li>
+        <li>Komma åt en statisk metod eller egenskap: minKlass::statiskMetod()</li>
+        <li>Synlighet på egenskaper och metoder: public, protected, private</li>
+        <li>Skapa object: $mittObj = new KlassNamn($param1, ...)</li>
+        <li>Komma åt publika egenskaper: $mittObj->egenskap </li>
+        <li>Komma åt egenskaper och metoder från den egna instansierade klassen (dvs. objektet): $this->... </li>
+      </ul> 
+      <p>PHP har koncept för abstrakta klasser, interface, traits och magiska funktioner.</p>
+      <h3>Reflektion över kodbasen</h3>
+      <p>Reflektera kort över den kodbas, koden, strukturen som användes till uppgiften me/report, hur uppfattar du den?</p>
+      <p></p>
+      <h3>Artikeln (boken?) “PHP The Right Way”</h3>
+      <p>Med tanke på artikeln “PHP The Right Way”, vilka delar in den finner du extra intressanta och värdefulla? Är det några särskilda områden som du känner att du vill veta mer om? Lyft fram några delar av artikeln som du känner mer värdefulla.</p>
+      <p>Jag vill lära mig mer om allt. Jag har bara skummat från testning och framåt. Dependency injection var ett intressant objekt-orienterat koncept som introducerades i boken, och jag ser fram emot att använda det praktiskt. Jag tycker att kapitlet som handlade om <a href="https://phptherightway.com/#web_application_security">säkerhet</a> var bra, då det på ett övergripande plan beskrev vilka olika områden man behöver ha koll på. </p>
+      <h3>TIL</h3>
+      <p>Vilken är din TIL för detta kmom?</p>
+      <p>Jag har tidigare inte förstått vad :: betytt i PHP. Det är ett TIL.</p>
+      <p>Jag lärde mig också att HTTP2 / HTTP3 inte längre kräver att man bundlar olika filer eller komprimerar filerarna med hjälp av minifiering. D.v.s. jag behöver skrota alla ställen där jag använder HTTP1.</p>
+    </article>
+    <article id="kmom02">
+      <h2>KMOM02</h2>
+      <p></p>
+    </article>
+    <article id="kmom03">
+      <h2>KMOM03</h2>
+      <p></p>
+    </article>
+    <article id="kmom04">
+      <h2>KMOM04</h2>
+      <p></p>
+    </article>
+    <article id="kmom05">
+      <h2>KMOM05</h2>
+      <p></p>
+    </article>
+    <article id="kmom06">
+      <h2>KMOM06</h2>
+      <p></p>
+    </article>
+    <article id="kmom10">
+      <h2>KMOM10</h2>
+      <p></p>
+    </article>
+</main>
+{% endblock %}
