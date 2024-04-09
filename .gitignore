@@ -24,3 +24,6 @@
 /assets/vendor/
 
 /node_modules/
+
+/tools/phpstan/vendor/
+/tools/phpmd/vendor/
