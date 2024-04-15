@@ -9,13 +9,12 @@ use Random\Randomizer;
 
 class CardRouteListener
 {
-
     public function onKernelRequest(RequestEvent $event)
     {
 
         $request = $event->getRequest();
         $session = $request->getSession();
-        
+
         $attributes = $request->attributes->get('_route_params');
 
         if ($attributes && key_exists('deck_needed', $attributes)) {

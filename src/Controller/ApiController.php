@@ -10,10 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
-
 class ApiController extends AbstractController
-{ 
-
+{
     public function __construct(protected QuoteService $quoteService, protected DeckService $deckService)
     {
     }
@@ -42,7 +40,7 @@ class ApiController extends AbstractController
     public function assadsQuotes()
     {
         $quote = $this->quoteService->getAssadsQuote();
-        return $quote;     
+        return $quote;
     }
 
     #[Route('/api/deck', name: 'api_deck', defaults: ['deck_needed' => true ])]

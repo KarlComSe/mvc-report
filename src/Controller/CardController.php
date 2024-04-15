@@ -19,8 +19,8 @@ use Random\Randomizer;
 
 class CardController extends AbstractController
 {
-
-    public function getInstansiatedDeck($request, $deckName){
+    public function getInstansiatedDeck($request, $deckName)
+    {
         $observers = [
             new SessionSavingObserver($request, $deckName)
         ];

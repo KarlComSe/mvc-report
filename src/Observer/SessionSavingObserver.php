@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Observer;
+
 use Symfony\Component\HttpFoundation\Request;
 use SplObserver;
 
-class SessionSavingObserver implements SplObserver{
-    public function __construct(private Request $request, private string $key){
+class SessionSavingObserver implements SplObserver
+{
+    public function __construct(private Request $request, private string $key)
+    {
     }
 
-    public function update($data){
+    public function update($data)
+    {
         $session = $this->request->getSession();
         // echo '<pre>';
         // echo 'CALL CALL';

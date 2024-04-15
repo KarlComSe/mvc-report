@@ -10,10 +10,8 @@ use Symfony\Component\Routing\Attribute\Route;
 # Specific use statements
 use App\Service\QuoteService;
 
-
 class IndexController extends AbstractController
 {
-
     protected QuoteService $quoteService;
 
     public function __construct(QuoteService $quoteService)
@@ -28,7 +26,7 @@ class IndexController extends AbstractController
             $this->quoteService->getAssadsQuote()->getContent(),
             true
         );
-        
+
         $data = [
             'quoteData' => [
                 'quote' => $quote['quote'],

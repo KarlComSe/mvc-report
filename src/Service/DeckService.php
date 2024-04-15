@@ -14,7 +14,8 @@ use Random\Randomizer;
 
 class DeckService
 {
-    public function getInstansiatedDeck($request, $deckName){
+    public function getInstansiatedDeck($request, $deckName)
+    {
         $observers = [
             new SessionSavingObserver($request, $deckName)
         ];

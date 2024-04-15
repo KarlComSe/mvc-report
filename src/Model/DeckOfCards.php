@@ -6,7 +6,8 @@ use Random\Randomizer;
 use SplSubject;
 use Serializable;
 
-abstract class DeckOfCards implements SplSubject, Serializable {
+abstract class DeckOfCards implements SplSubject, Serializable
+{
     public static $suitsOfCards = ['Spade', 'Diamond', 'Heart', 'Club'];
     public static $namesOfCards = [
         'Ace' => [1, 14],
@@ -23,16 +24,17 @@ abstract class DeckOfCards implements SplSubject, Serializable {
         'Queen' => [12],
         'King' => [13],
     ];
-    public Array $cards = [];
-    public Array $discardPile = [];
+    public array $cards = [];
+    public array $discardPile = [];
 
     protected \SplObjectStorage $observers;
 
     protected Bool $isShuffled = false;
 
     protected Randomizer $randomizer;
-    
-    public function __construct(Randomizer $randomizer, array $observers = []) {
+
+    public function __construct(Randomizer $randomizer, array $observers = [])
+    {
         $this->randomizer = $randomizer;
         $this->observers = new \SplObjectStorage();
         foreach ($observers as $observer) {
@@ -53,18 +55,20 @@ abstract class DeckOfCards implements SplSubject, Serializable {
             $observer->update($this->getDeck());
         }
     }
-    // this is not utilized. Doesn't get it to work as expected. Saves only the deck now. 
-    public function serialize(): string {
+    // this is not utilized. Doesn't get it to work as expected. Saves only the deck now.
+    public function serialize(): string
+    {
         return serialize(
             [
                 'cards' => $this->cards,
                 'discardPile' => $this->discardPile,
                 'isShuffled' => $this->isShuffled
             ]
-            );
+        );
     }
 
-    public function unserialize($data): void {
+    public function unserialize($data): void
+    {
         $data = unserialize($data);
         $this->randomizer = new Randomizer();
         $this->observers = [];
@@ -78,33 +82,39 @@ abstract class DeckOfCards implements SplSubject, Serializable {
 
     abstract public function sort(): void;
 
-    public function addCard(Card $card): void {
-        $this->cards[] = $card; 
+    public function addCard(Card $card): void
+    {
+        $this->cards[] = $card;
         $this->notify();
     }
 
-    public function shuffle(): void {
-        // shuffle as many time as one likes today... 
+    public function shuffle(): void
+    {
+        // shuffle as many time as one likes today...
         $this->isShuffled = true;
         $this->cards = $this->randomizer->shuffleArray($this->cards);
         $this->notify();
     }
 
-    public function getDeck(): array {
+    public function getDeck(): array
+    {
         return $this->cards;
     }
 
-    public function hasCards(): bool {
+    public function hasCards(): bool
+    {
         return count($this->cards) > 0;
     }
 
-    public function getNumberOfCards(): int {
+    public function getNumberOfCards(): int
+    {
         return count($this->cards);
     }
 
-    
 
-    public function drawCard(): Card {
+
+    public function drawCard(): Card
+    {
         if (!$this->hasCards()) {
             throw new \Exception('No cards left in the deck');
         }
@@ -113,7 +123,8 @@ abstract class DeckOfCards implements SplSubject, Serializable {
         return $card;
     }
 
-    public function drawCards(int $numberOfCards): array {
+    public function drawCards(int $numberOfCards): array
+    {
         $cards = [];
         for ($i = 0; $i < $numberOfCards; $i++) {
             $cards[] = $this->drawCard();
@@ -121,7 +132,8 @@ abstract class DeckOfCards implements SplSubject, Serializable {
         return $cards;
     }
 
-    public function dealCards(int $numberOfPlayers, int $numberOfCards): array {
+    public function dealCards(int $numberOfPlayers, int $numberOfCards): array
+    {
         $hands = [];
         for ($i = 0; $i < $numberOfPlayers; $i++) {
             $hand = new CardHand();

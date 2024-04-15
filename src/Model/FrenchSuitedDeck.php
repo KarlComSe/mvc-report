@@ -6,8 +6,10 @@ use App\Model\DeckOfCards;
 use Random\Randomizer;
 use App\Model\Card;
 
-class FrenchSuitedDeck extends DeckOfCards{
-    public static function create(Randomizer $randomizer, array $observers = []): FrenchSuitedDeck {
+class FrenchSuitedDeck extends DeckOfCards
+{
+    public static function create(Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
+    {
         $deck = new FrenchSuitedDeck($randomizer, $observers);
         foreach (self::$suitsOfCards as $suit) {
             foreach (self::$namesOfCards as $name => $value) {
@@ -18,7 +20,8 @@ class FrenchSuitedDeck extends DeckOfCards{
         return $deck;
     }
 
-    public static function createFromSession(array $deck, Randomizer $randomizer, array $observers = []): FrenchSuitedDeck {
+    public static function createFromSession(array $deck, Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
+    {
         $frenchDeck = new FrenchSuitedDeck($randomizer, $observers);
         // interesting enough, the card which are coming from session are restored as Card-objects, while the Deck is an Array.
         foreach ($deck as $card) {
@@ -28,17 +31,20 @@ class FrenchSuitedDeck extends DeckOfCards{
         return $frenchDeck;
     }
 
-    public function sort(): void {
+    public function sort(): void
+    {
         usort($this->cards, [$this, 'sortBySuiteAndValue']);
         $this->notify();
     }
 
-    public function sortBySuite(Card $a, Card $b): int {
+    public function sortBySuite(Card $a, Card $b): int
+    {
         $SORTING_ORDER = ['Spade', 'Heart', 'Diamond', 'Club'];
         return array_search($a->getSuit(), $SORTING_ORDER) <=> array_search($b->getSuit(), $SORTING_ORDER);
     }
 
-    public function sortByValue(Card $a, Card $b): int {
+    public function sortByValue(Card $a, Card $b): int
+    {
         if ($a->getAlternativeValue() && $b->getAlternativeValue()) {
             return $a->getAlternativeValue() <=> $b->getAlternativeValue();
         }
@@ -53,7 +59,8 @@ class FrenchSuitedDeck extends DeckOfCards{
         return $a->getValue() <=> $b->getValue();
     }
 
-    public function sortBySuiteAndValue(Card $a, Card $b): int {
+    public function sortBySuiteAndValue(Card $a, Card $b): int
+    {
         $suiteComparison = $this->sortBySuite($a, $b);
         if ($suiteComparison === 0) {
             return $this->sortByValue($a, $b);

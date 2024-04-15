@@ -4,26 +4,30 @@ namespace App\Model;
 
 use App\Model\Card;
 
-class CardHand{
+class CardHand
+{
     private ?int $maxNumberOfCardsInHand;
     public array $cardsInHand = [];
 
-    public function __construct(?int $maxNumberOfCardsInHand = null){
+    public function __construct(?int $maxNumberOfCardsInHand = null)
+    {
         $this->maxNumberOfCardsInHand = $maxNumberOfCardsInHand;
     }
 
-    public function addCard(Card $card){
-        if ($this->maxNumberOfCardsInHand === null){
+    public function addCard(Card $card)
+    {
+        if ($this->maxNumberOfCardsInHand === null) {
             $this->cardsInHand[] = $card;
             return;
-        } 
+        }
 
         if ($this->maxNumberOfCardsInHand > len($this->cardsInHand)) {
             $this->cardsInHand[] = $card;
         }
     }
 
-    public function getHand(): array{
+    public function getHand(): array
+    {
         return $this->cardsInHand;
     }
 }
