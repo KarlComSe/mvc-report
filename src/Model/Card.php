@@ -3,9 +3,10 @@
 namespace App\Model;
 
 class Card {
-    protected $value;
-    protected $name;
-    protected $suit;
+    public $value;
+    public $name;
+    public $suit;
+    public $alternativeValue;
 
     public function __construct(string $suit, string $name, int $value, ?int $alternativeValue = null){
         $this->value = $value;

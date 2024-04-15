@@ -23,8 +23,8 @@ abstract class DeckOfCards implements SplSubject, Serializable {
         'Queen' => [12],
         'King' => [13],
     ];
-    protected Array $cards = [];
-    protected Array $discardPile = [];
+    public Array $cards = [];
+    public Array $discardPile = [];
 
     protected \SplObjectStorage $observers;
 
@@ -124,7 +124,7 @@ abstract class DeckOfCards implements SplSubject, Serializable {
     public function dealCards(int $numberOfPlayers, int $numberOfCards): array {
         $hands = [];
         for ($i = 0; $i < $numberOfPlayers; $i++) {
-            $hand = new CardHand($numberOfCards);
+            $hand = new CardHand();
             for ($j = 0; $j < $numberOfCards; $j++) {
                 $hand->addCard($this->drawCard());
             }

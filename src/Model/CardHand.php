@@ -6,7 +6,7 @@ use App\Model\Card;
 
 class CardHand{
     private ?int $maxNumberOfCardsInHand;
-    private array $cardsInHand = [];
+    public array $cardsInHand = [];
 
     public function __construct(?int $maxNumberOfCardsInHand = null){
         $this->maxNumberOfCardsInHand = $maxNumberOfCardsInHand;
