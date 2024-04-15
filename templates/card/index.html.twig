@@ -1,0 +1,42 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Lucky you!{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>Lucky you!?</h1>
+    <p>
+      Here I'll demonstrate some stuff.
+    </p>
+    <ul>
+      <li>
+        <a href="{{ path('app_card') }}">This page</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_session_view') }}">Session page</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_session_destroy') }}">Destroy session</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_deck') }}">Sort and view deck</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_deck_shuffle') }}">Shuffle and view deck</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_deck_draw') }}">Draw (1 card) and view drawn cards</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_deck_draw')}}/3">Draw (3 cards) and view drawn cards</a>.
+      </li>
+      <li>
+        <a href="{{ path('app_deck_deal', {'players': 4, 'cards': 5}) }}">Deal 5 cards to 4 players and view the hands.</a>.
+      </li>
+
+    </ul>
+    <h2>Session-data</h2>
+    <p>Session data can be seen <a href="{{ path('app_session_view')}}">here!</a> Or destroyed <a href="{{path('app_session_destroy')}}">here.</a></p>
+  </section>
+</main>
+{% endblock %}

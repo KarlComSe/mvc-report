@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Welcome!{% endblock %}</title>
-    <link rel="icon"
-        href="{{ asset('images/tiger.svg')}}">
+    <link rel="icon" href="{{ asset('images/tiger.svg')}}">
     {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     {% endblock %}
@@ -22,7 +21,8 @@
         <header class="not-prose">
             <div class="">
                 <picture>
-                    <img class = "w-full max-h-96 object-cover rounded-lg" src="{{ asset('images/pexels-pixabay-55814.jpg') }}" alt="A roaring tiger">
+                    <img class="w-full max-h-96 object-cover rounded-lg"
+                        src="{{ asset('images/pexels-pixabay-55814.jpg') }}" alt="A roaring tiger">
                 </picture>
             </div>
             {% block navigation %}
@@ -30,10 +30,22 @@
             {% endblock %}
         </header>
         {% endblock %}
+        {% block flash %}
+        {# read and display all flash messages #}
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endfor %}
+        {% endblock %}
+        
         {% block body %}{% endblock %}
         {% block footer %}
         <footer class="not-prose mt-6 p-3 full-width bg-green-800 rounded font-bold">
-            <p class="text-center text-sm text-amber-600">Made by Karl. Part of the course "MVC" which is given at <a href="">BTH</a> within the frame of what is called <a href="https://dbwebb.se">dbwebb</a>.</p>
+            <p class="text-center text-sm text-amber-600">Made by Karl. Part of the course "MVC" which is given at <a
+                    href="">BTH</a> within the frame of what is called <a href="https://dbwebb.se">dbwebb</a>.</p>
         </footer>
         {% endblock %}
     </div>

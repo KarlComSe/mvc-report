@@ -1,0 +1,17 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Visualizing some cards!{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>Here are some cards</h1>
+    {% for card in cards %}
+    <li>
+      {% for elem in card.getCard() %}
+        {{ elem }}
+      {% endfor %}
+    </li>
+    {% endfor %}
+  </section>
+</main>
+{% endblock %}
