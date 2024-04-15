@@ -10,9 +10,14 @@
     </p>
     {% for hand in hands %}
     <li>Player {{loop.index}}
-      {% for card in hand.getHand() %}
-        {{dump(card.getCard())}}
-      {% endfor %}
+      <div class="flex items-center px-4 py-3 text-white bg-amber-600 hover:bg-amber-800">
+        <span class="text-4xl">
+        {% for card in hand.getHand() %}
+        {{card}}
+        {% endfor %}
+      </span>
+      </div>
+      
     </li>
     {% endfor %}
   </section>
