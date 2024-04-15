@@ -6,7 +6,7 @@
   <section>
     <h1>Lucky you!?</h1>
     <p>
-      Here I'll demonstrate some stuff.
+      Here I'll demonstrate some stuff. The application will throw an error if you try to draw more cards than exists in the deck. If so, you might <a href="{{ path('app_session_destroy') }}">destroy the session</a> (only removes stuff related to this page).
     </p>
     <ul>
       <li>
@@ -37,6 +37,20 @@
     </ul>
     <h2>Session-data</h2>
     <p>Session data can be seen <a href="{{ path('app_session_view')}}">here!</a> Or destroyed <a href="{{path('app_session_destroy')}}">here.</a></p>
+  </section>
+  <section>
+    <h2>Code structure</h2>
+    <p>
+      The UML diagram below shows the main structure of the code. I've conceptualized the assignment into three parts: a deck, a card and a hand. The deck might contain cards and a hand might contain cards. The deck is implemented as a general deck, DeckOfCards, which is abstract. A "normal" deck extends this, and become the concrete implementation, this is the FrenchSuitedDeck. The deck implementation contains a static method to generate the specific deck type. 
+    </p>
+    <figure>
+      <img src="{{ asset('images/UML.png') }}" alt="UML diagram of key classes">
+      <figcaption>UML diagram of the key classes</figcaption>
+    </figure>
+    <figure>
+      <img src="{{ asset('images/UML-2.png') }}" alt="UML diagram of related classes">
+      <figcaption>UML diagram of related classes, that somehow supports the implementation</figcaption>
+    </figure>
   </section>
 </main>
 {% endblock %}
