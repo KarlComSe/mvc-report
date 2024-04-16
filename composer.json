@@ -1,5 +1,7 @@
 {
     "type": "project",
+    "name": "mvc/course",
+    "description": "Course in MVC at BTH utilizing Symfony",
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -87,6 +89,8 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
+        "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
+        "csfix:dry": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v",
         "phpmd": "tools/phpmd/vendor/bin/phpmd . text tools/phpmd/phpmd.xml || true",
         "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon || true",
         "lint": [
