@@ -52,7 +52,30 @@
     </article>
     <article id="kmom02">
       <h2>KMOM02</h2>
-      <p></p>
+      <h3>Objektorienterad (OO) programmering i PHP</h3>
+      <p>Inom OO programmering finns ett antal koncept och här förklarar jag några av de, i synnerhet med fokus på PHP. Ett centralt paradigm inom OO är objekt. Ett objekt är en instansiering av en klass. En något haltande liknelse är att en klass är en husritning och att det bygda huset är en instans av klassen, d.v.s ett objekt. Att det haltar något beror på att en klass kan ha egna egenskaper och metoder, de kallas statiska.</p>
+      <ul>
+        <li>Arv är att man skapar en klass som ärver från en annan. På så sätt är det möjligt att t.ex. ha en generell klass som ärvs till något som är mer specifikt. Exempel är att man definierar en klass som fordon, och klasser såsom motorcykel, bil, lastbil, båt etc. som ärver egenskaperna från fordon. Det som är bra är att man vet att alla egenskaper och metoder från den ärvda klassen också finns i den klassen som ärver.</li>
+        <li>Komposition är en beskrivning av en relation mellan två olika klasser. Komposition handlar om att ett objekt består av andra objekt. För att det ska kallas komposition så krävs att objekten som tillhör ett annat objekt är starkt knutna till det andra objektet och bara samexisterar med det andra objektet. Exempel på komposition är att ett hus har rum. Tar man bort huset finns inte rummen kvar. </li>
+        <li>Ett interface är ett sätt beskriva krav på klasser som implementerar interfacet. En liknelse är t.ex. KRAV-märkning, för att bli KRAV-märkt finns det ett par krav som måste uppfyllas. I OO-världen beskrivs istället vad en klass måste implementera, t.ex. vissa funktioner. Om ett objekt då implementerar ett interface kan man vara säker på att den har vissa metoder. Ett exempel skulle kunna vara att en klass implementerar serializable, vilket är ett interface som kräver att klassen ska ha metoderna serialize och unserialize.</li>
+        <li>Trait är en OO-konstruktion som finns bl.a. i PHP. Ett arv kräver att man ärver från en klass, vilken sen kan ärva till en annan o.s.v. Trait är lite som arv, man kan "ärva" funktionalitet till en klass från en eller flera traits, utan att skapa en arvs-hierarki.</li>
+      </ul>
+      <h3>Implementation</h3>
+      <p>
+        Jag är överlag nöjd med min implementation. Jag har fått experimentera med några OO-koncept och Symfony's sätt att implementera dessa. Jag fick överge ett par konstruktioner på grund av att jag inte förstod, likväl, kände att det var dags att gå vidare. Kanske kan återkomma till de senare. Det finns förbättringsmöjligheter, några av de knutna till tidigare mening: 
+      </p>
+      <ul>
+        <li>Publika metoder och egenskapr / attribut: När jag skapade mitt API blev jag tvungen att ändra synligheten på mina attribut. Privata attribut i en klass blir inte synliga när man väljer att göra JSON av ett objekt av den klassen. Det fanns vägar runt, men jag behöver gå vidare till andra kurser och bli klar.</li>
+        <li>Implementation av serializable-interfacet och vad som sparas till sessionen: Jag lyckades inte spara mitt objekt till sessionen. Jag testade att implementera serializable-interfacet, men det fungerade tyvärr inte så som jag ville. Jag har således valt att spara den array som innehåller en lista av kort i sessionen. En nackdel med detta är att min kortlek innehåller andra attribut, t.ex. om den har blivit blanadad, om några kort har blivit slängda etc.</li>
+        <li>Dependency injection av bl.a. Randomizer och Observers: Jag har valt att injecta några beroenden, i mina klasser. Dessa behöver injectas igen när man hämtar från sessionen. Jag tycker att det blev sådär, men främst för att jag ville testa.</li>
+        <li>100 % användning av APIt även på den vanliga sidan. Det är en dubbel uppsättning kod mellan APIt och /card-sidan. Detta då jag gjorde APIt efteråt. Det är fullt möjligt att använda APIt till att generera sidorna.</li>
+        <l>Type hinting: Jag har inte konsekvent använt type hinting, för variabler eller retur-typer. Det är något som jag gärna gör och som jag får förbättra framöver.</l>
+        </ul>
+      <h3>Reflektioner</h3>
+      <p>Överlag intressant KMOM. Jag har testat på ett par av de OO konstruktioner som finns i PHP, liksom använt mig av olika designmönster. Jag tycker det blev snyggt med observer designmönster på min kortlek. Jag tycker också användningen av eventlyssnare för att säkerställa att det finns en kortlek på relevanta routes, innan de laddas, är snyggt.</p>
+      <p>Kan inte riktigt påstå att jag hittat helt rätt när saker och ting inte fungerar som tänkt än. Mina böcker likväl PHPs och Symfony's dokumentation lämnar en del att önska för mig som ännu inte är fullt bekväm med språket eller ramverket.</p>
+      <h3>TIL</h3> 
+      <p>Jag har lärt mig använda design-mönstret Observer. Jag har också felsökt en del med echo, dump, print_r och gettype. Man kommer ganska långt av det.</p>
     </article>
     <article id="kmom03">
       <h2>KMOM03</h2>
