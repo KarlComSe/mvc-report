@@ -1,0 +1,21 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Play some, lose some.{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>Play some, lose some.</h1>
+    <p>
+      This is a simple card game, called 21, not to be confused with the blackjack game.
+    </p>
+    <p class="prose prose-stone"><a href="{{path('app_play_game')}}" >What are you waiting for? Start playing now!</a></article>
+    <h2>Rules and way of playing</h2>
+    <p>
+      The goal of the game for the player is to beat the bank. That might be difficult, at least statistically, as the bank has an advantage. To beat the bank, the player needs to get closer than the bank to 21. If the player exceds 21, the bank wins. The bank wins at equal. The player wins if the bank gets busted, i.e. if the hand exceds 21.
+    </p>
+    <p>
+      Development documentation, and possible ways to cheat, can be found <a href="{{path('app_game_doc')}}">here</a>.
+    </p>
+  </section>
+</main>
+{% endblock %}

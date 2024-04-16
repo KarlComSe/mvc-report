@@ -1,0 +1,57 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Play some, lose some.{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <small>In Swedish...</small>
+  <section>
+    {% apply markdown_to_html %}
+    # Dokumentation
+
+    ## Flödesdiagram
+
+    ![Flödesdiagram]({{ asset('images/flowchart.png')}})
+
+    ## Pseudokod
+
+    ```plaintext
+    Skapa nytt spel
+      Skapa en spelare, bank
+      Skapa en spelare, spelaren
+      Skapa en kortlek och blanda denna
+    Begär insats från spelaren
+    Ge spelaren ett kort
+    Fråga spelaren om denna vill ha ett kort till
+      Fortsätt till spelaren har mer än 21 eller inte vill ha fler kort
+    Har spelaren mer än 21, avsluta spelet och banken vinner
+    Banken tar kort tills den har nått 17
+      Har banken mer än 21, avsluta spelet och spelaren vinner
+    Kolla vinnare
+      Har banken mer eller lika med spelaren, avsluta spelet och banken vinner
+      Har banken lika eller mindre än spelaren, avsluta spelet och spelaren vinner
+    Fråga spelaren om denne vill spela igen
+        Om ja, starta nytt spel
+        Om nej, avsluta spelet
+    ```
+
+    ## Klasser
+
+    Jag avser att återanvända klasserna som jag skapade i föregående kursmoment, dvs. Card, CardHand, Deck och FrenchSuitedDeck. Jag kommer att skapa en ny klass som heter GameController som kommer att styra spelet. Jag avser att statiskt representera spelet, baserat på information från klassen, på en sida så som det är sparat i ett ögonblick. Sidan kommer också att visa upp de actions som är tillåtna.  
+
+    ```plaintext
+    GameController - Kontrollerar spelet
+      $hands = [Hand]
+      $deck = FrenchSuitedDeck
+      $currentPlayer = ['human', 'bank']
+      $playerBet = Int
+      $ongoing = Bool
+
+      dealCard() - Delar ut kort till spelare
+      checkWinner() - Kollar vem som vinner
+      checkIfBusted() - Kollar om nuvarande spelare är tjock
+      nextPlayer() - Byter spelare
+    ```
+    {% endapply %}
+  </section>
+</main>
+{% endblock %}
