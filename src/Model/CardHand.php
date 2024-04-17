@@ -30,4 +30,30 @@ class CardHand
     {
         return $this->cardsInHand;
     }
+
+    public function getScore(): array
+    {
+        $scoreArray = [];
+
+        foreach ($this->cardsInHand as $card) {
+            $currentValues = [];
+            if ($card->getAlternativeValue() !== null) {
+                $currentValues[] = $card->getAlternativeValue();
+            }
+            $currentValues[] = $card->getValue();
+
+            if (count($scoreArray) === 0) {
+                $scoreArray = $currentValues;
+                continue;
+            }
+
+            $newScoreArray = [];
+            foreach ($scoreArray as $score) {
+                foreach ($currentValues as $value) {
+                    $newScoreArray[] = $score + $value;
+                }
+            }
+            $scoreArray = $newScoreArray;
+        }
+    }
 }
