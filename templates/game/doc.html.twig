@@ -34,6 +34,22 @@
         Om nej, avsluta spelet
     ```
 
+    ### Räkna poäng när korten har mer än 2 värden (dvs. ess)
+
+    Ett problem som behöver lösas är hur poängen ska beräknas när det finns mer än 2 värden på ett kort. Jag vill lösa detta generellt, d.v.s. att det ska fungera för en kortlek som t.ex. bara består av ess och händer som kan ha obegränsat med kort.
+
+    Spontant ser jag två potentiella lösningar, där målsättningen är att båda ska returnera en array med alla möjliga poäng:
+
+    - Iterativ/linjär-lösning (?): När ett ess hittas i handen, så kopieras nuvarande poängen, och ett värde läggs till i de existerande poängen, och ett annat värde läggs till i de kopierade poängen. Fortsätt genom hela handen.
+    - Rekursiv lösning: Alla kort skickas som parametrar till funktionen. 
+     - Etablera poängen för nuvarande kort i en array. 
+     - Finns det inga kort kvar i högen: returnera poängen. 
+     - Finns det kort kvar i högen: 
+      - Anropa funktionen igen med resterande kort i handen.
+     - För varje returnerat poäng, lägg till i värde-arrayen.  
+
+    Jag kommer att implementera den linjära lösningen.  
+
     ## Klasser
 
     Jag avser att återanvända klasserna som jag skapade i föregående kursmoment, dvs. Card, CardHand, Deck och FrenchSuitedDeck. Jag kommer att skapa en ny klass som heter GameController som kommer att styra spelet. Jag avser att statiskt representera spelet, baserat på information från klassen, på en sida så som det är sparat i ett ögonblick. Sidan kommer också att visa upp de actions som är tillåtna.  
