@@ -53,7 +53,7 @@ class CardHand
                     $newScoreArray[] = $score + $value;
                 }
             }
-            $scoreArray = $newScoreArray;
+            return $newScoreArray;
         }
     }
 }
