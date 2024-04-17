@@ -45,8 +45,7 @@ class GameController extends AbstractController
     {   
         $session = $request->getSession();
         if ($session->has('game') === false){
-            $flashes = $session->getFlashBag();
-            $flashes->add(
+            $this->addFlash(
                 'notice',
                 'Hmm. Not good. Dont cheat!!!'
             );
@@ -57,8 +56,7 @@ class GameController extends AbstractController
         $game = Game::createFromSavedState($gameState);
 
         if (!$game->getGameStatus()){
-            $flashes = $session->getFlashBag();
-            $flashes->add(
+            $this->addFlash(
                 'notice',
                 'Game has ended. You need to reset the session!'
             );
@@ -69,8 +67,7 @@ class GameController extends AbstractController
 
         if ($game->getPlayerBet() === NULL){
             if ($request->request->get('bet') === NULL){
-                $flashes = $session->getFlashBag();
-                $flashes->add(
+                $this->addFlash(
                     'notice',
                     'You must place a bet before you can play!'
                 );
@@ -97,9 +94,8 @@ class GameController extends AbstractController
         }
 
         if ($game->isBusted()){
-            $flashes = $session->getFlashBag();
             $game->endGame();
-            $flashes->add(
+            $this->addFlash(
                 'notice',
                 "You are busted and lose! {$game->getCurrentPlayer()}"
             );
