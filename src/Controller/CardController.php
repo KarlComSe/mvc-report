@@ -6,15 +6,12 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
 use Symfony\Component\HttpFoundation\Request;
-
 use App\Model\Card;
 use App\Model\CardHand;
 use App\Model\GraphicCard;
 use App\Model\FrenchSuitedDeck;
 use App\Observer\SessionSavingObserver;
-
 use Random\Randomizer;
 
 class CardController extends AbstractController
@@ -64,7 +61,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/shuffle', name: 'app_deck_shuffle', defaults: ['deck_needed' => true ])]
-    public function deck_shuffle(Request $request): Response
+    public function deckShuffle(Request $request): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
         $deck->shuffle();
@@ -72,7 +69,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/draw/{number}', name: 'app_deck_draw', defaults: ['deck_needed' => true ])]
-    public function deck_draw(Request $request, $number = 1)
+    public function deckDraw(Request $request, $number = 1)
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
 
@@ -80,7 +77,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/deal/{players}/{cards}', name: 'app_deck_deal', defaults: ['deck_needed' => true ])]
-    public function deck_deal(Request $request, $players, $cards): Response
+    public function deckDeal(Request $request, $players, $cards): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
 
