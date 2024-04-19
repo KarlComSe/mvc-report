@@ -9,23 +9,24 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Observer\SessionSavingObserver;
 use App\Model\Game;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class GameController extends AbstractController
 {
     #[Route('/game', name: 'app_game')]
-    public function index(Request $request)
+    public function index(): Response
     {
         return $this->render('game/index.html.twig');
     }
 
     #[Route('/game/doc', name: 'app_game_doc')]
-    public function doc()
+    public function doc(): Response
     {
         return $this->render('game/doc.html.twig');
     }
 
     #[Route('/game/reset', name: 'app_reset_game')]
-    public function reset(Request $request)
+    public function reset(Request $request): Response
     {
         $session = $request->getSession();
         $session->remove('game');
@@ -33,7 +34,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/play/post', name: 'app_post_game')]
-    public function processMove(Request $request)
+    public function processMove(Request $request): Response
     {
         $session = $request->getSession();
         if ($session->has('game') === false) {
@@ -97,7 +98,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/play', name: 'app_play_game', methods: ['GET'], defaults: ['game_needed' => true ])]
-    public function play(Request $request)
+    public function play(Request $request): RedirectResponse
     {
         $session = $request->getSession();
         $gameState = $session->get('game');
