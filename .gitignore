@@ -31,3 +31,7 @@
 .php-cs-fixer.cache
 /tools/**/vendor/
 /tools/**/composer.lock
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###
