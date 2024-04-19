@@ -11,7 +11,7 @@ class SessionSavingObserver implements SplObserver
     {
     }
 
-    public function update($data)
+    public function update($data): void
     {
         $session = $this->request->getSession();
         // echo '<pre>';

@@ -35,7 +35,7 @@ class CardController extends AbstractController
 
     #[Route('/session')]
     #[Route('/card/session_view', name: 'app_session_view')]
-    public function sessionView(Request $request)
+    public function sessionView(Request $request): Response
     {
         $session = $request->getSession();
         return $this->render('card/session_view.html.twig', ['session' => $session]);
@@ -43,7 +43,7 @@ class CardController extends AbstractController
 
     #[Route('/session/delete')]
     #[Route('/card/session_destroy', name: 'app_session_destroy')]
-    public function sessionDestroy(Request $request)
+    public function sessionDestroy(Request $request): Response
     {
         $session = $request->getSession();
         $session->clear();
@@ -56,7 +56,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck', name: 'app_deck', defaults: ['deck_needed' => true ])]
-    public function deck(Request $request)
+    public function deck(Request $request): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
         $deck->sort();
@@ -64,7 +64,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/shuffle', name: 'app_deck_shuffle', defaults: ['deck_needed' => true ])]
-    public function deck_shuffle(Request $request)
+    public function deck_shuffle(Request $request): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
         $deck->shuffle();
@@ -80,7 +80,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/deal/{players}/{cards}', name: 'app_deck_deal', defaults: ['deck_needed' => true ])]
-    public function deck_deal(Request $request, $players, $cards)
+    public function deck_deal(Request $request, $players, $cards): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
 
