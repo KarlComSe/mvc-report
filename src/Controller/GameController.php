@@ -6,16 +6,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
 use Symfony\Component\HttpFoundation\Request;
-
 use App\Model\Card;
 use App\Model\CardHand;
 use App\Model\GraphicCard;
 use App\Model\FrenchSuitedDeck;
 use App\Observer\SessionSavingObserver;
 use App\Model\Game;
-
 use Random\Randomizer;
 
 class GameController extends AbstractController
@@ -42,9 +39,9 @@ class GameController extends AbstractController
 
     #[Route('/game/play/post', name: 'app_post_game')]
     public function processMove(Request $request)
-    {   
+    {
         $session = $request->getSession();
-        if ($session->has('game') === false){
+        if ($session->has('game') === false) {
             $this->addFlash(
                 'notice',
                 'Hmm. Not good. Dont cheat!!!'
@@ -55,7 +52,7 @@ class GameController extends AbstractController
         $gameState = $session->get('game');
         $game = Game::createFromSavedState($gameState);
 
-        if (!$game->getGameStatus()){
+        if (!$game->getGameStatus()) {
             $this->addFlash(
                 'notice',
                 'Game has ended. You need to reset the session!'
@@ -65,8 +62,8 @@ class GameController extends AbstractController
 
         $game->attach(new SessionSavingObserver($request, 'game'));
 
-        if ($game->getPlayerBet() === NULL){
-            if ($request->request->get('bet') === NULL){
+        if ($game->getPlayerBet() === null) {
+            if ($request->request->get('bet') === null) {
                 $this->addFlash(
                     'notice',
                     'You must place a bet before you can play!'
@@ -77,29 +74,28 @@ class GameController extends AbstractController
             $game->dealCard();
         }
 
-        if ($request->request->get('action') === 'hit' && $game->getCurrentPlayer() === 'human'){
+        if ($request->request->get('action') === 'hit' && $game->getCurrentPlayer() === 'human') {
             $game->dealCard();
         }
 
-        if ($request->request->get('action') === 'stand' && $game->getCurrentPlayer() === 'human'){
+        if ($request->request->get('action') === 'stand' && $game->getCurrentPlayer() === 'human') {
             $game->nextPlayer();
         }
 
-        if ($game->getCurrentPlayer() === 'bank' && $request->request->get('action') === 'hit'){
+        if ($game->getCurrentPlayer() === 'bank' && $request->request->get('action') === 'hit') {
             $game->dealCard();
             $bankScores = $game->hands['bank']->getScore();
-            if (count($bankScores) > 0 && min($bankScores) >= 17){
+            if (count($bankScores) > 0 && min($bankScores) >= 17) {
                 $game->endGame();
-            } 
+            }
         }
 
-        if ($game->isBusted()){
+        if ($game->isBusted()) {
             $game->endGame();
             $this->addFlash(
                 'notice',
                 "You are busted and lose! {$game->getCurrentPlayer()}"
             );
-            return $this->redirectToRoute('app_play_game');
         }
 
         return $this->redirectToRoute('app_play_game');
