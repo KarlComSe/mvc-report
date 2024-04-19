@@ -62,7 +62,7 @@ class GameController extends AbstractController
 
         $game->attach(new SessionSavingObserver($request, 'game'));
 
-        if ($game->getPlayerBet() === null) {
+        if ($game->isBetPlaced()) {
             if ($request->request->get('bet') === null) {
                 $this->addFlash(
                     'notice',

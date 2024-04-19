@@ -89,6 +89,11 @@ class Game implements SplSubject
         return $this->playerBet;
     }
 
+    public function isBetPlaced(): bool
+    {
+        return $this->playerBet === null ? false : true;
+    }
+
     public function dealCard(): void
     {
         if(!$this->isAllowedToDeal()) {
