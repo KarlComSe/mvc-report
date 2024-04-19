@@ -7,13 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
-use App\Model\Card;
-use App\Model\CardHand;
-use App\Model\GraphicCard;
-use App\Model\FrenchSuitedDeck;
 use App\Observer\SessionSavingObserver;
 use App\Model\Game;
-use Random\Randomizer;
 
 class GameController extends AbstractController
 {
