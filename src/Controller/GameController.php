@@ -26,7 +26,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/reset', name: 'app_reset_game')]
-    public function reset(Request $request): Response
+    public function reset(Request $request): RedirectResponse
     {
         $session = $request->getSession();
         $session->remove('game');
@@ -34,7 +34,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/play/post', name: 'app_post_game')]
-    public function processMove(Request $request): Response
+    public function processMove(Request $request): RedirectResponse
     {
         $session = $request->getSession();
         if ($session->has('game') === false) {
@@ -58,7 +58,8 @@ class GameController extends AbstractController
 
         $game->attach(new SessionSavingObserver($request, 'game'));
 
-        if ($game->isBetPlaced()) {
+        if (!$game->isBetPlaced()) {
+
             if ($request->request->get('bet') === null) {
                 $this->addFlash(
                     'notice',
@@ -98,7 +99,7 @@ class GameController extends AbstractController
     }
 
     #[Route('/game/play', name: 'app_play_game', methods: ['GET'], defaults: ['game_needed' => true ])]
-    public function play(Request $request): RedirectResponse
+    public function play(Request $request): Response
     {
         $session = $request->getSession();
         $gameState = $session->get('game');
