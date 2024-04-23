@@ -7,7 +7,7 @@ use App\Model\FrenchSuitedDeck;
 use App\Model\dealCardHand;
 use SplSubject;
 use Random\Randomizer;
-
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 class Game implements SplSubject
 {
@@ -91,7 +91,7 @@ class Game implements SplSubject
 
     public function isBetPlaced(): bool
     {
-        return $this->playerBet === null ? false : true;
+        return $this->playerBet !== null ? true : false;
     }
 
     public function dealCard(): void
