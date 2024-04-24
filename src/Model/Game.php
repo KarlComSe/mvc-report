@@ -14,7 +14,7 @@ class Game implements SplSubject
     public $hands = [];
     private $deck;
     private $currentPlayer = ['human', 'bank'];
-    private ?int $playerBet = null;
+    private ?int $playerBet = NULL;
 
     protected \SplObjectStorage $observers;
 
@@ -113,12 +113,12 @@ class Game implements SplSubject
     }
 
     public function isBusted(): bool
-    {
+    {   
         $scoreArray = $this->hands[$this->getCurrentPlayer()]->getScore();
         if (empty($scoreArray)) {
             return false;
         }
-        if (min($scoreArray) > 21) {
+        if (min($scoreArray) > 21){
             return true;
         }
         return false;
@@ -126,7 +126,7 @@ class Game implements SplSubject
 
     public function getCurrentPlayer(): string
     {
-        if(count($this->currentPlayer) == 0) {
+        if(count($this->currentPlayer)==0) {
             throw new \Exception('Rounds are over.');
         }
         return $this->currentPlayer[0];
@@ -134,7 +134,7 @@ class Game implements SplSubject
 
     public function nextPlayer(): void
     {
-        if(count($this->currentPlayer) == 0) {
+        if(count($this->currentPlayer)==0) {
             throw new \Exception('Rounds are over.');
         }
         $this->currentPlayer[] = array_shift($this->currentPlayer);
@@ -159,14 +159,14 @@ class Game implements SplSubject
         }
         // get closest possible score for human to 21
         $humanBestScore = 0;
-        foreach ($humanScores as $score) {
+        foreach ($humanScores as $score){
             if ($score <= 21 && $score > $humanBestScore) {
                 $humanBestScore = $score;
             }
         }
 
         $bankBestScore = 0;
-        foreach ($bankScores as $score) {
+        foreach ($bankScores as $score){
             if ($score <= 21 && $score > $bankBestScore) {
                 $bankBestScore = $score;
             }
@@ -181,7 +181,7 @@ class Game implements SplSubject
         $this->notify();
     }
 
-    public function getGameStatus(): bool
+    public function getGameStatus(): bool 
     {
         return $this->ongoing;
     }
