@@ -46,7 +46,7 @@ class GameController extends AbstractController
         }
 
         $gameState = $session->get('game');
-        $game = Game::createFromSavedState($gameState);
+        $game = Game::createFromSavedState((array) $gameState);
 
         if (!$game->getGameStatus()) {
             $this->addFlash(
@@ -67,7 +67,7 @@ class GameController extends AbstractController
                 );
                 return $this->redirectToRoute('app_play_game');
             }
-            $game->setPlayerBet($request->request->get('bet'));
+            $game->setPlayerBet((int)$request->request->get('bet'));
             $game->dealCard();
         }
 
@@ -103,7 +103,7 @@ class GameController extends AbstractController
     {
         $session = $request->getSession();
         $gameState = $session->get('game');
-        $game = Game::createFromSavedState($gameState);
+        $game = Game::createFromSavedState((array) $gameState);
         $game->attach(new SessionSavingObserver($request, 'game'));
 
         return $this->render('game/game.html.twig', [
