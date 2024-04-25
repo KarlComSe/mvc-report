@@ -2,10 +2,14 @@
 
 namespace App\EventListener;
 
+use App\Model\AiPlayerDecorator;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 use App\Model\Game;
 use Random\Randomizer;
+use App\Model\HumanPlayer;
+use App\Model\BankPlayer;
+use App\Model\FrenchSuitedDeck;
 
 class GameRouteListener
 {
@@ -24,7 +28,16 @@ class GameRouteListener
                     'notice',
                     'No game existed, had to create game!'
                 );
-                $game = new Game();
+                $frenchDeck = FrenchSuitedDeck::create(new Randomizer());
+                $frenchDeck->shuffle();
+                $game = new Game(
+                    [
+                        new HumanPlayer(),
+                        new BankPlayer(),
+                    ],
+                    $frenchDeck
+                );
+
                 $session->set('game', $game->getGameState());
             }
         }

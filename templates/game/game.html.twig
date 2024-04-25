@@ -5,57 +5,66 @@
 <main class="mt-2">
   <section>
     <section class="m-0 p-0">
-      {% if game.getPlayerBet() %}
-      {% if not(game.getGameStatus()) %}
-      <h2 class="leading-none m-0 p-0">The winner is...</h2>
-      <p>
-        {{ game.checkWinner() }}
-      </p>
-      <p>
-        <a href="{{ path('app_reset_game') }}">Play again</a>
-      </p>
-      {% endif %}
-      {# at all times, display the cards #}
-      <h2 clasS="m-0 p-0 p">Player</h2>
-      {{ include('game/_game_hand.html.twig', {hand: game.hands['human'].getHand()}) }}
-      <div>
-        <p class="leading-none">Score: </p>
-        <ul class="leading-none">
-          <li>Max: {{ max(game.hands['human'].getScore() ?: [0]) }}</li>
-          <li>Min: {{ min(game.hands['human'].getScore() ?: [0]) }}</li>
+      {% if game.getGameStatus() == 'ended' %}
+        <h1 class="leading-none m-0 p-0">Game over!</h1>
+        <p>
+          Winner is: {{ game.getWinnerBasedOnHand() }}.
+        </p>
+        <h2 class="leading-none m-0 p-0">Players:</h2>
+        {% for player in game.getPlayers() %}
+        <h3>{{ player.getName() }}</h3>
+        <ul>
+          <li>Score: {{ max(player.getScores() ?: [0]) }} / {{ min(player.getScores() ?: [0]) }} (max / min)</li>
+          {% if player.getHand()|length > 0 %}
+          <li>
+            {{ include('game/_game_hand.html.twig', {hand: player.getHand()}) }}
+          </li>
+          {% endif %}
+          <li>Balance: {{ player.getBalance() }}</li>
         </ul>
-      </div>
-      {% if game.currentPlayer == 'human' and game.getGameStatus() %}
+          {% endfor %}
+        <form action="{{ path('app_post_game') }}" method="POST">
+          <button type="submit" name="action" value="restart"
+            class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Play again</button>
+        </form>
+      {% else %}
+      {% if not game.hasBet() %}
+      <form action="{{ path('app_post_game') }}" method="POST">
+        <label for="bet">Place your bet:</label>
+        <input type="number" name="bet" id="bet" min="1" required value="100">
+        <button type="submit" name="action" value="bet" autofocus
+          class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Bet</button>
+      </form>
+      {% else %}
+      <h2 class="leading-none m-0 p-0">Players:</h2>
+      {% for player in game.getPlayers() %}
+      <h3>{{ player.getName() }}</h3>
+      <ul>
+        <li>Score: {{ max(player.getScores() ?: [0]) }} / {{ min(player.getScores() ?: [0]) }} (max / min)</li>
+        {% if player.getHand()|length > 0 %}
+        <li>
+          {{ include('game/_game_hand.html.twig', {hand: player.getHand()}) }}
+        </li>
+        {% endif %}
+        <li>Balance: {{ player.getBalance() }}</li>
+      </ul>
+        {% endfor %}
+      {% if game.currentPlayer == 'bank'%}
+      <form action="{{ path('app_post_game') }}" method="POST" class="p-2">
+        <button type="submit" name="action" value="hit"  autofocus
+        class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Next</button>
+      </form>
+      {% else %} 
       <form action="{{ path('app_post_game') }}" method="POST" class="p-2">
         <button type="submit" name="action" value="hit" autofocus
           class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Hit</button>
         <button type="submit" name="action" value="stand"
           class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Stand</button>
       </form>
+
       {% endif %}
-      <h2 class="leading-none">Bank</h2>
-      <div class="leading-none">
-        {{ include('game/_game_hand.html.twig', {hand: game.hands['bank'].getHand()}) }}
-      </div>
-      <div>
-        <p class="leading-tight">Score: </p>
-        <ul class="leading-tight">
-          <li>Max: {{ max(game.hands['bank'].getScore() ?: [0]) }}</li>
-          <li>Min: {{ min(game.hands['bank'].getScore() ?: [0]) }}</li>
-        </ul>
-      </div>
-      {% if game.currentPlayer == 'bank' and game.getGameStatus() %}
-      <form action="{{ path('app_post_game') }}" method="POST" class="p-2">
-        <button type="submit" name="action" value="hit"  autofocus
-        class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Show next card</button>
-      </form>
+      <h2 class="leading-none m-0 p-0">Current bet: {{ game.getBet() }}</h2>
       {% endif %}
-      {% else %}
-      <form action="{{ path('app_post_game') }}" method="POST">
-        <label for="bet">Place your bet:</label>
-        <input type="number" name="bet" id="bet" min="1" required value="100">
-        <button type="submit" name="action" value="bet" autofocus class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Bet</button>
-      </form>
       {% endif %}
     </section>
   </section>

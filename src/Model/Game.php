@@ -4,35 +4,40 @@ namespace App\Model;
 
 use App\Model\DeckOfCards;
 use App\Model\FrenchSuitedDeck;
-use App\Model\dealCardHand;
 use SplSubject;
 use Random\Randomizer;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 class Game implements SplSubject
 {
-    public $hands = [];
+    private static array $VALID_FORM_NAMES = ['action', 'bet'];
+
     private $deck;
-    private $currentPlayer = ['human', 'bank'];
-    private ?int $playerBet = null;
+    private $bet = null;
+    private array $players;
+    private string $currentPlayer;
+    private string $gameStatus;
 
     protected \SplObjectStorage $observers;
 
-    private bool $ongoing;
+    public function __construct(
+        array $players = [],
+        DeckOfCards $deck = null,
+        array $observers = [],
+        string $gameStatus = 'ongoing'
+    ) {
+        $this->deck = $deck;
+        $this->players = $players;
+        $this->gameStatus = $gameStatus;
+        if (count($players) > 0) {
+            $this->currentPlayer = $players[0]->getName();
+        }
 
-    public function __construct($observers = [])
-    {
-        $this->ongoing = true;
-        $this->hands = [
-            'human' => new CardHand(),
-            'bank' => new CardHand()
-        ];
         $this->observers = new \SplObjectStorage();
-        $this->deck = FrenchSuitedDeck::create(new Randomizer(), []);
-        $this->deck->shuffle();
+
         foreach ($observers as $observer) {
             $this->attach($observer);
         }
+
         $this->notify();
     }
 
@@ -48,7 +53,7 @@ class Game implements SplSubject
 
     public function notify(): void
     {
-        foreach($this->observers as $observer) {
+        foreach ($this->observers as $observer) {
             $observer->update($this->getGameState());
         }
     }
@@ -57,10 +62,13 @@ class Game implements SplSubject
     {
         $game = new Game();
         $game->deck = FrenchSuitedDeck::createFromSession($gameState['deck'], new Randomizer());
-        $game->hands = $gameState['hands'];
-        $game->currentPlayer = $gameState['currentPlayer'];
-        $game->playerBet = $gameState['playerBet'];
-        $game->ongoing = $gameState['ongoing'];
+        foreach ($gameState['players'] as $player) {
+            $game->players[strtolower($player->getName())] = $player;
+        }
+
+        $game->currentPlayer = strtolower($gameState['currentPlayer']);
+        $game->bet = $gameState['bet'];
+        $game->gameStatus = $gameState['gameStatus'];
         return $game;
     }
 
@@ -68,53 +76,207 @@ class Game implements SplSubject
     {
         return [
             'deck' => $this->deck->getDeck(),
-            'hands' => $this->hands,
-            'currentPlayer' => $this->currentPlayer,
-            'playerBet' => $this->playerBet,
-            'ongoing' => $this->ongoing
+            'players' => $this->players,
+            'currentPlayer' => strtolower($this->currentPlayer),
+            'bet' => $this->bet,
+            'gameStatus' => $this->gameStatus
         ];
     }
 
-    public function setPlayerBet(int $bet): void
+    public function getGameStatus(): string
     {
-        if ($this->playerBet) {
-            throw new \Exception('Player bet already set.');
-        }
-        $this->playerBet = $bet;
+        return $this->gameStatus;
+    }
+
+    public function setGameStatus(string $gameStatus): void
+    {
+        $this->gameStatus = $gameStatus;
         $this->notify();
     }
 
-    public function getPlayerBet(): ?int
+    public function playRound(array $formData): void
     {
-        return $this->playerBet;
+
+        $this->isValidForm($formData);
+
+        if ($formData['action'] !== 'restart') {
+            $this->processMove($formData);
+            $this->payWinner();
+        }
+
+        if ($formData['action'] == 'restart') {
+            $this->reset();
+            return;
+        }
     }
 
-    public function isBetPlaced(): bool
+    private function processMove(array $formData): void
     {
-        return $this->playerBet !== null ? true : false;
+        $action = $this->players[$this->currentPlayer] instanceof HumanPlayer ?
+            $formData['action'] :
+            $this->players[$this->currentPlayer]->makeMove();
+
+        switch ($action) {
+            case 'hit':
+                $this->dealCard();
+                break;
+            case 'stand':
+                $this->players[$this->currentPlayer]->stand();
+                $this->notify();
+                if ($this->hasNextPlayer()) {
+                    $this->nextPlayer();
+                }
+                break;
+            case 'bet':
+                $this->setBet($formData['bet']);
+                break;
+            default:
+                throw new \Exception('Invalid action.');
+        }
+    }
+
+    public function isThereAWinner(): bool
+    {
+        return $this->isBusted() ||
+            ($this->allPlayersStand());
+    }
+    public function payWinner(): void
+    {
+        if ($this->isBusted()) {
+            // potential money machine bug here...
+            foreach ($this->players as $player) {
+                if ($player->getName() === $this->currentPlayer) {
+                    continue;
+                }
+                $this->payOut($player->getName());
+            }
+
+            return;
+        }
+        if ($this->allPlayersStand()) {
+            $this->payOutToWinner();
+        }
+    }
+
+
+    public function payOutToWinner(): void
+    {
+        $winner = $this->getWinnerBasedOnHand();
+        if (strtolower($winner) === 'bank') {
+            $this->payOut('bank');
+            return;
+        }
+
+        $this->payOut($winner);
+    }
+
+    private function allPlayersStand(): bool
+    {
+        foreach ($this->players as $player) {
+            if (!$player->isStanding()) {
+                return false;
+            }
+        }
+
+        return true;
+
+        // coPilot asked to make above more compact, suggest the following:
+        // return array_reduce($this->players, function ($carry, $player) {
+        //     return $carry && $player->isStanding;
+        // }, true);
+        // Interesting, but not great, and not readable. Would have preferred
+        // something like this: $this->players->all(fn($player) => $player->isStanding);
+    }
+
+    private function payOut(string $player): void
+    {
+        $this->players[$player]->addMoney((int)$this->bet);
+        $this->bet = null;
+        $this->setGameStatus('ended');
+        $this->notify();
+    }
+
+    private function reset(): void
+    {
+        if (!$this->isRestartable()) {
+            throw new \Exception('Cannot restart when there are money in the pot.');
+        }
+        $this->gameStatus = 'ongoing';
+        $this->deck = FrenchSuitedDeck::create(new Randomizer());
+        $this->deck->shuffle();
+        foreach ($this->players as $player) {
+            $player->resetHand();
+            $player->resetStanding();
+        }
+        $this->currentPlayer = 'human';
+        $this->notify();
+    }
+
+    public function isRestartable(): bool
+    {
+        return $this->bet === null;
+    }
+
+    public function getPlayers(): array
+    {
+        return $this->players;
+    }
+
+    public function hasBet(): bool
+    {
+        return $this->bet !== null;
+    }
+
+    public function getBet(): ?int
+    {
+        return $this->bet;
+    }
+
+    private function setBet(int $bet): void
+    {
+        if ($this->hasBet()) {
+            throw new \Exception('Bet already placed.');
+        }
+        if ($bet < 0) {
+            throw new \Exception('Bet must be positive.');
+        }
+
+        foreach ($this->players as $player) {
+            if ($bet > $player->getBalance()) {
+                throw new \Exception($player->getName() . ' doesn\'t have enough money for this bet.');
+            }
+        }
+
+        $this->bet = 0;
+
+        foreach ($this->players as $player) {
+            $player->placeBet($bet);
+            $this->bet += $bet;
+        }
+
+        $this->notify();
+    }
+
+    private function isValidForm(array $formData): void
+    {
+        foreach ($formData as $key => $value) {
+            if (!in_array($key, self::$VALID_FORM_NAMES)) {
+                throw new \Exception('Invalid form name.');
+            }
+
+            // ignorantly accepting all values...
+        }
     }
 
     public function dealCard(): void
     {
-        if(!$this->isAllowedToDeal()) {
-            throw new \Exception('Cannot deal cards.');
-        }
-
-        $this->hands[$this->getCurrentPlayer()]->addCard($this->deck->drawCard());
+        $this->players[$this->currentPlayer]->addCardToHand($this->deck->drawCard());
         $this->notify();
-    }
-
-    private function isAllowedToDeal(): bool
-    {
-        if ($this->ongoing && !$this->isBusted() && $this->playerBet) {
-            return true;
-        }
-        return false;
     }
 
     public function isBusted(): bool
     {
-        $scoreArray = $this->hands[$this->getCurrentPlayer()]->getScore();
+        $scoreArray = $this->players[$this->currentPlayer]->getScores();
         if (empty($scoreArray)) {
             return false;
         }
@@ -126,64 +288,77 @@ class Game implements SplSubject
 
     public function getCurrentPlayer(): string
     {
-        if(count($this->currentPlayer) == 0) {
-            throw new \Exception('Rounds are over.');
-        }
-        return $this->currentPlayer[0];
+        return $this->currentPlayer;
     }
 
     public function nextPlayer(): void
     {
-        if(count($this->currentPlayer) == 0) {
-            throw new \Exception('Rounds are over.');
+        if (!$this->hasNextPlayer()) {
+            throw new \Exception('No next player.');
         }
-        $this->currentPlayer[] = array_shift($this->currentPlayer);
+        $playerIndex = array_search($this->currentPlayer, array_keys($this->players));
+        $nextPlayerIndex = $playerIndex + 1;
+        $this->currentPlayer = array_keys($this->players)[$nextPlayerIndex];
         $this->notify();
     }
 
-
-    public function checkWinner(): string
+    public function hasNextPlayer(): bool
     {
-        if ($this->ongoing) {
-            throw new \Exception('Game is not over yet.');
+        $playerIndex = array_search($this->currentPlayer, array_keys($this->players));
+        return $playerIndex < count($this->players) - 1;
+    }
+
+    public function getWinnerBasedOnHand(): string
+    {
+        $scores = [];
+        foreach ($this->players as $player) {
+            $scores[$player->getName()] = $player->getScores();
         }
 
-        $humanScores = $this->hands['human']->getScore();
-        $bankScores = $this->hands['bank']->getScore();
+        $bestScores = $this->getPlayersBestScores($scores);
+        $winners = $this->getAllHighestScores($bestScores);
 
-        if(min($humanScores) > 21) {
-            return 'bank';
+        if (count($winners) === 1) {
+            return $winners[0];
         }
-        if(min($bankScores) > 21) {
-            return 'human';
+
+        return "bank";
+
+        // Possible to elaborate on the logic here...
+        // if (array_key_exists('bank', $winners)) {
+        //         return "bank";
+        // }
+
+        // throw new \Exception('Undetermined winner.');
+    }
+
+    private function getPlayersBestScores(array $scores): array
+    {
+        $bestScores = [];
+
+        foreach ($scores as $player => $playerScores) {
+            $bestScore = 0;
+            foreach ($playerScores as $score) {
+                if ($score <= 21 && $score > $bestScore) {
+                    $bestScore = $score;
+                }
+            }
+            $bestScores[$player] = $bestScore;
         }
-        // get closest possible score for human to 21
-        $humanBestScore = 0;
-        foreach ($humanScores as $score) {
-            if ($score <= 21 && $score > $humanBestScore) {
-                $humanBestScore = $score;
+
+        return $bestScores;
+    }
+
+    private function getAllHighestScores(array $bestScores): array
+    {
+        $maxScore = max($bestScores);
+        $winners = [];
+        foreach ($bestScores as $player => $score) {
+            if ($score === $maxScore) {
+                $winners[] = $player;
             }
         }
 
-        $bankBestScore = 0;
-        foreach ($bankScores as $score) {
-            if ($score <= 21 && $score > $bankBestScore) {
-                $bankBestScore = $score;
-            }
-        }
-
-        return $bankBestScore >= $humanBestScore ? "bank" : "human";
+        return $winners;
     }
-
-    public function endGame(): void
-    {
-        $this->ongoing = false;
-        $this->notify();
-    }
-
-    public function getGameStatus(): bool
-    {
-        return $this->ongoing;
-    }
-
 }
