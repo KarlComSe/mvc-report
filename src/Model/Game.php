@@ -6,10 +6,12 @@ use App\Model\DeckOfCards;
 use App\Model\FrenchSuitedDeck;
 use SplSubject;
 use Random\Randomizer;
+use SplObjectStorage;
+use Exception;
 
 class Game implements SplSubject
 {
-    private static array $VALID_FORM_NAMES = ['action', 'bet'];
+    private const VALID_FORM_NAMES = ['action', 'bet'];
 
     private $deck;
     private $bet = null;
@@ -17,7 +19,7 @@ class Game implements SplSubject
     private string $currentPlayer;
     private string $gameStatus;
 
-    protected \SplObjectStorage $observers;
+    protected SplObjectStorage $observers;
 
     public function __construct(
         array $players = [],
@@ -25,18 +27,20 @@ class Game implements SplSubject
         array $observers = [],
         string $gameStatus = 'ongoing'
     ) {
-        $this->deck = $deck;
-        $this->players = $players;
-        $this->gameStatus = $gameStatus;
-        if (count($players) > 0) {
-            $this->currentPlayer = $players[0]->getName();
-        }
 
-        $this->observers = new \SplObjectStorage();
+        $this->observers = new SplObjectStorage();
 
         foreach ($observers as $observer) {
             $this->attach($observer);
         }
+
+        $this->deck = $deck;
+        $this->players = $players;
+        $this->setGameStatus($gameStatus);
+        if (count($players) > 0) {
+            $this->currentPlayer = $players[0]->getName();
+        }
+
 
         $this->notify();
     }
@@ -63,12 +67,12 @@ class Game implements SplSubject
         $game = new Game();
         $game->deck = FrenchSuitedDeck::createFromSession($gameState['deck'], new Randomizer());
         foreach ($gameState['players'] as $player) {
-            $game->players[strtolower($player->getName())] = $player;
+            $game->players[$player->getName()] = $player;
         }
 
-        $game->currentPlayer = strtolower($gameState['currentPlayer']);
+        $game->currentPlayer = $gameState['currentPlayer'];
         $game->bet = $gameState['bet'];
-        $game->gameStatus = $gameState['gameStatus'];
+        $game->setGameStatus($gameState['gameStatus']);
         return $game;
     }
 
@@ -77,9 +81,9 @@ class Game implements SplSubject
         return [
             'deck' => $this->deck->getDeck(),
             'players' => $this->players,
-            'currentPlayer' => strtolower($this->currentPlayer),
+            'currentPlayer' => $this->currentPlayer,
             'bet' => $this->bet,
-            'gameStatus' => $this->gameStatus
+            'gameStatus' => $this->getGameStatus()
         ];
     }
 
@@ -88,7 +92,7 @@ class Game implements SplSubject
         return $this->gameStatus;
     }
 
-    public function setGameStatus(string $gameStatus): void
+    private function setGameStatus(string $gameStatus): void
     {
         $this->gameStatus = $gameStatus;
         $this->notify();
@@ -131,15 +135,10 @@ class Game implements SplSubject
                 $this->setBet($formData['bet']);
                 break;
             default:
-                throw new \Exception('Invalid action.');
+                throw new Exception('Invalid action.');
         }
     }
 
-    public function isThereAWinner(): bool
-    {
-        return $this->isBusted() ||
-            ($this->allPlayersStand());
-    }
     public function payWinner(): void
     {
         if ($this->isBusted()) {
@@ -162,7 +161,7 @@ class Game implements SplSubject
     public function payOutToWinner(): void
     {
         $winner = $this->getWinnerBasedOnHand();
-        if (strtolower($winner) === 'bank') {
+        if ($winner === 'bank') {
             $this->payOut('bank');
             return;
         }
@@ -199,9 +198,9 @@ class Game implements SplSubject
     private function reset(): void
     {
         if (!$this->isRestartable()) {
-            throw new \Exception('Cannot restart when there are money in the pot.');
+            throw new Exception('Cannot restart when there are money in the pot.');
         }
-        $this->gameStatus = 'ongoing';
+        $this->setGameStatus('ongoing');
         $this->deck = FrenchSuitedDeck::create(new Randomizer());
         $this->deck->shuffle();
         foreach ($this->players as $player) {
@@ -235,15 +234,15 @@ class Game implements SplSubject
     private function setBet(int $bet): void
     {
         if ($this->hasBet()) {
-            throw new \Exception('Bet already placed.');
+            throw new Exception('Bet already placed.');
         }
         if ($bet < 0) {
-            throw new \Exception('Bet must be positive.');
+            throw new Exception('Bet must be positive.');
         }
 
         foreach ($this->players as $player) {
             if ($bet > $player->getBalance()) {
-                throw new \Exception($player->getName() . ' doesn\'t have enough money for this bet.');
+                throw new Exception($player->getName() . ' doesn\'t have enough money for this bet.');
             }
         }
 
@@ -260,8 +259,8 @@ class Game implements SplSubject
     private function isValidForm(array $formData): void
     {
         foreach ($formData as $key => $value) {
-            if (!in_array($key, self::$VALID_FORM_NAMES)) {
-                throw new \Exception('Invalid form name.');
+            if (!in_array($key, self::VALID_FORM_NAMES)) {
+                throw new Exception('Invalid form name.');
             }
 
             // ignorantly accepting all values...
@@ -294,7 +293,7 @@ class Game implements SplSubject
     public function nextPlayer(): void
     {
         if (!$this->hasNextPlayer()) {
-            throw new \Exception('No next player.');
+            throw new Exception('No next player.');
         }
         $playerIndex = array_search($this->currentPlayer, array_keys($this->players));
         $nextPlayerIndex = $playerIndex + 1;
@@ -329,7 +328,7 @@ class Game implements SplSubject
         //         return "bank";
         // }
 
-        // throw new \Exception('Undetermined winner.');
+        // throw new Exception('Undetermined winner.');
     }
 
     private function getPlayersBestScores(array $scores): array
