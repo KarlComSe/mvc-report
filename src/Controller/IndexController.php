@@ -20,7 +20,7 @@ class IndexController extends AbstractController
     }
 
     #[Route('/', name: 'app_home')]
-    public function index()
+    public function index(): Response
     {
         $quote = json_decode(
             $this->quoteService->getAssadsQuote()->getContent(),

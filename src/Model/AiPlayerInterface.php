@@ -4,5 +4,5 @@ namespace App\Model;
 
 interface AiPlayerInterface
 {
-    public function makeMove();
+    public function makeMove(): string;
 }

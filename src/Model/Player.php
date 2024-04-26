@@ -4,7 +4,7 @@ namespace App\Model;
 
 abstract class Player implements PlayerInterface
 {
-    protected ?CardHand $hand;
+    protected CardHand $hand;
     protected string $name;
     protected int $balance;
     protected bool $standing;
@@ -25,8 +25,16 @@ abstract class Player implements PlayerInterface
         $this->standing = $standing;
     }
 
+    /**
+     * Get the player's hand.
+     *
+     * @return array<Card> The player's hand.
+     */
     public function getHand(): array
     {
+        if ($this->hand == null) {
+            return [];
+        }
         return $this->hand->getHand();
     }
 
@@ -40,6 +48,11 @@ abstract class Player implements PlayerInterface
         $this->hand->addCard($card);
     }
 
+    /**
+     * Get the scores of the player.
+     *
+     * @return array<int> The scores of the player.
+     */
     public function getScores(): array
     {
         return $this->hand->getScore();

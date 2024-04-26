@@ -9,7 +9,7 @@ class BankPlayer extends Player implements AiPlayerInterface
         parent::__construct($name, $balance);
     }
 
-    public function makeMove()
+    public function makeMove(): string
     {
         $scores = $this->getScores();
         $maxScore = 0;

@@ -14,7 +14,7 @@ use Random\Randomizer;
 
 class CardController extends AbstractController
 {
-    public function getInstansiatedDeck($request, $deckName)
+    public function getInstansiatedDeck(Request $request, string $deckName): FrenchSuitedDeck
     {
         $observers = [
             new SessionSavingObserver($request, $deckName)
@@ -23,7 +23,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card', name: 'app_card', defaults: ['deck_needed' => true ])]
-    public function index(Request $request)
+    public function index(): Response
     {
         return $this->render('card/index.html.twig');
     }
@@ -67,7 +67,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/draw/{number}', name: 'app_deck_draw', defaults: ['deck_needed' => true ])]
-    public function deckDraw(Request $request, $number = 1)
+    public function deckDraw(Request $request, int $number = 1): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
 
@@ -75,7 +75,7 @@ class CardController extends AbstractController
     }
 
     #[Route('/card/deck/deal/{players}/{cards}', name: 'app_deck_deal', defaults: ['deck_needed' => true ])]
-    public function deckDeal(Request $request, $players, $cards): Response
+    public function deckDeal(Request $request, int $players, int $cards): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
 

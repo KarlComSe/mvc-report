@@ -14,7 +14,7 @@ use Random\Randomizer;
 
 class DeckService
 {
-    public function getInstansiatedDeck($request, $deckName)
+    public function getInstansiatedDeck(Request $request, string $deckName): FrenchSuitedDeck
     {
         $observers = [
             new SessionSavingObserver($request, $deckName)
@@ -49,7 +49,7 @@ class DeckService
     public function drawCards(int $number, Request $request): JsonResponse
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
-        $cards[] = $deck->drawCards($number);
+        $cards = $deck->drawCards($number);
 
         return new JsonResponse($cards);
     }

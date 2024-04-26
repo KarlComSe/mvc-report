@@ -3,13 +3,12 @@
 namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
-
 use App\Model\FrenchSuitedDeck;
 use Random\Randomizer;
 
 class CardRouteListener
 {
-    public function onKernelRequest(RequestEvent $event)
+    public function onKernelRequest(RequestEvent $event): void
     {
 
         $request = $event->getRequest();
@@ -19,11 +18,6 @@ class CardRouteListener
 
         if ($attributes && key_exists('deck_needed', $attributes)) {
             if (!$session->has('deck_2')) {
-                $flashes = $session->getFlashBag();
-                $flashes->add(
-                    'notice',
-                    'No deck existed, had to create deck!'
-                );
                 $frenchDeck = FrenchSuitedDeck::create(new Randomizer());
                 $session->set('deck_2', $frenchDeck->getDeck());
             }

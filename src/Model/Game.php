@@ -9,12 +9,13 @@ use Random\Randomizer;
 use SplObjectStorage;
 use Exception;
 use App\Model\BetManager;
+use SplObserver;
 
 class Game implements SplSubject
 {
     private const VALID_FORM_NAMES = ['action', 'bet'];
 
-    private $deck;
+    private ?DeckOfCards $deck;
     private array $players;
     private string $currentPlayer;
     private string $gameStatus;
@@ -48,12 +49,12 @@ class Game implements SplSubject
         $this->notify();
     }
 
-    public function attach(\SplObserver $observer): void
+    public function attach(SplObserver $observer): void
     {
         $this->observers->attach($observer);
     }
 
-    public function detach(\SplObserver $observer): void
+    public function detach(SplObserver $observer): void
     {
         $this->observers->detach($observer);
     }
@@ -81,7 +82,7 @@ class Game implements SplSubject
     public function getGameState(): array
     {
         return [
-            'deck' => $this->deck->getDeck(),
+            'deck' => $this->deck ? $this->deck->getDeck() : null,
             'players' => $this->players,
             'currentPlayer' => $this->currentPlayer,
             'pot' => $this->betManager->getPot(),
@@ -100,6 +101,12 @@ class Game implements SplSubject
         $this->notify();
     }
 
+    /**
+     * Plays a round of the game based on the provided form data.
+     *
+     * @param array<string, string> $formData The form data containing the player's move and action.
+     * @return void
+     */
     public function playRound(array $formData): void
     {
 
@@ -129,6 +136,13 @@ class Game implements SplSubject
         return $this->determineWinner->getWinnerBasedOnHand($this->players);
     }
 
+    /**
+     * Process the move based on the given form data.
+     *
+     * @param array $formData<string, mixed> The form data containing the action and bet (if applicable).
+     * @return void
+     * @throws Exception If the action is invalid.
+     */
     private function processMove(array $formData): void
     {
         $action = $this->players[$this->currentPlayer] instanceof HumanPlayer ?
@@ -176,11 +190,23 @@ class Game implements SplSubject
         return $this->betManager->getPot() === null;
     }
 
+    /**
+     * Get the players of the game.
+     *
+     * @return array<Player> The array of players.
+     */
     public function getPlayers(): array
     {
         return $this->players;
     }
 
+    /**
+     * Validates the form data.
+     *
+     * @param array<string, string> $formData The form data to validate.
+     *
+     * @throws Exception If an invalid form name is found.
+     */
     private function isValidForm(array $formData): void
     {
         foreach ($formData as $key => $value) {
@@ -194,6 +220,9 @@ class Game implements SplSubject
 
     public function dealCard(): void
     {
+        if ($this->deck === null) {
+            throw new Exception('Cannot deal cards from a non existing deck.');
+        }
         $this->players[$this->currentPlayer]->addCardToHand($this->deck->drawCard());
         $this->notify();
     }

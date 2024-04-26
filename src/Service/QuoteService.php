@@ -8,7 +8,6 @@ class QuoteService
 {
     public function getAssadsQuote(): JsonResponse
     {
-        $number = random_int(0, 100);
         /*
         * Below is not actual quotes, they are provided by chatGPT and due to copyright issues, it needs to paraphrase.
         * The quotes are provided upon asking for quotes by Assad, which is a fictional character in a book series called Department Q.

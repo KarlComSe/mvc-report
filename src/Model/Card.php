@@ -4,12 +4,12 @@ namespace App\Model;
 
 class Card
 {
-    public $value;
-    public $name;
-    public $suit;
-    public $alternativeValue;
+    public int $value;
+    public string $name;
+    public string $suit;
+    public ?int $alternativeValue;
 
-    public static $UNICODE_CARDS = [
+    public const UNICODE_CARDS = [
         'spade' => [
             '1' => '🂡',
             '2' => '🂢',
@@ -80,32 +80,32 @@ class Card
         $this->alternativeValue = $alternativeValue;
     }
 
-    public function getCard()
+    public function getCard(): array
     {
         return [$this->suit, $this->name, $this->value, $this->alternativeValue];
     }
 
-    public function getValue()
+    public function getValue(): int
     {
         return $this->value;
     }
 
-    public function getSuit()
+    public function getSuit(): string
     {
         return $this->suit;
     }
 
-    public function getAlternativeValue()
+    public function getAlternativeValue(): ?int
     {
         return $this->alternativeValue;
     }
 
-    public static function getUnicodeRepresentation(int $value, string $suit)
+    public static function getUnicodeRepresentation(int $value, string $suit): string
     {
-        return self::$UNICODE_CARDS[$suit][$value];
+        return self::UNICODE_CARDS[$suit][$value];
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getUnicodeRepresentation($this->value, strtolower($this->suit));
     }

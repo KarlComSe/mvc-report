@@ -4,33 +4,44 @@ namespace App\Model;
 
 use App\Model\Card;
 
+
 class CardHand
 {
-    private ?int $maxNumberOfCardsInHand;
     public array $cardsInHand = [];
+    public ?int $maxCardsInHand = null;
 
-    public function __construct(?int $maxNumberOfCardsInHand = null)
+    public function __construct(?int $maxCardsInHand = null)
     {
-        $this->maxNumberOfCardsInHand = $maxNumberOfCardsInHand;
+        $this->maxCardsInHand = $maxCardsInHand;
     }
 
-    public function addCard(Card $card)
+    public function addCard(Card $card): void
     {
-        if ($this->maxNumberOfCardsInHand === null) {
+        if ($this->maxCardsInHand === null) {
             $this->cardsInHand[] = $card;
             return;
         }
 
-        if ($this->maxNumberOfCardsInHand > len($this->cardsInHand)) {
+        if ($this->maxCardsInHand > count($this->cardsInHand)) {
             $this->cardsInHand[] = $card;
         }
     }
 
+    /**
+     * Get the cards in the hand.
+     *
+     * @return array<Card> The cards in the hand.
+     */
     public function getHand(): array
     {
         return $this->cardsInHand;
     }
 
+    /**
+     * Get the score of the card hand.
+     *
+     * @return array<int> The array containing all possible scores of the card hand.
+     */
     public function getScore(): array
     {
         $scoreArray = [];

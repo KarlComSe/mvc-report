@@ -30,7 +30,7 @@ class FrenchSuitedDeck extends DeckOfCards
     /**
      * Create a FrenchSuitedDeck object from a session array.
      *
-     * @param array<card> $deck The array containing the cards from the session.
+     * @param array<mixed> $deck The array containing the cards from the session.
      * @param Randomizer $randomizer The randomizer object used to shuffle the deck.
      * @param array<SplObserver> $observers The array of observer objects.
      * @return FrenchSuitedDeck The created FrenchSuitedDeck object.

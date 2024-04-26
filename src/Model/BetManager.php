@@ -28,6 +28,14 @@ class BetManager
         return $this->pot;
     }
 
+    /**
+     * Sets the pot for the bet and deducts the bet amount from each player's balance.
+     *
+     * @param int $bet The amount of the bet.
+     * @param Player[] $players An array of Player objects.
+     * @throws Exception If the bet has already been placed or if the bet amount is negative.
+     * @throws Exception If a player doesn't have enough money for the bet.
+     */
     public function setPot(int $bet, array $players): void
     {
         if ($this->hasPot()) {

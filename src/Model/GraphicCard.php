@@ -6,7 +6,7 @@ use App\Model\Card;
 
 class GraphicCard extends Card
 {
-    private $graphic;
+    private string $graphic;
 
     public function __construct(string $suit, string $name, int $value, string $graphic, ?int $alternativeValue = null)
     {
@@ -14,7 +14,12 @@ class GraphicCard extends Card
         $this->graphic = $graphic;
     }
 
-    public function getCard()
+    /**
+     * Returns an array containing the card's suit, name, value, alternative value, and graphic.
+     *
+     * @return array<mixed> The card's suit, name, value, alternative value, and graphic.
+     */
+    public function getCard(): array
     {
         return [$this->suit, $this->name, $this->value, $this->alternativeValue, $this->graphic];
     }

@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class LuckyController extends AbstractController
 {
     #[Route('/lucky', name: 'app_lucky')]
-    public function index()
+    public function index(): Response
     {
         $number = random_int(0, 100);
 
