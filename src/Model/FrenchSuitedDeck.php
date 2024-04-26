@@ -8,6 +8,13 @@ use App\Model\Card;
 
 class FrenchSuitedDeck extends DeckOfCards
 {
+    /**
+     * Creates a new instance of FrenchSuitedDeck.
+     *
+     * @param Randomizer $randomizer The randomizer object to be used for shuffling the deck.
+     * @param array<SplObserver> $observers [Optional] An array of SplObserver objects to be attached to the deck for notification on deck creation. Defaults to an empty array.
+     * @return FrenchSuitedDeck The newly created FrenchSuitedDeck object.
+     */
     public static function create(Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
     {
         $deck = new FrenchSuitedDeck($randomizer, $observers);
@@ -20,6 +27,14 @@ class FrenchSuitedDeck extends DeckOfCards
         return $deck;
     }
 
+    /**
+     * Create a FrenchSuitedDeck object from a session array.
+     *
+     * @param array<card> $deck The array containing the cards from the session.
+     * @param Randomizer $randomizer The randomizer object used to shuffle the deck.
+     * @param array<SplObserver> $observers The array of observer objects.
+     * @return FrenchSuitedDeck The created FrenchSuitedDeck object.
+     */
     public static function createFromSession(array $deck, Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
     {
         $frenchDeck = new FrenchSuitedDeck($randomizer, $observers);
@@ -33,38 +48,38 @@ class FrenchSuitedDeck extends DeckOfCards
 
     public function sort(): void
     {
-        usort($this->cards, [$this, 'sortBySuiteAndValue']);
+        usort($this->cards, [$this, 'sortBySuitAndValue']);
         $this->notify();
     }
 
-    public function sortBySuite(Card $a, Card $b): int
+    public function sortBySuit(Card $cardA, Card $cardB): int
     {
-        $SORTING_ORDER = ['Spade', 'Heart', 'Diamond', 'Club'];
-        return array_search($a->getSuit(), $SORTING_ORDER) <=> array_search($b->getSuit(), $SORTING_ORDER);
+        $sortingOrder = ['Spade', 'Heart', 'Diamond', 'Club'];
+        return array_search($cardA->getSuit(), $sortingOrder) <=> array_search($cardB->getSuit(), $sortingOrder);
     }
 
-    public function sortByValue(Card $a, Card $b): int
+    public function sortByValue(Card $cardA, Card $cardB): int
     {
-        if ($a->getAlternativeValue() && $b->getAlternativeValue()) {
-            return $a->getAlternativeValue() <=> $b->getAlternativeValue();
+        if ($cardA->getAlternativeValue() && $cardB->getAlternativeValue()) {
+            return $cardA->getAlternativeValue() <=> $cardB->getAlternativeValue();
         }
-        if ($a->getAlternativeValue() && !$b->getAlternativeValue()) {
-            return $a->getAlternativeValue() <=> $b->getValue();
-        }
-
-        if (!$a->getAlternativeValue() && $b->getAlternativeValue()) {
-            return $a->getValue() <=> $b->getAlternativeValue();
+        if ($cardA->getAlternativeValue() && !$cardB->getAlternativeValue()) {
+            return $cardA->getAlternativeValue() <=> $cardB->getValue();
         }
 
-        return $a->getValue() <=> $b->getValue();
+        if (!$cardA->getAlternativeValue() && $cardB->getAlternativeValue()) {
+            return $cardA->getValue() <=> $cardB->getAlternativeValue();
+        }
+
+        return $cardA->getValue() <=> $cardB->getValue();
     }
 
-    public function sortBySuiteAndValue(Card $a, Card $b): int
+    public function sortBySuitAndValue(Card $cardA, Card $cardB): int
     {
-        $suiteComparison = $this->sortBySuite($a, $b);
-        if ($suiteComparison === 0) {
-            return $this->sortByValue($a, $b);
+        $suitComparison = $this->sortBySuit($cardA, $cardB);
+        if ($suitComparison === 0) {
+            return $this->sortByValue($cardA, $cardB);
         }
-        return $suiteComparison;
+        return $suitComparison;
     }
 }
