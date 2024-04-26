@@ -29,7 +29,7 @@
             class="shadow bg-green-800 hover:bg-purple-400 text-white font-bold py-2 px-4 rounded">Play again</button>
         </form>
       {% else %}
-      {% if not game.hasBet() %}
+      {% if not game.betManager.hasPot() %}
       <form action="{{ path('app_post_game') }}" method="POST">
         <label for="bet">Place your bet:</label>
         <input type="number" name="bet" id="bet" min="1" required value="100">
@@ -64,7 +64,7 @@
       </form>
 
       {% endif %}
-      <h2 class="leading-none m-0 p-0">Current bet: {{ game.getBet() }}</h2>
+      <h2 class="leading-none m-0 p-0">Current pot: {{ game.betManager.getPot() }}</h2>
       {% endif %}
       {% endif %}
     </section>

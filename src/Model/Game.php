@@ -8,16 +8,17 @@ use SplSubject;
 use Random\Randomizer;
 use SplObjectStorage;
 use Exception;
+use App\Model\BetManager;
 
 class Game implements SplSubject
 {
     private const VALID_FORM_NAMES = ['action', 'bet'];
 
     private $deck;
-    private $bet = null;
     private array $players;
     private string $currentPlayer;
     private string $gameStatus;
+    public BetManager $betManager;
 
     protected SplObjectStorage $observers;
 
@@ -33,7 +34,7 @@ class Game implements SplSubject
         foreach ($observers as $observer) {
             $this->attach($observer);
         }
-
+        $this->betManager = new BetManager();
         $this->deck = $deck;
         $this->players = $players;
         $this->setGameStatus($gameStatus);
@@ -69,9 +70,8 @@ class Game implements SplSubject
         foreach ($gameState['players'] as $player) {
             $game->players[$player->getName()] = $player;
         }
-
+        $game->betManager = new BetManager($gameState['pot']);
         $game->currentPlayer = $gameState['currentPlayer'];
-        $game->bet = $gameState['bet'];
         $game->setGameStatus($gameState['gameStatus']);
         return $game;
     }
@@ -82,7 +82,7 @@ class Game implements SplSubject
             'deck' => $this->deck->getDeck(),
             'players' => $this->players,
             'currentPlayer' => $this->currentPlayer,
-            'bet' => $this->bet,
+            'pot' => $this->betManager->getPot(),
             'gameStatus' => $this->getGameStatus()
         ];
     }
@@ -105,7 +105,13 @@ class Game implements SplSubject
 
         if ($formData['action'] !== 'restart') {
             $this->processMove($formData);
-            $this->payWinner();
+            $winner = $this->getWinner();
+            if ($winner !== null) {
+                $this->betManager->payOut($this->players[$winner]);
+                $this->setGameStatus('ended');
+                $this->notify();
+                return;
+            }
         }
 
         if ($formData['action'] == 'restart') {
@@ -132,41 +138,25 @@ class Game implements SplSubject
                 }
                 break;
             case 'bet':
-                $this->setBet($formData['bet']);
+                $this->betManager->setPot($formData['bet'], $this->players);
+                $this->notify();
                 break;
             default:
                 throw new Exception('Invalid action.');
         }
     }
 
-    public function payWinner(): void
+    public function getWinner(): ?string
     {
         if ($this->isBusted()) {
-            // potential money machine bug here...
-            foreach ($this->players as $player) {
-                if ($player->getName() === $this->currentPlayer) {
-                    continue;
-                }
-                $this->payOut($player->getName());
-            }
-
-            return;
+            return $this->currentPlayer;
         }
+
         if ($this->allPlayersStand()) {
-            $this->payOutToWinner();
-        }
-    }
-
-
-    public function payOutToWinner(): void
-    {
-        $winner = $this->getWinnerBasedOnHand();
-        if ($winner === 'bank') {
-            $this->payOut('bank');
-            return;
+            return $this->getWinnerBasedOnHand();
         }
 
-        $this->payOut($winner);
+        return null;
     }
 
     private function allPlayersStand(): bool
@@ -187,14 +177,6 @@ class Game implements SplSubject
         // something like this: $this->players->all(fn($player) => $player->isStanding);
     }
 
-    private function payOut(string $player): void
-    {
-        $this->players[$player]->addMoney((int)$this->bet);
-        $this->bet = null;
-        $this->setGameStatus('ended');
-        $this->notify();
-    }
-
     private function reset(): void
     {
         if (!$this->isRestartable()) {
@@ -213,7 +195,7 @@ class Game implements SplSubject
 
     public function isRestartable(): bool
     {
-        return $this->bet === null;
+        return $this->betManager->getPot() === null;
     }
 
     public function getPlayers(): array
@@ -221,40 +203,40 @@ class Game implements SplSubject
         return $this->players;
     }
 
-    public function hasBet(): bool
-    {
-        return $this->bet !== null;
-    }
+    // public function hasBet(): bool
+    // {
+    //     return $this->bet !== null;
+    // }
 
-    public function getBet(): ?int
-    {
-        return $this->bet;
-    }
+    // public function getBet(): ?int
+    // {
+    //     return $this->bet;
+    // }
 
-    private function setBet(int $bet): void
-    {
-        if ($this->hasBet()) {
-            throw new Exception('Bet already placed.');
-        }
-        if ($bet < 0) {
-            throw new Exception('Bet must be positive.');
-        }
+    // private function setBet(int $bet): void
+    // {
+    //     if ($this->hasBet()) {
+    //         throw new Exception('Bet already placed.');
+    //     }
+    //     if ($bet < 0) {
+    //         throw new Exception('Bet must be positive.');
+    //     }
 
-        foreach ($this->players as $player) {
-            if ($bet > $player->getBalance()) {
-                throw new Exception($player->getName() . ' doesn\'t have enough money for this bet.');
-            }
-        }
+    //     foreach ($this->players as $player) {
+    //         if ($bet > $player->getBalance()) {
+    //             throw new Exception($player->getName() . ' doesn\'t have enough money for this bet.');
+    //         }
+    //     }
 
-        $this->bet = 0;
+    //     $this->bet = 0;
 
-        foreach ($this->players as $player) {
-            $player->placeBet($bet);
-            $this->bet += $bet;
-        }
+    //     foreach ($this->players as $player) {
+    //         $player->placeBet($bet);
+    //         $this->bet += $bet;
+    //     }
 
-        $this->notify();
-    }
+    //     $this->notify();
+    // }
 
     private function isValidForm(array $formData): void
     {
