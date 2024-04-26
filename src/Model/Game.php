@@ -203,41 +203,6 @@ class Game implements SplSubject
         return $this->players;
     }
 
-    // public function hasBet(): bool
-    // {
-    //     return $this->bet !== null;
-    // }
-
-    // public function getBet(): ?int
-    // {
-    //     return $this->bet;
-    // }
-
-    // private function setBet(int $bet): void
-    // {
-    //     if ($this->hasBet()) {
-    //         throw new Exception('Bet already placed.');
-    //     }
-    //     if ($bet < 0) {
-    //         throw new Exception('Bet must be positive.');
-    //     }
-
-    //     foreach ($this->players as $player) {
-    //         if ($bet > $player->getBalance()) {
-    //             throw new Exception($player->getName() . ' doesn\'t have enough money for this bet.');
-    //         }
-    //     }
-
-    //     $this->bet = 0;
-
-    //     foreach ($this->players as $player) {
-    //         $player->placeBet($bet);
-    //         $this->bet += $bet;
-    //     }
-
-    //     $this->notify();
-    // }
-
     private function isValidForm(array $formData): void
     {
         foreach ($formData as $key => $value) {
