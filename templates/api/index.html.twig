@@ -5,10 +5,14 @@
 <main class="mt-3">
   <section>
     <h1>API documentation</h1>
+    <p>Some links are added in this view due to added requirements. It will not work to click on them in all cases.</p>
     {% for key, value in api %}
       <article>
-        <h2>{{ key }}</h2>
-        <p>{{ value }}</p>
+        <h2>{{ value['path'] }}</h2>
+        <p>{{ value['description'] }}</p>
+        <p>
+          <a href=".{{value['path']}}">Try it (this is just a link, might not work fully in all cases)</a>
+        </p>
       </article>
     {% endfor %}
   </section>

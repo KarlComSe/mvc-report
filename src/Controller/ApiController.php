@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Model\Game;
 
 class ApiController extends AbstractController
 {
@@ -23,15 +24,39 @@ class ApiController extends AbstractController
 
         $data = [
             'api' => [
-                '/api/quote' => 'Provides paraphrased quotes, written by chatGPT, from a fictional character named Assad. The quotes are based on a book series called Department Q by Jussi Adler-Olsen.',
-                '/api/number' => 'Provides a random number between 0 and 100.',
-                '/api/deck' => 'Provides a French-suited deck of cards, sorted by suit and value.',
-                '/api/deck/shuffle' => 'Shuffles the French-suited deck of cards.',
-                '/api/deck/draw' => 'Draws one card from the French-suited deck of cards.',
-                '/api/deck/draw/{number}' => 'Draws a specified number of cards from the French-suited deck of cards.',
-                '/api/deck/deal/{players}/{cards}' => 'Deals a specified number of cards to a specified number of players from the French-suited deck of cards.',
-                '/api/deck/reset' => 'Resets the French-suited deck of cards.',
-            ],
+                'api_game' => [
+                'path' => '/api/game',
+                'description' => 'Provides the current state of the game.'
+                ],
+                'api_quotes' => [
+                'path' => '/api/quote',
+                'description' => 'Provides paraphrased quotes, written by chatGPT, from a fictional character named Assad. The quotes are based on a book series called Department Q by Jussi Adler-Olsen.'
+                ],
+                'api_deck' => [
+                'path' => '/api/deck',
+                'description' => 'Provides a French-suited deck of cards, sorted by suit and value.'
+                ],
+                'api_deck_shuffle' => [
+                'path' => '/api/deck/shuffle',
+                'description' => 'Shuffles the French-suited deck of cards.'
+                ],
+                'api_deck_draw' => [
+                'path' => '/api/deck/draw',
+                'description' => 'Draws one card from the French-suited deck of cards.'
+                ],
+                'api_deck_draw_number/4' => [
+                'path' => '/api/deck/draw/{number}',
+                'description' => 'Draws a specified number of cards from the French-suited deck of cards.'
+                ],
+                'api_deck_deal' => [
+                'path' => '/api/deck/deal/{players}/{cards}',
+                'description' => 'Deals a specified number of cards to a specified number of players from the French-suited deck of cards.'
+                ],
+                'api_deck_reset' => [
+                'path' => '/api/deck/reset',
+                'description' => 'Resets the French-suited deck of cards.'
+                ]
+            ]
         ];
         return $this->render('api/index.html.twig', $data);
     }
@@ -86,6 +111,26 @@ class ApiController extends AbstractController
         return $deck;
     }
 
+    #[Route('/api/game', name: 'api_game')]
+    public function game(Request $request): JsonResponse
+    {
+
+        $data = [];
+        if ($request->getSession()->has('game')) {
+            $game = Game::createFromSavedState((array) $request->getSession()->get('game'));
+            $gameState = $game->getGameState();
+            $data = [
+                'players' => $gameState['players'],
+                'currentPlayer' => $gameState['currentPlayer'],
+                'pot' => $gameState['pot'],
+                'gameStatus' => $gameState['gameStatus'],
+                'bank_balance' => $game->getPlayers()['bank']->getBalance(),
+                'player_balance' => $game->getPlayers()['human']->getBalance()
+            ];
+        }
+        return new JsonResponse($data);
+    }
+
 
     // Bygg vidare på din landningssida api/ som visar en webbsida med en sammanställning av alla JSON routes som din webbplats erbjuder. Varje route skall ha en förklaring vad den gör.
     // Skapa en kontroller i Symfony där du kan skapa routes för ett JSON API för denna delen av uppgiften.
@@ -93,5 +138,4 @@ class ApiController extends AbstractController
     // Skapa en route POST api/deck/shuffle som blandar kortleken och därefter returnerar en JSON struktur med kortleken. Den blandade kortleken sparas i sessionen.
     // Skapa route POST api/deck/draw och POST api/deck/draw/:number som drar 1 eller :number kort från kortleken och visar upp dem i en JSON struktur samt antalet kort som är kvar i kortleken. Kortleken sparas i sessionen så om man anropar dem flera gånger så minskas antalet kort i kortleken.
     // [OPTIONELLT] Skapa en route POST api/deck/deal/:players/:cards som delar ut ett antal :cards från kortleken till ett antal :players och visar upp de korten som respektive spelare har fått i en JSON struktur. Visa även antalet kort som är kvar i kortleken.
-
 }
