@@ -30,6 +30,11 @@ abstract class Player implements PlayerInterface
         return $this->hand->getHand();
     }
 
+    public function getRealHand(): CardHand
+    {
+        return $this->hand;
+    }
+
     public function addCardToHand(Card $card): void
     {
         $this->hand->addCard($card);

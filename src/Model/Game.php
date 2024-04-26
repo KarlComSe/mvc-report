@@ -19,6 +19,7 @@ class Game implements SplSubject
     private string $currentPlayer;
     private string $gameStatus;
     public BetManager $betManager;
+    private DetermineWinner $determineWinner;
 
     protected SplObjectStorage $observers;
 
@@ -41,6 +42,7 @@ class Game implements SplSubject
         if (count($players) > 0) {
             $this->currentPlayer = $players[0]->getName();
         }
+        $this->determineWinner = new DetermineWinner();
 
 
         $this->notify();
@@ -105,7 +107,9 @@ class Game implements SplSubject
 
         if ($formData['action'] !== 'restart') {
             $this->processMove($formData);
-            $winner = $this->getWinner();
+            
+            $winner = $this->determineWinner->getWinner($this->players, $this->currentPlayer);
+
             if ($winner !== null) {
                 $this->betManager->payOut($this->players[$winner]);
                 $this->setGameStatus('ended');
@@ -118,6 +122,11 @@ class Game implements SplSubject
             $this->reset();
             return;
         }
+    }
+
+    public function getWinnerBasedOnHand(): string
+    {
+        return $this->determineWinner->getWinnerBasedOnHand($this->players);
     }
 
     private function processMove(array $formData): void
@@ -144,37 +153,6 @@ class Game implements SplSubject
             default:
                 throw new Exception('Invalid action.');
         }
-    }
-
-    public function getWinner(): ?string
-    {
-        if ($this->isBusted()) {
-            return $this->currentPlayer;
-        }
-
-        if ($this->allPlayersStand()) {
-            return $this->getWinnerBasedOnHand();
-        }
-
-        return null;
-    }
-
-    private function allPlayersStand(): bool
-    {
-        foreach ($this->players as $player) {
-            if (!$player->isStanding()) {
-                return false;
-            }
-        }
-
-        return true;
-
-        // coPilot asked to make above more compact, suggest the following:
-        // return array_reduce($this->players, function ($carry, $player) {
-        //     return $carry && $player->isStanding;
-        // }, true);
-        // Interesting, but not great, and not readable. Would have preferred
-        // something like this: $this->players->all(fn($player) => $player->isStanding);
     }
 
     private function reset(): void
@@ -220,18 +198,6 @@ class Game implements SplSubject
         $this->notify();
     }
 
-    public function isBusted(): bool
-    {
-        $scoreArray = $this->players[$this->currentPlayer]->getScores();
-        if (empty($scoreArray)) {
-            return false;
-        }
-        if (min($scoreArray) > 21) {
-            return true;
-        }
-        return false;
-    }
-
     public function getCurrentPlayer(): string
     {
         return $this->currentPlayer;
@@ -252,59 +218,5 @@ class Game implements SplSubject
     {
         $playerIndex = array_search($this->currentPlayer, array_keys($this->players));
         return $playerIndex < count($this->players) - 1;
-    }
-
-    public function getWinnerBasedOnHand(): string
-    {
-        $scores = [];
-        foreach ($this->players as $player) {
-            $scores[$player->getName()] = $player->getScores();
-        }
-
-        $bestScores = $this->getPlayersBestScores($scores);
-        $winners = $this->getAllHighestScores($bestScores);
-
-        if (count($winners) === 1) {
-            return $winners[0];
-        }
-
-        return "bank";
-
-        // Possible to elaborate on the logic here...
-        // if (array_key_exists('bank', $winners)) {
-        //         return "bank";
-        // }
-
-        // throw new Exception('Undetermined winner.');
-    }
-
-    private function getPlayersBestScores(array $scores): array
-    {
-        $bestScores = [];
-
-        foreach ($scores as $player => $playerScores) {
-            $bestScore = 0;
-            foreach ($playerScores as $score) {
-                if ($score <= 21 && $score > $bestScore) {
-                    $bestScore = $score;
-                }
-            }
-            $bestScores[$player] = $bestScore;
-        }
-
-        return $bestScores;
-    }
-
-    private function getAllHighestScores(array $bestScores): array
-    {
-        $maxScore = max($bestScores);
-        $winners = [];
-        foreach ($bestScores as $player => $score) {
-            if ($score === $maxScore) {
-                $winners[] = $player;
-            }
-        }
-
-        return $winners;
     }
 }
