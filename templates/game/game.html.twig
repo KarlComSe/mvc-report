@@ -4,6 +4,7 @@
 {% block body %}
 <main class="mt-2">
   <section>
+    {{ game.getGameStatus() }}
     <section class="m-0 p-0">
       {% if game.getGameStatus() == 'ended' %}
         <h1 class="leading-none m-0 p-0">Game over!</h1>
