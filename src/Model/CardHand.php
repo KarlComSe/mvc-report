@@ -4,7 +4,6 @@ namespace App\Model;
 
 use App\Model\Card;
 
-
 class CardHand
 {
     public array $cardsInHand = [];
