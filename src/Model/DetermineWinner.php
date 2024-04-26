@@ -10,6 +10,13 @@ class DetermineWinner
     {
     }
 
+    /**
+     * Get the winner from the given array of players.
+     *
+     * @param array<Player> $players An array of player names.
+     * @param string $currentPlayer The name of the current player.
+     * @return string|null The name of the winner, or null if there is no winner.
+     */
     public function getWinner(array $players, string $currentPlayer): ?string
     {
         // this logic is halting, but works in this case... for now.
@@ -27,6 +34,12 @@ class DetermineWinner
         return null;
     }
 
+    /**
+     * Checks if all players are satisfied.
+     *
+     * @param array<Player> $players The array of players.
+     * @return bool Returns true if all players are satisfied, false otherwise.
+     */
     private function allPlayersStand(array $players): bool
     {
         foreach ($players as $player) {
@@ -50,6 +63,14 @@ class DetermineWinner
         return false;
     }
 
+    /**
+     * Determines the winner based on the players' hands.
+     * Assumes that all players are satisfied.
+     * Doesn't check if any player is busted.
+     *
+     * @param array<Player> $players An array of players.
+     * @return string The name of the winning player.
+     */
     public function getWinnerBasedOnHand(array $players): string
     {
         $scores = [];
@@ -65,9 +86,15 @@ class DetermineWinner
         }
 
         return "bank";
-
     }
 
+    /**
+     * Filters out the best scores for each player.
+     *
+     * @param array<string, array<int>> $scores The scores for each player,
+     * e.g. ['human' => [21, 22], 'bank' => [20, 21]].
+     * @return array<string, int> The best scores for each player, e.g. ['human' => 21, 'bank' => 20].
+     */
     private function getPlayersBestScores(array $scores): array
     {
         $bestScores = [];
@@ -85,6 +112,12 @@ class DetermineWinner
         return $bestScores;
     }
 
+    /**
+     * Returns an array of players with the highest scores.
+     *
+     * @param array<string, int> $bestScores An array containing the best score of each player.
+     * @return array<string> An array containing the names of the players with the highest scores.
+     */
     private function getAllHighestScores(array $bestScores): array
     {
         $maxScore = max($bestScores);
