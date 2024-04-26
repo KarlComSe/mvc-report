@@ -107,7 +107,7 @@ class Game implements SplSubject
 
         if ($formData['action'] !== 'restart') {
             $this->processMove($formData);
-            
+
             $winner = $this->determineWinner->getWinner($this->players, $this->currentPlayer);
 
             if ($winner !== null) {
