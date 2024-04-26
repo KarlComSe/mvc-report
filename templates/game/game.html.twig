@@ -4,13 +4,22 @@
 {% block body %}
 <main class="mt-2">
   <section>
-    {{ game.getGameStatus() }}
     <section class="m-0 p-0">
       {% if game.getGameStatus() == 'ended' %}
         <h1 class="leading-none m-0 p-0">Game over!</h1>
         <p>
           Winner is: {{ game.getWinnerBasedOnHand() }}.
         </p>
+        {% if game.getPlayers()['human'].getBalance() == 0 %}
+        <p>
+          You lost all your money. Better luck next time!
+        </p>
+        {% endif %}
+        {% if game.getPlayers()['bank'].getBalance() == 0 %}
+        <p>
+          The bank lost all its money. You won! The world might be a better place now.
+        </p>
+        {% endif %}
         <h2 class="leading-none m-0 p-0">Players:</h2>
         {% for player in game.getPlayers() %}
         <h3>{{ player.getName() }}</h3>
