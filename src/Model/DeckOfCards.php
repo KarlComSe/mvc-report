@@ -30,7 +30,7 @@ abstract class DeckOfCards implements SplSubject
         'Queen' => [12],
         'King' => [13],
     ];
-    /** 
+    /**
     * @var array<Card> The array of cards in the deck.
     **/
     public array $cards = [];
