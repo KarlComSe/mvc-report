@@ -79,7 +79,19 @@
     </article>
     <article id="kmom03">
       <h2>KMOM03</h2>
-      <p></p>
+      <h3>Modellering</h3>
+      <p>Det gick bra att modellera och var effektivt att bygga programmet utefter modelleringen. Det gjorde att jag snabbt kunde bygga ett fungerande program. Vad jag däremot missade var t.ex. single responsibility principle, polymorfism framför conditionals etc.</p>
+      <h3>Implementation</h3>
+      <p>Jag löste "snabbt" uppgiften initialt efter vad jag tänkt. Jag blev sen missnöjd med koden. Jag hade t.ex. hårdkodat spelare, och kollade sen om en spelare var bank eller människa. Jag ville undvika detta kollande och även ge banken möjlighet att själv styra sina drag, så jag skapade en klass för Player. Jag ärvde den klassen för BankPlayer och HumanPlayer. BankPlayer implementerade sen också AiPlayerInterface, som innehåller en metod för att bestämma en action. Just kring detta är jag väldigt nöjd. Det bidrog till att vissa jobbiga fel från lintingen försvann, som handlade om komplexitet och antalet exekveringsvägar. Jag är också nöjd över hur jag löste många andra av varningara som lintingen gav, t.ex. hög komplexitet.</p>
+      <p>Jag fortsatte att utforska event-lyssnare och observer-pattern, i ett Symfony-kontext. Det tycker jag fungerar bra.</p>
+      <p>När jag skapade fler klasser, Player, så blev spelet mer generellt, men för att få ihop det så gjrode jag en hel del fullösningar på sina ställen, eftersom jag vet att det bara är två spelare. Det här är definitivt ett förbättringsområde.</p>
+      <p>Några andra förbättringsområden: 1) minska klass-storleken på t.ex. Game. Jag har inte varit fullt införstådd i Single Responsibility principle, och den här klassen kan minskas än mer, tänker jag. 2) PHP stan klagar en del (från början 90 plus, nu kan jag få ner det till 10, men väljer att stanna på 11). 3) PHP MD klagar också, framför allt kring att jag använder static access till klasser. Det skapar hårdkodade beroenden, säger förklaringarna. Jag får fortsätta utforska detta framöver när jag lär mig mer om dependency injection och dependency injection prinicple.</p>
+      <h3>Symfony</h3>
+      <p>Det är fortsatt viss magi i hur Symfony fungerar. Jag har sett att det finns en hel del coola features, t.ex. kring formulär, som hade varit användbara i den här uppgiften.</p>
+      <h3>TIL</h3>
+      <p>Single responsibility principle börjar gå upp för mig.</p>
+      <p>Jag har fått en förståelse hur jag kan bygga en app där jag sparar ett state. </p>
+      <p>Jag har lärt mig hur enkelt det är att lyfta ut logik från router / controller till egen klass.</p>
     </article>
     <article id="kmom04">
       <h2>KMOM04</h2>
