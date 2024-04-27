@@ -18,10 +18,10 @@ interface PlayerInterface
     /**
      * Add a card to the player's hand.
      *
-     * @param Card $card The card to add.
+     * @param array<Card> $cardArray The card to add.
      * @return void
      */
-    public function addCardToHand(Card $card): void;
+    public function addCardsToHand(array $cardArray): void;
 
     /**
      * Get the player's scores.

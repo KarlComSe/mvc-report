@@ -10,7 +10,11 @@ use Exception;
 
 abstract class DeckOfCards implements SplSubject
 {
+    /**
+     * @var array<string> The suits of the cards in a deck.
+     */
     public static $suitsOfCards = ['Spade', 'Diamond', 'Heart', 'Club'];
+
     public static $namesOfCards = [
         'Ace' => [1, 14],
         '2' => [2],
@@ -26,8 +30,10 @@ abstract class DeckOfCards implements SplSubject
         'Queen' => [12],
         'King' => [13],
     ];
+    /** 
+    * @var array<Card> The array of cards in the deck.
+    **/
     public array $cards = [];
-    public array $discardPile = [];
 
     protected SplObjectStorage $observers;
 
@@ -126,7 +132,7 @@ abstract class DeckOfCards implements SplSubject
 
 
 
-    public function drawCard(): Card
+    private function drawCard(): Card
     {
         if (!$this->hasCards()) {
             throw new Exception('No cards left in the deck');

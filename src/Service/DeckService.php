@@ -41,7 +41,7 @@ class DeckService
     public function drawCard(Request $request): JsonResponse
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
-        $card = $deck->drawCard();
+        $card = $deck->drawCards(1);
 
         return new JsonResponse($card);
     }

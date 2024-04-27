@@ -6,6 +6,9 @@ use App\Model\Card;
 
 class CardHand
 {
+    /**
+     * @var array<Card> The cards in the hand.
+     */
     public array $cardsInHand = [];
     public ?int $maxCardsInHand = null;
 

@@ -80,6 +80,11 @@ class Card
         $this->alternativeValue = $alternativeValue;
     }
 
+    /**
+     * Get the card details.
+     *
+     * @return array<string, string, int, ?int> An array containing the suit, name, value, and alternative value.
+     */
     public function getCard(): array
     {
         return [$this->suit, $this->name, $this->value, $this->alternativeValue];

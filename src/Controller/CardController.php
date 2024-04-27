@@ -16,8 +16,9 @@ class CardController extends AbstractController
 {
     public function getInstansiatedDeck(Request $request, string $deckName): FrenchSuitedDeck
     {
+        $sessionObserver = new SessionSavingObserver($request, $deckName);
         $observers = [
-            new SessionSavingObserver($request, $deckName)
+            $sessionObserver
         ];
         return FrenchSuitedDeck::createFromSession($request->getSession()->get($deckName), new Randomizer(), $observers);
     }
@@ -86,7 +87,10 @@ class CardController extends AbstractController
 
         for ($i = 0; $i < $cards; $i++) {
             foreach ($hands as $hand) {
-                $hand->addCard($deck->drawCard());
+                $cardArray = $deck->drawCards(1);
+                foreach ($cardArray as $card) {
+                    $hand->addCard($card);
+                }
             }
         }
 

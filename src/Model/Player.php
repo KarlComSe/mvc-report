@@ -43,9 +43,11 @@ abstract class Player implements PlayerInterface
         return $this->hand;
     }
 
-    public function addCardToHand(Card $card): void
+    public function addCardsToHand(array $cardArray): void
     {
-        $this->hand->addCard($card);
+        foreach ($cardArray as $card) {
+            $this->hand->addCard($card);
+        }
     }
 
     /**

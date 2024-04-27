@@ -16,6 +16,9 @@ class Game implements SplSubject
     private const VALID_FORM_NAMES = ['action', 'bet'];
 
     private ?DeckOfCards $deck;
+    /**
+     * @var array<?Player> The players of the game.
+     */
     private array $players;
     private string $currentPlayer;
     private string $gameStatus;
@@ -23,7 +26,13 @@ class Game implements SplSubject
     private DetermineWinner $determineWinner;
 
     protected SplObjectStorage $observers;
-
+    /**
+     * Constructor for the Game class.
+     * @param array<?Player> $players The players of the game.
+     * @param DeckOfCards|null $deck The deck of cards to be used in the game.
+     * @param array<SplObserver> $observers The observers to be attached to the game.
+     * @param string $gameStatus The status of the game.
+     */
     public function __construct(
         array $players = [],
         DeckOfCards $deck = null,
@@ -66,6 +75,12 @@ class Game implements SplSubject
         }
     }
 
+    /**
+     * Creates a new Game object from a saved game state.
+     *
+     * @param array<string, mixed> $gameState The saved game state.
+     * @return Game The newly created Game object.
+     */
     public static function createFromSavedState(array $gameState): Game
     {
         $game = new Game();
@@ -79,6 +94,11 @@ class Game implements SplSubject
         return $game;
     }
 
+    /**
+     * Get the current state of the game.
+     *
+     * @return array<string, mixed> The game state, including the deck, players, current player, pot, and game status.
+     */
     public function getGameState(): array
     {
         return [
@@ -139,7 +159,7 @@ class Game implements SplSubject
     /**
      * Process the move based on the given form data.
      *
-     * @param array $formData<string, mixed> The form data containing the action and bet (if applicable).
+     * @param array<string, mixed> $formData The form data containing the action and bet (if applicable).
      * @return void
      * @throws Exception If the action is invalid.
      */
@@ -147,8 +167,9 @@ class Game implements SplSubject
     {
         $action = $this->players[$this->currentPlayer] instanceof HumanPlayer ?
             $formData['action'] :
-            $this->players[$this->currentPlayer]->makeMove();
-
+                ($this->players[$this->currentPlayer] instanceof AiPlayerInterface ?
+                    $this->players[$this->currentPlayer]->makeMove() :
+                    throw new Exception('Invalid player type.'));
         switch ($action) {
             case 'hit':
                 $this->dealCard();
@@ -209,7 +230,8 @@ class Game implements SplSubject
      */
     private function isValidForm(array $formData): void
     {
-        foreach ($formData as $key => $value) {
+        $formKeys = array_keys($formData);
+        foreach ($formKeys as $key) {
             if (!in_array($key, self::VALID_FORM_NAMES)) {
                 throw new Exception('Invalid form name.');
             }
@@ -223,7 +245,7 @@ class Game implements SplSubject
         if ($this->deck === null) {
             throw new Exception('Cannot deal cards from a non existing deck.');
         }
-        $this->players[$this->currentPlayer]->addCardToHand($this->deck->drawCard());
+        $this->players[$this->currentPlayer]->addCardsToHand($this->deck->drawCards(1));
         $this->notify();
     }
 

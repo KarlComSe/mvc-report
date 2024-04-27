@@ -27,15 +27,8 @@ class FrenchSuitedDeck extends DeckOfCards
         return $deck;
     }
 
-    /**
-     * Create a FrenchSuitedDeck object from a session array.
-     *
-     * @param array<mixed> $deck The array containing the cards from the session.
-     * @param Randomizer $randomizer The randomizer object used to shuffle the deck.
-     * @param array<SplObserver> $observers The array of observer objects.
-     * @return FrenchSuitedDeck The created FrenchSuitedDeck object.
-     */
-    public static function createFromSession(array $deck, Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
+
+    public static function createFromSession(mixed $deck, Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
     {
         $frenchDeck = new FrenchSuitedDeck($randomizer, $observers);
         // interesting enough, the card which are coming from session are restored as Card-objects, while the Deck is an Array.

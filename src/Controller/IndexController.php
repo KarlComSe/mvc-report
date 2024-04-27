@@ -22,8 +22,12 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(): Response
     {
+        $json = $this->quoteService->getAssadsQuote()->getContent();
+        if ($json === false) {
+            return new Response('Failed to get quote data.');
+        }
         $quote = json_decode(
-            $this->quoteService->getAssadsQuote()->getContent(),
+            $json,
             true
         );
 
