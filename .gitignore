@@ -36,3 +36,4 @@
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
 .phpdoc/
+./tools/phpdoc/
