@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/karl/Documents/dbwebb/mvc/me/report/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/home/karl/Documents/dbwebb/mvc/me/report/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/AboutController.php.html#9">App\Controller\AboutController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#15">App\Controller\ApiController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#15">App\Controller\CardController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#14">App\Controller\GameController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/IndexController.php.html#13">App\Controller\IndexController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LuckyController.php.html#10">App\Controller\LuckyController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ReportController.php.html#9">App\Controller\ReportController</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventListener/CardRouteListener.php.html#9">App\EventListener\CardRouteListener</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventListener/GameRouteListener.php.html#13">App\EventListener\GameRouteListener</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BankPlayer.php.html#5">App\Model\BankPlayer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#8">App\Model\BetManager</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#5">App\Model\Card</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#7">App\Model\CardHand</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#11">App\Model\DeckOfCards</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#7">App\Model\DetermineWinner</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#9">App\Model\FrenchSuitedDeck</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#14">App\Model\Game</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/GraphicCard.php.html#7">App\Model\GraphicCard</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/HumanPlayer.php.html#5">App\Model\HumanPlayer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#5">App\Model\Player</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Observer/SessionSavingObserver.php.html#8">App\Observer\SessionSavingObserver</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#15">App\Service\DeckService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/QuoteService.php.html#7">App\Service\QuoteService</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dice/Dice.php.html#5">App\Dice\Dice</a></td><td class="text-right">50%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Model/Game.php.html#14">App\Model\Game</a></td><td class="text-right">1640</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#7">App\Model\DetermineWinner</a></td><td class="text-right">506</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#11">App\Model\DeckOfCards</a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#9">App\Model\FrenchSuitedDeck</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="Model/Player.php.html#5">App\Model\Player</a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#15">App\Controller\CardController</a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#15">App\Controller\ApiController</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#7">App\Model\CardHand</a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#8">App\Model\BetManager</a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Model/BankPlayer.php.html#5">App\Model\BankPlayer</a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#14">App\Controller\GameController</a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="EventListener/CardRouteListener.php.html#9">App\EventListener\CardRouteListener</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="EventListener/GameRouteListener.php.html#13">App\EventListener\GameRouteListener</a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Controller/IndexController.php.html#13">App\Controller\IndexController</a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/AboutController.php.html#11"><abbr title="App\Controller\AboutController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#17"><abbr title="App\Controller\ApiController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#21"><abbr title="App\Controller\ApiController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#64"><abbr title="App\Controller\ApiController::assadsQuotes">assadsQuotes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#72"><abbr title="App\Controller\ApiController::deck">deck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#79"><abbr title="App\Controller\ApiController::shuffle">shuffle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#86"><abbr title="App\Controller\ApiController::draw">draw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#93"><abbr title="App\Controller\ApiController::drawNumber">drawNumber</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#100"><abbr title="App\Controller\ApiController::deal">deal</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#107"><abbr title="App\Controller\ApiController::reset">reset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#114"><abbr title="App\Controller\ApiController::game">game</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#17"><abbr title="App\Controller\CardController::getInstansiatedDeck">getInstansiatedDeck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#26"><abbr title="App\Controller\CardController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#32"><abbr title="App\Controller\CardController::sessionView">sessionView</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#40"><abbr title="App\Controller\CardController::sessionDestroy">sessionDestroy</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#54"><abbr title="App\Controller\CardController::deck">deck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#62"><abbr title="App\Controller\CardController::deckShuffle">deckShuffle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#70"><abbr title="App\Controller\CardController::deckDraw">deckDraw</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#78"><abbr title="App\Controller\CardController::deckDeal">deckDeal</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#16"><abbr title="App\Controller\GameController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#22"><abbr title="App\Controller\GameController::doc">doc</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#28"><abbr title="App\Controller\GameController::processMove">processMove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#46"><abbr title="App\Controller\GameController::play">play</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/IndexController.php.html#17"><abbr title="App\Controller\IndexController::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/IndexController.php.html#22"><abbr title="App\Controller\IndexController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LuckyController.php.html#12"><abbr title="App\Controller\LuckyController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/LuckyController.php.html#23"><abbr title="App\Controller\LuckyController::jsonNumber">jsonNumber</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Controller/ReportController.php.html#11"><abbr title="App\Controller\ReportController::index">index</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Dice/Dice.php.html#14"><abbr title="App\Dice\Dice::roll">roll</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventListener/CardRouteListener.php.html#11"><abbr title="App\EventListener\CardRouteListener::onKernelRequest">onKernelRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="EventListener/GameRouteListener.php.html#15"><abbr title="App\EventListener\GameRouteListener::onKernelRequest">onKernelRequest</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BankPlayer.php.html#7"><abbr title="App\Model\BankPlayer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BankPlayer.php.html#12"><abbr title="App\Model\BankPlayer::makeMove">makeMove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#10"><abbr title="App\Model\BetManager::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#15"><abbr title="App\Model\BetManager::payOut">payOut</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#21"><abbr title="App\Model\BetManager::hasPot">hasPot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#26"><abbr title="App\Model\BetManager::getPot">getPot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#39"><abbr title="App\Model\BetManager::setPot">setPot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#75"><abbr title="App\Model\Card::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#88"><abbr title="App\Model\Card::getCard">getCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#93"><abbr title="App\Model\Card::getValue">getValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#98"><abbr title="App\Model\Card::getSuit">getSuit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#103"><abbr title="App\Model\Card::getAlternativeValue">getAlternativeValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#108"><abbr title="App\Model\Card::getUnicodeRepresentation">getUnicodeRepresentation</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Card.php.html#113"><abbr title="App\Model\Card::__toString">__toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#15"><abbr title="App\Model\CardHand::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#20"><abbr title="App\Model\CardHand::addCard">addCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#37"><abbr title="App\Model\CardHand::getHand">getHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#47"><abbr title="App\Model\CardHand::getScore">getScore</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#50"><abbr title="App\Model\DeckOfCards::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#58"><abbr title="App\Model\DeckOfCards::attach">attach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#62"><abbr title="App\Model\DeckOfCards::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#66"><abbr title="App\Model\DeckOfCards::notify">notify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#99"><abbr title="App\Model\DeckOfCards::addCard">addCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#105"><abbr title="App\Model\DeckOfCards::shuffle">shuffle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#118"><abbr title="App\Model\DeckOfCards::getDeck">getDeck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#123"><abbr title="App\Model\DeckOfCards::hasCards">hasCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#128"><abbr title="App\Model\DeckOfCards::getNumberOfCards">getNumberOfCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#135"><abbr title="App\Model\DeckOfCards::drawCard">drawCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#151"><abbr title="App\Model\DeckOfCards::drawCards">drawCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#167"><abbr title="App\Model\DeckOfCards::dealCards">dealCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#9"><abbr title="App\Model\DetermineWinner::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#20"><abbr title="App\Model\DetermineWinner::getWinner">getWinner</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#43"><abbr title="App\Model\DetermineWinner::allPlayersStand">allPlayersStand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#54"><abbr title="App\Model\DetermineWinner::isBusted">isBusted</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#74"><abbr title="App\Model\DetermineWinner::getWinnerBasedOnHand">getWinnerBasedOnHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#98"><abbr title="App\Model\DetermineWinner::getPlayersBestScores">getPlayersBestScores</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#121"><abbr title="App\Model\DetermineWinner::getAllHighestScores">getAllHighestScores</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#18"><abbr title="App\Model\FrenchSuitedDeck::create">create</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#31"><abbr title="App\Model\FrenchSuitedDeck::createFromSession">createFromSession</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#42"><abbr title="App\Model\FrenchSuitedDeck::sort">sort</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#48"><abbr title="App\Model\FrenchSuitedDeck::sortBySuit">sortBySuit</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#54"><abbr title="App\Model\FrenchSuitedDeck::sortByValue">sortByValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#70"><abbr title="App\Model\FrenchSuitedDeck::sortBySuitAndValue">sortBySuitAndValue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#36"><abbr title="App\Model\Game::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#61"><abbr title="App\Model\Game::attach">attach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#66"><abbr title="App\Model\Game::detach">detach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#71"><abbr title="App\Model\Game::notify">notify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#84"><abbr title="App\Model\Game::createFromSavedState">createFromSavedState</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#102"><abbr title="App\Model\Game::getGameState">getGameState</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#113"><abbr title="App\Model\Game::getGameStatus">getGameStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#118"><abbr title="App\Model\Game::setGameStatus">setGameStatus</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#130"><abbr title="App\Model\Game::playRound">playRound</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#154"><abbr title="App\Model\Game::getWinnerBasedOnHand">getWinnerBasedOnHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#166"><abbr title="App\Model\Game::processMove">processMove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#193"><abbr title="App\Model\Game::reset">reset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#209"><abbr title="App\Model\Game::isRestartable">isRestartable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#219"><abbr title="App\Model\Game::getPlayers">getPlayers</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#231"><abbr title="App\Model\Game::isValidForm">isValidForm</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#243"><abbr title="App\Model\Game::dealCard">dealCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#252"><abbr title="App\Model\Game::getCurrentPlayer">getCurrentPlayer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#257"><abbr title="App\Model\Game::nextPlayer">nextPlayer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Game.php.html#268"><abbr title="App\Model\Game::hasNextPlayer">hasNextPlayer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/GraphicCard.php.html#11"><abbr title="App\Model\GraphicCard::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/GraphicCard.php.html#22"><abbr title="App\Model\GraphicCard::getCard">getCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/HumanPlayer.php.html#7"><abbr title="App\Model\HumanPlayer::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#13"><abbr title="App\Model\Player::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#33"><abbr title="App\Model\Player::getHand">getHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#41"><abbr title="App\Model\Player::getRealHand">getRealHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#46"><abbr title="App\Model\Player::addCardsToHand">addCardsToHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#58"><abbr title="App\Model\Player::getScores">getScores</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#63"><abbr title="App\Model\Player::resetHand">resetHand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#68"><abbr title="App\Model\Player::resetStanding">resetStanding</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#73"><abbr title="App\Model\Player::getName">getName</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#78"><abbr title="App\Model\Player::stand">stand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#84"><abbr title="App\Model\Player::isStanding">isStanding</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#89"><abbr title="App\Model\Player::addMoney">addMoney</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#94"><abbr title="App\Model\Player::placeBet">placeBet</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Model/Player.php.html#99"><abbr title="App\Model\Player::getBalance">getBalance</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Observer/SessionSavingObserver.php.html#10"><abbr title="App\Observer\SessionSavingObserver::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Observer/SessionSavingObserver.php.html#14"><abbr title="App\Observer\SessionSavingObserver::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#17"><abbr title="App\Service\DeckService::getInstansiatedDeck">getInstansiatedDeck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#25"><abbr title="App\Service\DeckService::getDeck">getDeck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#33"><abbr title="App\Service\DeckService::shuffleDeck">shuffleDeck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#41"><abbr title="App\Service\DeckService::drawCard">drawCard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#49"><abbr title="App\Service\DeckService::drawCards">drawCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#57"><abbr title="App\Service\DeckService::dealCards">dealCards</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/DeckService.php.html#65"><abbr title="App\Service\DeckService::resetDeck">resetDeck</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/QuoteService.php.html#9"><abbr title="App\Service\QuoteService::getAssadsQuote">getAssadsQuote</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Model/Game.php.html#166"><abbr title="App\Model\Game::processMove">processMove</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#54"><abbr title="App\Model\FrenchSuitedDeck::sortByValue">sortByValue</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Model/BetManager.php.html#39"><abbr title="App\Model\BetManager::setPot">setPot</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#47"><abbr title="App\Model\CardHand::getScore">getScore</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Controller/CardController.php.html#78"><abbr title="App\Controller\CardController::deckDeal">deckDeal</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Model/BankPlayer.php.html#12"><abbr title="App\Model\BankPlayer::makeMove">makeMove</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#98"><abbr title="App\Model\DetermineWinner::getPlayersBestScores">getPlayersBestScores</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="EventListener/CardRouteListener.php.html#11"><abbr title="App\EventListener\CardRouteListener::onKernelRequest">onKernelRequest</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="EventListener/GameRouteListener.php.html#15"><abbr title="App\EventListener\GameRouteListener::onKernelRequest">onKernelRequest</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#20"><abbr title="App\Model\DetermineWinner::getWinner">getWinner</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Model/Game.php.html#130"><abbr title="App\Model\Game::playRound">playRound</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Model/CardHand.php.html#20"><abbr title="App\Model\CardHand::addCard">addCard</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#167"><abbr title="App\Model\DeckOfCards::dealCards">dealCards</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#43"><abbr title="App\Model\DetermineWinner::allPlayersStand">allPlayersStand</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#54"><abbr title="App\Model\DetermineWinner::isBusted">isBusted</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#74"><abbr title="App\Model\DetermineWinner::getWinnerBasedOnHand">getWinnerBasedOnHand</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/DetermineWinner.php.html#121"><abbr title="App\Model\DetermineWinner::getAllHighestScores">getAllHighestScores</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#18"><abbr title="App\Model\FrenchSuitedDeck::create">create</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/Game.php.html#36"><abbr title="App\Model\Game::__construct">__construct</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/Game.php.html#193"><abbr title="App\Model\Game::reset">reset</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Model/Game.php.html#231"><abbr title="App\Model\Game::isValidForm">isValidForm</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Controller/ApiController.php.html#114"><abbr title="App\Controller\ApiController::game">game</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/GameController.php.html#28"><abbr title="App\Controller\GameController::processMove">processMove</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Controller/IndexController.php.html#22"><abbr title="App\Controller\IndexController::index">index</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#50"><abbr title="App\Model\DeckOfCards::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#66"><abbr title="App\Model\DeckOfCards::notify">notify</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#135"><abbr title="App\Model\DeckOfCards::drawCard">drawCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/DeckOfCards.php.html#151"><abbr title="App\Model\DeckOfCards::drawCards">drawCards</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#31"><abbr title="App\Model\FrenchSuitedDeck::createFromSession">createFromSession</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/FrenchSuitedDeck.php.html#70"><abbr title="App\Model\FrenchSuitedDeck::sortBySuitAndValue">sortBySuitAndValue</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Game.php.html#71"><abbr title="App\Model\Game::notify">notify</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Game.php.html#84"><abbr title="App\Model\Game::createFromSavedState">createFromSavedState</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Game.php.html#102"><abbr title="App\Model\Game::getGameState">getGameState</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Game.php.html#243"><abbr title="App\Model\Game::dealCard">dealCard</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Game.php.html#257"><abbr title="App\Model\Game::nextPlayer">nextPlayer</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Player.php.html#33"><abbr title="App\Model\Player::getHand">getHand</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Model/Player.php.html#46"><abbr title="App\Model\Player::addCardsToHand">addCardsToHand</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.31</a> using <a href="https://secure.php.net/" target="_top">PHP 8.3.6</a> and <a href="https://phpunit.de/">PHPUnit 9.6.19</a> at Fri May 3 10:26:05 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=9.2.31" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=9.2.31" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=9.2.31" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([23,0,0,0,0,0,1,0,0,0,0,1], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([119,0,0,0,0,0,0,0,0,0,0,4], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/AboutController.php.html#9\">App\\Controller\\AboutController<\/a>"],[0,11,"<a href=\"Controller\/ApiController.php.html#15\">App\\Controller\\ApiController<\/a>"],[0,12,"<a href=\"Controller\/CardController.php.html#15\">App\\Controller\\CardController<\/a>"],[0,5,"<a href=\"Controller\/GameController.php.html#14\">App\\Controller\\GameController<\/a>"],[0,3,"<a href=\"Controller\/IndexController.php.html#13\">App\\Controller\\IndexController<\/a>"],[0,2,"<a href=\"Controller\/LuckyController.php.html#10\">App\\Controller\\LuckyController<\/a>"],[0,1,"<a href=\"Controller\/ReportController.php.html#9\">App\\Controller\\ReportController<\/a>"],[50,3,"<a href=\"Dice\/Dice.php.html#5\">App\\Dice\\Dice<\/a>"],[0,4,"<a href=\"EventListener\/CardRouteListener.php.html#9\">App\\EventListener\\CardRouteListener<\/a>"],[0,4,"<a href=\"EventListener\/GameRouteListener.php.html#13\">App\\EventListener\\GameRouteListener<\/a>"],[100,0,"<a href=\"Kernel.php.html#8\">App\\Kernel<\/a>"],[0,6,"<a href=\"Model\/BankPlayer.php.html#5\">App\\Model\\BankPlayer<\/a>"],[0,10,"<a href=\"Model\/BetManager.php.html#8\">App\\Model\\BetManager<\/a>"],[0,7,"<a href=\"Model\/Card.php.html#5\">App\\Model\\Card<\/a>"],[0,11,"<a href=\"Model\/CardHand.php.html#7\">App\\Model\\CardHand<\/a>"],[0,18,"<a href=\"Model\/DeckOfCards.php.html#11\">App\\Model\\DeckOfCards<\/a>"],[0,22,"<a href=\"Model\/DetermineWinner.php.html#7\">App\\Model\\DetermineWinner<\/a>"],[0,16,"<a href=\"Model\/FrenchSuitedDeck.php.html#9\">App\\Model\\FrenchSuitedDeck<\/a>"],[0,40,"<a href=\"Model\/Game.php.html#14\">App\\Model\\Game<\/a>"],[0,2,"<a href=\"Model\/GraphicCard.php.html#7\">App\\Model\\GraphicCard<\/a>"],[0,1,"<a href=\"Model\/HumanPlayer.php.html#5\">App\\Model\\HumanPlayer<\/a>"],[0,15,"<a href=\"Model\/Player.php.html#5\">App\\Model\\Player<\/a>"],[0,2,"<a href=\"Observer\/SessionSavingObserver.php.html#8\">App\\Observer\\SessionSavingObserver<\/a>"],[0,7,"<a href=\"Service\/DeckService.php.html#15\">App\\Service\\DeckService<\/a>"],[0,1,"<a href=\"Service\/QuoteService.php.html#7\">App\\Service\\QuoteService<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Controller\/AboutController.php.html#11\">App\\Controller\\AboutController::index<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#17\">App\\Controller\\ApiController::__construct<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#21\">App\\Controller\\ApiController::index<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#64\">App\\Controller\\ApiController::assadsQuotes<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#72\">App\\Controller\\ApiController::deck<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#79\">App\\Controller\\ApiController::shuffle<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#86\">App\\Controller\\ApiController::draw<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#93\">App\\Controller\\ApiController::drawNumber<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#100\">App\\Controller\\ApiController::deal<\/a>"],[0,1,"<a href=\"Controller\/ApiController.php.html#107\">App\\Controller\\ApiController::reset<\/a>"],[0,2,"<a href=\"Controller\/ApiController.php.html#114\">App\\Controller\\ApiController::game<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#17\">App\\Controller\\CardController::getInstansiatedDeck<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#26\">App\\Controller\\CardController::index<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#32\">App\\Controller\\CardController::sessionView<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#40\">App\\Controller\\CardController::sessionDestroy<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#54\">App\\Controller\\CardController::deck<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#62\">App\\Controller\\CardController::deckShuffle<\/a>"],[0,1,"<a href=\"Controller\/CardController.php.html#70\">App\\Controller\\CardController::deckDraw<\/a>"],[0,5,"<a href=\"Controller\/CardController.php.html#78\">App\\Controller\\CardController::deckDeal<\/a>"],[0,1,"<a href=\"Controller\/GameController.php.html#16\">App\\Controller\\GameController::index<\/a>"],[0,1,"<a href=\"Controller\/GameController.php.html#22\">App\\Controller\\GameController::doc<\/a>"],[0,2,"<a href=\"Controller\/GameController.php.html#28\">App\\Controller\\GameController::processMove<\/a>"],[0,1,"<a href=\"Controller\/GameController.php.html#46\">App\\Controller\\GameController::play<\/a>"],[0,1,"<a href=\"Controller\/IndexController.php.html#17\">App\\Controller\\IndexController::__construct<\/a>"],[0,2,"<a href=\"Controller\/IndexController.php.html#22\">App\\Controller\\IndexController::index<\/a>"],[0,1,"<a href=\"Controller\/LuckyController.php.html#12\">App\\Controller\\LuckyController::index<\/a>"],[0,1,"<a href=\"Controller\/LuckyController.php.html#23\">App\\Controller\\LuckyController::jsonNumber<\/a>"],[0,1,"<a href=\"Controller\/ReportController.php.html#11\">App\\Controller\\ReportController::index<\/a>"],[100,1,"<a href=\"Dice\/Dice.php.html#9\">App\\Dice\\Dice::__construct<\/a>"],[0,1,"<a href=\"Dice\/Dice.php.html#14\">App\\Dice\\Dice::roll<\/a>"],[100,1,"<a href=\"Dice\/Dice.php.html#20\">App\\Dice\\Dice::getAsString<\/a>"],[0,4,"<a href=\"EventListener\/CardRouteListener.php.html#11\">App\\EventListener\\CardRouteListener::onKernelRequest<\/a>"],[0,4,"<a href=\"EventListener\/GameRouteListener.php.html#15\">App\\EventListener\\GameRouteListener::onKernelRequest<\/a>"],[0,1,"<a href=\"Model\/BankPlayer.php.html#7\">App\\Model\\BankPlayer::__construct<\/a>"],[0,5,"<a href=\"Model\/BankPlayer.php.html#12\">App\\Model\\BankPlayer::makeMove<\/a>"],[0,1,"<a href=\"Model\/BetManager.php.html#10\">App\\Model\\BetManager::__construct<\/a>"],[0,1,"<a href=\"Model\/BetManager.php.html#15\">App\\Model\\BetManager::payOut<\/a>"],[0,1,"<a href=\"Model\/BetManager.php.html#21\">App\\Model\\BetManager::hasPot<\/a>"],[0,1,"<a href=\"Model\/BetManager.php.html#26\">App\\Model\\BetManager::getPot<\/a>"],[0,6,"<a href=\"Model\/BetManager.php.html#39\">App\\Model\\BetManager::setPot<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#75\">App\\Model\\Card::__construct<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#88\">App\\Model\\Card::getCard<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#93\">App\\Model\\Card::getValue<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#98\">App\\Model\\Card::getSuit<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#103\">App\\Model\\Card::getAlternativeValue<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#108\">App\\Model\\Card::getUnicodeRepresentation<\/a>"],[0,1,"<a href=\"Model\/Card.php.html#113\">App\\Model\\Card::__toString<\/a>"],[0,1,"<a href=\"Model\/CardHand.php.html#15\">App\\Model\\CardHand::__construct<\/a>"],[0,3,"<a href=\"Model\/CardHand.php.html#20\">App\\Model\\CardHand::addCard<\/a>"],[0,1,"<a href=\"Model\/CardHand.php.html#37\">App\\Model\\CardHand::getHand<\/a>"],[0,6,"<a href=\"Model\/CardHand.php.html#47\">App\\Model\\CardHand::getScore<\/a>"],[0,2,"<a href=\"Model\/DeckOfCards.php.html#50\">App\\Model\\DeckOfCards::__construct<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#58\">App\\Model\\DeckOfCards::attach<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#62\">App\\Model\\DeckOfCards::detach<\/a>"],[0,2,"<a href=\"Model\/DeckOfCards.php.html#66\">App\\Model\\DeckOfCards::notify<\/a>"],[100,0,"<a href=\"Model\/DeckOfCards.php.html#95\">App\\Model\\DeckOfCards::create<\/a>"],[100,0,"<a href=\"Model\/DeckOfCards.php.html#97\">App\\Model\\DeckOfCards::sort<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#99\">App\\Model\\DeckOfCards::addCard<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#105\">App\\Model\\DeckOfCards::shuffle<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#118\">App\\Model\\DeckOfCards::getDeck<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#123\">App\\Model\\DeckOfCards::hasCards<\/a>"],[0,1,"<a href=\"Model\/DeckOfCards.php.html#128\">App\\Model\\DeckOfCards::getNumberOfCards<\/a>"],[0,2,"<a href=\"Model\/DeckOfCards.php.html#135\">App\\Model\\DeckOfCards::drawCard<\/a>"],[0,2,"<a href=\"Model\/DeckOfCards.php.html#151\">App\\Model\\DeckOfCards::drawCards<\/a>"],[0,3,"<a href=\"Model\/DeckOfCards.php.html#167\">App\\Model\\DeckOfCards::dealCards<\/a>"],[0,1,"<a href=\"Model\/DetermineWinner.php.html#9\">App\\Model\\DetermineWinner::__construct<\/a>"],[0,4,"<a href=\"Model\/DetermineWinner.php.html#20\">App\\Model\\DetermineWinner::getWinner<\/a>"],[0,3,"<a href=\"Model\/DetermineWinner.php.html#43\">App\\Model\\DetermineWinner::allPlayersStand<\/a>"],[0,3,"<a href=\"Model\/DetermineWinner.php.html#54\">App\\Model\\DetermineWinner::isBusted<\/a>"],[0,3,"<a href=\"Model\/DetermineWinner.php.html#74\">App\\Model\\DetermineWinner::getWinnerBasedOnHand<\/a>"],[0,5,"<a href=\"Model\/DetermineWinner.php.html#98\">App\\Model\\DetermineWinner::getPlayersBestScores<\/a>"],[0,3,"<a href=\"Model\/DetermineWinner.php.html#121\">App\\Model\\DetermineWinner::getAllHighestScores<\/a>"],[0,3,"<a href=\"Model\/FrenchSuitedDeck.php.html#18\">App\\Model\\FrenchSuitedDeck::create<\/a>"],[0,2,"<a href=\"Model\/FrenchSuitedDeck.php.html#31\">App\\Model\\FrenchSuitedDeck::createFromSession<\/a>"],[0,1,"<a href=\"Model\/FrenchSuitedDeck.php.html#42\">App\\Model\\FrenchSuitedDeck::sort<\/a>"],[0,1,"<a href=\"Model\/FrenchSuitedDeck.php.html#48\">App\\Model\\FrenchSuitedDeck::sortBySuit<\/a>"],[0,7,"<a href=\"Model\/FrenchSuitedDeck.php.html#54\">App\\Model\\FrenchSuitedDeck::sortByValue<\/a>"],[0,2,"<a href=\"Model\/FrenchSuitedDeck.php.html#70\">App\\Model\\FrenchSuitedDeck::sortBySuitAndValue<\/a>"],[0,3,"<a href=\"Model\/Game.php.html#36\">App\\Model\\Game::__construct<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#61\">App\\Model\\Game::attach<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#66\">App\\Model\\Game::detach<\/a>"],[0,2,"<a href=\"Model\/Game.php.html#71\">App\\Model\\Game::notify<\/a>"],[0,2,"<a href=\"Model\/Game.php.html#84\">App\\Model\\Game::createFromSavedState<\/a>"],[0,2,"<a href=\"Model\/Game.php.html#102\">App\\Model\\Game::getGameState<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#113\">App\\Model\\Game::getGameStatus<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#118\">App\\Model\\Game::setGameStatus<\/a>"],[0,4,"<a href=\"Model\/Game.php.html#130\">App\\Model\\Game::playRound<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#154\">App\\Model\\Game::getWinnerBasedOnHand<\/a>"],[0,8,"<a href=\"Model\/Game.php.html#166\">App\\Model\\Game::processMove<\/a>"],[0,3,"<a href=\"Model\/Game.php.html#193\">App\\Model\\Game::reset<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#209\">App\\Model\\Game::isRestartable<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#219\">App\\Model\\Game::getPlayers<\/a>"],[0,3,"<a href=\"Model\/Game.php.html#231\">App\\Model\\Game::isValidForm<\/a>"],[0,2,"<a href=\"Model\/Game.php.html#243\">App\\Model\\Game::dealCard<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#252\">App\\Model\\Game::getCurrentPlayer<\/a>"],[0,2,"<a href=\"Model\/Game.php.html#257\">App\\Model\\Game::nextPlayer<\/a>"],[0,1,"<a href=\"Model\/Game.php.html#268\">App\\Model\\Game::hasNextPlayer<\/a>"],[0,1,"<a href=\"Model\/GraphicCard.php.html#11\">App\\Model\\GraphicCard::__construct<\/a>"],[0,1,"<a href=\"Model\/GraphicCard.php.html#22\">App\\Model\\GraphicCard::getCard<\/a>"],[0,1,"<a href=\"Model\/HumanPlayer.php.html#7\">App\\Model\\HumanPlayer::__construct<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#13\">App\\Model\\Player::__construct<\/a>"],[0,2,"<a href=\"Model\/Player.php.html#33\">App\\Model\\Player::getHand<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#41\">App\\Model\\Player::getRealHand<\/a>"],[0,2,"<a href=\"Model\/Player.php.html#46\">App\\Model\\Player::addCardsToHand<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#58\">App\\Model\\Player::getScores<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#63\">App\\Model\\Player::resetHand<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#68\">App\\Model\\Player::resetStanding<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#73\">App\\Model\\Player::getName<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#78\">App\\Model\\Player::stand<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#84\">App\\Model\\Player::isStanding<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#89\">App\\Model\\Player::addMoney<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#94\">App\\Model\\Player::placeBet<\/a>"],[0,1,"<a href=\"Model\/Player.php.html#99\">App\\Model\\Player::getBalance<\/a>"],[0,1,"<a href=\"Observer\/SessionSavingObserver.php.html#10\">App\\Observer\\SessionSavingObserver::__construct<\/a>"],[0,1,"<a href=\"Observer\/SessionSavingObserver.php.html#14\">App\\Observer\\SessionSavingObserver::update<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#17\">App\\Service\\DeckService::getInstansiatedDeck<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#25\">App\\Service\\DeckService::getDeck<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#33\">App\\Service\\DeckService::shuffleDeck<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#41\">App\\Service\\DeckService::drawCard<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#49\">App\\Service\\DeckService::drawCards<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#57\">App\\Service\\DeckService::dealCards<\/a>"],[0,1,"<a href=\"Service\/DeckService.php.html#65\">App\\Service\\DeckService::resetDeck<\/a>"],[0,1,"<a href=\"Service\/QuoteService.php.html#9\">App\\Service\\QuoteService::getAssadsQuote<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
