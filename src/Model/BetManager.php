@@ -1,9 +1,21 @@
 <?php
 
+/**
+ * This file is part of a game 21, developed within a 
+ * MVC course at BTH.
+ * 
+ * (c) Karl Wackerberg 2024
+ */
+
 namespace App\Model;
 
 use App\Model\Player;
 use Exception;
+
+/**
+ * BetManager manages bets within a game. It takes money from players and pays out the pot to a player.
+ * @author Karl Wackerberg
+ */
 
 class BetManager
 {
@@ -11,18 +23,28 @@ class BetManager
     {
     }
 
-    // reset to "ended" removed.
+    /**
+     * Payout the pot to the player.
+     *
+     * @param Player $player The player to pay out the pot to.
+     */
     public function payOut(Player $player): void
     {
         $player->addMoney((int)$this->pot);
         $this->pot = null;
     }
 
+    /**
+     * Check if the game has a pot.
+     */
     public function hasPot(): bool
     {
         return $this->pot !== null;
     }
 
+    /**
+     * Get the pot for the game.
+     */
     public function getPot(): ?int
     {
         return $this->pot;

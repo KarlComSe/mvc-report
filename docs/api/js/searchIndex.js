@@ -191,6 +191,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-ReportController.html#method_index"
         },                {
+            "fqsen": "\\App\\Dice\\Dice",
+            "name": "Dice",
+            "summary": "",
+            "url": "classes/App-Dice-Dice.html"
+        },                {
+            "fqsen": "\\App\\Dice\\Dice\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Dice-Dice.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Dice\\Dice\u003A\u003Aroll\u0028\u0029",
+            "name": "roll",
+            "summary": "",
+            "url": "classes/App-Dice-Dice.html#method_roll"
+        },                {
+            "fqsen": "\\App\\Dice\\Dice\u003A\u003AgetAsString\u0028\u0029",
+            "name": "getAsString",
+            "summary": "",
+            "url": "classes/App-Dice-Dice.html#method_getAsString"
+        },                {
+            "fqsen": "\\App\\Dice\\Dice\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/App-Dice-Dice.html#property_value"
+        },                {
             "fqsen": "\\App\\EventListener\\CardRouteListener",
             "name": "CardRouteListener",
             "summary": "",
@@ -243,7 +268,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Model\\BetManager",
             "name": "BetManager",
-            "summary": "",
+            "summary": "BetManager\u0020manages\u0020bets\u0020within\u0020a\u0020game.\u0020It\u0020takes\u0020money\u0020from\u0020players\u0020and\u0020pays\u0020out\u0020the\u0020pot\u0020to\u0020a\u0020player.",
             "url": "classes/App-Model-BetManager.html"
         },                {
             "fqsen": "\\App\\Model\\BetManager\u003A\u003A__construct\u0028\u0029",
@@ -253,17 +278,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Model\\BetManager\u003A\u003ApayOut\u0028\u0029",
             "name": "payOut",
-            "summary": "",
+            "summary": "Payout\u0020the\u0020pot\u0020to\u0020the\u0020player.",
             "url": "classes/App-Model-BetManager.html#method_payOut"
         },                {
             "fqsen": "\\App\\Model\\BetManager\u003A\u003AhasPot\u0028\u0029",
             "name": "hasPot",
-            "summary": "",
+            "summary": "Check\u0020if\u0020the\u0020game\u0020has\u0020a\u0020pot.",
             "url": "classes/App-Model-BetManager.html#method_hasPot"
         },                {
             "fqsen": "\\App\\Model\\BetManager\u003A\u003AgetPot\u0028\u0029",
             "name": "getPot",
-            "summary": "",
+            "summary": "Get\u0020the\u0020pot\u0020for\u0020the\u0020game.",
             "url": "classes/App-Model-BetManager.html#method_getPot"
         },                {
             "fqsen": "\\App\\Model\\BetManager\u003A\u003AsetPot\u0028\u0029",
@@ -385,6 +410,11 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "Constructor\u0020for\u0020the\u0020DeckOfCards\u0020class.",
             "url": "classes/App-Model-DeckOfCards.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Model\\DeckOfCards\u003A\u003AgetObservers\u0028\u0029",
+            "name": "getObservers",
+            "summary": "",
+            "url": "classes/App-Model-DeckOfCards.html#method_getObservers"
         },                {
             "fqsen": "\\App\\Model\\DeckOfCards\u003A\u003Aattach\u0028\u0029",
             "name": "attach",
@@ -565,6 +595,11 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "Constructor\u0020for\u0020the\u0020Game\u0020class.",
             "url": "classes/App-Model-Game.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Model\\Game\u003A\u003AgetObservers\u0028\u0029",
+            "name": "getObservers",
+            "summary": "",
+            "url": "classes/App-Model-Game.html#method_getObservers"
         },                {
             "fqsen": "\\App\\Model\\Game\u003A\u003Aattach\u0028\u0029",
             "name": "attach",
@@ -960,6 +995,11 @@ Search.appendIndex(
             "name": "Controller",
             "summary": "",
             "url": "namespaces/app-controller.html"
+        },                {
+            "fqsen": "\\App\\Dice",
+            "name": "Dice",
+            "summary": "",
+            "url": "namespaces/app-dice.html"
         },                {
             "fqsen": "\\App\\EventListener",
             "name": "EventListener",
