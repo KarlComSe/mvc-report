@@ -14,7 +14,7 @@ class BankPlayer extends Player implements AiPlayerInterface
         $scores = $this->getScores();
         $maxScore = 0;
         foreach ($scores as $score) {
-            if ($score <= 21 && $score > $maxScore) {
+            if ($score > $maxScore) {
                 $maxScore = $score;
             }
         }

@@ -55,6 +55,12 @@ abstract class DeckOfCards implements SplSubject
             $this->attach($observer);
         }
     }
+
+    public function getObservers(): SplObjectStorage
+    {
+        return $this->observers;
+    }
+
     public function attach(SplObserver $observer): void
     {
         $this->observers->attach($observer);

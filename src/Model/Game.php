@@ -48,14 +48,20 @@ class Game implements SplSubject
         $this->betManager = new BetManager();
         $this->deck = $deck;
         $this->players = $players;
-        $this->setGameStatus($gameStatus);
+
         if (count($players) > 0) {
             $this->currentPlayer = $players[0]->getName();
         }
+        $this->setGameStatus($gameStatus);
         $this->determineWinner = new DetermineWinner();
 
 
         $this->notify();
+    }
+
+    public function getObservers(): SplObjectStorage
+    {
+        return $this->observers;
     }
 
     public function attach(SplObserver $observer): void
