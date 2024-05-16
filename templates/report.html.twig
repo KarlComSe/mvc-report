@@ -95,11 +95,57 @@
     </article>
     <article id="kmom04">
       <h2>KMOM04</h2>
-      <p></p>
+      <p>Jag valde att dokumentera min "BetManager"-class.</p>
+      <h3>Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.</h3>
+      <p>Det var enkelt att komma igång med PHPUnit, instruktionerna var mycket tydliga. Det var också likt det som gjorts i tidigare kurser, framför allt i Python, men även det som finns i IT-sec-kursen.</p>
+      <h3>Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?</h3>
+      <p>Jag lyckades bra. Kodtäckningsgraden i antal rader blev över 92 %. </p>
+      <h3>Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet?</h3> 
+      <p>Det var generellt enkelt att testa min kod. Det var två saker som var lite svårare som jag avstod från: 1) Hantera sessionen och tester kring det. 2) Testa mitt observer-pattern fullt ut som jag använde för att spara sessionen. I övrigt använde jag ingen mockning, vilket hade varit bra om jag velat testa min funktion för att blanda kortleken.</p>
+      <h3>
+        Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.
+      </h3>
+      <p>Jag hittade en "bugg" i min kod, där koden fungerade, men enbart såsom jag använde den i programmet. Där skrev jag om koden så att den alltid fungerar. Jag la också till en publik getter-funktion för något, för att kunna testa att något initierats (som var privat). Ev. gjorde jag något mer, men det har jag glömt nu.</p>
+      <h3>
+        Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.
+      </h3>
+      <p>Det tycker jag. Kod som är testbar tar en given och enkel input, och ger ett fördefinierbart resultat. Likväl är djupa kontroll-strukturer svåra att testa fullt ut, vilket jag tycker är oren kod. Klasser som har ett begränsat ansvar är också betydligt enklare att testa, än klasser som gör många saker.</p>
+      <h3>Vilken är din TIL för detta KMOM?</h3>
+      <p>Jag kan nu skriva tester med PHPUnit. Det kunde jag inte innan.</p>
+      <p>Jag tycker också att min förståelse för bra kod har blivit bättre, speciellt single responsibility årincipen.</p>
     </article>
     <article id="kmom05">
       <h2>KMOM05</h2>
+      <h3>
+        Gick det bra att jobba igenom övningen med Symfony och Doctrine. Något särskilt du tänkte/reagerade på under övningen?
+      </h3>
+      <p>Det gick bra. Jag hoppade över de sista stegen i övningen, men läste Symfony's guide och testade på validator-modulen. Mina tankar kring övningen: Tillsammans med detaljerna för att använda MariaDB / MySQL på studentservern skapade den bra förståelse för hur man kan jobba med $ENV och .local. Det gick inte fram i enbart övningen / veckans material för mig.</p>
+      <h3>
+        Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?
+      </h3>
+      <p>
+        Jag valde att testa lite inför mitt slutprojekt och frångick exemplet med böcker. Utöver det hade jag två tankar: 1) Jag vill använda forms modulen från symfony och 2) Jag vill använda UXUI turbo ("AJAX"). För att få UXUI turbo som använder server side events att fungera behöver man ha en webbserver som har Mercure installerat. Det fick mig att spendera en vecka med att läsa in mig på webbservern Caddy... inklusive drygt 12 h där skillnaden var mellan två regexp `(\/{1})(\w|\d|\s)+\/cdn- /cdn-)` och `^/[a-zA-Z0-9]+/cdn-`, var väsentlig. Med all rätt kan man fundera hur jag tänkte här.   
+      </p>
+      <h3> 
+        Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?
+      </h3>
+      <p>
+
+      </p>
+      <h3>
+        Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?
+      </h3>
+      <p>
+
+      </p>
+      <h3>Vilken är din TIL för detta kmom?</h3>
       <p></p>
+      ```
+      symfony console make:controller CurrencyController 
+      php bin/console make:entity
+      php bin/console make:migration
+
+      ```
     </article>
     <article id="kmom06">
       <h2>KMOM06</h2>
