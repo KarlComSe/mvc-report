@@ -14,7 +14,6 @@
             <th>Decimal digits</th>
             <th>Actions</th>
         </tr>
-        {% for currency in currencies %}
             <tr>
                 <td>{{ currency.id }}</td>
                 <td>{{ currency.alpabethicCode }}</td>
@@ -26,18 +25,12 @@
                     {{ currency.decimalDigits }}
                 </td>
                 <td>
-                    <a href="{{ path('app_currency_show', {'id': currency.id}) }}">show</a>
                     <a href="{{ path('app_currency_edit', {'id': currency.id}) }}">edit</a>
                     <a href="{{ path('app_currency_delete', {'id': currency.id}) }}">delete</a>
                 </td>
             </tr>
-        {% endfor %}
     </table>
-    <ul>
-        <li><a href="{{ path('app_currency_create') }}">Create new</a></li>
-        <li><a href="https://en.wikipedia.org/wiki/ISO_4217">Read about currency codes according to ISO 4217 and see examples</a></li>
-    </ul>
-
+    <a href="{{ path('app_currency') }}">Show all</a>
 </div>
 
 {% endblock %}
