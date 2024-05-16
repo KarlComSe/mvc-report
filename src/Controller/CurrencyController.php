@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Currency;
-use App\Form\Type\CurrencyType;
-use Symfony\Component\Form\Form;
+use App\Form\CurrencyType;
+use App\Repository\CurrencyRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,7 +52,20 @@ class CurrencyController extends AbstractController
         ]);
     }
 
+    #[Route('/api/currency', name: 'api_currency')]
+    public function api(CurrencyRepository $currencyRepository): Response
+    {
+        $currencies = $currencyRepository
+            ->findAll();
 
+        return $this->json($currencies, 200);
+    }
+
+    #[Route('/api/currency/{id}', name: 'api_currency_show')]
+    public function apiShow(Currency $currency): Response
+    {
+        return $this->json($currency, 200);
+    }
 
     #[Route('/currency/edit/{id}', name: 'app_currency_edit')]
     public function edit(Request $request, EntityManagerInterface $entityManager, Currency $currency): Response

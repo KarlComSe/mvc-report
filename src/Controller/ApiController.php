@@ -24,6 +24,10 @@ class ApiController extends AbstractController
 
         $data = [
             'api' => [
+                'api_currency' => [
+                    'path' => '/api/currency',
+                    'description' => 'Provides a list of currencies.'
+                ],
                 'api_game' => [
                 'path' => '/api/game',
                 'description' => 'Provides the current state of the game.'

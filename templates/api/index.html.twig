@@ -5,6 +5,10 @@
 <main class="mt-3">
   <section>
     <h1>API documentation</h1>
+    <a href="{{ path('api_currency_show', {'id' : 1}) }}">currency/1</a><br>
+    <a href="{{ path('api_currency_show', {'id' : 2}) }}">currency/2</a><br>
+    <a href="{{ path('api_currency_show', {'id' : 3}) }}">currency/3</a>
+
     <p>Some links are added in this view due to added requirements. It will not work to click on them in all cases.</p>
     {% for key, value in api %}
       <article>
