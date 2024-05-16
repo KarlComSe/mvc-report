@@ -1,6 +1,7 @@
 <?php
 
 // src/Form/Type/CurrencyType.php
+
 namespace App\Form\Type;
 
 use App\Entity\Currency;

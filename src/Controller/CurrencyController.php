@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Currency;
 use App\Form\Type\CurrencyType;
+use Symfony\Component\Form\Form;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -57,6 +57,7 @@ class CurrencyController extends AbstractController
     #[Route('/currency/edit/{id}', name: 'app_currency_edit')]
     public function edit(Request $request, EntityManagerInterface $entityManager, Currency $currency): Response
     {
+
         $form = $this->createForm(CurrencyType::class, $currency);
         $form->add('save', SubmitType::class, [
             'label' => 'Save edit',
@@ -72,7 +73,9 @@ class CurrencyController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->get('cancel')->isClicked()) {
+        /** @var ClickableInterface $button  */
+        $button = $form->get("cancel");
+        if ($button->isClicked()) {
             return $this->redirectToRoute('app_currency');
         }
 

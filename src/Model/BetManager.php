@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This file is part of a game 21, developed within a 
+ * This file is part of a game 21, developed within a
  * MVC course at BTH.
- * 
+ *
  * (c) Karl Wackerberg 2024
  */
 

@@ -34,8 +34,8 @@ class ProductController extends AbstractController
     }
 
 
-    // Uses auto-wiring with type-hinting to get the ProductRepository, compared to above where the 
-    // entity manager is injected, and 
+    // Uses auto-wiring with type-hinting to get the ProductRepository, compared to above where the
+    // entity manager is injected, and
     #[Route('/product/show', name: 'product_show_all')]
     public function showAllProduct(
         ProductRepository $productRepository
