@@ -1,0 +1,72 @@
+{# templates/index.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Metrics analys{% endblock %}
+{% block body %}
+<main class="mt-3">
+  <section>
+    <h1>Clean code</h1>
+    <p>På svenska.</p>
+    <nav>
+      <ul>
+      <li><a href="#introduction">Introduktion</a></li>
+      <li><a href="#phpmetrics">Phpmetrics</a></li>
+      <li><a href="#scrutinizer">Scrutinizer</a></li>
+      <li><a href="#improvements">Förbättringar</a></li>
+      <li><a href="#discussion">Diskussion</a></li>
+      </ul>
+    </nav>
+    <article id="introduction">
+      <h2>Introduktion</h2>
+      <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat till kodkvalitet.</p>
+    </article>
+    <article id="phpmetrics"></article>
+      <h2>Phpmetrics</h2>
+      <p>Skapa en rubrik “Phpmetrics” och analysera dess rapport för din kod. Använd mätvärdena för att hitta flaskhalsar och svaga punkter i din kod (minst 3 stycken). Du vill hitta kod som har förbättringspotential. Visualisera med någon representativ bild från rapporten.</p>
+    </article>
+    <article id="scrutinizer">
+      <h2>Scrutinizer</h2>
+      <p>Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.</p>
+
+      <p>
+        Inkludera klickbara Scrutinizer badges i din rapport för build, coverage och quality.
+        Placera samma badges i din README.md.</p>
+        <p>
+          I ovan analys så kopplar du dina “findings” till 6C. Använd gärna något ytterligare mättal som du finner relevant och intressant.
+        </p>
+    </article>
+    <article id="improvements">
+      <h2>Förbättringar</h2>
+        <p>
+          Skapa en ny rubrik “Förbättringar” där du väljer minst 3 förbättringar som du vill göra med din kod (gärna fler).
+        </p>
+        <p>
+          Exempel på förbättringar kan vara:
+        </p>
+        <ul>
+          <li>Fixa issues</li>
+          <li>Öka kodtäckning</li>
+          <li>Fokusera på kvalitetsindex i Scrutinizer</li>
+          <li>Minska komplexiteten i class/metod</li>
+        </ul>
+        <p>
+          Börja med att skriva om förbättringarna, vad du tänker göra, varför du väljer dem och hur du tror det kommer påverka mätvärdena för kvalitet.
+        </p>
+        <p>
+          Implementera sedan förbättringarna.
+          Analysera därefter rapporterna från phpmetrics och Scrutinizer och notera de nya mätvärdena.
+          Gör det tydligt hur mätvärdena såg ut innan och efter dina förbättringar.
+        </p>
+      </article>
+    </article>
+    <article id="discussion">
+      <h2>Diskussion</h2>
+      <p>Avsluta med ett stycke “Diskussion” där du diskuterar kort kring det du nyss gjort.</p>
+      <ul>
+      <li>Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?</li>
+      <li>Finns det fördelar och kanske nackdelar?</li>
+      <li>Ser du andra möjligheter att jobba mot “clean code”?</li>
+      </ul>
+    </article>
+    </article>
+</main>
+{% endblock %}
