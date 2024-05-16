@@ -121,6 +121,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-CardController.html#method_deckDeal"
         },                {
+            "fqsen": "\\App\\Controller\\CurrencyController",
+            "name": "CurrencyController",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_create"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003Aapi\u0028\u0029",
+            "name": "api",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_api"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003AapiShow\u0028\u0029",
+            "name": "apiShow",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_apiShow"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003Aedit\u0028\u0029",
+            "name": "edit",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_edit"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Controller\\CurrencyController\u003A\u003Ashow\u0028\u0029",
+            "name": "show",
+            "summary": "",
+            "url": "classes/App-Controller-CurrencyController.html#method_show"
+        },                {
             "fqsen": "\\App\\Controller\\GameController",
             "name": "GameController",
             "summary": "",
@@ -216,6 +256,81 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Dice-Dice.html#property_value"
         },                {
+            "fqsen": "\\App\\Entity\\Currency",
+            "name": "Currency",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AgetAlpabethicCode\u0028\u0029",
+            "name": "getAlpabethicCode",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_getAlpabethicCode"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AsetAlpabethicCode\u0028\u0029",
+            "name": "setAlpabethicCode",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_setAlpabethicCode"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AgetDecimalDigits\u0028\u0029",
+            "name": "getDecimalDigits",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_getDecimalDigits"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AsetDecimalDigits\u0028\u0029",
+            "name": "setDecimalDigits",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_setDecimalDigits"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AgetNumericCode\u0028\u0029",
+            "name": "getNumericCode",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_getNumericCode"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AsetNumericCode\u0028\u0029",
+            "name": "setNumericCode",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_setNumericCode"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AgetEntity\u0028\u0029",
+            "name": "getEntity",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_getEntity"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003AsetEntity\u0028\u0029",
+            "name": "setEntity",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#method_setEntity"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003A\u0024alpabethicCode",
+            "name": "alpabethicCode",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#property_alpabethicCode"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003A\u0024decimalDigits",
+            "name": "decimalDigits",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#property_decimalDigits"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003A\u0024numericCode",
+            "name": "numericCode",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#property_numericCode"
+        },                {
+            "fqsen": "\\App\\Entity\\Currency\u003A\u003A\u0024entity",
+            "name": "entity",
+            "summary": "",
+            "url": "classes/App-Entity-Currency.html#property_entity"
+        },                {
             "fqsen": "\\App\\EventListener\\CardRouteListener",
             "name": "CardRouteListener",
             "summary": "",
@@ -235,6 +350,21 @@ Search.appendIndex(
             "name": "onKernelRequest",
             "summary": "",
             "url": "classes/App-EventListener-GameRouteListener.html#method_onKernelRequest"
+        },                {
+            "fqsen": "\\App\\Form\\CurrencyType",
+            "name": "CurrencyType",
+            "summary": "",
+            "url": "classes/App-Form-CurrencyType.html"
+        },                {
+            "fqsen": "\\App\\Form\\CurrencyType\u003A\u003AbuildForm\u0028\u0029",
+            "name": "buildForm",
+            "summary": "",
+            "url": "classes/App-Form-CurrencyType.html#method_buildForm"
+        },                {
+            "fqsen": "\\App\\Form\\CurrencyType\u003A\u003AconfigureOptions\u0028\u0029",
+            "name": "configureOptions",
+            "summary": "",
+            "url": "classes/App-Form-CurrencyType.html#method_configureOptions"
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
@@ -936,6 +1066,26 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Observer-SessionSavingObserver.html#property_key"
         },                {
+            "fqsen": "\\App\\Repository\\CurrencyRepository",
+            "name": "CurrencyRepository",
+            "summary": "",
+            "url": "classes/App-Repository-CurrencyRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\CurrencyRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-CurrencyRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository",
+            "name": "ProductRepository",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\ProductRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Repository-ProductRepository.html#method___construct"
+        },                {
             "fqsen": "\\App\\Service\\DeckService",
             "name": "DeckService",
             "summary": "",
@@ -1001,10 +1151,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/app-dice.html"
         },                {
+            "fqsen": "\\App\\Entity",
+            "name": "Entity",
+            "summary": "",
+            "url": "namespaces/app-entity.html"
+        },                {
             "fqsen": "\\App\\EventListener",
             "name": "EventListener",
             "summary": "",
             "url": "namespaces/app-eventlistener.html"
+        },                {
+            "fqsen": "\\App\\Form",
+            "name": "Form",
+            "summary": "",
+            "url": "namespaces/app-form.html"
         },                {
             "fqsen": "\\App",
             "name": "App",
@@ -1020,6 +1180,11 @@ Search.appendIndex(
             "name": "Observer",
             "summary": "",
             "url": "namespaces/app-observer.html"
+        },                {
+            "fqsen": "\\App\\Repository",
+            "name": "Repository",
+            "summary": "",
+            "url": "namespaces/app-repository.html"
         },                {
             "fqsen": "\\App\\Service",
             "name": "Service",
