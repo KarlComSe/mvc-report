@@ -6,6 +6,13 @@ This is a repository for the course MVC at BTH.
 
 See project live here: https://www.student.bth.se/~KAAA19/dbwebb-kurser/mvc/me/report/public/about 
 
+## Metrics
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/build-status/main)
+[![Code Coverage](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main)
+
 ## Requirements
 
 See Symfony requirements: <https://symfony.com/doc/current/setup.html#technical-requirements>
