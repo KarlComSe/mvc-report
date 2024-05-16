@@ -130,7 +130,7 @@
         Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?
       </h3>
       <p>
-
+        Det gick bara bra och var smidigt. Lite fler reflektioner nedan. 
       </p>
       <h3>
         Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?
@@ -139,14 +139,15 @@
         Det var enkelt att jobba med. Betydligt enklare att "abstrahera" bort all programmering som jag tidigare använt när vi jobbat med databaser. Jag gillar också att Symfony tillhandahåller massor av praktiska verktyg för att jobba med databaser, t.ex. hur forms-modulen interagerar tillsammans med validering, hur man på något magiskt sätt inte behöver ange ID om man skapar en route som ska hämta en specifik rad i databasen, etc. Nackdelen är att det är såpåass allomfattande så att det är svårt att greppa allt och hur det fungerar i detalj, vilket man har koll på när man jobbar med SQL via PDO (eller liknande i JS). 
       </p> 
       <h3>Vilken är din TIL för detta kmom?</h3>
-      <p>Jag har börjat använda Symfonys cli-verktyg för att skapa controllers och entiteter, det är praktiskt och får vara min lärdom relaterat till just detta momement. Jag har såklart lärt mig väldigt mycket mer, men det är angränsande till själva momementet.</p>
+      <p>Jag har börjat använda Symfonys cli-verktyg för att skapa controllers och entiteter, det är praktiskt och får vara min lärdom relaterat till just detta momement. Jag stötte på lite problem kring namespace, och löste det, så jag lärde mig också att ett namespace byggs upp av det namespace jag definierar samt klass-namnet.</p>
       <p>
-        <pre>
-        symfony console make:controller CurrencyController 
-        php bin/console make:entity
-        php bin/console make:migration
-        </pre> 
-      </p>
+        För framtida referens:
+        </p>
+<pre>
+symfony console make:controller CurrencyController 
+php bin/console make:entity
+php bin/console make:migration
+</pre> 
     </article>
     <article id="kmom06">
       <h2>KMOM06</h2>
