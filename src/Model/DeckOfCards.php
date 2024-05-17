@@ -116,15 +116,15 @@ abstract class DeckOfCards implements SplSubject
 
 
 
-    private function drawCard(): Card
-    {
-        if (!$this->hasCards()) {
-            throw new Exception('No cards left in the deck');
-        }
-        $card = array_pop($this->cards);
-        $this->notify();
-        return $card;
-    }
+    // private function drawCard(): Card
+    // {
+    //     if (!$this->hasCards()) {
+    //         throw new Exception('No cards left in the deck');
+    //     }
+    //     $card = array_pop($this->cards);
+    //     $this->notify();
+    //     return $card;
+    // }
 
     /**
      * Draws a specified number of cards from the deck.
@@ -134,9 +134,13 @@ abstract class DeckOfCards implements SplSubject
      */
     public function drawCards(int $numberOfCards): array
     {
+        if (!$this->hasCards()) {
+            throw new Exception('No cards left in the deck');
+        }
         $cards = [];
         for ($i = 0; $i < $numberOfCards; $i++) {
-            $cards[] = $this->drawCard();
+            $cards[] = array_pop($this->cards);
+            $this->notify();
         }
         return $cards;
     }
@@ -154,7 +158,8 @@ abstract class DeckOfCards implements SplSubject
         for ($i = 0; $i < $numberOfPlayers; $i++) {
             $hand = new CardHand();
             for ($j = 0; $j < $numberOfCards; $j++) {
-                $hand->addCard($this->drawCard());
+                $card = $this->drawCards(1)[0];
+                $hand->addCard($card);
             }
             $hands[] = $hand;
         }
