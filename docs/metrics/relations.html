@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2024-05-17 16:42:40        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2024-05-17 21:47:17        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -326,8 +326,9 @@
             "\\App\\Model\\FrenchSuitedDeck",
             "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\App\\Observer\\SessionSavingObserver",
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
             "\\Random\\Randomizer",
-            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
+            "\\App\\Model\\DeckShuffler"
         ]
     },
     {
@@ -343,8 +344,9 @@
             "\\App\\Model\\FrenchSuitedDeck",
             "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\App\\Observer\\SessionSavingObserver",
-            "\\Random\\Randomizer",
             "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\Random\\Randomizer",
+            "\\App\\Model\\DeckShuffler",
             "\\App\\Model\\CardHand"
         ]
     },
@@ -365,6 +367,14 @@
         "name": "\\Random\\Randomizer",
         "size": 3000,
         "relations": []
+    },
+    {
+        "name": "\\App\\Model\\DeckShuffler",
+        "size": 3000,
+        "relations": [
+            "\\Random\\Randomizer",
+            "\\App\\Model\\DeckOfCards"
+        ]
     },
     {
         "name": "\\App\\Model\\CardHand",
@@ -419,7 +429,7 @@
             "\\Symfony\\Component\\HttpFoundation\\Request",
             "\\App\\Model\\Game",
             "\\App\\Observer\\SessionSavingObserver",
-            "\\App\\Controller\\JsonResponse"
+            "\\Symfony\\Component\\HttpFoundation\\JsonResponse"
         ]
     },
     {
@@ -432,16 +442,12 @@
         "size": 3000,
         "relations": [
             "\\App\\Model\\Game",
-            "\\Random\\Randomizer",
             "\\App\\Model\\FrenchSuitedDeck",
             "\\App\\Model\\BetManager",
-            "\\Exception"
+            "\\Exception",
+            "\\Random\\Randomizer",
+            "\\App\\Model\\DeckShuffler"
         ]
-    },
-    {
-        "name": "\\App\\Controller\\JsonResponse",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "\\App\\Controller\\ApiController",
@@ -497,8 +503,9 @@
         "size": 3000,
         "relations": [
             "\\Symfony\\Component\\HttpKernel\\Event\\RequestEvent",
-            "\\Random\\Randomizer",
             "\\App\\Model\\FrenchSuitedDeck",
+            "\\Random\\Randomizer",
+            "\\App\\Model\\DeckShuffler",
             "\\App\\Model\\HumanPlayer",
             "\\App\\Model\\BankPlayer",
             "\\App\\Model\\Game"
@@ -529,7 +536,6 @@
         "size": 3000,
         "relations": [
             "\\Symfony\\Component\\HttpKernel\\Event\\RequestEvent",
-            "\\Random\\Randomizer",
             "\\App\\Model\\FrenchSuitedDeck"
         ]
     },
@@ -576,13 +582,7 @@
     {
         "name": "\\App\\Model\\DeckOfCards",
         "size": 3000,
-        "relations": [
-            "\\App\\Model\\DeckOfCards",
-            "\\Random\\Randomizer",
-            "\\App\\Model\\Card",
-            "\\Exception",
-            "\\App\\Model\\CardHand"
-        ]
+        "relations": []
     },
     {
         "name": "\\SplObjectStorage",
@@ -606,6 +606,15 @@
         "name": "\\App\\Model\\Card",
         "size": 3000,
         "relations": []
+    },
+    {
+        "name": "\\App\\Model\\CardDealer",
+        "size": 3000,
+        "relations": [
+            "\\App\\Model\\DeckOfCards",
+            "\\App\\Model\\CardHand",
+            "\\Exception"
+        ]
     },
     {
         "name": "\\App\\Model\\GraphicCard",
