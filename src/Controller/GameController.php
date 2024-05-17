@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Observer\SessionSavingObserver;
 use App\Model\Game;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class GameController extends AbstractController
 {
