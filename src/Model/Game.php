@@ -4,6 +4,7 @@ namespace App\Model;
 
 use App\Model\DeckOfCards;
 use App\Model\FrenchSuitedDeck;
+use App\Model\DeckShuffler;
 use SplSubject;
 use Random\Randomizer;
 use SplObjectStorage;
@@ -90,7 +91,7 @@ class Game implements SplSubject
     public static function createFromSavedState(array $gameState): Game
     {
         $game = new Game();
-        $game->deck = FrenchSuitedDeck::createFromSession($gameState['deck'], new Randomizer());
+        $game->deck = FrenchSuitedDeck::createFromSession($gameState['deck']);
         foreach ($gameState['players'] as $player) {
             $game->players[$player->getName()] = $player;
         }
@@ -202,8 +203,9 @@ class Game implements SplSubject
             throw new Exception('Cannot restart when there are money in the pot.');
         }
         $this->setGameStatus('ongoing');
-        $this->deck = FrenchSuitedDeck::create(new Randomizer());
-        $this->deck->shuffle();
+        $this->deck = FrenchSuitedDeck::create();
+        $deckShuffler = new DeckShuffler(new Randomizer());
+        $deckShuffler->shuffle($this->deck);
         foreach ($this->players as $player) {
             $player->resetHand();
             $player->resetStanding();

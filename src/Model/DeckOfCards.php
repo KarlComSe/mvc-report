@@ -2,7 +2,6 @@
 
 namespace App\Model;
 
-use Random\Randomizer;
 use SplSubject;
 use SplObjectStorage;
 use SplObserver;
@@ -39,17 +38,13 @@ abstract class DeckOfCards implements SplSubject
 
     protected bool $isShuffled = false;
 
-    protected Randomizer $randomizer;
-
     /**
      * Constructor for the DeckOfCards class.
      *
-     * @param Randomizer $randomizer The randomizer object used for shuffling the deck.
      * @param array $observers An optional array of observer objects to attach to the deck.
      */
-    public function __construct(Randomizer $randomizer, array $observers = [])
+    public function __construct(array $observers = [])
     {
-        $this->randomizer = $randomizer;
         $this->observers = new SplObjectStorage();
         foreach ($observers as $observer) {
             $this->attach($observer);
@@ -76,21 +71,13 @@ abstract class DeckOfCards implements SplSubject
         }
     }
 
-    abstract public static function create(Randomizer $randomizer, array $observers = []): DeckOfCards;
+    abstract public static function create(array $observers = []): DeckOfCards;
 
     abstract public function sort(): void;
 
     public function addCard(Card $card): void
     {
         $this->cards[] = $card;
-        $this->notify();
-    }
-
-    public function shuffle(): void
-    {
-        // shuffle as many time as one likes today...
-        $this->isShuffled = true;
-        $this->cards = $this->randomizer->shuffleArray($this->cards);
         $this->notify();
     }
 
@@ -104,6 +91,12 @@ abstract class DeckOfCards implements SplSubject
         return $this->cards;
     }
 
+    public function setDeck(array $cards): void
+    {
+        $this->cards = $cards;
+        $this->notify();
+    }
+
     public function hasCards(): bool
     {
         return count($this->cards) > 0;
@@ -113,18 +106,6 @@ abstract class DeckOfCards implements SplSubject
     {
         return count($this->cards);
     }
-
-
-
-    // private function drawCard(): Card
-    // {
-    //     if (!$this->hasCards()) {
-    //         throw new Exception('No cards left in the deck');
-    //     }
-    //     $card = array_pop($this->cards);
-    //     $this->notify();
-    //     return $card;
-    // }
 
     /**
      * Draws a specified number of cards from the deck.

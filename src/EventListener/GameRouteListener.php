@@ -4,10 +4,11 @@ namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use App\Model\Game;
-use Random\Randomizer;
 use App\Model\HumanPlayer;
 use App\Model\BankPlayer;
 use App\Model\FrenchSuitedDeck;
+use App\Model\DeckShuffler;
+use Random\Randomizer;
 
 class GameRouteListener
 {
@@ -21,8 +22,9 @@ class GameRouteListener
 
         if ($attributes && key_exists('game_needed', $attributes)) {
             if (!$session->has('game')) {
-                $frenchDeck = FrenchSuitedDeck::create(new Randomizer());
-                $frenchDeck->shuffle();
+                $frenchDeck = FrenchSuitedDeck::create();
+                $deckShuffler = new DeckShuffler(new Randomizer());
+                $deckShuffler->shuffle($frenchDeck);
                 $game = new Game(
                     [
                         new HumanPlayer(),

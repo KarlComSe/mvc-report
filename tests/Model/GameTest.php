@@ -2,7 +2,6 @@
 
 namespace App\Model;
 use PHPUnit\Framework\TestCase;
-use Random\Randomizer;
 use Symfony\Component\HttpFoundation\Request;
 use App\Observer\SessionSavingObserver;
 use Exception;
@@ -28,10 +27,9 @@ class GameTest extends TestCase
 
     public function testCreateFromSavedState(): void
     {
-        $randomizer = new Randomizer();
         $savedGame = new Game(
             [new HumanPlayer(), new BankPlayer()],
-            FrenchSuitedDeck::create($randomizer)
+            FrenchSuitedDeck::create()
         );
 
         $savedState = $savedGame->getGameState(
@@ -59,10 +57,9 @@ class GameTest extends TestCase
     {
         $human = new HumanPlayer();
         $bank = new BankPlayer();
-        $randomizer = new Randomizer();
         $game = new Game(
             [$human, $bank],
-            FrenchSuitedDeck::create($randomizer)
+            FrenchSuitedDeck::create()
         );
 
         $human->stand();
@@ -88,10 +85,9 @@ class GameTest extends TestCase
         $human = new HumanPlayer();
         $bank = new BankPlayer();
         $players = [$human, $bank];
-        $randomizer = new Randomizer();
         $game = new Game(
             $players,
-            FrenchSuitedDeck::create($randomizer)
+            FrenchSuitedDeck::create()
         );
         // There is a "bug" in my code, the re-created game is not the same as the existing game
         $game = Game::createFromSavedState($game->getGameState());
@@ -114,11 +110,10 @@ class GameTest extends TestCase
         $human = new HumanPlayer();
         $bank = new BankPlayer();
         $players = [$human, $bank];
-        $randomizer = new Randomizer();
 
         $game = new Game(
             $players,
-            FrenchSuitedDeck::create($randomizer)
+            FrenchSuitedDeck::create()
         );
         // There is a "bug" in my code, the re-created game is not the same as the existing game
         $game = Game::createFromSavedState($game->getGameState());
@@ -142,11 +137,10 @@ class GameTest extends TestCase
         $human = new HumanPlayer();
         $bank = new BankPlayer();
         $players = [$human, $bank];
-        $randomizer = new Randomizer();
 
         $game = new Game(
             $players,
-            FrenchSuitedDeck::create($randomizer),
+            FrenchSuitedDeck::create(),
         );
 
         $observer = new SessionSavingObserver(new Request(), "data");
@@ -166,10 +160,9 @@ class GameTest extends TestCase
         $human = new HumanPlayer();
         $bank = new BankPlayer();
         $players = [$human, $bank];
-        $randomizer = new Randomizer();
         $game = new Game(
             $players,
-            FrenchSuitedDeck::create($randomizer)
+            FrenchSuitedDeck::create()
         );
 
         $exp = $players;
@@ -186,10 +179,9 @@ class GameTest extends TestCase
         $human = new HumanPlayer();
         $bank = new BankPlayer();
         $players = [$human, $bank];
-        $randomizer = new Randomizer();
         $game = new Game(
             $players,
-            FrenchSuitedDeck::create($randomizer)
+            FrenchSuitedDeck::create()
         );
 
         $exp = "human";

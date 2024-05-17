@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use App\Model\DeckOfCards;
-use Random\Randomizer;
 use App\Model\Card;
 
 class FrenchSuitedDeck extends DeckOfCards
@@ -11,13 +10,12 @@ class FrenchSuitedDeck extends DeckOfCards
     /**
      * Creates a new instance of FrenchSuitedDeck.
      *
-     * @param Randomizer $randomizer The randomizer object to be used for shuffling the deck.
      * @param array<SplObserver> $observers [Optional] An array of SplObserver objects to be attached to the deck for notification on deck creation. Defaults to an empty array.
      * @return FrenchSuitedDeck The newly created FrenchSuitedDeck object.
      */
-    public static function create(Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
+    public static function create(array $observers = []): FrenchSuitedDeck
     {
-        $deck = new FrenchSuitedDeck($randomizer, $observers);
+        $deck = new FrenchSuitedDeck($observers);
         foreach (self::$suitsOfCards as $suit) {
             foreach (self::$namesOfCards as $name => $value) {
                 $deck->addCard(new Card($suit, $name, $value[0], $value[1] ?? null));
@@ -28,9 +26,9 @@ class FrenchSuitedDeck extends DeckOfCards
     }
 
 
-    public static function createFromSession(mixed $deck, Randomizer $randomizer, array $observers = []): FrenchSuitedDeck
+    public static function createFromSession(mixed $deck, array $observers = []): FrenchSuitedDeck
     {
-        $frenchDeck = new FrenchSuitedDeck($randomizer, $observers);
+        $frenchDeck = new FrenchSuitedDeck($observers);
         // interesting enough, the card which are coming from session are restored as Card-objects, while the Deck is an Array.
         foreach ($deck as $card) {
             $frenchDeck->addCard($card);

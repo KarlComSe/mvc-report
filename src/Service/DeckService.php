@@ -5,9 +5,7 @@ namespace App\Service;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-use App\Model\Card;
-use App\Model\CardHand;
-use App\Model\GraphicCard;
+use App\Model\DeckShuffler;
 use App\Model\FrenchSuitedDeck;
 use App\Observer\SessionSavingObserver;
 use Random\Randomizer;
@@ -19,7 +17,7 @@ class DeckService
         $observers = [
             new SessionSavingObserver($request, $deckName)
         ];
-        return FrenchSuitedDeck::createFromSession($request->getSession()->get($deckName), new Randomizer(), $observers);
+        return FrenchSuitedDeck::createFromSession($request->getSession()->get($deckName), $observers);
     }
 
     public function getDeck(Request $request): JsonResponse
@@ -33,7 +31,8 @@ class DeckService
     public function shuffleDeck(Request $request): JsonResponse
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
-        $deck->shuffle();
+        $deckShuffler = new DeckShuffler(new Randomizer());
+        $deckShuffler->shuffle($deck);
 
         return new JsonResponse($deck->getDeck());
     }

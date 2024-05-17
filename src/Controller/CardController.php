@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Model\CardHand;
+use App\Model\DeckShuffler;
 use App\Model\FrenchSuitedDeck;
 use App\Observer\SessionSavingObserver;
 use Random\Randomizer;
@@ -20,7 +21,7 @@ class CardController extends AbstractController
         $observers = [
             $sessionObserver
         ];
-        return FrenchSuitedDeck::createFromSession($request->getSession()->get($deckName), new Randomizer(), $observers);
+        return FrenchSuitedDeck::createFromSession($request->getSession()->get($deckName), $observers);
     }
 
     #[Route('/card', name: 'app_card', defaults: ['deck_needed' => true ])]
@@ -63,7 +64,8 @@ class CardController extends AbstractController
     public function deckShuffle(Request $request): Response
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
-        $deck->shuffle();
+        $shuffler = new DeckShuffler(new Randomizer());
+        $shuffler->shuffle($deck);
         return $this->render('card/cards.html.twig', ['cards' => $deck->getDeck()]);
     }
 

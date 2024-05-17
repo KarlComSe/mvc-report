@@ -18,9 +18,8 @@ class FrenchSuitedDeckTest extends TestCase
      */
     public function testCreateDeckOfCards(): void
     {
-        $randomizer = new Randomizer();
         $observer = new SessionSavingObserver(new Request(), "data");
-        $deck = new FrenchSuitedDeck($randomizer, [$observer]);
+        $deck = new FrenchSuitedDeck([$observer]);
         $this->assertInstanceOf("\App\Model\DeckOfCards", $deck);
     }
 
@@ -30,8 +29,7 @@ class FrenchSuitedDeckTest extends TestCase
 
     public function testCreate(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $this->assertInstanceOf("\App\Model\FrenchSuitedDeck", $deck);
     }
 
@@ -41,8 +39,7 @@ class FrenchSuitedDeckTest extends TestCase
 
     public function testGetNumberOfCards(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $this->assertEquals($deck->getNumberOfCards(), 52);
     }
 
@@ -52,8 +49,7 @@ class FrenchSuitedDeckTest extends TestCase
 
     public function testDealCards(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $cardHands = $deck->dealCards(2, 2);
         $this->assertEquals(count($cardHands[0]->getHand()), 2);
         $this->assertInstanceOf("\App\Model\CardHand", $cardHands[0]);
@@ -67,8 +63,7 @@ class FrenchSuitedDeckTest extends TestCase
 
     public function testDrawCards(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $this->expectException(\Exception::class);
         $deck->drawCards(53);
     }
@@ -78,8 +73,7 @@ class FrenchSuitedDeckTest extends TestCase
      */
     public function testAttach(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $observer = new SessionSavingObserver(new Request(), "data");
         $deck->attach($observer);
         $this->assertEquals($deck->getObservers()->count(), 1);
@@ -88,17 +82,6 @@ class FrenchSuitedDeckTest extends TestCase
         $this->assertEquals($deck->getObservers()->count(), 0);
     }
 
-    // /**
-    //  * Assert that createFromSession method returns a FrenchSuitedDeck object.
-    //  */
-
-    // public function testCreateFromSession()
-    // {
-    //     $randomizer = new Randomizer();
-    //     $deck = FrenchSuitedDeck::createFromSession([], $randomizer);
-    //     $this->assertInstanceOf("\App\Model\FrenchSuitedDeck", $deck);
-    // }
-
     /**
      * Assert that sort method returns a sorted deck.
      */
@@ -106,8 +89,9 @@ class FrenchSuitedDeckTest extends TestCase
     public function testSort(): void
     {
         $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
-        $deck->shuffle();
+        $deck = FrenchSuitedDeck::create();
+        $deckShuffler = new DeckShuffler($randomizer);
+        $deckShuffler->shuffle($deck);
         $deck->sort();
         $this->assertEquals($deck->cards[0]->getSuit(), "Spade");
         $this->assertEquals($deck->cards[0]->getValue(), "2");
@@ -126,8 +110,9 @@ class FrenchSuitedDeckTest extends TestCase
     public function testSortBySuit(): void
     {
         $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
-        $deck->shuffle();
+        $deck = FrenchSuitedDeck::create();
+        $deckShuffler = new DeckShuffler($randomizer);
+        $deckShuffler->shuffle($deck);
         $deck->sort();
         $deck->sortBySuit($deck->cards[0], $deck->cards[1]);
         $this->assertEquals($deck->cards[0]->getSuit(), "Spade");
@@ -143,8 +128,7 @@ class FrenchSuitedDeckTest extends TestCase
 
     public function testSortByValue(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $deck->sort();
         $res = $deck->sortByValue($deck->cards[10], $deck->cards[1]);
         $this->assertEquals($res, 1);
@@ -169,8 +153,7 @@ class FrenchSuitedDeckTest extends TestCase
 
     public function testSortBySuitAndValue(): void
     {
-        $randomizer = new Randomizer();
-        $deck = FrenchSuitedDeck::create($randomizer);
+        $deck = FrenchSuitedDeck::create();
         $deck->sort();
         $res = $deck->sortBySuitAndValue($deck->cards[0], $deck->cards[1]);
         $this->assertEquals($res, -1);
