@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2024-05-17 21:47:17        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2024-05-17 23:01:59        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -328,7 +328,8 @@
             "\\App\\Observer\\SessionSavingObserver",
             "\\Symfony\\Component\\HttpFoundation\\JsonResponse",
             "\\Random\\Randomizer",
-            "\\App\\Model\\DeckShuffler"
+            "\\App\\Model\\DeckShuffler",
+            "\\App\\Model\\CardDealer"
         ]
     },
     {
@@ -499,6 +500,15 @@
         "relations": []
     },
     {
+        "name": "\\App\\Model\\CardDealer",
+        "size": 3000,
+        "relations": [
+            "\\App\\Model\\DeckOfCards",
+            "\\App\\Model\\CardHand",
+            "\\Exception"
+        ]
+    },
+    {
         "name": "\\App\\EventListener\\GameRouteListener",
         "size": 3000,
         "relations": [
@@ -608,11 +618,10 @@
         "relations": []
     },
     {
-        "name": "\\App\\Model\\CardDealer",
+        "name": "\\App\\Model\\CardCollection",
         "size": 3000,
         "relations": [
-            "\\App\\Model\\DeckOfCards",
-            "\\App\\Model\\CardHand",
+            "\\App\\Model\\Card",
             "\\Exception"
         ]
     },
