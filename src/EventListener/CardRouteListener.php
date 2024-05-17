@@ -4,6 +4,7 @@ namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use App\Model\FrenchSuitedDeck;
+
 class CardRouteListener
 {
     public function onKernelRequest(RequestEvent $event): void

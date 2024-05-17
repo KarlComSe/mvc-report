@@ -65,7 +65,7 @@ class FrenchSuitedDeck extends DeckOfCards
         // return $cardA->getValue() <=> $cardB->getValue();
         return (
             $cardA->getAlternativeValue() ?? $cardA->getValue()
-            )
+        )
             <=>
             ($cardB->getAlternativeValue() ?? $cardB->getValue());
     }
