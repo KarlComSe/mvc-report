@@ -39,7 +39,9 @@ class FrenchSuitedDeck extends DeckOfCards
 
     public function sort(): void
     {
-        usort($this->cards, [$this, 'sortBySuitAndValue']);
+        $deck = $this->cardCollection->getCards();
+        usort($deck, [$this, 'sortBySuitAndValue']);
+        $this->cardCollection->setCards($deck);
         $this->notify();
     }
 

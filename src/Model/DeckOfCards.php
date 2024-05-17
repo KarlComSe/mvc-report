@@ -2,6 +2,7 @@
 
 namespace App\Model;
 
+use App\Model\CardCollection;
 use SplSubject;
 use SplObjectStorage;
 use SplObserver;
@@ -30,9 +31,9 @@ abstract class DeckOfCards implements SplSubject
         'King' => [13],
     ];
     /**
-     * @var array<Card> The array of cards in the deck.
+     * @var CardCollection The cards in the deck.
      **/
-    public array $cards = [];
+    public CardCollection $cardCollection;
 
     protected SplObjectStorage $observers;
 
@@ -45,6 +46,7 @@ abstract class DeckOfCards implements SplSubject
      */
     public function __construct(array $observers = [])
     {
+        $this->cardCollection = new CardCollection();
         $this->observers = new SplObjectStorage();
         foreach ($observers as $observer) {
             $this->attach($observer);
@@ -77,7 +79,7 @@ abstract class DeckOfCards implements SplSubject
 
     public function addCard(Card $card): void
     {
-        $this->cards[] = $card;
+        $this->cardCollection->addCard($card);
         $this->notify();
     }
 
@@ -88,23 +90,23 @@ abstract class DeckOfCards implements SplSubject
      */
     public function getDeck(): array
     {
-        return $this->cards;
+        return $this->cardCollection->getCards();
     }
 
     public function setDeck(array $cards): void
     {
-        $this->cards = $cards;
+        $this->cardCollection->setCards($cards);
         $this->notify();
     }
 
     public function hasCards(): bool
     {
-        return count($this->cards) > 0;
+        return $this->cardCollection->hasCards();
     }
 
     public function getNumberOfCards(): int
     {
-        return count($this->cards);
+        return $this->cardCollection->getNumberOfCards();
     }
 
     /**
@@ -115,14 +117,8 @@ abstract class DeckOfCards implements SplSubject
      */
     public function drawCards(int $numberOfCards): array
     {
-        $cards = [];
-        for ($i = 0; $i < $numberOfCards; $i++) {
-            if (!$this->hasCards()) {
-                throw new Exception('No cards left in the deck');
-            }
-            $cards[] = array_pop($this->cards);
-            $this->notify();
-        }
-        return $cards;
+        $drawnCards = $this->cardCollection->drawCards($numberOfCards);
+        $this->notify();
+        return $drawnCards;
     }
 }

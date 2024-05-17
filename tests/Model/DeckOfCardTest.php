@@ -80,13 +80,13 @@ class FrenchSuitedDeckTest extends TestCase
         $deckShuffler = new DeckShuffler($randomizer);
         $deckShuffler->shuffle($deck);
         $deck->sort();
-        $this->assertEquals($deck->cards[0]->getSuit(), "Spade");
-        $this->assertEquals($deck->cards[0]->getValue(), "2");
-        $this->assertEquals($deck->cards[1]->getSuit(), "Spade");
-        $this->assertEquals($deck->cards[1]->getValue(), "3");
-        $this->assertEquals($deck->cards[51]->getSuit(), "Club");
-        $this->assertEquals($deck->cards[51]->getValue(), "1");
-        $this->assertEquals($deck->cards[51]->getAlternativeValue(), "14");
+        $this->assertEquals($deck->cardCollection->getCards()[0]->getSuit(), "Spade");
+        $this->assertEquals($deck->cardCollection->getCards()[0]->getValue(), "2");
+        $this->assertEquals($deck->cardCollection->getCards()[1]->getSuit(), "Spade");
+        $this->assertEquals($deck->cardCollection->getCards()[1]->getValue(), "3");
+        $this->assertEquals($deck->cardCollection->getCards()[51]->getSuit(), "Club");
+        $this->assertEquals($deck->cardCollection->getCards()[51]->getValue(), "1");
+        $this->assertEquals($deck->cardCollection->getCards()[51]->getAlternativeValue(), "14");
     }
 
 
@@ -101,12 +101,12 @@ class FrenchSuitedDeckTest extends TestCase
         $deckShuffler = new DeckShuffler($randomizer);
         $deckShuffler->shuffle($deck);
         $deck->sort();
-        $deck->sortBySuit($deck->cards[0], $deck->cards[1]);
-        $this->assertEquals($deck->cards[0]->getSuit(), "Spade");
-        $this->assertEquals($deck->cards[0]->getValue(), "2");
-        $this->assertEquals($deck->cards[1]->getSuit(), "Spade");
-        $this->assertEquals($deck->cards[1]->getValue(), "3");
-        $this->assertEquals($deck->cards[51]->getSuit(), "Club");
+        $deck->sortBySuit($deck->cardCollection->getCards()[0], $deck->cardCollection->getCards()[1]);
+        $this->assertEquals($deck->cardCollection->getCards()[0]->getSuit(), "Spade");
+        $this->assertEquals($deck->cardCollection->getCards()[0]->getValue(), "2");
+        $this->assertEquals($deck->cardCollection->getCards()[1]->getSuit(), "Spade");
+        $this->assertEquals($deck->cardCollection->getCards()[1]->getValue(), "3");
+        $this->assertEquals($deck->cardCollection->getCards()[51]->getSuit(), "Club");
     }
 
     /**
@@ -117,18 +117,18 @@ class FrenchSuitedDeckTest extends TestCase
     {
         $deck = FrenchSuitedDeck::create();
         $deck->sort();
-        $res = $deck->sortByValue($deck->cards[10], $deck->cards[1]);
+        $res = $deck->sortByValue($deck->cardCollection->getCards()[10], $deck->cardCollection->getCards()[1]);
         $this->assertEquals($res, 1);
 
         // equal
-        $res = $deck->sortByValue($deck->cards[0], $deck->cards[13]);
+        $res = $deck->sortByValue($deck->cardCollection->getCards()[0], $deck->cardCollection->getCards()[13]);
         $this->assertEquals($res, 0);
 
-        $res = $deck->sortByValue($deck->cards[0], $deck->cards[1]);
+        $res = $deck->sortByValue($deck->cardCollection->getCards()[0], $deck->cardCollection->getCards()[1]);
 
         $this->assertEquals($res, -1);
 
-        $res = $deck->sortByValue($deck->cards[12], $deck->cards[25]);
+        $res = $deck->sortByValue($deck->cardCollection->getCards()[12], $deck->cardCollection->getCards()[25]);
         $this->assertEquals($res, 0);
         // var_dump($deck->cards[12]->getAlternativeValue(), $deck->cards[25]->getAlternativeValue());
         // ob_flush();
@@ -142,14 +142,14 @@ class FrenchSuitedDeckTest extends TestCase
     {
         $deck = FrenchSuitedDeck::create();
         $deck->sort();
-        $res = $deck->sortBySuitAndValue($deck->cards[0], $deck->cards[1]);
+        $res = $deck->sortBySuitAndValue($deck->cardCollection->getCards()[0], $deck->cardCollection->getCards()[1]);
         $this->assertEquals($res, -1);
 
         // equal
-        $res = $deck->sortBySuitAndValue($deck->cards[0], $deck->cards[13]);
+        $res = $deck->sortBySuitAndValue($deck->cardCollection->getCards()[0], $deck->cardCollection->getCards()[13]);
         $this->assertEquals($res, -1);
 
-        $res = $deck->sortBySuitAndValue($deck->cards[1], $deck->cards[0]);
+        $res = $deck->sortBySuitAndValue($deck->cardCollection->getCards()[1], $deck->cardCollection->getCards()[0]);
         $this->assertEquals($res, 1);
     }
 }
