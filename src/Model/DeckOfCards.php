@@ -37,8 +37,6 @@ abstract class DeckOfCards implements SplSubject
 
     protected SplObjectStorage $observers;
 
-    protected bool $isShuffled = false;
-
     /**
      * Constructor for the DeckOfCards class.
      *
