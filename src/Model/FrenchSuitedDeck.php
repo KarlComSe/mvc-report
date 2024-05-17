@@ -53,14 +53,14 @@ class FrenchSuitedDeck extends DeckOfCards
 
     public function sortByValue(Card $cardA, Card $cardB): int
     {
-        if ($cardA->getAlternativeValue() && $cardB->getAlternativeValue()) {
+        if ($cardA->getAlternativeValue() !== null && $cardB->getAlternativeValue() !== null) {
             return $cardA->getAlternativeValue() <=> $cardB->getAlternativeValue();
         }
-        if ($cardA->getAlternativeValue() && !$cardB->getAlternativeValue()) {
+        if ($cardA->getAlternativeValue() !== null && !($cardB->getAlternativeValue() !== null)) {
             return $cardA->getAlternativeValue() <=> $cardB->getValue();
         }
 
-        if (!$cardA->getAlternativeValue() && $cardB->getAlternativeValue()) {
+        if (!($cardA->getAlternativeValue() !== null) && $cardB->getAlternativeValue()) {
             return $cardA->getValue() <=> $cardB->getAlternativeValue();
         }
 
