@@ -115,11 +115,11 @@ abstract class DeckOfCards implements SplSubject
      */
     public function drawCards(int $numberOfCards): array
     {
-        if (!$this->hasCards()) {
-            throw new Exception('No cards left in the deck');
-        }
         $cards = [];
         for ($i = 0; $i < $numberOfCards; $i++) {
+            if (!$this->hasCards()) {
+                throw new Exception('No cards left in the deck');
+            }
             $cards[] = array_pop($this->cards);
             $this->notify();
         }
