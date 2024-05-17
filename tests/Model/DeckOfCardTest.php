@@ -44,19 +44,6 @@ class FrenchSuitedDeckTest extends TestCase
     }
 
     /**
-     * Assert that dealCards() deals cards.
-     */
-
-    public function testDealCards(): void
-    {
-        $deck = FrenchSuitedDeck::create();
-        $cardHands = $deck->dealCards(2, 2);
-        $this->assertEquals(count($cardHands[0]->getHand()), 2);
-        $this->assertInstanceOf("\App\Model\CardHand", $cardHands[0]);
-        $this->assertEquals(count($deck->cards), 48);
-    }
-
-    /**
      * Assert that drawCards throws an exception when 
      * trying to draw more cards than available.
      */

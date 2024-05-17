@@ -125,27 +125,4 @@ abstract class DeckOfCards implements SplSubject
         }
         return $cards;
     }
-
-    /**
-     * Deals a specified number of cards to a specified number of players.
-     *
-     * @param int $numberOfPlayers The number of players to deal cards to.
-     * @param int $numberOfCards The number of cards to deal to each player.
-     * @return array<CardHand> An array of CardHand objects representing the hands of each player.
-     */
-    public function dealCards(int $numberOfPlayers, int $numberOfCards): array
-    {
-        $hands = [];
-        for ($i = 0; $i < $numberOfPlayers; $i++) {
-            $hand = new CardHand();
-            for ($j = 0; $j < $numberOfCards; $j++) {
-                $card = $this->drawCards(1)[0];
-                $hand->addCard($card);
-            }
-            $hands[] = $hand;
-        }
-
-        $this->notify();
-        return $hands;
-    }
 }

@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 use App\Model\DeckShuffler;
+use App\Model\CardDealer;
 use App\Model\FrenchSuitedDeck;
 use App\Observer\SessionSavingObserver;
 use Random\Randomizer;
@@ -56,8 +57,8 @@ class DeckService
     public function dealCards(int $players, int $cards, Request $request): JsonResponse
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
-        $hands = $deck->dealCards($players, $cards);
-
+        $cardDealer = new CardDealer();
+        $hands = $cardDealer->deal($deck, $players, $cards);
         return new JsonResponse($hands);
     }
 
