@@ -31,8 +31,8 @@ abstract class DeckOfCards implements SplSubject
         'King' => [13],
     ];
     /**
-    * @var array<Card> The array of cards in the deck.
-    **/
+     * @var array<Card> The array of cards in the deck.
+     **/
     public array $cards = [];
 
     protected SplObjectStorage $observers;
@@ -71,32 +71,10 @@ abstract class DeckOfCards implements SplSubject
     }
     public function notify(): void
     {
-        foreach($this->observers as $observer) {
+        foreach ($this->observers as $observer) {
             $observer->update($this->getDeck());
         }
     }
-    // // this is not utilized. Doesn't get it to work as expected. Saves only the deck now.
-    // public function serialize(): string
-    // {
-    //     return serialize(
-    //         [
-    //             'cards' => $this->cards,
-    //             'discardPile' => $this->discardPile,
-    //             'isShuffled' => $this->isShuffled
-    //         ]
-    //     );
-    // }
-
-    // public function unserialize($data): void
-    // {
-    //     $data = unserialize($data);
-    //     $this->randomizer = new Randomizer();
-    //     $this->observers = [];
-    //     $this->cards = $data['cards'];
-    //     $this->discardPile = $data['discardPile'];
-    //     $this->isShuffled = $data['isShuffled'];
-    // }
-
 
     abstract public static function create(Randomizer $randomizer, array $observers = []): DeckOfCards;
 
@@ -184,5 +162,4 @@ abstract class DeckOfCards implements SplSubject
         $this->notify();
         return $hands;
     }
-
 }
