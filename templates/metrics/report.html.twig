@@ -17,27 +17,99 @@
     </nav>
     <article id="introduction">
       <h2>Introduktion</h2>
-      <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat till kodkvalitet.</p>
+      <p>Inom paradigment kodkvalitet finns något som kallas de sex C:na. Här förklarar jag vad de innebär och ger exempel kopplade till min kod, och de mätvärden / rapporter som Scrutinizer och phpmetrics genererar.</p>
+      <ul>
+        <li>Codestyle: Handlar om huruvida koden följer en kodstandard. Det finns olika kodstandarder, t.ex. <a href="https://www.php-fig.org/psr/psr-12/">PSR-12</a> och det går att använda verktyg såsom PHP code sniffer (PHP CS) för att gå igenom hur väl koden följer standarden. Denna webbplats använder PHP CS som är inställt på PSR-12 som kodstandard. Denna webbplats använder också PHP MD med en rad olika inställningar för kodstandard. Dessa och liknande verktyg fixar om möjligt koden och ger annars ofta info om problemen. I relation till Scrutinizer och phpmetrics, så kan man säga att det är förebyggande åtgärder. I mitt fall fick jag av dessa verktyg tidigare varning för hög komplexitet när jag gjorde kortspelet. Då gjorde jag om min kod. Hade jag inte gjort det, hade resultatet från PHP metrics och Scrutinizer gällande komplexitet varit betydligt högre. En definierad kodstandard kan hjälpa till att skapa mer robust kod eftersom det går snabbare att sätta sig in i någon annans kod och man använder "standardiserade" sätt att skriva kod på (t.ex. line endings, hur man ska skriva sina variabelnamn etc.), speciellt tillsammans med verktyg som fixar och synliggör avvikelser. </li>
+        <li>
+          Coverage: Är ett mått på hur mycket av koden som täcks av test. Båda verktygen visar olika mått på coverage. En hög kodtäckningsgrad kan ge en indikation på att koden är robust. Det förutsätter att testerna är bra skrivna. 
+          <img src="{{ asset('images/pre_coverage_php_metrics.png') }}" alt="Mätetal för coverage visas via php metrics">
+          <img src="{{ asset('images/pre_coverage_scrutinizer.png') }}" alt="Mätetal för coverage visas via scrutinizer">
+        </li>
+        <li>Complexity: Det finns olika sätt att mäta komplexitet, men ett sådant är cyklomatisk komplexitet (McCabe-tal). Det är kortfattat antalet möjliga exekveringsvägar i en klass / metod. En logik med nästlade if-satser skapar då en hög komplexitet. Andra sätt att mäta komplexitet är t.ex. beroende till eller från andra moduler / klasser / metoder (ev. överlapande med coupling), antalet rader kod, arvsdjup, etc. En hög komplexitet kan vara en indikation på att man bör överväga förändringar. Återigen finns det gott om exempel på kod som får en hög komplexitet men som knappast kan förenklas. 
+          <img src="{{ asset('images/pre_complexity_phpmetrics.png') }}" alt="Mätetal för coverage visas via php metrics">
+          <img src="{{ asset('images/pre_complexity_scrutinizer.png') }}" alt="Mätetal för coverage visas via scrutinizer"> 
+        </li>
+        <li>Cohesion: Handlar om beroendet inom en klass och hänger delvis ihop med begreppet single responsibility principle. Hög kohesion innebär att de interna elementen i en klass arbetar ihop för att lösa ett ansvarsområde. Har man låg kohesion så kan det vara svårt att sätta sig in i vad klassen faktiskt gör, eftersom metoderna / elementen i den inte hänger ihop. Det i sig leder till problem att underhålla koden, eftersom man glömmer av vad man gjorde strax efter att man gjort det. LCOM (lack of cohesive methods) är ett mätetal, som mäter antalet ansvarsområden en klass har. </li>
+        <li>Coupling: Handlar om beroendet en klass har med andra delar av programmet. Att ha hög koppling innebär att man är beroende av andra delar av programmet. Det kan göra det svårt att underhålla sin kod, eftersom en ändring någonstans då har en större risk att påverka andra delar av programmet.</li>
+        <li>Koppling och kohesion i PHP Metrics och Scrutinizer: Jag hittar begränsat med mätetal i Scrutinizer för detta. PHP Metrics visar upp lite olika mätetal för koppling, och även LCOM (lack of cohesive methods, där ett lågt tal är bra och högre tal är sämre). 
+          <img src="{{ asset('images/pre_coupling_phpmetrics.png') }}" alt="Mätetal för coupling visas via php metrics">
+          <img src="{{ asset('images/pre_cohesion_phpmetrics.png') }}" alt="Mätetal för cohesion visas via php metrics">
+        </li>
+        <li>CRAP: står för Change Risk Analyzer and Predictor eller Change Risk Anti Pattern. Det beräknas med hjälp av cyklomatisk komplexitet och testtäckning. Har man låg komplexitet och få test blir CRAP lågt, har man hög komplexitet och få test blir CRAP högt. Det går att ha hög komplexitet, men det kräver tester för att minska CRAP-score. 
+          <img src="{{ asset('images/pre_crap_scrutinizer.png') }}" alt="Mätetal för CRAP visas via scrutinizer">
+        </li>
+      </ul>
     </article>
     <article id="phpmetrics"></article>
       <h2>Phpmetrics</h2>
-      <p>Skapa en rubrik “Phpmetrics” och analysera dess rapport för din kod. Använd mätvärdena för att hitta flaskhalsar och svaga punkter i din kod (minst 3 stycken). Du vill hitta kod som har förbättringspotential. Visualisera med någon representativ bild från rapporten.</p>
+      <p>
+        I kapitlet introduktion finns lite olika mätetal från PHP Metrics rapport, där jag knyter ihop vad verktyget (PHP Metrics) visar och de 6 C:na. Här går jag in översiktligt på rapporten från PHP Metrics och även sådant som inte kom upp ovan. 
+      </p>
+      <p>
+        Överblick för PHP metrics:
+        <img src="{{ asset('images/pre_overview_phpmetrics.png') }}" alt="Mätetal för phpmetrics">
+      </p>
+      <p>
+        Något som inte ser så bra ut är de violations som visas upp i överblicken. Dessa ingår inte direkt i kodkvalitén ovan.
+        <img src="{{ asset('images/pre_violations_phpmetrics.png') }}" alt="Mätetal för violations visas via php metrics">
+      </p>
+      <p>
+        Tittar jag vidare på komplexitet så finns det en del som sticker ut. Utan att försöka åtgärda är det svårt att säga om det är dåligt eller bra. 
+        <img src="{{ asset('images/pre_complexity_overview_phpmetrics.png') }}" alt="Mätetal för complexity visas via php metrics">
+      </p>
     </article>
     <article id="scrutinizer">
       <h2>Scrutinizer</h2>
-      <p>Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.</p>
-
       <p>
-        Inkludera klickbara Scrutinizer badges i din rapport för build, coverage och quality.
-        Placera samma badges i din README.md.</p>
-        <p>
-          I ovan analys så kopplar du dina “findings” till 6C. Använd gärna något ytterligare mättal som du finner relevant och intressant.
-        </p>
+        I kapitlet introduktion finns lite olika mätetal från PHP Metrics rapport, där jag knyter ihop vad verktyget (Scrutinizer) visar och de 6 C:na. Här går jag in översiktligt på rapporten från Scrutinizer och även sådant som inte kom upp ovan.
+      </p>
+      <p>
+        Lite olika överblick från Scrutinizer:
+        <img src="{{ asset('images/pre_overview_1_scrutinizer.png') }}" alt="Mätetal för scrutinizer">
+        <img src="{{ asset('images/pre_overview_2_scrutinizer.png') }}" alt="Mätetal för scrutinizer">
+        <img src="{{ asset('images/pre_overview_3_scrutinizer.png') }}" alt="Mätetal för scrutinizer">
+        <img src="{{ asset('images/pre_overview_4_scrutinizer.png') }}" alt="Mätetal för scrutinizer">
+      </p>
+      <p>Ett intressant mätetal som visas i första bilden är det  övergripande betyget "Scrutinizer code quality". Det är såklart roligt att det är nära 10, men koden är ju inte särskilt komplex och är gjord inom ett ramverk, så jag har svårt att säga om det är bra eller dåligt, men det ser ju på ytan i alla fall bra ut. </p>
+      <p>
+        Likaväl här hittar jag något som kallas issues (se bild två ovan). Det är inte heller något som specifikt kommer upp bland de 6 c:na. De är värda att undersöka och åtgärda om möjligt. Här valde jag en av de issues som fanns och djupdök i den med verktyget. Här kan vi ser mer i detalj vad den klagar på, och det verkar ju rimliga saker att åtgärda.
+        <img src="{{ asset('images/pre_issues_scrutinizer.png') }}" alt="Mätetal för issues visas via scrutinizer">
+      </p>
+      <h3>Klickbara badges (från senaste bygget)</h3>
+      <ul>
+        <li><a href="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main"><img src="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/quality-score.png?b=main"></a></li>
+        <li><a href="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main"><img src="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/coverage.png?b=main"></a></li>
+        <li><a href="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main"><img src="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/build.png?b=main"></a></li>
+        <li><a href="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/?branch=main"><img src="https://scrutinizer-ci.com/g/KarlComSe/mvc-report/badges/code-intelligence.svg?b=main"></a></li>
+      </ul>
     </article>
     <article id="improvements">
       <h2>Förbättringar</h2>
         <p>
-          Skapa en ny rubrik “Förbättringar” där du väljer minst 3 förbättringar som du vill göra med din kod (gärna fler).
+          Jag avser att göra följande förbättringar:
+        </p>
+        <ul>
+          <li><em>Fixa flertalet av de issues som Scrutinizer identifierar:</em> Jag väljer det här eftersom det ges konkreta tips på saker att åtgärda. Min förhoppning är att jag kan ta med mig detta till min kodning och undvika liknande i framtiden. Detta kommer få en direkt påverkan på detta mätetal, men jag vet inte vilken inverkan det har på andra mätetal.
+            <ul>
+              <li><em>Resultat</em>:</li>
+              <li><em>Förändringar</em>:</li>
+            </ul>
+          </li>
+          <li><em>Fixa flertalet av de violations som PHP Metrics identifierar:</em> Jag väljer det här eftersom det ges konkreta tips på saker att åtgärda. Min förhoppning är att jag kan ta med mig detta till min kodning och undvika liknande i framtiden.  Detta kommer få en direkt påverkan på detta mätetal, men jag vet inte vilken inverkan det har på andra mätetal.
+            <ul>
+              <li><em>Resultat</em>:</li>
+              <li><em>Förändringar</em>:</li>
+            </ul>
+          </li> 
+          <li>
+            <em>Jag avser också att minska på komplexiteten som rapporteras i Scrutinizer.</em> App\Model\Game, App\Model\DetermineWinner, App\Model\DeckOfCards och App\Model\FrenchSuitedDeck har en komplexitet på 40, 22, 19 resp. 16. Jag anar att det kan vara svårt att minska på komplexiteten i Game, men jag väljer att undersöka dessa. Det går också att se i överblicken ovan att PHP Metrics rapporterar en hög komplexitet, där blir det dock nedan resultat. Jag får kika på de också. Jag väljer att angripa komplexitet därför att det är en av de 6 c:na, och jag skulle vilja se vad som behöver göras.
+            <img src="{{ asset('images/pre_complexity_overview_improvements_phpmetrics.png') }}" alt="Mätetal för complexity visas via php metrics"> 
+            <ul>
+              <li><em>Resultat</em>:</li>
+              <li><em>Förändringar</em>:</li>
+            </ul>
+          </li>
+        </ul>
         </p>
         <p>
           Exempel på förbättringar kan vara:
