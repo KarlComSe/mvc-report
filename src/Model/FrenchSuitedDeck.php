@@ -53,18 +53,23 @@ class FrenchSuitedDeck extends DeckOfCards
 
     public function sortByValue(Card $cardA, Card $cardB): int
     {
-        if ($cardA->getAlternativeValue() !== null && $cardB->getAlternativeValue() !== null) {
-            return $cardA->getAlternativeValue() <=> $cardB->getAlternativeValue();
-        }
-        if ($cardA->getAlternativeValue() !== null && !($cardB->getAlternativeValue() !== null)) {
-            return $cardA->getAlternativeValue() <=> $cardB->getValue();
-        }
+        // if ($cardA->getAlternativeValue() !== null && $cardB->getAlternativeValue() !== null) {
+        //     return $cardA->getAlternativeValue() <=> $cardB->getAlternativeValue();
+        // }
+        // if ($cardA->getAlternativeValue() !== null && !($cardB->getAlternativeValue() !== null)) {
+        //     return $cardA->getAlternativeValue() <=> $cardB->getValue();
+        // }
 
-        if (!($cardA->getAlternativeValue() !== null) && $cardB->getAlternativeValue() !== null) {
-            return $cardA->getValue() <=> $cardB->getAlternativeValue();
-        }
+        // if (!($cardA->getAlternativeValue() !== null) && $cardB->getAlternativeValue() !== null) {
+        //     return $cardA->getValue() <=> $cardB->getAlternativeValue();
+        // }
 
-        return $cardA->getValue() <=> $cardB->getValue();
+        // return $cardA->getValue() <=> $cardB->getValue();
+        return (
+            $cardA->getAlternativeValue() ?? $cardA->getValue()
+            )
+            <=>
+            ($cardB->getAlternativeValue() ?? $cardB->getValue());
     }
 
     public function sortBySuitAndValue(Card $cardA, Card $cardB): int
