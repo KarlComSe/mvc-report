@@ -93,12 +93,14 @@
             <ul>
               <li><em>Resultat</em>:Gick från 24 till 13 violations. Av de kvarstående violations berör 11 samma problem, som jag är osäker på hur jag ska fixa (The type Random\Randomizer was not found).</li>
               <li><em>Förändringar</em>: Jag hade en del jämförelser som var dåliga. Jag kollade om något var sant, och borde istället ha jämfört det mot !== null.</li>
+              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em></li>
             </ul>
           </li>
           <li><em>Fixa flertalet av de violations som PHP Metrics identifierar:</em> Jag väljer det här eftersom det ges konkreta tips på saker att åtgärda. Min förhoppning är att jag kan ta med mig detta till min kodning och undvika liknande i framtiden.  Detta kommer få en direkt påverkan på detta mätetal, men jag vet inte vilken inverkan det har på andra mätetal.
             <ul>
-              <li><em>Resultat</em>: Startade med 6 violations. </li>
-              <li><em>Förändringar</em>:</li>
+              <li><em>Resultat</em>: Startade med 6 violations. Slutade med ... . </li>
+              <li><em>Förändringar</em>: Hade en lite stor controller, delade upp den. Hade en harrang med if-satser som var lite komplicerad, där kunde jag ersätta 10 rader med 1 uppdaterad rad kod, tack vare nullish-coalescer (fick hjälp av Chat GPT, vilket för fungerade för en gångs skull). Gjorde också en större refactoring, där jag närmade mig single responsibility principle.</li>
+              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em></li>
             </ul>
           </li> 
           <li>
@@ -107,6 +109,7 @@
             <ul>
               <li><em>Resultat</em>:</li>
               <li><em>Förändringar</em>:</li>
+              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em></li>
             </ul>
           </li>
         </ul>
