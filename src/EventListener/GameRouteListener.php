@@ -2,7 +2,6 @@
 
 namespace App\EventListener;
 
-use App\Model\AiPlayerDecorator;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use App\Model\Game;
 use Random\Randomizer;
