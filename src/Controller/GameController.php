@@ -54,4 +54,24 @@ class GameController extends AbstractController
             'game' => $game
         ]);
     }
+
+    #[Route('/api/game', name: 'api_game')]
+    public function game(Request $request): JsonResponse
+    {
+
+        $data = [];
+        if ($request->getSession()->has('game')) {
+            $game = Game::createFromSavedState((array) $request->getSession()->get('game'));
+            $gameState = $game->getGameState();
+            $data = [
+                'players' => $gameState['players'],
+                'currentPlayer' => $gameState['currentPlayer'],
+                'pot' => $gameState['pot'],
+                'gameStatus' => $gameState['gameStatus'],
+                'bank_balance' => $game->getPlayers()['bank']->getBalance(),
+                'player_balance' => $game->getPlayers()['human']->getBalance()
+            ];
+        }
+        return new JsonResponse($data);
+    }
 }
