@@ -23,7 +23,7 @@ class IndexController extends AbstractController
     public function index(): Response
     {
         $json = $this->quoteService->getAssadsQuote()->getContent();
-        if ($json === false) {
+        if ($json === false || $json === null || $json === '') {
             return new Response('Failed to get quote data.');
         }
         $quote = json_decode(
