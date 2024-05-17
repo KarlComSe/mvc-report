@@ -20,7 +20,7 @@ class FrenchSuitedDeck extends DeckOfCards
         $deck = new FrenchSuitedDeck($randomizer, $observers);
         foreach (self::$suitsOfCards as $suit) {
             foreach (self::$namesOfCards as $name => $value) {
-                $deck->addCard(new Card($suit, $name, ...$value));
+                $deck->addCard(new Card($suit, $name, $value[0], $value[1] ?? null));
             }
         }
         $deck->notify();
