@@ -93,7 +93,7 @@ class CurrencyController extends AbstractController
         }
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $currency = $form->getData();
+            // $currency = $form->getData();
 
             $entityManager->flush();
 
