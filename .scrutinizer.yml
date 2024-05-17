@@ -15,6 +15,10 @@ build:
                     # version: 8.1.13
                     # version: 8.1.17
                     # version: 8.2.4
+                        tests:
+            tests:
+                override:
+                    - php-scrutinizer-run
         analysis:
             environment:
                 php:
