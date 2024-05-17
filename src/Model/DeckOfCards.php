@@ -104,11 +104,6 @@ abstract class DeckOfCards implements SplSubject
         return $this->cardCollection->hasCards();
     }
 
-    public function getNumberOfCards(): int
-    {
-        return $this->cardCollection->getNumberOfCards();
-    }
-
     /**
      * Draws a specified number of cards from the deck.
      *

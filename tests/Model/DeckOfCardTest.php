@@ -33,15 +33,6 @@ class FrenchSuitedDeckTest extends TestCase
         $this->assertInstanceOf("\App\Model\FrenchSuitedDeck", $deck);
     }
 
-    /** 
-     * Assert that getNumberOfCards() return 52 for a french deck
-     */
-
-    public function testGetNumberOfCards(): void
-    {
-        $deck = FrenchSuitedDeck::create();
-        $this->assertEquals($deck->getNumberOfCards(), 52);
-    }
 
     /**
      * Assert that drawCards throws an exception when 

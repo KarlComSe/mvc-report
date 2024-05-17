@@ -6,7 +6,7 @@
   <section>
     <h1>Here are some hands</h1>
     <p>
-      Cards left in deck: {{deck.getNumberOfCards()}}
+      Cards left in deck: {{deck.cardCollection.getNumberOfCards()}}
     </p>
     {% for hand in hands %}
     <li>Player {{loop.index}}
