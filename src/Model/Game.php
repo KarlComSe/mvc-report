@@ -14,7 +14,6 @@ use SplObserver;
 
 class Game implements SplSubject
 {
-    private const VALID_FORM_NAMES = ['action', 'bet'];
 
     private ?DeckOfCards $deck;
     /**
@@ -133,11 +132,13 @@ class Game implements SplSubject
      *
      * @param array<string, string> $formData The form data containing the player's move and action.
      * @return void
+     * 
+     * @throws Exception If the form data is invalid.
      */
     public function playRound(array $formData): void
     {
-
-        $this->isValidForm($formData);
+        $formValidator = new GameFormValidator();
+        $formValidator->isValidForm($formData);
 
         if ($formData['action'] !== 'restart') {
             $this->processMove($formData);
@@ -229,24 +230,24 @@ class Game implements SplSubject
         return $this->players;
     }
 
-    /**
-     * Validates the form data.
-     *
-     * @param array<string, string> $formData The form data to validate.
-     *
-     * @throws Exception If an invalid form name is found.
-     */
-    private function isValidForm(array $formData): void
-    {
-        $formKeys = array_keys($formData);
-        foreach ($formKeys as $key) {
-            if (!in_array($key, self::VALID_FORM_NAMES)) {
-                throw new Exception('Invalid form name.');
-            }
+    // /**
+    //  * Validates the form data.
+    //  *
+    //  * @param array<string, string> $formData The form data to validate.
+    //  *
+    //  * @throws Exception If an invalid form name is found.
+    //  */
+    // private function isValidForm(array $formData): void
+    // {
+    //     $formKeys = array_keys($formData);
+    //     foreach ($formKeys as $key) {
+    //         if (!in_array($key, self::VALID_FORM_NAMES)) {
+    //             throw new Exception('Invalid form name.');
+    //         }
 
-            // ignorantly accepting all values...
-        }
-    }
+    //         // ignorantly accepting all values...
+    //     }
+    // }
 
     public function dealCard(): void
     {
