@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1716024307">
-  <project timestamp="1716024307">
+<coverage generated="1716024979">
+  <project timestamp="1716024979">
     <file name="/home/karl/Documents/dbwebb/mvc/me/report/src/Controller/AboutController.php">
       <class name="App\Controller\AboutController" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
@@ -577,7 +577,7 @@
     </file>
     <file name="/home/karl/Documents/dbwebb/mvc/me/report/src/Model/DetermineWinner.php">
       <class name="App\Model\DetermineWinner" namespace="global">
-        <metrics complexity="22" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="38" elements="47" coveredelements="43"/>
+        <metrics complexity="18" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="31" elements="40" coveredelements="36"/>
       </class>
       <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="14"/>
       <line num="11" type="stmt" count="14"/>
@@ -610,23 +610,16 @@
       <line num="84" type="stmt" count="2"/>
       <line num="85" type="stmt" count="0"/>
       <line num="88" type="stmt" count="2"/>
-      <line num="98" type="method" name="getPlayersBestScores" visibility="private" complexity="5" crap="5" count="2"/>
+      <line num="98" type="method" name="getPlayersBestScores" visibility="private" complexity="3" crap="3" count="2"/>
       <line num="100" type="stmt" count="2"/>
+      <line num="101" type="stmt" count="2"/>
       <line num="102" type="stmt" count="2"/>
       <line num="103" type="stmt" count="2"/>
       <line num="104" type="stmt" count="2"/>
-      <line num="105" type="stmt" count="2"/>
-      <line num="106" type="stmt" count="2"/>
-      <line num="109" type="stmt" count="2"/>
-      <line num="112" type="stmt" count="2"/>
-      <line num="121" type="method" name="getAllHighestScores" visibility="private" complexity="3" crap="3" count="2"/>
-      <line num="123" type="stmt" count="2"/>
-      <line num="124" type="stmt" count="2"/>
-      <line num="125" type="stmt" count="2"/>
-      <line num="126" type="stmt" count="2"/>
-      <line num="127" type="stmt" count="2"/>
-      <line num="131" type="stmt" count="2"/>
-      <metrics loc="134" ncloc="99" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="38" elements="47" coveredelements="43"/>
+      <line num="113" type="method" name="getAllHighestScores" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="115" type="stmt" count="2"/>
+      <line num="116" type="stmt" count="2"/>
+      <metrics loc="119" ncloc="84" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="31" elements="40" coveredelements="36"/>
     </file>
     <file name="/home/karl/Documents/dbwebb/mvc/me/report/src/Model/FrenchSuitedDeck.php">
       <class name="App\Model\FrenchSuitedDeck" namespace="global">
@@ -940,6 +933,6 @@
       <line num="36" type="stmt" count="0"/>
       <metrics loc="39" ncloc="34" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="21" coveredelements="0"/>
     </file>
-    <metrics files="36" loc="2265" ncloc="1930" classes="33" methods="148" coveredmethods="69" conditionals="0" coveredconditionals="0" statements="581" coveredstatements="252" elements="729" coveredelements="321"/>
+    <metrics files="36" loc="2250" ncloc="1915" classes="33" methods="148" coveredmethods="69" conditionals="0" coveredconditionals="0" statements="574" coveredstatements="245" elements="722" coveredelements="314"/>
   </project>
 </coverage>
