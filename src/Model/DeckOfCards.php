@@ -97,11 +97,6 @@ abstract class DeckOfCards implements SplSubject
         $this->notify();
     }
 
-    public function hasCards(): bool
-    {
-        return $this->cardCollection->hasCards();
-    }
-
     /**
      * Draws a specified number of cards from the deck.
      *
