@@ -6,6 +6,9 @@ use Exception;
 
 class CardCollection
 {
+    /**
+     * @var array<Card> The Cards in the card collection.
+     */
     private array $cards = [];
 
     public function addCard(Card $card): void
@@ -13,6 +16,11 @@ class CardCollection
         $this->cards[] = $card;
     }
 
+    /**
+     * Draw some cards from the card collection.
+     *
+     * @return array<Card> The array representing containing drawn cards.
+     */
     public function drawCards(int $numberOfCards): array
     {
         $drawnCards = [];
@@ -25,11 +33,20 @@ class CardCollection
         return $drawnCards;
     }
 
+    /**
+     * Get the deck of cards.
+     *
+     * @return array<Card> The array representing containing drawn cards.
+     */
     public function getCards(): array
     {
         return $this->cards;
     }
-
+    /**
+     * Set the deck of cards.
+     * 
+     * @param array<Card> $cards The array of cards to set.
+     */
     public function setCards(array $cards): void
     {
         $this->cards = $cards;
