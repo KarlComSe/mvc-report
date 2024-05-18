@@ -97,19 +97,11 @@ class DetermineWinner
      */
     private function getPlayersBestScores(array $scores): array
     {
-        $bestScores = [];
-
-        foreach ($scores as $player => $playerScores) {
-            $bestScore = 0;
-            foreach ($playerScores as $score) {
-                if ($score <= 21 && $score > $bestScore) {
-                    $bestScore = $score;
-                }
-            }
-            $bestScores[$player] = $bestScore;
-        }
-
-        return $bestScores;
+        return array_map(function ($playerScores) {
+            return array_reduce($playerScores, function ($bestScore, $score) {
+                return ($score <= 21 && $score > $bestScore) ? $score : $bestScore;
+            }, 0);
+        }, $scores);
     }
 
     /**
@@ -121,13 +113,6 @@ class DetermineWinner
     private function getAllHighestScores(array $bestScores): array
     {
         $maxScore = max($bestScores);
-        $winners = [];
-        foreach ($bestScores as $player => $score) {
-            if ($score === $maxScore) {
-                $winners[] = $player;
-            }
-        }
-
-        return $winners;
+        return array_keys(array_filter($bestScores, fn ($score) => $score === $maxScore));
     }
 }
