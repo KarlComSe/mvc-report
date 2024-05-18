@@ -27,7 +27,7 @@ class CardDealer
                 if (!$deck->cardCollection->getNumberOfCards() > 0) {
                     throw new Exception('Not enough cards to deal');
                 }
-                $hand->addCard($deck->drawCards(1)[0]);
+                $hand->addCard($deck->cardCollection->drawCards(1)[0]);
             }
         }
 

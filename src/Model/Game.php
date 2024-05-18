@@ -253,7 +253,7 @@ class Game implements SplSubject
         if ($this->deck === null) {
             throw new Exception('Cannot deal cards from a non existing deck.');
         }
-        $this->players[$this->currentPlayer]->addCardsToHand($this->deck->drawCards(1));
+        $this->players[$this->currentPlayer]->addCardsToHand($this->deck->cardCollection->drawCards(1));
         $this->notify();
     }
 

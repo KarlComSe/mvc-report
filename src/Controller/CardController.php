@@ -74,7 +74,7 @@ class CardController extends AbstractController
     {
         $deck = $this->getInstansiatedDeck($request, 'deck_2');
 
-        return $this->render('card/cards.html.twig', ['cards' => $deck->drawCards($number)]);
+        return $this->render('card/cards.html.twig', ['cards' => $deck->cardCollection->drawCards($number)]);
     }
 
     #[Route('/card/deck/deal/{players}/{cards}', name: 'app_deck_deal', defaults: ['deck_needed' => true ])]
@@ -89,7 +89,7 @@ class CardController extends AbstractController
 
         for ($i = 0; $i < $cards; $i++) {
             foreach ($hands as $hand) {
-                $cardArray = $deck->drawCards(1);
+                $cardArray = $deck->cardCollection->drawCards(1);
                 foreach ($cardArray as $card) {
                     $hand->addCard($card);
                 }

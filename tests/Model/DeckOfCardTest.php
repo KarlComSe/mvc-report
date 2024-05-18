@@ -34,17 +34,17 @@ class FrenchSuitedDeckTest extends TestCase
     }
 
 
-    /**
-     * Assert that drawCards throws an exception when 
-     * trying to draw more cards than available.
-     */
+    // /**
+    //  * Assert that drawCards throws an exception when 
+    //  * trying to draw more cards than available.
+    //  */
 
-    public function testDrawCards(): void
-    {
-        $deck = FrenchSuitedDeck::create();
-        $this->expectException(\Exception::class);
-        $deck->drawCards(53);
-    }
+    // public function testDrawCards(): void
+    // {
+    //     $deck = FrenchSuitedDeck::create();
+    //     $this->expectException(\Exception::class);
+    //     $deck->drawCards(53);
+    // }
 
     /**
      * Assert that observers are attached to the deck.

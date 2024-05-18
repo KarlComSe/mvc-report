@@ -6,7 +6,6 @@ use App\Model\CardCollection;
 use SplSubject;
 use SplObjectStorage;
 use SplObserver;
-use Exception;
 
 abstract class DeckOfCards implements SplSubject
 {
@@ -97,16 +96,16 @@ abstract class DeckOfCards implements SplSubject
         $this->notify();
     }
 
-    /**
-     * Draws a specified number of cards from the deck.
-     *
-     * @param int $numberOfCards The number of cards to draw.
-     * @return array<Card> An array of drawn cards.
-     */
-    public function drawCards(int $numberOfCards): array
-    {
-        $drawnCards = $this->cardCollection->drawCards($numberOfCards);
-        $this->notify();
-        return $drawnCards;
-    }
+    // /**
+    //  * Draws a specified number of cards from the deck.
+    //  *
+    //  * @param int $numberOfCards The number of cards to draw.
+    //  * @return array<Card> An array of drawn cards.
+    //  */
+    // public function drawCards(int $numberOfCards): array
+    // {
+    //     $drawnCards = $this->cardCollection->drawCards($numberOfCards);
+    //     $this->notify();
+    //     return $drawnCards;
+    // }
 }
