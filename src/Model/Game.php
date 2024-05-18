@@ -273,7 +273,7 @@ class Game implements SplSubject
         $this->notify();
     }
 
-    public function hasNextPlayer(): bool
+    private function hasNextPlayer(): bool
     {
         $playerIndex = array_search($this->currentPlayer, array_keys($this->players));
         return $playerIndex < count($this->players) - 1;
