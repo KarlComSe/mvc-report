@@ -91,16 +91,16 @@
         <ul>
           <li><em>Fixa flertalet av de issues som Scrutinizer identifierar:</em> Jag väljer det här eftersom det ges konkreta tips på saker att åtgärda. Min förhoppning är att jag kan ta med mig detta till min kodning och undvika liknande i framtiden. Detta kommer få en direkt påverkan på detta mätetal, men jag vet inte vilken inverkan det har på andra mätetal.
             <ul>
-              <li><em>Resultat</em>:Gick från 24 till 13 violations. Av de kvarstående violations berör 11 samma problem, som jag är osäker på hur jag ska fixa (The type Random\Randomizer was not found).</li>
+              <li><em>Resultat</em>:Gick från 24 till 10 violations. Av de kvarstående violations berör 6 samma problem, som jag är osäker på hur jag ska fixa (The type Random\Randomizer was not found).</li>
               <li><em>Förändringar</em>: Jag hade en del jämförelser som var dåliga. Jag kollade om något var sant, och borde istället ha jämfört det mot !== null.</li>
-              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em></li>
+              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em> Skulle behöva hjälp för att lösa resterande. Tror det är fullt möjligt.</li>
             </ul>
           </li>
           <li><em>Fixa flertalet av de violations som PHP Metrics identifierar:</em> Jag väljer det här eftersom det ges konkreta tips på saker att åtgärda. Min förhoppning är att jag kan ta med mig detta till min kodning och undvika liknande i framtiden.  Detta kommer få en direkt påverkan på detta mätetal, men jag vet inte vilken inverkan det har på andra mätetal.
             <ul>
-              <li><em>Resultat</em>: Startade med 6 violations. Slutade med ... . </li>
-              <li><em>Förändringar</em>: Hade en lite stor controller, delade upp den. Hade en harrang med if-satser som var lite komplicerad, där kunde jag ersätta 10 rader med 1 uppdaterad rad kod, tack vare nullish-coalescer (fick hjälp av Chat GPT, vilket för fungerade för en gångs skull). Gjorde också en större refactoring, där jag närmade mig single responsibility principle.</li>
-              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em></li>
+              <li><em>Resultat</em>: Startade med 6 violations. Slutade med 4. </li>
+              <li><em>Förändringar</em>: Hade en stor controller, delade upp den. Hade en harrang med if-satser för en <b>sorteringsalgoritm</b> som var lite komplicerad, där kunde jag ersätta 10 rader med 1 uppdaterad rad kod, tack vare nullish-coalescer (fick hjälp av Chat GPT, vilket för fungerade för en gångs skull).</li>
+              <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em> Gjorde en större refactoring, där jag försökte närma mig single responsibility principle i klassen DeckOfCards, delade upp den i flera. Min förhoppning var att ta bort ett error, "Blob / God object". Varningarna var för många publika metoder, hög kohesion och att klassen kände till mycket annat. Jag lyckades minska antalet publika metoder till 9. På köpet fick jag en hel del förbättrade andra betyg, men tyvärr kvarstår "Blob / God object". Eftersom klassen implementerar Observer-pattern är jag tvungen att implementera ca 6 publika funktioner, vilka också arbetar med olika attribut, jämfört med klassens huvuduppgift. Detta bidrar till den höga kohesionen, antalet metoder samt även att den blir God object. Det finns tre andra violations som är kvar, den ena är att en klass är "probably bugged", det är en av mina spelklasser. Den innehåller 0.42 buggar. Min uppfattning är att den är okej ändå, den har en del tester och innehåller en hel del spellogik med flertalet conditionals / switch-satser. Ev. skulle jag kunna få ner den utan större insats, men jag la all min tid på tidigare problem och tycker inte att 0.42 buggar i denna klass är bekymmersamt. De två övriga violations är klasser som jag inte gjort, och jag lämnar de.</li>
             </ul>
           </li> 
           <li>
@@ -108,7 +108,7 @@
             <img src="{{ asset('images/pre_complexity_overview_improvements_phpmetrics.png') }}" alt="Mätetal för complexity visas via php metrics"> 
             <ul>
               <li><em>Resultat</em>:</li>
-              <li><em>Förändringar</em>:</li>
+              <li><em>Förändringar</em>: Ovan förändringar har bidragit till att minska komplexiteten. Komplexiteten landade först på 40, 22, 10 och 10. FrenchSuitedDeck har alltså gått från 16 till 10. DeckOfCards har gått från 19 till 10. Det beror i huvudsak på 1) att jag gjorde om en sorteringsalgoritm från 10 till 1 rad och 2) att jag närmade mig single responsibility principle (delade upp en klass). Men kan jag göra något för att minska komplexiteten i Game och DetermineWinner? Låt mig kolla. Ja, sätt en metod till private i Game, men påverkar det Scrutinizer? Nej. Min "Game"-klass innehåller logik för att göra flera saker, den hanterar bl.a. spelhändelser och validerar form submission. Här kan jag bryta ut valideringen av formuläret (användarinput) till en separat klass. </li>
               <li><em>Kommentarer kring ev. kvarstående åtgärder / problem:</em></li>
             </ul>
           </li>
