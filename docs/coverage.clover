@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1716024979">
-  <project timestamp="1716024979">
+<coverage generated="1716111329">
+  <project timestamp="1716111329">
     <file name="/home/karl/Documents/dbwebb/mvc/me/report/src/Controller/AboutController.php">
       <class name="App\Controller\AboutController" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
