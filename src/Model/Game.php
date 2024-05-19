@@ -14,7 +14,6 @@ use SplObserver;
 
 class Game implements SplSubject
 {
-
     private ?DeckOfCards $deck;
     /**
      * @var array<?Player> The players of the game.
@@ -132,7 +131,7 @@ class Game implements SplSubject
      *
      * @param array<string, string> $formData The form data containing the player's move and action.
      * @return void
-     * 
+     *
      * @throws Exception If the form data is invalid.
      */
     public function playRound(array $formData): void

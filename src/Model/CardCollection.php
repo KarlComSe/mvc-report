@@ -44,7 +44,7 @@ class CardCollection
     }
     /**
      * Set the deck of cards.
-     * 
+     *
      * @param array<Card> $cards The array of cards to set.
      */
     public function setCards(array $cards): void
