@@ -16,6 +16,16 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            form_login:
+                login_path: kassabok_login
+                check_path: kassabok_login
+                default_target_path: kassabok_start
+                enable_csrf: true
+            logout:
+                path: kassabok_logout
+                target: kassabok_login
+                # where to redirect after logout
+                # target: app_any_route
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
