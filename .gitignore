@@ -37,3 +37,4 @@
 ###< squizlabs/php_codesniffer ###
 .phpdoc/
 ./tools/phpdoc/
+.idea/
