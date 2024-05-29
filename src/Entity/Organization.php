@@ -36,17 +36,17 @@ class Organization
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Name = null;
+    private ?string $name = null;
 
     /**
      * @var Collection<int, User>
      */
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'organizations')]
-    private Collection $User;
+    private Collection $users;
 
     public function __construct()
     {
-        $this->User = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -56,12 +56,12 @@ class Organization
 
     public function getName(): ?string
     {
-        return $this->Name;
+        return $this->name;
     }
 
-    public function setName(string $Name): static
+    public function setName(string $name): static
     {
-        $this->Name = $Name;
+        $this->name = $name;
 
         return $this;
     }
@@ -69,15 +69,15 @@ class Organization
     /**
      * @return Collection<int, User>
      */
-    public function getUser(): Collection
+    public function getUsers(): Collection
     {
-        return $this->User;
+        return $this->users;
     }
 
     public function addUser(User $user): static
     {
-        if (!$this->User->contains($user)) {
-            $this->User->add($user);
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
         }
 
         return $this;
@@ -85,7 +85,7 @@ class Organization
 
     public function removeUser(User $user): static
     {
-        $this->User->removeElement($user);
+        $this->users->removeElement($user);
 
         return $this;
     }
