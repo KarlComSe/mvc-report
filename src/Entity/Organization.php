@@ -3,13 +3,31 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\OrganizationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrganizationRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    description: 'The Organization entity represents a business or group that
+     uses the bookkeeping application. An organization typically corresponds 
+     to a company, non-profit, or other type of entity that manages financial
+      records within the app. Each organization can be owned and managed by
+       one or more users.',
+    operations: [
+        new Get(),
+        new Post(),
+        new Put(),
+        new Delete(),
+        new GetCollection()
+    ]
+)]
 class Organization
 {
     #[ORM\Id]
