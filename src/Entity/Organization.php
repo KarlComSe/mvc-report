@@ -22,7 +22,7 @@ use Doctrine\ORM\Mapping as ORM;
        one or more users.',
     operations: [
         new Get(),
-        new Post(),
+        new Post(security: 'is_granted("ROLE_USER")'),
         new Put(),
         new Delete(),
         new GetCollection()
@@ -43,6 +43,9 @@ class Organization
      */
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'organizations')]
     private Collection $users;
+
+    #[ORM\ManyToOne(inversedBy: 'organization')]
+    private ?Journal $journal = null;
 
     public function __construct()
     {
@@ -86,6 +89,18 @@ class Organization
     public function removeUser(User $user): static
     {
         $this->users->removeElement($user);
+
+        return $this;
+    }
+
+    public function getJournal(): ?Journal
+    {
+        return $this->journal;
+    }
+
+    public function setJournal(?Journal $journal): static
+    {
+        $this->journal = $journal;
 
         return $this;
     }

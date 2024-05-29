@@ -33,9 +33,16 @@ class Journal
     #[ORM\OneToMany(targetEntity: JournalEntry::class, mappedBy: 'Journal', orphanRemoval: true)]
     private Collection $journalEntries;
 
+    /**
+     * @var Collection<int, Organization>
+     */
+    #[ORM\OneToMany(targetEntity: Organization::class, mappedBy: 'journal')]
+    private Collection $organization;
+
     public function __construct()
     {
         $this->journalEntries = new ArrayCollection();
+        $this->organization = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -103,6 +110,36 @@ class Journal
             // set the owning side to null (unless already changed)
             if ($journalEntry->getJournal() === $this) {
                 $journalEntry->setJournal(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Organization>
+     */
+    public function getOrganization(): Collection
+    {
+        return $this->organization;
+    }
+
+    public function addOrganization(Organization $organization): static
+    {
+        if (!$this->organization->contains($organization)) {
+            $this->organization->add($organization);
+            $organization->setJournal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrganization(Organization $organization): static
+    {
+        if ($this->organization->removeElement($organization)) {
+            // set the owning side to null (unless already changed)
+            if ($organization->getJournal() === $this) {
+                $organization->setJournal(null);
             }
         }
 
