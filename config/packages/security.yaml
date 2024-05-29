@@ -24,6 +24,10 @@ security:
                 check_path: kassabok_login
                 default_target_path: kassabok_start
                 enable_csrf: true
+            json_login:
+                check_path: kassabok_json_login
+                username_path: email
+                password_path: password
             logout:
                 path: kassabok_logout
                 target: kassabok_login

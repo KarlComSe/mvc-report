@@ -29,4 +29,17 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+    #[Route(path: '/proj/kassabok_json_login', name: 'kassabok_json_login')]
+    public function jsonLogin(#[CurrentUser] $user = null): Response
+    {
+        if (!$user) {
+            return $this->json([
+                'error' => 'Invalid login request: check that the Content-Type header is "application/json".',
+            ], 401);
+        }
+        return $this->json([
+            'user' => $user ? $user->getId() : null,
+        ]);
+    }
 }
