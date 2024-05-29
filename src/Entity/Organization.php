@@ -21,11 +21,11 @@ use Doctrine\ORM\Mapping as ORM;
       records within the app. Each organization can be owned and managed by
        one or more users.',
     operations: [
-        new Get(),
+        new Get(security: 'object.getUsers().contains(user)'),
         new Post(security: 'is_granted("ROLE_USER")'),
         new Put(),
-        new Delete(),
-        new GetCollection()
+        new Delete(security: 'object.getUsers().contains(user)'),
+        new GetCollection(security: 'is_granted("ROLE_ADMIN")'),
     ]
 )]
 class Organization
