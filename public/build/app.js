@@ -9,7 +9,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap.js */ "./assets/bootstrap.js");
-/* harmony import */ var _styles_app_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/app.css */ "./assets/styles/app.css");
+/* harmony import */ var _styles_app_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/report.css */ "./assets/styles/app.css");
 
 /*
  * Welcome to your app's main JavaScript file!
@@ -39,7 +39,7 @@ var app = Object(function webpackMissingModule() { var e = new Error("Cannot fin
 
 /***/ "./assets/styles/app.css":
 /*!*******************************!*\
-  !*** ./assets/styles/app.css ***!
+  !*** ./assets/styles/report.css ***!
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
