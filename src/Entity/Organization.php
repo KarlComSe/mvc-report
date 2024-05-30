@@ -21,11 +21,11 @@ use Doctrine\ORM\Mapping as ORM;
       records within the app. Each organization can be owned and managed by
        one or more users.',
     operations: [
-        new Get(security: 'object.getUsers().contains(user)'),
+        new Get(security: 'object.isUserInOrganization(user)'),
         new Post(security: 'is_granted("ROLE_USER")'),
         new Put(),
-        new Delete(security: 'object.getUsers().contains(user)'),
-        new GetCollection(security: 'is_granted("ROLE_ADMIN")'),
+        new Delete(security: 'object.isUserInOrganization(user)'),
+        new GetCollection(),
     ]
 )]
 class Organization
@@ -75,6 +75,17 @@ class Organization
     public function getUsers(): Collection
     {
         return $this->users;
+    }
+
+    public function isUserInOrganization(User $user): bool
+    {
+        if (!$this->users->isInitialized()) {
+            $this->users->initialize();
+        }
+        dump($this->users);
+        dump($this->users->toArray());
+        dump($user);
+        return $this->users->contains($user);
     }
 
     public function addUser(User $user): static
