@@ -30,10 +30,13 @@ final readonly class CurrentUserExtension implements QueryCollectionExtensionInt
 
     private function addWhere(QueryBuilder $queryBuilder, string $resourceClass): void
     {
-        if (Organization::class !== $resourceClass || $this->security->isGranted('ROLE_ADMIN') || null === $user = $this->security->getUser()) {
+        if (null === $user = $this->security->getUser()) {
+            $queryBuilder->andWhere('1 = 0');
             return;
         }
-
+        if (Organization::class !== $resourceClass || $this->security->isGranted('ROLE_ADMIN')) {
+            return;
+        }
         $rootAlias = $queryBuilder->getRootAliases()[0];
         $queryBuilder->andWhere(sprintf(':current_user MEMBER OF o.users', $rootAlias));
         $queryBuilder->setParameter('current_user', $user->getId());
