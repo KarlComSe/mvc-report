@@ -1,4 +1,3 @@
 # config/packages/symfonycasts_tailwind.yaml
 symfonycasts_tailwind:
   input_css: '%kernel.project_dir%/assets/styles/report.css'
-  output_css: '%kernel.project_dir%/public/styles/report.css'
