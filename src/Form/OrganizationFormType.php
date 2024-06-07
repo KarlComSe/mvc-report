@@ -14,8 +14,8 @@ class OrganizationFormType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Organization Name',
-                'attr' => ['placeholder' => 'Enter the name of the organization'],
+                'label' => 'Organisation',
+                'attr' => ['placeholder' => 'Ange organisationsnamn'],
             ]);
     }
 

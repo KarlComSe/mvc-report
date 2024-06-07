@@ -29,7 +29,7 @@ class OrganizationController extends AbstractController
         $organization = new Organization();
         $form = $this->createForm(OrganizationFormType::class);
         $form->add('save', SubmitType::class, [
-            'label' => 'Create organization']);
+            'label' => 'Lägg till',]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
