@@ -44,7 +44,7 @@ class JournalsController extends AbstractController
 
         return $this->render('kassabok/journal/index.html.twig', [
             'organization' => $organization,
-            'journals' => $organization->getJournal(),
+            'journals' => $organization->getJournals(),
             'form' => $form,
         ]);
     }

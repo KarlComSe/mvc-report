@@ -44,12 +44,13 @@ class Organization
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'organizations')]
     private Collection $users;
 
-    #[ORM\ManyToOne(inversedBy: 'organization')]
-    private ?Journal $journal = null;
+    #[ORM\ManyToMany(targetEntity: Journal::class, inversedBy: 'organizations')]
+    private Collection $journals;
 
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->journals = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -104,15 +105,36 @@ class Organization
         return $this;
     }
 
-    public function getJournal(): ?Journal
+    public function getJournals(): Collection
     {
-        return $this->journal;
+        return $this->journals;
     }
 
-    public function setJournal(?Journal $journal): static
+    public function addJournal(Journal $journal): static
     {
-        $this->journal = $journal;
+        if (!$this->journals->contains($journal)) {
+            $this->journals->add($journal);
+        }
 
         return $this;
     }
+
+    public function removeJournal(Journal $journal): static
+    {
+        $this->journals->removeElement($journal);
+
+        return $this;
+    }
+
+    // public function getJournals(): ?Journal
+    // {
+    //     return $this->journal;
+    // }
+
+    // public function setJournals(?Journal $journal): static
+    // {
+    //     $this->journal = $journal;
+
+    //     return $this;
+    // }
 }

@@ -128,7 +128,7 @@ class Journal
     {
         if (!$this->organization->contains($organization)) {
             $this->organization->add($organization);
-            $organization->setJournal($this);
+            $organization->addJournal($this);
         }
 
         return $this;
@@ -137,10 +137,7 @@ class Journal
     public function removeOrganization(Organization $organization): static
     {
         if ($this->organization->removeElement($organization)) {
-            // set the owning side to null (unless already changed)
-            if ($organization->getJournal() === $this) {
-                $organization->setJournal(null);
-            }
+            $organization->removeJournal($this);
         }
 
         return $this;
