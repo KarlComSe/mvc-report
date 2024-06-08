@@ -9,10 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Organization;
-use App\Form\OrganizationFormType;
+use App\Entity\Journal;
+use App\Form\JournalCreateFormType;
 use Symfony\Bundle\SecurityBundle\Security;
 
-class OrganizationController extends AbstractController
+class JournalsController extends AbstractController
 {
     private $security;
 
@@ -21,29 +22,29 @@ class OrganizationController extends AbstractController
         $this->security = $security;
     }
 
-    #[Route('/proj/organization', name: 'kassabok_organization')]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/proj/journals/{id}', name: 'kassabok_journals')]
+    public function journals(Request $request, EntityManagerInterface $entityManager, Organization $organization): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
-        $organization = new Organization();
-        $form = $this->createForm(OrganizationFormType::class);
+        $jorunal = new Journal();
+        $form = $this->createForm(JournalCreateFormType::class);
         $form->add('save', SubmitType::class, [
             'label' => 'Lägg till',]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $organization = $form->getData();
-            $organization->addUser($this->getUser());
+            $journal = $form->getData();
+            $journal->addOrganization($organization);
 
-            $entityManager->persist($organization);
+            $entityManager->persist($journal);
             $entityManager->flush();
-            return $this->redirectToRoute('kassabok_organization');
+            return $this->redirectToRoute('kassabok_journals', ['id' => $organization->getId()]);
         }
 
-        return $this->render('kassabok/organization/index.html.twig', [
-            'controller_name' => 'OrganizationController',
-            'organizations' => $entityManager->getRepository(Organization::class)->findByUser($this->getUser()),
+        return $this->render('kassabok/journal/index.html.twig', [
+            'organization' => $organization,
+            'journals' => $organization->getJournal(),
             'form' => $form,
         ]);
     }
@@ -52,15 +53,15 @@ class OrganizationController extends AbstractController
     // {
     //     $this->denyAccessUnlessGranted('ROLE_USER');
 
-    //     $organization = new Organization();
+    //     $journal = new Journal();
 
-    //     $form = $this->createForm(OrganizationFormType::class);
+    //     $form = $this->createForm(JournalCreateFormType::class);
     //     $form->handleRequest($request);
 
     //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $organization = $form->getData();
+    //         $journal = $form->getData();
 
-    //         return $this->redirectToRoute('kassabok_organization');
+    //         return $this->redirectToRoute('kassabok_journals');
     //     }
     // }
 }

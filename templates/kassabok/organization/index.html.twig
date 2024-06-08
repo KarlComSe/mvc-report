@@ -6,16 +6,23 @@
     {% form_theme form 'bootstrap_5_layout.html.twig' %}
 
     <h2>Välj befintlig organisation</h2>
+    <div class="container mt-5">
+        <div class="list-group">    
     {% for organization in organizations %}
-    {{ organization.name }}
-    {{ dump(organization.users[0].email) }}
-    {{ dump(organization.name) }}
+        <a href="{{ path('kassabok_journals', {'id': organization.id}) }}" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ organization.name }}</h5>
+            </div>
+            <p class="mb-1">Registered by 
+            {{ organization.users[0].email }}</p>
+        </a>
     {% endfor %}
-    <h2>Skapa ny organisation</h2>
+    </div>
+    <h2 class="mt-5">Skapa ny organisation</h2>
     <div>
         {{ form(form) }}
     </div>
-    <h2>Anslut till befintlig organisation</h2>
+    <h2 class="mt-5">Anslut till befintlig organisation</h2>
     <div>
         <p>Ett annat formulär</p>
     </div>

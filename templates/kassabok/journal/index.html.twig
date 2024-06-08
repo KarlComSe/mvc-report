@@ -1,0 +1,17 @@
+{% extends 'kassabok/base.html.twig' %}
+
+{% block title %}Välj eller skapa en kassabok{% endblock %}
+
+{% block body %}
+    {% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+    <h2>Existerande kassaböcker</h2>
+    {{ dump(journals) }}
+    {% for journal in journals %}
+    {{ dump(journal) }}
+    {% endfor %}
+    <h2>Skapa ny kassabok</h2>
+    <div>
+        {{ form(form) }}
+    </div>
+{% endblock %}
