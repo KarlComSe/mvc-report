@@ -36,13 +36,12 @@ class Journal
     /**
      * @var Collection<int, Organization>
      */
-    #[ORM\OneToMany(targetEntity: Organization::class, mappedBy: 'journal')]
-    private Collection $organization;
+    #[ORM\ManyToOne(targetEntity: Organization::class, inversedBy: 'journals')]
+    private ?Organization $organization = null;
 
     public function __construct()
     {
         $this->journalEntries = new ArrayCollection();
-        $this->organization = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -124,22 +123,8 @@ class Journal
         return $this->organization;
     }
 
-    public function addOrganization(Organization $organization): static
+    public function setOrganization(?Organization $organization): void
     {
-        if (!$this->organization->contains($organization)) {
-            $this->organization->add($organization);
-            $organization->addJournal($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrganization(Organization $organization): static
-    {
-        if ($this->organization->removeElement($organization)) {
-            $organization->removeJournal($this);
-        }
-
-        return $this;
+        $this->organization = $organization;
     }
 }

@@ -44,7 +44,7 @@ class Organization
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'organizations')]
     private Collection $users;
 
-    #[ORM\ManyToMany(targetEntity: Journal::class, inversedBy: 'organizations')]
+    #[ORM\OneToMany(targetEntity: Journal::class, mappedBy: 'organization')]
     private Collection $journals;
 
     public function __construct()

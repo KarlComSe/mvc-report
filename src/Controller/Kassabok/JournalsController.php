@@ -35,7 +35,7 @@ class JournalsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $journal = $form->getData();
-            $journal->addOrganization($organization);
+            $journal->setOrganization($organization);
 
             $entityManager->persist($journal);
             $entityManager->flush();
