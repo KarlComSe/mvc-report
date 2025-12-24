@@ -38,3 +38,7 @@
 .phpdoc/
 ./tools/phpdoc/
 .idea/
+data.db
+*.backup
+*.env.test
+Notes.md
