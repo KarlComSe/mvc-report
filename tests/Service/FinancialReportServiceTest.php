@@ -2,15 +2,10 @@
 
 namespace App\Tests\Service;
 
-use App\Entity\Account;
-use App\Entity\Journal;
-use App\Entity\JournalEntry;
-use App\Entity\JournalLineItem;
 use App\Service\FinancialReportService;
+use App\Service\YearEndService;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Common\Collections\ArrayCollection;
-use PHPUnit\Framework\TestCase;
 use App\Tests\Fixtures\AccountingFixtureLoader;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -65,10 +60,10 @@ class FinancialReportServiceTest extends KernelTestCase
         $this->assertEquals(-1614, $result['netIncome']);
     }
 
-    public function testBalanceSheet(): void
+    public function testBalanceSheetUnbalanced(): void
     {
         $journal = $this->fixtureLoader->loadScenario('E');
-        $result = $this->service->getIncomeStatement($journal);
+        $result = $this->service->getBalanceSheet($journal);
 
         $this->assertArrayHasKey('assets', $result);
         $this->assertArrayHasKey('liabilities', $result);
@@ -77,128 +72,33 @@ class FinancialReportServiceTest extends KernelTestCase
         $this->assertArrayHasKey('totalLiabilities', $result);
         $this->assertArrayHasKey('totalEquity', $result);
         $this->assertArrayHasKey('balanced', $result);
-        $this->assertEquals(-750, $result['totalAssets']);
-        $this->assertEquals(0, $result['totalEquity']);
+        $this->assertEquals(73437, $result['totalAssets']);
+        $this->assertEquals(50000, $result['totalEquity']);
         $this->assertFalse($result['balanced']);
     }
 
-
-    private function createJournalWithEntries(): Journal
+    public function testBalanceSheetWithAndWithoutClosingEntries(): void
     {
-        // Accounts
-        $cashAccount = $this->createMock(Account::class);
-        $cashAccount->method('getId')->willReturn(1);
-        $cashAccount->method('getType')->willReturn(Account::TYPE_ASSET);
-        $cashAccount->method('getAccountNumber')->willReturn('1910');
-        $cashAccount->method('getName')->willReturn('Kassa');
-        $cashAccount->method('getTypeName')->willReturn('Tillgångar');
+        $journal = $this->fixtureLoader->loadScenario('E');
+        $yearEndClosingService = new YearEndService($this->em, $this->service);
+        $journalEntry = $yearEndClosingService->closeIncomeStatement($journal, new DateTime('2025-12-31'));
 
-        $revenueAccount = $this->createMock(Account::class);
-        $revenueAccount->method('getId')->willReturn(2);
-        $revenueAccount->method('getType')->willReturn(Account::TYPE_REVENUE);
-        $revenueAccount->method('getAccountNumber')->willReturn('3000');
-        $revenueAccount->method('getName')->willReturn('Försäljning');
-        $revenueAccount->method('getTypeName')->willReturn('Intäkter');
+        $journal->addJournalEntry($journalEntry);
 
-        $expenseAccount = $this->createMock(Account::class);
-        $expenseAccount->method('getId')->willReturn(3);
-        $expenseAccount->method('getType')->willReturn(Account::TYPE_EXPENSE);
-        $expenseAccount->method('getAccountNumber')->willReturn('6000');
-        $expenseAccount->method('getName')->willReturn('Övriga kostnader');
-        $expenseAccount->method('getTypeName')->willReturn('Kostnader');
+        // PART 1: Without closing entries - should NOT balance
+        $result = $this->service->getBalanceSheetWithoutClosingEntries($journal);
 
-        // Second expense account (higher number, tests sorting within same type)
-        $expenseAccount2 = $this->createMock(Account::class);
-        $expenseAccount2->method('getId')->willReturn(4);
-        $expenseAccount2->method('getType')->willReturn(Account::TYPE_EXPENSE);
-        $expenseAccount2->method('getAccountNumber')->willReturn('7000');
-        $expenseAccount2->method('getName')->willReturn('Lokalkostnader');
-        $expenseAccount2->method('getTypeName')->willReturn('Kostnader');
+        $this->assertArrayHasKey('balanced', $result);
+        $this->assertFalse($result['balanced']);
 
-        // Entry 1: Jan 15 - Sale (cash in, revenue)
-        $entry1 = $this->createMock(JournalEntry::class);
-        $entry1->method('getDate')->willReturn(new DateTime('2024-01-15'));
-        $entry1->method('getId')->willReturn(1);
-        $entry1->method('getTitle')->willReturn('Försäljning kontant');
+        // PART 2: With closing entries - SHOULD balance
+        $result = $this->service->getBalanceSheet($journal);
 
-        $lineItem1a = $this->createMock(JournalLineItem::class);
-        $lineItem1a->method('getAccount')->willReturn($cashAccount);
-        $lineItem1a->method('getDebitAmount')->willReturn(500.0);
-        $lineItem1a->method('getCreditAmount')->willReturn(0.0);
-        $lineItem1a->method('getJournalEntry')->willReturn($entry1);
-
-        $lineItem1b = $this->createMock(JournalLineItem::class);
-        $lineItem1b->method('getAccount')->willReturn($revenueAccount);
-        $lineItem1b->method('getDebitAmount')->willReturn(0.0);
-        $lineItem1b->method('getCreditAmount')->willReturn(500.0);
-        $lineItem1b->method('getJournalEntry')->willReturn($entry1);
-
-        $entry1->method('getJournalLineItems')->willReturn(new ArrayCollection([$lineItem1a, $lineItem1b]));
-
-        // Entry 2: Jan 10 - Office supplies (tests date sorting)
-        $entry2 = $this->createMock(JournalEntry::class);
-        $entry2->method('getDate')->willReturn(new DateTime('2024-01-10'));
-        $entry2->method('getId')->willReturn(2);
-        $entry2->method('getTitle')->willReturn('Kontorsmaterial');
-
-        $lineItem2a = $this->createMock(JournalLineItem::class);
-        $lineItem2a->method('getAccount')->willReturn($expenseAccount);
-        $lineItem2a->method('getDebitAmount')->willReturn(200.0);
-        $lineItem2a->method('getCreditAmount')->willReturn(0.0);
-        $lineItem2a->method('getJournalEntry')->willReturn($entry2);
-
-        $lineItem2b = $this->createMock(JournalLineItem::class);
-        $lineItem2b->method('getAccount')->willReturn($cashAccount);
-        $lineItem2b->method('getDebitAmount')->willReturn(0.0);
-        $lineItem2b->method('getCreditAmount')->willReturn(200.0);
-        $lineItem2b->method('getJournalEntry')->willReturn($entry2);
-
-        $entry2->method('getJournalLineItems')->willReturn(new ArrayCollection([$lineItem2a, $lineItem2b]));
-
-        // Entry 3: Jan 10 - Fika (same date, higher ID - tests ID tiebreaker)
-        $entry3 = $this->createMock(JournalEntry::class);
-        $entry3->method('getDate')->willReturn(new DateTime('2024-01-10'));
-        $entry3->method('getId')->willReturn(3);
-        $entry3->method('getTitle')->willReturn('Fika');
-
-        $lineItem3a = $this->createMock(JournalLineItem::class);
-        $lineItem3a->method('getAccount')->willReturn($expenseAccount);
-        $lineItem3a->method('getDebitAmount')->willReturn(50.0);
-        $lineItem3a->method('getCreditAmount')->willReturn(0.0);
-        $lineItem3a->method('getJournalEntry')->willReturn($entry3);
-
-        $lineItem3b = $this->createMock(JournalLineItem::class);
-        $lineItem3b->method('getAccount')->willReturn($cashAccount);
-        $lineItem3b->method('getDebitAmount')->willReturn(0.0);
-        $lineItem3b->method('getCreditAmount')->willReturn(50.0);
-        $lineItem3b->method('getJournalEntry')->willReturn($entry3);
-
-        $entry3->method('getJournalLineItems')->willReturn(new ArrayCollection([$lineItem3a, $lineItem3b]));
-
-        // Entry 4: Jan 20 - Rent (second expense account)
-        $entry4 = $this->createMock(JournalEntry::class);
-        $entry4->method('getDate')->willReturn(new DateTime('2024-01-20'));
-        $entry4->method('getId')->willReturn(4);
-        $entry4->method('getTitle')->willReturn('Hyra januari');
-
-        $lineItem4a = $this->createMock(JournalLineItem::class);
-        $lineItem4a->method('getAccount')->willReturn($expenseAccount2);
-        $lineItem4a->method('getDebitAmount')->willReturn(1000.0);
-        $lineItem4a->method('getCreditAmount')->willReturn(0.0);
-        $lineItem4a->method('getJournalEntry')->willReturn($entry4);
-
-        $lineItem4b = $this->createMock(JournalLineItem::class);
-        $lineItem4b->method('getAccount')->willReturn($cashAccount);
-        $lineItem4b->method('getDebitAmount')->willReturn(0.0);
-        $lineItem4b->method('getCreditAmount')->willReturn(1000.0);
-        $lineItem4b->method('getJournalEntry')->willReturn($entry4);
-
-        $entry4->method('getJournalLineItems')->willReturn(new ArrayCollection([$lineItem4a, $lineItem4b]));
-
-        // Journal with entries in non-chronological order
-        $journal = $this->createMock(Journal::class);
-        $journal->method('getJournalEntries')->willReturn(new ArrayCollection([$entry1, $entry2, $entry3, $entry4]));
-
-        return $journal;
+        $this->assertArrayHasKey('balanced', $result);
+        $this->assertEquals(
+            $result['totalAssets'],
+            $result['totalLiabilities'] + $result['totalEquity']
+        );
+        $this->assertTrue($result['balanced']);
     }
 }
