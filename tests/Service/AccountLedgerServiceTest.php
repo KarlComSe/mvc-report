@@ -88,7 +88,7 @@ class AccountLedgerServiceTest extends KernelTestCase
             for ($i = 0; $i < count($entries) - 1; $i++) {
                 $currentDate = $entries[$i]['date'];
                 $nextDate = $entries[$i + 1]['date'];
-                $this->assertLessThanOrEqual($currentDate, $nextDate);
+                $this->assertLessThanOrEqual($nextDate, $currentDate);
                 // could check on  next stort critera in case of equal dates
             }
         }
