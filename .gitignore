@@ -44,3 +44,4 @@ data.db
 *.env.test
 /migrations/
 Notes.md
+/docs/coverage/
