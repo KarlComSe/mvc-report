@@ -2,7 +2,7 @@
 
 namespace App\Tests\Service;
 
-use App\Entity\{JournalLineItem, JournalEntry, Account, Journal};
+use App\Entity\{JournalLineItem, JournalEntry, Account, Journal, ChartOfAccounts};
 use App\Service\{YearEndService, FinancialReportService};
 use App\Tests\Fixtures\AccountingFixtureLoader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -238,6 +238,7 @@ class YearEndServiceTest extends KernelTestCase
         $journal = $this->fixtureLoader->loadScenario('A');
         $chart = $journal->getChartOfAccounts();
         $this->assertNotNull($chart, 'Fixture should create chart of accounts');
+        assert($chart instanceof ChartOfAccounts);
         $this->fixtureLoader->deleteAccount($chart, '2099');
 
         $this->expectException(LogicException::class);
