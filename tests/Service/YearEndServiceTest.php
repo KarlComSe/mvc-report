@@ -236,7 +236,9 @@ class YearEndServiceTest extends KernelTestCase
     public function testWithoutRetainedEarningsAccount(): void
     {
         $journal = $this->fixtureLoader->loadScenario('A');
-        $this->fixtureLoader->deleteAccount($journal->getChartOfAccounts(), '2099');
+        $chart = $journal->getChartOfAccounts();
+        $this->assertNotNull($chart, 'Fixture should create chart of accounts');
+        $this->fixtureLoader->deleteAccount($chart, '2099');
 
         $this->expectException(LogicException::class);
         $this->expectExceptionMessage('finns inte i din kontoplan');
