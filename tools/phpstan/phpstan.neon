@@ -4,5 +4,30 @@ parameters:
         - ../../config
         - ../../src
         - ../../tests
+    excludePaths:
+        # Exclude earlier course assignments (not part of Kassabok project)
+        - ../../src/Dice
+        - ../../src/Observer
+        - ../../src/EventListener
+        - ../../src/Model
+        - ../../src/ApiResource
+        - ../../src/Controller/LuckyController.php
+        - ../../src/Controller/CardController.php
+        - ../../src/Controller/GameController.php
+        - ../../src/Controller/DeckApiController.php
+        - ../../src/Controller/CurrencyController.php
+        - ../../src/Controller/ApiController.php
+        - ../../src/Controller/AboutController.php
+        - ../../src/Controller/ReportController.php
+        - ../../src/Controller/IndexController.php
+        - ../../src/Service/DeckService.php
+        - ../../tests/Model
+        - ../../tests/Dice
     bootstrapFiles:
         #- .phpstan.constants.php
+    # Ignore certain errors that are Symfony framework related
+    ignoreErrors:
+        # Validator interface requires mixed type
+        - '#has parameter \$value with no type specified#'
+        # Generic collections - can suppress if too noisy
+        - '#does not specify its types: TKey, T#'

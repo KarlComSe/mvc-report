@@ -14,6 +14,21 @@
     <exclude-pattern>node_modules</exclude-pattern>
     <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>migrations</exclude-pattern>
+    <!-- Exclude earlier course assignments (not part of Kassabok project) -->
+    <exclude-pattern>src/Dice</exclude-pattern>
+    <exclude-pattern>src/Observer</exclude-pattern>
+    <exclude-pattern>src/EventListener</exclude-pattern>
+    <exclude-pattern>src/Model</exclude-pattern>
+    <exclude-pattern>src/ApiResource</exclude-pattern>
+    <exclude-pattern>src/Controller/LuckyController.php</exclude-pattern>
+    <exclude-pattern>src/Controller/CardController.php</exclude-pattern>
+    <exclude-pattern>src/Controller/GameController.php</exclude-pattern>
+    <exclude-pattern>src/Controller/DeckApiController.php</exclude-pattern>
+    <exclude-pattern>src/Controller/CurrencyController.php</exclude-pattern>
+    <exclude-pattern>src/Controller/ApiController.php</exclude-pattern>
+    <exclude-pattern>src/Service/DeckService.php</exclude-pattern>
+    <exclude-pattern>tests/Model</exclude-pattern>
+    <exclude-pattern>tests/Dice</exclude-pattern>
 
     <rule ref="rulesets/design.xml" />
     <rule ref="rulesets/cleancode.xml" />
@@ -27,7 +42,7 @@
 
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
-            <property name="exceptions" value="db,id,di" />
+            <property name="exceptions" value="db,id,di,io,em,id" />
         </properties>
     </rule>
 

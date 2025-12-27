@@ -1,0 +1,25 @@
+{% extends 'kassabok/base.html.twig' %}
+
+{% block title %}Om det här projektet{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Kassabok - bokföring online</h2>
+    <p>Kassabok är ett webbaserat bokföringsprogram anpassat för svneska redovisningsregler och utvecklad som slutuppgift i kursen <a href="https://dbwebb.se/kurser/mvc-v2/kmom10" title="Läs mer om slutuppgiften">Objektorienterade webbteknologier (MVC)</a> vid BTH.</p>
+    <p><strong>Det här är en prototyp. Den följer inte bokföringslagen. Använd inte för din bokföring!</strong></p>
+    <h3>Funktionalitet</h3>
+    <p>Programmet har sedvanlig användarhantering. Programmet är uppbygt kring organisationer som kan ha kassaböcker (grundbok). I varje kassabok går det att bokföra affärshändelser, genom konteringar, i linje med kontoplanen BAS 2025. För varje kassabok finns det möjlighet att visa huvudbok, resultatrapport och balansrapport. Programmet stödjer viss automatisk hantering av bokslutsdispositioner.</p>
+    <h3>Teknik</h3>
+    <p>Applikationen är byggd med Symfony (PHP-ramverk) och använder Doctrine ORM för databashantering, Twig och Bootstrap.</p>
+    <p>Några nämnvärda höjdpunkter från teknik-stacken:</p> 
+    <ul>
+        <li>Symfony Form-komponenten för att generera formulär med tematisering</li>
+        <li>Symfony Voters för åtkomst- och behörighetskontroll</li>
+        <li>Symfony Validators för att kontrollera användarinput i linje med affärslogik</li>
+        <li><a href="https://github.com/dmaicher/doctrine-test-bundle">DAMADoctrineTestBundle</a> för att enkelt köra test isolerat</li>
+        <li><a href="https://api-platform.com/">API Platform</a> för att erbjuda bokföringstjänsten genom ett API</li>
+    </ul>
+    <h3>ER-diagram</h3>
+    <p>Läs gärna mer i detalj kring hur jag modellerat domänen <a href="{{ path('kassabok_database') }}">här</a>.</p>
+</div>
+{% endblock %}

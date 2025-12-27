@@ -1,0 +1,38 @@
+{% extends 'kassabok/base.html.twig' %}
+
+{% block title %}Databas och ER-diagram{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Databas och ER-diagram</h2>
+    <p>Här finns information om hur jag jobbat med databasen.</p>
+    <h3>ER-diagram</h3>
+    <p>Här kommer ett ER diagram på tabellerna</p>
+    <p>IMAGE</p>
+    <h3>Tabeller</h3>
+    <p>Här är en redogörelse för vad som sparas i de olika tabellerna.</p>
+    <ol>
+        <li>[Tabellnamn]: [En mening om vad som sparas i tabellen]</li>
+    </ol>
+    <h3>Relationer mellan tabellerna</h3>
+    <p>Här förklar jag hur relationerna har lösts mellan tabellerna.</p>
+    <h3>Databas: SQLite3</h3>
+    <p>Jag använder SQLite. Det fungerar bra.</p>
+    <h3>Enhetstester mot databas</h3>
+    <p>I stora drag har jag gjort fyra olika saker:</p>
+    <ul>
+        <li>Entiteterna är testade utan persistens i databaserna. Det innebär att jag har skapat objekt, vilka jag tilldelat egenskaper och sen testat att jag får tillbaka samma. Jag utgick från test coverage-rapporten och la till test allt eftersom.</li>
+        <li>Logik testas där databasen används. Vissa tester skapar objekt som sparas i databasen och sen på något sätt bearbetas / hanteras. Detta blir inte enhetstestning eftersom jag testar flera saker. Det hade kanske varit önskvärt att mocka databasen.</li>
+        <li>Testfixtur: Jag skapade ett par scenarion som jag använder vid testning och även en klass som kan ladda in dessa scenarion enkelt i databasen. Initialt hade jag flera hundra rader med testkod; där jag i detalj skapade olika bokföringshändelser. Nu återanvänder jag samma scenarion på flera ställen.</li>
+        <li>Test-isolering: Jag använder ett bibliotek, <a href="https://github.com/dmaicher/doctrine-test-bundle">DAMADoctrineTestBundle</a>, som omsluter testerna i en transaktion. När testerna är gjorda, så gör biblioteket en rollback. Databasen påverkas då inte av testerna. Detta la jag till på slutet, innan dess försökte jag ha koll på vad som skapats och sen ta bort det från databasen... rester av detta finns kvar i koden!</li>
+    </ul> 
+    <p>Som anekdot: <a href="https://sqlite.org/testing.html">SQLite har 590 ggr mer testkod än programkod</a>.</p>
+    <h3>Enhetstester mot databas med Scrutinizer</h3>
+    <p>Berätta om/hur du lyckades med enhetstester på Scrutinizer med databasen.</p>
+    <h3>ORM vs. SQL</h3>
+    <p>I en <a href="https://dbwebb.se/kurser/databas-v2" title="Läs mer om kursen databas">tidigare kurs</a> jobbade jag med databaser. Då arbetade vi direkt med SQL-kod mot databasen. I denna kurs används ORM vilket innebär att själva databaslagret abstraheras bort och man jobbar mot databasen och dess innehåll som om det vore objekt.</p>
+    <p>I båda fallen behöver man definera tabellerna och dess relationer. Använder man SQL direkt gör man det med SQL. Använder man ORM definierar man entititer med hjälp av PHP och diverse annoteringar. I PHP definierar man då alltså typer, relationer, begränsningar, etc. Jag upplever att SQL är enklare att förstå och mer explicit. Det beror till viss del på att vi har arbetat mer med SQL än ORM. Det beror också på att även om jag jobbat mycket med ORM så blir det fler "dialekter". I och med att ORM deklareras i programmeringsspråket likväl att det finns flera ORM-alternativ så skiljer sig implementationen åt. Detta bidrar till att göra det "svårare" att förstå ORM.</p>
+    <p>När väl ORM är på plats är det enkelt att jobba med objekten. Det sköts mycket bakom kulisserna (vilket vi återkommer till). Det är enkelt att definera metoder som hanterar datan när man jobbar med ORM; bara lägg till en metod i relevant entitet. Jag behöver inte byta programmeringsspråk.</p>
+    <p>Vid ORM är databasen väl gömd. Jag har inte många tankar på hur optimerad databasen är. Vem lägger till relevanta index? Jag tänker att en nackdel med ORM är att databasen (och SQL) blir något man tror att man inte behöver förstå. Jag tänker att sanningen är att om man jobbar med ORM så fungerar det hyfsat, men att man i slutändan inte bara abstraherat bort databasen, man har adderat komplexitet, och för att lyckas med hyfsad prestanda behöver man ha en god förståelse för ORM och det specifika ramverk som används. Det kräver mycket av programmeraren. I mitt fall har jag gjort bort mig flera gånger med långa felsökningar som konsekvens.</p>
+</div>
+{% endblock %}

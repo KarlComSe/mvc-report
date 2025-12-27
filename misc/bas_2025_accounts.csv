@@ -1,0 +1,1771 @@
+account_number,name,type,parent_account_number,hierarchy_level,is_detail_account,is_standard,chart_version
+1,Tillgångar,asset,,1,0,1,2025
+10,Immateriella anläggningstillgångar,asset,1,2,0,1,2025
+101,Utvecklingsutgifter,asset,10,3,0,1,2025
+1010,Utvecklingsutgifter,asset,101,4,1,1,2025
+1011,Balanserade utgifter för forskning och utveckling,asset,101,4,1,1,2025
+1012,Balanserade utgifter för programvaror,asset,101,4,1,1,2025
+1018,Ackumulerade nedskrivningar på balanserade utgifter,asset,101,4,1,1,2025
+1019,Ackumulerade avskrivningar på balanserade utgifter,asset,101,4,1,1,2025
+102,Koncessioner m.m.,asset,10,3,0,1,2025
+1020,Koncessioner m.m.,asset,102,4,1,1,2025
+1028,Ackumulerade nedskrivningar på koncessioner m.m.,asset,102,4,1,1,2025
+1029,Ackumulerade avskrivningar på koncessioner m.m.,asset,102,4,1,1,2025
+103,Patent,asset,10,3,0,1,2025
+1030,Patent,asset,103,4,1,1,2025
+1038,Ackumulerade nedskrivningar på patent,asset,103,4,1,1,2025
+1039,Ackumulerade avskrivningar på patent,asset,103,4,1,1,2025
+104,Licenser,asset,10,3,0,1,2025
+1040,Licenser,asset,104,4,1,1,2025
+1048,Ackumulerade nedskrivningar på licenser,asset,104,4,1,1,2025
+1049,Ackumulerade avskrivningar på licenser,asset,104,4,1,1,2025
+105,Varumärken,asset,10,3,0,1,2025
+1050,Varumärken,asset,105,4,1,1,2025
+1058,Ackumulerade nedskrivningar på varumärken,asset,105,4,1,1,2025
+1059,Ackumulerade avskrivningar på varumärken,asset,105,4,1,1,2025
+106,"Hyresrätter, tomträtter och liknande",asset,10,3,0,1,2025
+1060,"Hyresrätter, tomträtter och liknande",asset,106,4,1,1,2025
+1068,"Ackumulerade nedskrivningar på hyresrätter, tomträtter och liknande",asset,106,4,1,1,2025
+1069,"Ackumulerade avskrivningar på hyresrätter, tomträtter och liknande",asset,106,4,1,1,2025
+107,Goodwill,asset,10,3,0,1,2025
+1070,Goodwill,asset,107,4,1,1,2025
+1078,Ackumulerade nedskrivningar på goodwill,asset,107,4,1,1,2025
+1079,Ackumulerade avskrivningar på goodwill,asset,107,4,1,1,2025
+108,Förskott för immateriella anläggningstillgångar,asset,10,3,0,1,2025
+1080,Förskott för immateriella anläggningstillgångar,asset,108,4,1,1,2025
+1081,Pågående projekt för immateriella anläggningstillgångar,asset,108,4,1,1,2025
+1088,Förskott för immateriella anläggningstillgångar,asset,108,4,1,1,2025
+11,Byggnader och mark,asset,1,2,0,1,2025
+111,Byggnader,asset,11,3,0,1,2025
+1110,Byggnader,asset,111,4,1,1,2025
+1111,Byggnader på egen mark,asset,111,4,1,1,2025
+1112,Byggnader på annans mark,asset,111,4,1,1,2025
+1118,Ackumulerade nedskrivningar på byggnader,asset,111,4,1,1,2025
+1119,Ackumulerade avskrivningar på byggnader,asset,111,4,1,1,2025
+112,Förbättringsutgifter på annans fastighet,asset,11,3,0,1,2025
+1120,Förbättringsutgifter på annans fastighet,asset,112,4,1,1,2025
+1129,Ackumulerade avskrivningar på förbättringsutgifter på annans fastighet,asset,112,4,1,1,2025
+113,Mark,asset,11,3,0,1,2025
+1130,Mark,asset,113,4,1,1,2025
+114,Tomter och obebyggda markområden,asset,11,3,0,1,2025
+1140,Tomter och obebyggda markområden,asset,114,4,1,1,2025
+115,Markanläggningar,asset,11,3,0,1,2025
+1150,Markanläggningar,asset,115,4,1,1,2025
+1158,Ackumulerade nedskrivningar på markanläggningar,asset,115,4,1,1,2025
+1159,Ackumulerade avskrivningar på markanläggningar,asset,115,4,1,1,2025
+118,Pågående nyanläggningar och förskott för byggnader och mark,asset,11,3,0,1,2025
+1180,Pågående nyanläggningar och förskott för byggnader och mark,asset,118,4,1,1,2025
+1181,"Pågående ny-, till- och ombyggnad",asset,118,4,1,1,2025
+1188,Förskott för byggnader och mark,asset,118,4,1,1,2025
+12,Maskiner och inventarier,asset,1,2,0,1,2025
+121,Maskiner och andra tekniska anläggningar,asset,12,3,0,1,2025
+1210,Maskiner och andra tekniska anläggningar,asset,121,4,1,1,2025
+1211,Maskiner,asset,121,4,1,1,2025
+1213,Andra tekniska anläggningar,asset,121,4,1,1,2025
+1218,Ackumulerade nedskrivningar på maskiner och andra tekniska anläggningar,asset,121,4,1,1,2025
+1219,Ackumulerade avskrivningar på maskiner och andra tekniska anläggningar,asset,121,4,1,1,2025
+122,Inventarier och verktyg,asset,12,3,0,1,2025
+1220,Inventarier och verktyg,asset,122,4,1,1,2025
+1221,Inventarier,asset,122,4,1,1,2025
+1222,Byggnadsinventarier,asset,122,4,1,1,2025
+1223,Markinventarier,asset,122,4,1,1,2025
+1225,Verktyg,asset,122,4,1,1,2025
+1228,Ackumulerade nedskrivningar på inventarier och verktyg,asset,122,4,1,1,2025
+1229,Ackumulerade avskrivningar på inventarier och verktyg,asset,122,4,1,1,2025
+123,Installationer,asset,12,3,0,1,2025
+1230,Installationer,asset,123,4,1,1,2025
+1231,Installationer på egen fastighet,asset,123,4,1,1,2025
+1232,Installationer på annans fastighet,asset,123,4,1,1,2025
+1238,Ackumulerade nedskrivningar på installationer,asset,123,4,1,1,2025
+1239,Ackumulerade avskrivningar på installationer,asset,123,4,1,1,2025
+124,Bilar och andra transportmedel,asset,12,3,0,1,2025
+1240,Bilar och andra transportmedel,asset,124,4,1,1,2025
+1241,Personbilar,asset,124,4,1,1,2025
+1242,Lastbilar,asset,124,4,1,1,2025
+1243,Truckar,asset,124,4,1,1,2025
+1244,Arbetsmaskiner,asset,124,4,1,1,2025
+1245,Traktorer,asset,124,4,1,1,2025
+1246,"Motorcyklar, mopeder och skotrar",asset,124,4,1,1,2025
+1247,"Båtar, flygplan och helikoptrar",asset,124,4,1,1,2025
+1248,Ackumulerade nedskrivningar på bilar och andra transportmedel,asset,124,4,1,1,2025
+1249,Ackumulerade avskrivningar på bilar och andra transportmedel,asset,124,4,1,1,2025
+125,Datorer,asset,12,3,0,1,2025
+1250,Datorer,asset,125,4,1,1,2025
+1251,"Datorer, företaget",asset,125,4,1,1,2025
+1257,"Datorer, personal",asset,125,4,1,1,2025
+1258,Ackumulerade nedskrivningar på datorer,asset,125,4,1,1,2025
+1259,Ackumulerade avskrivningar på datorer,asset,125,4,1,1,2025
+126,Leasade tillgångar,asset,12,3,0,1,2025
+1260,Leasade tillgångar,asset,126,4,1,1,2025
+1269,Ackumulerade avskrivningar på leasade tillgångar,asset,126,4,1,1,2025
+128,Pågående nyanläggningar och förskott för maskiner och inventarier,asset,12,3,0,1,2025
+1280,Pågående nyanläggningar och förskott för maskiner och inventarier,asset,128,4,1,1,2025
+1281,"Pågående nyanläggningar, maskiner och inventarier",asset,128,4,1,1,2025
+1288,Förskott för maskiner och inventarier,asset,128,4,1,1,2025
+129,Övriga materiella anläggningstillgångar,asset,12,3,0,1,2025
+1290,Övriga materiella anläggningstillgångar,asset,129,4,1,1,2025
+1291,Konst och liknande tillgångar,asset,129,4,1,1,2025
+1292,Djur som klassificeras som anläggningstillgång,asset,129,4,1,1,2025
+1298,Ackumulerade nedskrivningar på övriga materiella anläggningstillgångar,asset,129,4,1,1,2025
+1299,Ackumulerade avskrivningar på övriga materiella anläggningstillgångar,asset,129,4,1,1,2025
+13,Finansiella anläggningstillgångar,asset,1,2,0,1,2025
+131,Andelar i koncernföretag,asset,13,3,0,1,2025
+1310,Andelar i koncernföretag,asset,131,4,1,1,2025
+1311,Aktier i noterade svenska koncernföretag,asset,131,4,1,1,2025
+1312,Aktier i onoterade svenska koncernföretag,asset,131,4,1,1,2025
+1313,Aktier i noterade utländska koncernföretag,asset,131,4,1,1,2025
+1314,Aktier i onoterade utländska koncernföretag,asset,131,4,1,1,2025
+1316,Andra andelar i svenska koncernföretag,asset,131,4,1,1,2025
+1317,Andra andelar i utländska koncernförertag,asset,131,4,1,1,2025
+1318,Ackumulerade nedskrivningar av andelar i koncernföretag,asset,131,4,1,1,2025
+132,Långfristiga fordringar hos koncernföretag,asset,13,3,0,1,2025
+1320,Långfristiga fordringar hos koncernföretag,asset,132,4,1,1,2025
+1321,Långfristiga fordringar hos moderföretag,asset,132,4,1,1,2025
+1322,Långfristiga fordringar hos dotterföretag,asset,132,4,1,1,2025
+1323,Långfristiga fordringar hos andra koncernföretag,asset,132,4,1,1,2025
+1328,Ackumulerade nedskrivningar av långfristiga fordringar hos koncernföretag,asset,132,4,1,1,2025
+133,"Andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,13,3,0,1,2025
+1330,"Andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,133,4,1,1,2025
+1331,Andelar i intresseföretag,asset,133,4,1,1,2025
+1332,Ackumulerade nedskrivningar av andelar i intresseföretag,asset,133,4,1,1,2025
+1333,Andelar i gemensamt styrda företag,asset,133,4,1,1,2025
+1334,Ackumulerade nedskrivningar av andelar i gemensamt styrda företag,asset,133,4,1,1,2025
+1336,Andelar i övriga företag som det finns ett ägarintresse i,asset,133,4,1,1,2025
+1337,Ackumulerade nedskrivningar av andelar i övriga företag som det finns ett ägarintresse i,asset,133,4,1,1,2025
+1338,"Ackumulerade nedskrivningar av andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,133,4,1,1,2025
+134,"Långfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,13,3,0,1,2025
+1340,"Långfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,134,4,1,1,2025
+1341,Långfristiga fordringar hos intresseföretag,asset,134,4,1,1,2025
+1342,Ackumulerade nedskrivningar av långfristiga fordringar hos intresseföretag,asset,134,4,1,1,2025
+1343,Långfristiga fordringar hos gemensamt styrda företag,asset,134,4,1,1,2025
+1344,Ackumulerade nedskrivningar av långfristiga fordringar hos gemensamt styrda företag,asset,134,4,1,1,2025
+1346,Långfristiga fordringar hos övriga företag som det finns ett ägarintresse i,asset,134,4,1,1,2025
+1347,Ackumulerade nedskrivningar av långfristiga fordringar hos övriga företag som det finns ett ägarintresse i,asset,134,4,1,1,2025
+1348,"Ackumulerade nedskrivningar av långfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,134,4,1,1,2025
+135,Andelar och värdepapper i andra företag,asset,13,3,0,1,2025
+1350,Andelar och värdepapper i andra företag,asset,135,4,1,1,2025
+1351,Andelar i noterade företag,asset,135,4,1,1,2025
+1352,Andra andelar,asset,135,4,1,1,2025
+1353,Andelar i bostadsrättsföreningar,asset,135,4,1,1,2025
+1354,Obligationer,asset,135,4,1,1,2025
+1356,"Andelar i ekonomiska föreningar, övriga företag",asset,135,4,1,1,2025
+1357,"Andelar i handelsbolag, andra företag",asset,135,4,1,1,2025
+1358,Ackumulerade nedskrivningar av andra andelar och värdepapper,asset,135,4,1,1,2025
+136,"Lån till delägare eller närstående, långfristig del",asset,13,3,0,1,2025
+1360,"Lån till delägare eller närstående, långfristig del",asset,136,4,1,1,2025
+1369,"Ackumulerade nedskrivningar av lån till delägare eller närstående, långfristig del",asset,136,4,1,1,2025
+137,Uppskjuten skattefordran,asset,13,3,0,1,2025
+1370,Uppskjuten skattefordran,asset,137,4,1,1,2025
+138,Andra långfristiga fordringar,asset,13,3,0,1,2025
+1380,Andra långfristiga fordringar,asset,138,4,1,1,2025
+1381,Långfristiga reversfordringar,asset,138,4,1,1,2025
+1382,Långfristiga fordringar hos anställda,asset,138,4,1,1,2025
+1383,"Lämnade depositioner, långfristiga",asset,138,4,1,1,2025
+1384,Derivat,asset,138,4,1,1,2025
+1385,Kapitalförsäkring,asset,138,4,1,1,2025
+1387,Långfristiga kontraktsfordringar,asset,138,4,1,1,2025
+1388,Långfristiga kundfordringar,asset,138,4,1,1,2025
+1389,Ackumulerade nedskrivningar av andra långfristiga fordringar,asset,138,4,1,1,2025
+14,"Lager, produkter i arbete och pågående arbeten",asset,1,2,0,1,2025
+141,Lager av råvaror,asset,14,3,0,1,2025
+1410,Lager av råvaror,asset,141,4,1,1,2025
+1419,Förändring av lager av råvaror,asset,141,4,1,1,2025
+142,Lager av tillsatsmaterial och förnödenheter,asset,14,3,0,1,2025
+1420,Lager av tillsatsmaterial och förnödenheter,asset,142,4,1,1,2025
+1429,Förändring av lager av tillsatsmaterial och förnödenheter,asset,142,4,1,1,2025
+144,Produkter i arbete,asset,14,3,0,1,2025
+1440,Produkter i arbete,asset,144,4,1,1,2025
+1449,Förändring av produkter i arbete,asset,144,4,1,1,2025
+145,Lager av färdiga varor,asset,14,3,0,1,2025
+1450,Lager av färdiga varor,asset,145,4,1,1,2025
+1459,Förändring av lager av färdiga varor,asset,145,4,1,1,2025
+146,Lager av handelsvaror,asset,14,3,0,1,2025
+1460,Lager av handelsvaror,asset,146,4,1,1,2025
+1465,Lager av varor VMB,asset,146,4,1,1,2025
+1466,Nedskrivning av varor VMB,asset,146,4,1,1,2025
+1467,Lager av varor VMB förenklad,asset,146,4,1,1,2025
+1469,Förändring av lager av handelsvaror,asset,146,4,1,1,2025
+147,Pågående arbeten,asset,14,3,0,1,2025
+1470,Pågående arbeten,asset,147,4,1,1,2025
+1471,"Pågående arbeten, nedlagda kostnader",asset,147,4,1,1,2025
+1478,"Pågående arbeten, fakturering",asset,147,4,1,1,2025
+1479,Förändring av pågående arbeten,asset,147,4,1,1,2025
+148,Förskott för varor och tjänster,asset,14,3,0,1,2025
+1480,Förskott för varor och tjänster,asset,148,4,1,1,2025
+1481,Remburser,asset,148,4,1,1,2025
+1489,Övriga förskott till leverantörer,asset,148,4,1,1,2025
+149,Övriga lagertillgångar,asset,14,3,0,1,2025
+1490,Övriga lagertillgångar,asset,149,4,1,1,2025
+1491,Lager av värdepapper,asset,149,4,1,1,2025
+1492,Lager av fastigheter,asset,149,4,1,1,2025
+1493,Djur som klassificeras som omsättningstillgång,asset,149,4,1,1,2025
+15,Kundfordringar,asset,1,2,0,1,2025
+151,Kundfordringar,asset,15,3,0,1,2025
+1510,Kundfordringar,asset,151,4,1,1,2025
+1511,Kundfordringar,asset,151,4,1,1,2025
+1512,Belånade kundfordringar (factoring),asset,151,4,1,1,2025
+1513,Kundfordringar – delad faktura,asset,151,4,1,1,2025
+1516,Tvistiga kundfordringar,asset,151,4,1,1,2025
+1518,Ej reskontraförda kundfordringar,asset,151,4,1,1,2025
+1519,Nedskrivning av kundfordringar,asset,151,4,1,1,2025
+152,Växelfordringar,asset,15,3,0,1,2025
+1520,Växelfordringar,asset,152,4,1,1,2025
+1525,Osäkra växelfordringar,asset,152,4,1,1,2025
+1529,Nedskrivning av växelfordringar,asset,152,4,1,1,2025
+153,Kontraktsfordringar,asset,15,3,0,1,2025
+1530,Kontraktsfordringar,asset,153,4,1,1,2025
+1531,Kontraktsfordringar,asset,153,4,1,1,2025
+1532,Belånade kontraktsfordringar,asset,153,4,1,1,2025
+1536,Tvistiga kontraktsfordringar,asset,153,4,1,1,2025
+1539,Nedskrivning av kontraktsfordringar,asset,153,4,1,1,2025
+155,Konsignationsfordringar,asset,15,3,0,1,2025
+1550,Konsignationsfordringar,asset,155,4,1,1,2025
+156,Kundfordringar hos koncernföretag,asset,15,3,0,1,2025
+1560,Kundfordringar hos koncernföretag,asset,156,4,1,1,2025
+1561,Kundfordringar hos moderföretag,asset,156,4,1,1,2025
+1562,Kundfordringar hos dotterföretag,asset,156,4,1,1,2025
+1563,Kundfordringar hos andra koncernföretag,asset,156,4,1,1,2025
+1568,Ej reskontraförda kundfordringar hos koncernföretag,asset,156,4,1,1,2025
+1569,Nedskrivning av kundfordringar hos koncernföretag,asset,156,4,1,1,2025
+157,"Kundfordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,15,3,0,1,2025
+1570,"Kundfordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,157,4,1,1,2025
+1571,Kundfordringar hos intresseföretag,asset,157,4,1,1,2025
+1572,Kundfordringar hos gemensamt styrda företag,asset,157,4,1,1,2025
+1573,Kundfordringar hos övriga företag som det finns ett ägarintresse i,asset,157,4,1,1,2025
+158,Fordringar för kontokort och kuponger,asset,15,3,0,1,2025
+1580,Fordringar för kontokort och kuponger,asset,158,4,1,1,2025
+16,Övriga kortfristiga fordringar,asset,1,2,0,1,2025
+161,Kortfristiga fordringar hos anställda,asset,16,3,0,1,2025
+1610,Kortfristiga fordringar hos anställda,asset,161,4,1,1,2025
+1611,Reseförskott,asset,161,4,1,1,2025
+1612,Kassaförskott,asset,161,4,1,1,2025
+1613,Övriga förskott,asset,161,4,1,1,2025
+1614,Tillfälliga lån till anställda,asset,161,4,1,1,2025
+1619,Övriga fordringar hos anställda,asset,161,4,1,1,2025
+162,Upparbetad men ej fakturerad intäkt,asset,16,3,0,1,2025
+1620,Upparbetad men ej fakturerad intäkt,asset,162,4,1,1,2025
+163,Avräkning för skatter och avgifter (skattekonto),asset,16,3,0,1,2025
+1630,Avräkning för skatter och avgifter (skattekonto),asset,163,4,1,1,2025
+164,Skattefordringar,asset,16,3,0,1,2025
+1640,Skattefordringar,asset,164,4,1,1,2025
+165,Momsfordran,asset,16,3,0,1,2025
+1650,Momsfordran,asset,165,4,1,1,2025
+166,Kortfristiga fordringar hos koncernföretag,asset,16,3,0,1,2025
+1660,Kortfristiga fordringar hos koncernföretag,asset,166,4,1,1,2025
+1661,Kortfristiga fordringar hos moderföretag,asset,166,4,1,1,2025
+1662,Kortfristiga fordringar hos dotterföretag,asset,166,4,1,1,2025
+1663,Kortfristiga fordringar hos andra koncernföretag,asset,166,4,1,1,2025
+167,"Kortfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,16,3,0,1,2025
+1670,"Kortfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",asset,167,4,1,1,2025
+1671,Kortfristiga fordringar hos intresseföretag,asset,167,4,1,1,2025
+1672,Kortfristiga fordringar hos gemensamt styrda företag,asset,167,4,1,1,2025
+1673,Kortfristiga fordringar hos övriga företag som det finns ett ägarintresse i,asset,167,4,1,1,2025
+168,Andra kortfristiga fordringar,asset,16,3,0,1,2025
+1680,Andra kortfristiga fordringar,asset,168,4,1,1,2025
+1681,Utlägg för kunder,asset,168,4,1,1,2025
+1682,Kortfristiga lånefordringar,asset,168,4,1,1,2025
+1683,Derivat,asset,168,4,1,1,2025
+1684,Kortfristiga fordringar hos leverantörer,asset,168,4,1,1,2025
+1685,Kortfristiga fordringar hos delägare eller närstående,asset,168,4,1,1,2025
+1687,Kortfristig del av långfristiga fordringar,asset,168,4,1,1,2025
+1688,Fordran arbetsmarknadsförsäkringar,asset,168,4,1,1,2025
+1689,Övriga kortfristiga fordringar,asset,168,4,1,1,2025
+169,Fordringar för tecknat men ej inbetalt aktiekapital,asset,16,3,0,1,2025
+1690,Fordringar för tecknat men ej inbetalt aktiekapital,asset,169,4,1,1,2025
+17,Förutbetalda kostnader och upplupna intäkter,asset,1,2,0,1,2025
+171,Förutbetalda hyreskostnader,asset,17,3,0,1,2025
+1710,Förutbetalda hyreskostnader,asset,171,4,1,1,2025
+172,Förutbetalda leasingavgifter,asset,17,3,0,1,2025
+1720,Förutbetalda leasingavgifter,asset,172,4,1,1,2025
+173,Förutbetalda försäkringspremier,asset,17,3,0,1,2025
+1730,Förutbetalda försäkringspremier,asset,173,4,1,1,2025
+174,Förutbetalda räntekostnader,asset,17,3,0,1,2025
+1740,Förutbetalda räntekostnader,asset,174,4,1,1,2025
+175,Upplupna hyresintäkter,asset,17,3,0,1,2025
+1750,Upplupna hyresintäkter,asset,175,4,1,1,2025
+176,Upplupna ränteintäkter,asset,17,3,0,1,2025
+1760,Upplupna ränteintäkter,asset,176,4,1,1,2025
+177,Tillgångar av kostnadsnatur,asset,17,3,0,1,2025
+1770,Tillgångar av kostnadsnatur,asset,177,4,1,1,2025
+178,Upplupna avtalsintäkter,asset,17,3,0,1,2025
+1780,Upplupna avtalsintäkter,asset,178,4,1,1,2025
+179,Övriga förutbetalda kostnader och upplupna intäkter,asset,17,3,0,1,2025
+1790,Övriga förutbetalda kostnader och upplupna intäkter,asset,179,4,1,1,2025
+18,Kortfristiga placeringar,asset,1,2,0,1,2025
+181,Andelar i börsnoterade företag,asset,18,3,0,1,2025
+1810,Andelar i börsnoterade företag,asset,181,4,1,1,2025
+182,Obligationer,asset,18,3,0,1,2025
+1820,Obligationer,asset,182,4,1,1,2025
+183,Konvertibla skuldebrev,asset,18,3,0,1,2025
+1830,Konvertibla skuldebrev,asset,183,4,1,1,2025
+186,"Andelar i koncernföretag, kortfristigt",asset,18,3,0,1,2025
+1860,"Andelar i koncernföretag, kortfristigt",asset,186,4,1,1,2025
+188,Andra kortfristiga placeringar,asset,18,3,0,1,2025
+1880,Andra kortfristiga placeringar,asset,188,4,1,1,2025
+1886,Derivat,asset,188,4,1,1,2025
+1889,Andelar i övriga företag,asset,188,4,1,1,2025
+189,Nedskrivning av kortfristiga placeringar,asset,18,3,0,1,2025
+1890,Nedskrivning av kortfristiga placeringar,asset,189,4,1,1,2025
+19,Kassa och bank,asset,1,2,0,1,2025
+191,Kassa,asset,19,3,0,1,2025
+1910,Kassa,asset,191,4,1,1,2025
+1911,Huvudkassa,asset,191,4,1,1,2025
+1912,Kassa 2,asset,191,4,1,1,2025
+1913,Kassa 3,asset,191,4,1,1,2025
+192,PlusGiro,asset,19,3,0,1,2025
+1920,PlusGiro,asset,192,4,1,1,2025
+193,Företagskonto/checkkonto/affärskonto,asset,19,3,0,1,2025
+1930,Företagskonto/checkkonto/affärskonto,asset,193,4,1,1,2025
+194,Övriga bankkonton,asset,19,3,0,1,2025
+1940,Övriga bankkonton,asset,194,4,1,1,2025
+195,Bankcertifikat,asset,19,3,0,1,2025
+1950,Bankcertifikat,asset,195,4,1,1,2025
+196,Koncernkonto moderföretag,asset,19,3,0,1,2025
+1960,Koncernkonto moderföretag,asset,196,4,1,1,2025
+197,Särskilda bankkonton,asset,19,3,0,1,2025
+1970,Särskilda bankkonton,asset,197,4,1,1,2025
+1972,Upphovsmannakonto,asset,197,4,1,1,2025
+1973,Skogskonto,asset,197,4,1,1,2025
+1974,Spärrade bankmedel,asset,197,4,1,1,2025
+1979,Övriga särskilda bankkonton,asset,197,4,1,1,2025
+198,Valutakonton,asset,19,3,0,1,2025
+1980,Valutakonton,asset,198,4,1,1,2025
+199,Redovisningsmedel,asset,19,3,0,1,2025
+1990,Redovisningsmedel,asset,199,4,1,1,2025
+2,Eget kapital och skulder,liability,,1,0,1,2025
+20,Eget kapital,liability,2,2,0,1,2025
+201,"Eget kapital, delägare 1",liability,20,3,0,1,2025
+2010,Eget kapital,liability,201,4,1,1,2025
+2011,Egna varuuttag,liability,201,4,1,1,2025
+2013,Övriga egna uttag,liability,201,4,1,1,2025
+2017,Årets kapitaltillskott,liability,201,4,1,1,2025
+2018,Övriga egna insättningar,liability,201,4,1,1,2025
+2019,"Årets resultat, delägare 1",liability,201,4,1,1,2025
+202,"Eget kapital, delägare 2",liability,20,3,0,1,2025
+2020,Eget kapital,liability,202,4,1,1,2025
+2021,Egna varuuttag,liability,202,4,1,1,2025
+2023,Övriga egna uttag,liability,202,4,1,1,2025
+2027,Årets kapitaltillskott,liability,202,4,1,1,2025
+2028,Övriga egna insättningar,liability,202,4,1,1,2025
+2029,"Årets resultat, delägare 2",liability,202,4,1,1,2025
+203,"Eget kapital, delägare 3",liability,20,3,0,1,2025
+2030,Eget kapital,liability,203,4,1,1,2025
+2031,Egna varuuttag,liability,203,4,1,1,2025
+2033,Övriga egna uttag,liability,203,4,1,1,2025
+2037,Årets kapitaltillskott,liability,203,4,1,1,2025
+2038,Övriga egna insättningar,liability,203,4,1,1,2025
+2039,"Årets resultat, delägare 3",liability,203,4,1,1,2025
+204,"Eget kapital, delägare 4",liability,20,3,0,1,2025
+2040,Eget kapital,liability,204,4,1,1,2025
+2041,Egna varuuttag,liability,204,4,1,1,2025
+2043,Övriga egna uttag,liability,204,4,1,1,2025
+2047,Årets kapitaltillskott,liability,204,4,1,1,2025
+2048,Övriga egna insättningar,liability,204,4,1,1,2025
+2049,"Årets resultat, delägare 4",liability,204,4,1,1,2025
+205,Avsättning till expansionsfond,liability,20,3,0,1,2025
+2050,Avsättning till expansionsfond,liability,205,4,1,1,2025
+206,"Eget kapital i ideella föreningar, stiftelser och registrerade trossamfund",liability,20,3,0,1,2025
+2060,"Eget kapital i ideella föreningar, stiftelser och registrerade trossamfund",liability,206,4,1,1,2025
+2061,Kapital/stiftelsekapital/grundkapital,liability,206,4,1,1,2025
+2064,Ackumulerat realisationsresultat,liability,206,4,1,1,2025
+2065,Fond för verkligt värde,liability,206,4,1,1,2025
+2066,Värdesäkringsfond,liability,206,4,1,1,2025
+2067,Balanserat överskott eller underskott,liability,206,4,1,1,2025
+2068,Överskott eller underskott från föregående år,liability,206,4,1,1,2025
+2069,Årets resultat,liability,206,4,1,1,2025
+207,Ändamålsbestämda medel,liability,20,3,0,1,2025
+2070,Ändamålsbestämda medel,liability,207,4,1,1,2025
+2071,Ändamål 1,liability,207,4,1,1,2025
+2072,Ändamål 2,liability,207,4,1,1,2025
+208,Bundet eget kapital,liability,20,3,0,1,2025
+2080,Bundet eget kapital,liability,208,4,1,1,2025
+2081,Aktiekapital,liability,208,4,1,1,2025
+2082,Ej registrerat aktiekapital,liability,208,4,1,1,2025
+2083,Medlemsinsatser,liability,208,4,1,1,2025
+2084,Förlagsinsatser,liability,208,4,1,1,2025
+2085,Uppskrivningsfond,liability,208,4,1,1,2025
+2086,Reservfond,liability,208,4,1,1,2025
+2087,Bunden överkursfond,liability,208,4,1,1,2025
+2088,Fond för yttre underhåll,liability,208,4,1,1,2025
+2089,Fond för utvecklingsutgifter,liability,208,4,1,1,2025
+209,Fritt eget kapital,liability,20,3,0,1,2025
+2090,Fritt eget kapital,liability,209,4,1,1,2025
+2091,Balanserad vinst eller förlust,liability,209,4,1,1,2025
+2092,Mottagna/lämnade koncernbidrag,liability,209,4,1,1,2025
+2093,Erhållna aktieägartillskott,liability,209,4,1,1,2025
+2094,Egna aktier,liability,209,4,1,1,2025
+2095,Fusionsresultat,liability,209,4,1,1,2025
+2096,Fond för verkligt värde,liability,209,4,1,1,2025
+2097,Fri överkursfond,liability,209,4,1,1,2025
+2098,Vinst eller förlust från föregående år,liability,209,4,1,1,2025
+2099,Årets resultat,liability,209,4,1,1,2025
+21,Obeskattade reserver,liability,2,2,0,1,2025
+211,Periodiseringsfonder,liability,21,3,0,1,2025
+2110,Periodiseringsfonder,liability,211,4,1,1,2025
+212,Periodiseringsfond 2020,liability,21,3,0,1,2025
+2120,Periodiseringsfond 2020,liability,212,4,1,1,2025
+2121,Periodiseringsfond 2021,liability,212,4,1,1,2025
+2122,Periodiseringsfond 2022,liability,212,4,1,1,2025
+2123,Periodiseringsfond 2023,liability,212,4,1,1,2025
+2124,Periodiseringsfond 2024,liability,212,4,1,1,2025
+2125,Periodiseringsfond 2025,liability,212,4,1,1,2025
+2126,Periodiseringsfond 2026,liability,212,4,1,1,2025
+2128,Periodiseringsfond 2018,liability,212,4,1,1,2025
+2129,Periodiseringsfond 2019,liability,212,4,1,1,2025
+213,Periodiseringsfond 2020 – nr 2,liability,21,3,0,1,2025
+2130,Periodiseringsfond 2020 – nr 2,liability,213,4,1,1,2025
+2131,Periodiseringsfond 2021 – nr 2,liability,213,4,1,1,2025
+2132,Periodiseringsfond 2022 – nr 2,liability,213,4,1,1,2025
+2133,Periodiseringsfond 2023 – nr 2,liability,213,4,1,1,2025
+2134,Periodiseringsfond 2024 – nr 2,liability,213,4,1,1,2025
+2135,Periodiseringsfond 2025 - nr 2,liability,213,4,1,1,2025
+2136,Periodiseringsfond 2026 - nr 2,liability,213,4,1,1,2025
+2138,Periodiseringsfond 2018 – nr 2,liability,213,4,1,1,2025
+2139,Periodiseringsfond 2019 – nr 2,liability,213,4,1,1,2025
+215,Ackumulerade överavskrivningar,liability,21,3,0,1,2025
+2150,Ackumulerade överavskrivningar,liability,215,4,1,1,2025
+2151,Ackumulerade överavskrivningar på immateriella anläggningstillgångar,liability,215,4,1,1,2025
+2152,Ackumulerade överavskrivningar på byggnader och markanläggningar,liability,215,4,1,1,2025
+2153,Ackumulerade överavskrivningar på maskiner och inventarier,liability,215,4,1,1,2025
+216,Ersättningsfond,liability,21,3,0,1,2025
+2160,Ersättningsfond,liability,216,4,1,1,2025
+2161,Ersättningsfond maskiner och inventarier,liability,216,4,1,1,2025
+2162,Ersättningsfond byggnader och markanläggningar,liability,216,4,1,1,2025
+2164,Ersättningsfond för djurlager i jordbruk och renskötsel,liability,216,4,1,1,2025
+219,Övriga obeskattade reserver,liability,21,3,0,1,2025
+2190,Övriga obeskattade reserver,liability,219,4,1,1,2025
+2196,Lagerreserv,liability,219,4,1,1,2025
+2199,Övriga obeskattade reserver,liability,219,4,1,1,2025
+22,Avsättningar,liability,2,2,0,1,2025
+221,Avsättningar för pensioner enligt tryggandelagen,liability,22,3,0,1,2025
+2210,Avsättningar för pensioner enligt tryggandelagen,liability,221,4,1,1,2025
+222,Avsättningar för garantier,liability,22,3,0,1,2025
+2220,Avsättningar för garantier,liability,222,4,1,1,2025
+223,Övriga avsättningar för pensioner och liknande förpliktelser,liability,22,3,0,1,2025
+2230,Övriga avsättningar för pensioner och liknande förpliktelser,liability,223,4,1,1,2025
+224,Avsättningar för uppskjutna skatter,liability,22,3,0,1,2025
+2240,Avsättningar för uppskjutna skatter,liability,224,4,1,1,2025
+225,Övriga avsättningar för skatter,liability,22,3,0,1,2025
+2250,Övriga avsättningar för skatter,liability,225,4,1,1,2025
+2252,Avsättningar för tvistiga skatter,liability,225,4,1,1,2025
+2253,"Avsättningar särskild löneskatt, deklarationspost",liability,225,4,1,1,2025
+229,Övriga avsättningar,liability,22,3,0,1,2025
+2290,Övriga avsättningar,liability,229,4,1,1,2025
+23,Långfristiga skulder,liability,2,2,0,1,2025
+231,Obligations- och förlagslån,liability,23,3,0,1,2025
+2310,Obligations- och förlagslån,liability,231,4,1,1,2025
+232,Konvertibla lån och liknande,liability,23,3,0,1,2025
+2320,Konvertibla lån och liknande,liability,232,4,1,1,2025
+2321,Konvertibla lån,liability,232,4,1,1,2025
+2322,Lån förenade med optionsrätt,liability,232,4,1,1,2025
+2323,Vinstandelslån,liability,232,4,1,1,2025
+2324,Kapitalandelslån,liability,232,4,1,1,2025
+233,Checkräkningskredit,liability,23,3,0,1,2025
+2330,Checkräkningskredit,liability,233,4,1,1,2025
+2331,Checkräkningskredit 1,liability,233,4,1,1,2025
+2332,Checkräkningskredit 2,liability,233,4,1,1,2025
+234,Byggnadskreditiv,liability,23,3,0,1,2025
+2340,Byggnadskreditiv,liability,234,4,1,1,2025
+235,Andra långfristiga skulder till kreditinstitut,liability,23,3,0,1,2025
+2350,Andra långfristiga skulder till kreditinstitut,liability,235,4,1,1,2025
+2351,"Fastighetslån, långfristig del",liability,235,4,1,1,2025
+2355,Långfristiga lån i utländsk valuta från kreditinstitut,liability,235,4,1,1,2025
+2359,Övriga långfristiga lån från kreditinstitut,liability,235,4,1,1,2025
+236,Långfristiga skulder till koncernföretag,liability,23,3,0,1,2025
+2360,Långfristiga skulder till koncernföretag,liability,236,4,1,1,2025
+2361,Långfristiga skulder till moderföretag,liability,236,4,1,1,2025
+2362,Långfristiga skulder till dotterföretag,liability,236,4,1,1,2025
+2363,Långfristiga skulder till andra koncernföretag,liability,236,4,1,1,2025
+237,"Långfristiga skulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,23,3,0,1,2025
+2370,"Långfristiga skulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,237,4,1,1,2025
+2371,Långfristiga skulder till intresseföretag,liability,237,4,1,1,2025
+2372,Långfristiga skulder till gemensamt styrda företag,liability,237,4,1,1,2025
+2373,Långfristiga skulder till övriga företag som det finns ett ägarintresse i,liability,237,4,1,1,2025
+239,Övriga långfristiga skulder,liability,23,3,0,1,2025
+2390,Övriga långfristiga skulder,liability,239,4,1,1,2025
+2391,"Avbetalningskontrakt, långfristig del",liability,239,4,1,1,2025
+2392,Villkorliga långfristiga skulder,liability,239,4,1,1,2025
+2393,"Lån från närstående personer, långfristig del",liability,239,4,1,1,2025
+2394,Långfristiga leverantörskrediter,liability,239,4,1,1,2025
+2395,Andra långfristiga lån i utländsk valuta,liability,239,4,1,1,2025
+2396,Derivat,liability,239,4,1,1,2025
+2397,"Mottagna depositioner, långfristiga",liability,239,4,1,1,2025
+2399,Övriga långfristiga skulder,liability,239,4,1,1,2025
+24,"Kortfristiga skulder till kreditinstitut, kunder och leverantörer",liability,2,2,0,1,2025
+241,Andra kortfristiga låneskulder till kreditinstitut,liability,24,3,0,1,2025
+2410,Andra kortfristiga låneskulder till kreditinstitut,liability,241,4,1,1,2025
+2411,Kortfristiga lån från kreditinstitut,liability,241,4,1,1,2025
+2412,"Byggnadskreditiv, kortfristig del",liability,241,4,1,1,2025
+2417,Kortfristig del av långfristiga skulder till kreditinstitut,liability,241,4,1,1,2025
+2419,Övriga kortfristiga skulder till kreditinstitut,liability,241,4,1,1,2025
+242,Förskott från kunder,liability,24,3,0,1,2025
+2420,Förskott från kunder,liability,242,4,1,1,2025
+2421,Ej inlösta presentkort,liability,242,4,1,1,2025
+2429,Övriga förskott från kunder,liability,242,4,1,1,2025
+243,Pågående arbeten,liability,24,3,0,1,2025
+2430,Pågående arbeten,liability,243,4,1,1,2025
+2431,"Pågående arbeten, fakturering",liability,243,4,1,1,2025
+2438,"Pågående arbeten, nedlagda kostnader",liability,243,4,1,1,2025
+2439,Beräknad förändring av pågående arbeten,liability,243,4,1,1,2025
+244,Leverantörsskulder,liability,24,3,0,1,2025
+2440,Leverantörsskulder,liability,244,4,1,1,2025
+2441,Leverantörsskulder,liability,244,4,1,1,2025
+2443,Konsignationsskulder,liability,244,4,1,1,2025
+2445,Tvistiga leverantörsskulder,liability,244,4,1,1,2025
+2448,Ej reskontraförda leverantörsskulder,liability,244,4,1,1,2025
+245,Fakturerad men ej upparbetad intäkt,liability,24,3,0,1,2025
+2450,Fakturerad men ej upparbetad intäkt,liability,245,4,1,1,2025
+246,Leverantörsskulder till koncernföretag,liability,24,3,0,1,2025
+2460,Leverantörsskulder till koncernföretag,liability,246,4,1,1,2025
+2461,Leverantörsskulder till moderföretag,liability,246,4,1,1,2025
+2462,Leverantörsskulder till dotterföretag,liability,246,4,1,1,2025
+2463,Leverantörsskulder till andra koncernföretag,liability,246,4,1,1,2025
+247,"Leverantörsskulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,24,3,0,1,2025
+2470,"Leverantörsskulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,247,4,1,1,2025
+2471,Leverantörsskulder till intresseföretag,liability,247,4,1,1,2025
+2472,Leverantörsskulder till gemensamt styrda företag,liability,247,4,1,1,2025
+2473,Leverantörsskulder till övriga företag som det finns ett ägarintresse i,liability,247,4,1,1,2025
+248,"Checkräkningskredit, kortfristig",liability,24,3,0,1,2025
+2480,"Checkräkningskredit, kortfristig",liability,248,4,1,1,2025
+249,"Övriga kortfristiga skulder till kreditinstitut, kunder och leverantörer",liability,24,3,0,1,2025
+2490,"Övriga kortfristiga skulder till kreditinstitut, kunder och leverantörer",liability,249,4,1,1,2025
+2491,Avräkning spelarrangörer,liability,249,4,1,1,2025
+2492,Växelskulder,liability,249,4,1,1,2025
+2499,Andra övriga kortfristiga skulder,liability,249,4,1,1,2025
+25,Skatteskulder,liability,2,2,0,1,2025
+251,Skatteskulder,liability,25,3,0,1,2025
+2510,Skatteskulder,liability,251,4,1,1,2025
+2512,Beräknad inkomstskatt,liability,251,4,1,1,2025
+2513,Beräknad fastighetsskatt/fastighetsavgift,liability,251,4,1,1,2025
+2514,Beräknad särskild löneskatt på pensionskostnader,liability,251,4,1,1,2025
+2515,Beräknad avkastningsskatt,liability,251,4,1,1,2025
+2517,Beräknad utländsk skatt,liability,251,4,1,1,2025
+2518,Betald F-skatt,liability,251,4,1,1,2025
+26,Moms och punktskatter,liability,2,2,0,1,2025
+261,"Utgående moms, 25 %",liability,26,3,0,1,2025
+2610,"Utgående moms, 25 %",liability,261,4,1,1,2025
+2611,"Utgående moms på försäljning inom Sverige, 25 %",liability,261,4,1,1,2025
+2612,"Utgående moms på egna uttag, 25 %",liability,261,4,1,1,2025
+2613,"Utgående moms för uthyrning, 25 %",liability,261,4,1,1,2025
+2614,"Utgående moms, omvänd betalningsskyldighet, 25 %",liability,261,4,1,1,2025
+2615,"Utgående moms import av varor, 25 %",liability,261,4,1,1,2025
+2616,Utgående moms VMB 25 %,liability,261,4,1,1,2025
+2618,"Vilande utgående moms, 25 %",liability,261,4,1,1,2025
+262,"Utgående moms, 12 %",liability,26,3,0,1,2025
+2620,"Utgående moms, 12 %",liability,262,4,1,1,2025
+2621,"Utgående moms på försäljning inom Sverige, 12 %",liability,262,4,1,1,2025
+2622,"Utgående moms på egna uttag, 12 %",liability,262,4,1,1,2025
+2623,"Utgående moms för uthyrning, 12 %",liability,262,4,1,1,2025
+2624,"Utgående moms, omvänd betalningsskyldighet, 12 %",liability,262,4,1,1,2025
+2625,"Utgående moms import av varor, 12 %",liability,262,4,1,1,2025
+2626,Utgående moms VMB 12 %,liability,262,4,1,1,2025
+2628,"Vilande utgående moms, 12 %",liability,262,4,1,1,2025
+263,"Utgående moms, 6 %",liability,26,3,0,1,2025
+2630,"Utgående moms, 6 %",liability,263,4,1,1,2025
+2631,"Utgående moms på försäljning inom Sverige, 6 %",liability,263,4,1,1,2025
+2632,"Utgående moms på egna uttag, 6 %",liability,263,4,1,1,2025
+2633,"Utgående moms för uthyrning, 6 %",liability,263,4,1,1,2025
+2634,"Utgående moms, omvänd betalningsskyldighet, 6 %",liability,263,4,1,1,2025
+2635,"Utgående moms import av varor, 6 %",liability,263,4,1,1,2025
+2636,Utgående moms VMB 6 %,liability,263,4,1,1,2025
+2638,"Vilande utgående moms, 6 %",liability,263,4,1,1,2025
+264,Ingående moms,liability,26,3,0,1,2025
+2640,Ingående moms,liability,264,4,1,1,2025
+2641,Debiterad ingående moms,liability,264,4,1,1,2025
+2642,Debiterad ingående moms i anslutning till frivillig betalningsskyldighet,liability,264,4,1,1,2025
+2645,Beräknad ingående moms på förvärv från utlandet,liability,264,4,1,1,2025
+2646,Ingående moms på uthyrning,liability,264,4,1,1,2025
+2647,"Ingående moms, omvänd betalningsskyldighet varor och tjänster i Sverige",liability,264,4,1,1,2025
+2648,Vilande ingående moms,liability,264,4,1,1,2025
+2649,"Ingående moms, blandad verksamhet",liability,264,4,1,1,2025
+265,Redovisningskonto för moms,liability,26,3,0,1,2025
+2650,Redovisningskonto för moms,liability,265,4,1,1,2025
+266,Punktskatter,liability,26,3,0,1,2025
+2660,Punktskatter,liability,266,4,1,1,2025
+267,"Utgående moms, OSS",liability,26,3,0,1,2025
+2670,"Utgående moms på försäljning inom EU, OSS",liability,267,4,1,1,2025
+27,"Personalens skatter, avgifter och löneavdrag",liability,2,2,0,1,2025
+271,Personalskatt,liability,27,3,0,1,2025
+2710,Personalskatt,liability,271,4,1,1,2025
+273,Lagstadgade sociala avgifter och särskild löneskatt,liability,27,3,0,1,2025
+2730,Lagstadgade sociala avgifter och särskild löneskatt,liability,273,4,1,1,2025
+2731,Avräkning lagstadgade sociala avgifter,liability,273,4,1,1,2025
+2732,Avräkning särskild löneskatt,liability,273,4,1,1,2025
+274,Avtalade sociala avgifter,liability,27,3,0,1,2025
+2740,Avtalade sociala avgifter,liability,274,4,1,1,2025
+275,Utmätning i lön m.m.,liability,27,3,0,1,2025
+2750,Utmätning i lön m.m.,liability,275,4,1,1,2025
+276,Semestermedel,liability,27,3,0,1,2025
+2760,Semestermedel,liability,276,4,1,1,2025
+2761,Avräkning semesterlöner,liability,276,4,1,1,2025
+2762,Semesterlönekassa,liability,276,4,1,1,2025
+279,Övriga löneavdrag,liability,27,3,0,1,2025
+2790,Övriga löneavdrag,liability,279,4,1,1,2025
+2791,Personalens intressekonto,liability,279,4,1,1,2025
+2792,Lönsparande,liability,279,4,1,1,2025
+2793,Gruppförsäkringspremier,liability,279,4,1,1,2025
+2794,Fackföreningsavgifter,liability,279,4,1,1,2025
+2795,Mätnings- och granskningsarvoden,liability,279,4,1,1,2025
+2799,Övriga löneavdrag,liability,279,4,1,1,2025
+28,Övriga kortfristiga skulder,liability,2,2,0,1,2025
+281,Avräkning för factoring och belånade kontraktsfordringar,liability,28,3,0,1,2025
+2810,Avräkning för factoring och belånade kontraktsfordringar,liability,281,4,1,1,2025
+2811,Avräkning för factoring,liability,281,4,1,1,2025
+2812,Avräkning för belånade kontraktsfordringar,liability,281,4,1,1,2025
+282,Kortfristiga skulder till anställda,liability,28,3,0,1,2025
+2820,Kortfristiga skulder till anställda,liability,282,4,1,1,2025
+2821,Löneskulder,liability,282,4,1,1,2025
+2822,Reseräkningar,liability,282,4,1,1,2025
+2823,"Tantiem, gratifikationer",liability,282,4,1,1,2025
+2829,Övriga kortfristiga skulder till anställda,liability,282,4,1,1,2025
+283,Avräkning för annans räkning,liability,28,3,0,1,2025
+2830,Avräkning för annans räkning,liability,283,4,1,1,2025
+284,Kortfristiga låneskulder,liability,28,3,0,1,2025
+2840,Kortfristiga låneskulder,liability,284,4,1,1,2025
+2841,Kortfristig del av långfristiga skulder,liability,284,4,1,1,2025
+2849,Övriga kortfristiga låneskulder,liability,284,4,1,1,2025
+285,Avräkning för skatter och avgifter (skattekonto),liability,28,3,0,1,2025
+2850,Avräkning för skatter och avgifter (skattekonto),liability,285,4,1,1,2025
+2852,"Anståndsbelopp för moms, arbetsgivaravgifter och personalskatt",liability,285,4,1,1,2025
+286,Kortfristiga skulder till koncernföretag,liability,28,3,0,1,2025
+2860,Kortfristiga skulder till koncernföretag,liability,286,4,1,1,2025
+2861,Kortfristiga skulder till moderföretag,liability,286,4,1,1,2025
+2862,Kortfristiga skulder till dotterföretag,liability,286,4,1,1,2025
+2863,Kortfristiga skulder till andra koncernföretag,liability,286,4,1,1,2025
+287,"Kortfristiga skulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,28,3,0,1,2025
+2870,"Kortfristiga skulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,287,4,1,1,2025
+2871,Kortfristiga skulder till intresseföretag,liability,287,4,1,1,2025
+2872,Kortfristiga skulder till gemensamt styrda företag,liability,287,4,1,1,2025
+2873,Kortfristiga skulder till övriga företag som det finns ett ägarintresse i,liability,287,4,1,1,2025
+288,Skuld erhållna bidrag,liability,28,3,0,1,2025
+2880,Skuld erhållna bidrag,liability,288,4,1,1,2025
+289,Övriga kortfristiga skulder,liability,28,3,0,1,2025
+2890,Övriga kortfristiga skulder,liability,289,4,1,1,2025
+2891,Skulder under indrivning,liability,289,4,1,1,2025
+2892,Inre reparationsfond/underhållsfond,liability,289,4,1,1,2025
+2893,"Skulder till närstående personer, kortfristig del",liability,289,4,1,1,2025
+2895,Derivat (kortfristiga skulder),liability,289,4,1,1,2025
+2897,"Mottagna depositioner, kortfristiga",liability,289,4,1,1,2025
+2898,Outtagen vinstutdelning,liability,289,4,1,1,2025
+2899,Övriga kortfristiga skulder,liability,289,4,1,1,2025
+29,Upplupna kostnader och förutbetalda intäkter,liability,2,2,0,1,2025
+291,Upplupna löner,liability,29,3,0,1,2025
+2910,Upplupna löner,liability,291,4,1,1,2025
+2911,Löneskulder,liability,291,4,1,1,2025
+2912,Ackordsöverskott,liability,291,4,1,1,2025
+2919,Övriga upplupna löner,liability,291,4,1,1,2025
+292,Upplupna semesterlöner,liability,29,3,0,1,2025
+2920,Upplupna semesterlöner,liability,292,4,1,1,2025
+293,Upplupna pensionskostnader,liability,29,3,0,1,2025
+2930,Upplupna pensionskostnader,liability,293,4,1,1,2025
+2931,Upplupna pensionsutbetalningar,liability,293,4,1,1,2025
+294,Upplupna lagstadgade sociala och andra avgifter,liability,29,3,0,1,2025
+2940,Upplupna lagstadgade sociala och andra avgifter,liability,294,4,1,1,2025
+2941,Beräknade upplupna lagstadgade sociala avgifter,liability,294,4,1,1,2025
+2942,Beräknad upplupen särskild löneskatt,liability,294,4,1,1,2025
+2943,"Beräknad upplupen särskild löneskatt på pensionskostnader, deklarationspost",liability,294,4,1,1,2025
+2944,Beräknad upplupen avkastningsskatt på pensionskostnader,liability,294,4,1,1,2025
+295,Upplupna avtalade sociala avgifter,liability,29,3,0,1,2025
+2950,Upplupna avtalade sociala avgifter,liability,295,4,1,1,2025
+2951,Upplupna avtalade arbetsmarknadsförsäkringar,liability,295,4,1,1,2025
+2959,"Upplupna avtalade pensionsförsäkringsavgifter, deklarationspost",liability,295,4,1,1,2025
+296,Upplupna räntekostnader,liability,29,3,0,1,2025
+2960,Upplupna räntekostnader,liability,296,4,1,1,2025
+297,Förutbetalda intäkter,liability,29,3,0,1,2025
+2970,Förutbetalda intäkter,liability,297,4,1,1,2025
+2971,Förutbetalda hyresintäkter,liability,297,4,1,1,2025
+2972,Förutbetalda medlemsavgifter,liability,297,4,1,1,2025
+2979,Övriga förutbetalda intäkter,liability,297,4,1,1,2025
+298,Upplupna avtalskostnader,liability,29,3,0,1,2025
+2980,Upplupna avtalskostnader,liability,298,4,1,1,2025
+299,Övriga upplupna kostnader och förutbetalda intäkter,liability,29,3,0,1,2025
+2990,Övriga upplupna kostnader och förutbetalda intäkter,liability,299,4,1,1,2025
+2991,Beräknat arvode för bokslut,liability,299,4,1,1,2025
+2992,Beräknat arvode för revision,liability,299,4,1,1,2025
+2993,Ospecificerad skuld till leverantörer,liability,299,4,1,1,2025
+2995,Ej ankomna leverantörsfakturor,liability,299,4,1,1,2025
+2998,Övriga upplupna kostnader och förutbetalda intäkter,liability,299,4,1,1,2025
+2999,OBS-konto,liability,299,4,1,1,2025
+3,Rörelsens inkomster/intäkter,revenue,,1,0,1,2025
+30,Huvudintäkter,revenue,3,2,0,1,2025
+300,Försäljning inom Sverige,revenue,30,3,0,1,2025
+3000,Försäljning inom Sverige,revenue,300,4,1,1,2025
+3001,"Försäljning inom Sverige, 25 % moms",revenue,300,4,1,1,2025
+3002,"Försäljning inom Sverige, 12 % moms",revenue,300,4,1,1,2025
+3003,"Försäljning inom Sverige, 6 % moms",revenue,300,4,1,1,2025
+3004,"Försäljning inom Sverige, momsfri",revenue,300,4,1,1,2025
+31,Huvudintäkter,revenue,3,2,0,1,2025
+310,Försäljning av varor utanför Sverige,revenue,31,3,0,1,2025
+3100,Försäljning av varor utanför Sverige,revenue,310,4,1,1,2025
+3105,Försäljning varor till land utanför EU,revenue,310,4,1,1,2025
+3106,"Försäljning varor till annat EU-land, momspliktig",revenue,310,4,1,1,2025
+3108,"Försäljning varor till annat EU-land, momsfri",revenue,310,4,1,1,2025
+32,Huvudintäkter,revenue,3,2,0,1,2025
+320,Försäljning VMB och omvänd moms,revenue,32,3,0,1,2025
+3200,Försäljning VMB och omvänd moms,revenue,320,4,1,1,2025
+321,Försäljning positiv VMB 25 %,revenue,32,3,0,1,2025
+3211,Försäljning positiv VMB 25 %,revenue,321,4,1,1,2025
+3212,Försäljning negativ VMB 25 %,revenue,321,4,1,1,2025
+323,"Försäljning inom byggsektorn, omvänd betalningsskyldighet moms",revenue,32,3,0,1,2025
+3231,"Försäljning inom byggsektorn, omvänd betalningsskyldighet moms",revenue,323,4,1,1,2025
+33,Huvudintäkter,revenue,3,2,0,1,2025
+330,Försäljning av tjänster utanför Sverige,revenue,33,3,0,1,2025
+3300,Försäljning av tjänster utanför Sverige,revenue,330,4,1,1,2025
+3305,Försäljning tjänster till land utanför EU,revenue,330,4,1,1,2025
+3308,Försäljning tjänster till annat EU-land,revenue,330,4,1,1,2025
+34,Huvudintäkter,revenue,3,2,0,1,2025
+340,"Försäljning, egna uttag",revenue,34,3,0,1,2025
+3400,"Försäljning, egna uttag",revenue,340,4,1,1,2025
+3401,"Egna uttag momspliktiga, 25 %",revenue,340,4,1,1,2025
+3402,"Egna uttag momspliktiga, 12 %",revenue,340,4,1,1,2025
+3403,"Egna uttag momspliktiga, 6 %",revenue,340,4,1,1,2025
+3404,"Egna uttag, momsfria",revenue,340,4,1,1,2025
+35,Fakturerade kostnader,revenue,3,2,0,1,2025
+350,Fakturerade kostnader (gruppkonto),revenue,35,3,0,1,2025
+3500,Fakturerade kostnader (gruppkonto),revenue,350,4,1,1,2025
+351,Fakturerat emballage,revenue,35,3,0,1,2025
+3510,Fakturerat emballage,revenue,351,4,1,1,2025
+3511,Fakturerat emballage,revenue,351,4,1,1,2025
+3518,Returnerat emballage,revenue,351,4,1,1,2025
+352,Fakturerade frakter,revenue,35,3,0,1,2025
+3520,Fakturerade frakter,revenue,352,4,1,1,2025
+3521,"Fakturerade frakter, EU-land",revenue,352,4,1,1,2025
+3522,"Fakturerade frakter, export",revenue,352,4,1,1,2025
+353,Fakturerade tull- och speditionskostnader m.m.,revenue,35,3,0,1,2025
+3530,Fakturerade tull- och speditionskostnader m.m.,revenue,353,4,1,1,2025
+354,Faktureringsavgifter,revenue,35,3,0,1,2025
+3540,Faktureringsavgifter,revenue,354,4,1,1,2025
+3541,"Faktureringsavgifter, EU-land",revenue,354,4,1,1,2025
+3542,"Faktureringsavgifter, export",revenue,354,4,1,1,2025
+355,Fakturerade resekostnader,revenue,35,3,0,1,2025
+3550,Fakturerade resekostnader,revenue,355,4,1,1,2025
+356,Fakturerade kostnader till koncernföretag,revenue,35,3,0,1,2025
+3560,Fakturerade kostnader till koncernföretag,revenue,356,4,1,1,2025
+3561,Fakturerade kostnader till moderföretag,revenue,356,4,1,1,2025
+3562,Fakturerade kostnader till dotterföretag,revenue,356,4,1,1,2025
+3563,Fakturerade kostnader till andra koncernföretag,revenue,356,4,1,1,2025
+357,"Fakturerade kostnader till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",revenue,35,3,0,1,2025
+3570,"Fakturerade kostnader till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",revenue,357,4,1,1,2025
+359,Övriga fakturerade kostnader,revenue,35,3,0,1,2025
+3590,Övriga fakturerade kostnader,revenue,359,4,1,1,2025
+36,Rörelsens sidointäkter,revenue,3,2,0,1,2025
+360,Rörelsens sidointäkter (gruppkonto),revenue,36,3,0,1,2025
+3600,Rörelsens sidointäkter (gruppkonto),revenue,360,4,1,1,2025
+361,Försäljning av material,revenue,36,3,0,1,2025
+3610,Försäljning av material,revenue,361,4,1,1,2025
+3611,Försäljning av råmaterial,revenue,361,4,1,1,2025
+3612,Försäljning av skrot,revenue,361,4,1,1,2025
+3613,Försäljning av förbrukningsmaterial,revenue,361,4,1,1,2025
+3619,Försäljning av övrigt material,revenue,361,4,1,1,2025
+362,Tillfällig uthyrning av personal,revenue,36,3,0,1,2025
+3620,Tillfällig uthyrning av personal,revenue,362,4,1,1,2025
+363,Tillfällig uthyrning av transportmedel,revenue,36,3,0,1,2025
+3630,Tillfällig uthyrning av transportmedel,revenue,363,4,1,1,2025
+367,Intäkter från värdepapper,revenue,36,3,0,1,2025
+3670,Intäkter från värdepapper,revenue,367,4,1,1,2025
+3671,Försäljning av värdepapper,revenue,367,4,1,1,2025
+3672,Utdelning från värdepapper,revenue,367,4,1,1,2025
+3679,Övriga intäkter från värdepapper,revenue,367,4,1,1,2025
+368,Management fees,revenue,36,3,0,1,2025
+3680,Management fees,revenue,368,4,1,1,2025
+369,Övriga sidointäkter,revenue,36,3,0,1,2025
+3690,Övriga sidointäkter,revenue,369,4,1,1,2025
+37,Intäktskorrigeringar,revenue,3,2,0,1,2025
+370,Intäktskorrigeringar (gruppkonto),revenue,37,3,0,1,2025
+3700,Intäktskorrigeringar (gruppkonto),revenue,370,4,1,1,2025
+371,Ofördelade intäktsreduktioner,revenue,37,3,0,1,2025
+3710,Ofördelade intäktsreduktioner,revenue,371,4,1,1,2025
+373,Lämnade rabatter,revenue,37,3,0,1,2025
+3730,Lämnade rabatter,revenue,373,4,1,1,2025
+3731,Lämnade kassarabatter,revenue,373,4,1,1,2025
+3732,Lämnade mängdrabatter,revenue,373,4,1,1,2025
+374,Öres- och kronutjämning,revenue,37,3,0,1,2025
+3740,Öres- och kronutjämning,revenue,374,4,1,1,2025
+375,Punktskatter,revenue,37,3,0,1,2025
+3750,Punktskatter,revenue,375,4,1,1,2025
+3751,Intäktsförda punktskatter (kreditkonto),revenue,375,4,1,1,2025
+3752,Skuldförda punktskatter (debetkonto),revenue,375,4,1,1,2025
+379,Övriga intäktskorrigeringar,revenue,37,3,0,1,2025
+3790,Övriga intäktskorrigeringar,revenue,379,4,1,1,2025
+38,Aktiverat arbete för egen räkning,revenue,3,2,0,1,2025
+380,Aktiverat arbete för egen räkning (gruppkonto),revenue,38,3,0,1,2025
+3800,Aktiverat arbete för egen räkning (gruppkonto),revenue,380,4,1,1,2025
+384,Aktiverat arbete (material),revenue,38,3,0,1,2025
+3840,Aktiverat arbete (material),revenue,384,4,1,1,2025
+385,Aktiverat arbete (omkostnader),revenue,38,3,0,1,2025
+3850,Aktiverat arbete (omkostnader),revenue,385,4,1,1,2025
+387,Aktiverat arbete (personal),revenue,38,3,0,1,2025
+3870,Aktiverat arbete (personal),revenue,387,4,1,1,2025
+39,Övriga rörelseintäkter,revenue,3,2,0,1,2025
+390,Övriga rörelseintäkter (gruppkonto),revenue,39,3,0,1,2025
+3900,Övriga rörelseintäkter (gruppkonto),revenue,390,4,1,1,2025
+391,Hyres- och arrendeintäkter,revenue,39,3,0,1,2025
+3910,Hyres- och arrendeintäkter,revenue,391,4,1,1,2025
+3911,Hyresintäkter,revenue,391,4,1,1,2025
+3912,Arrendeintäkter,revenue,391,4,1,1,2025
+3913,Frivilligt momspliktiga hyresintäkter,revenue,391,4,1,1,2025
+3914,Övriga momspliktiga hyresintäkter,revenue,391,4,1,1,2025
+392,"Provisionsintäkter, licensintäkter och royalties",revenue,39,3,0,1,2025
+3920,"Provisionsintäkter, licensintäkter och royalties",revenue,392,4,1,1,2025
+3921,Provisionsintäkter,revenue,392,4,1,1,2025
+3922,Licensintäkter och royalties,revenue,392,4,1,1,2025
+3925,Franchiseintäkter,revenue,392,4,1,1,2025
+394,Orealiserade negativa/positiva värdeförändringar på säkringsinstrument,revenue,39,3,0,1,2025
+3940,Orealiserade negativa/positiva värdeförändringar på säkringsinstrument,revenue,394,4,1,1,2025
+395,"Återvunna, tidigare avskrivna kundfordringar",revenue,39,3,0,1,2025
+3950,"Återvunna, tidigare avskrivna kundfordringar",revenue,395,4,1,1,2025
+396,Valutakursvinster på fordringar och skulder av rörelsekaraktär,revenue,39,3,0,1,2025
+3960,Valutakursvinster på fordringar och skulder av rörelsekaraktär,revenue,396,4,1,1,2025
+397,Vinst vid avyttring av immateriella och materiella anläggningstillgångar,revenue,39,3,0,1,2025
+3970,Vinst vid avyttring av immateriella och materiella anläggningstillgångar,revenue,397,4,1,1,2025
+3971,Vinst vid avyttring av immateriella anläggningstillgångar,revenue,397,4,1,1,2025
+3972,Vinst vid avyttring av byggnader och mark,revenue,397,4,1,1,2025
+3973,Vinst vid avyttring av maskiner och inventarier,revenue,397,4,1,1,2025
+398,Erhållna offentliga bidrag,revenue,39,3,0,1,2025
+3980,Erhållna offentliga bidrag,revenue,398,4,1,1,2025
+3981,Erhållna EU-bidrag,revenue,398,4,1,1,2025
+3985,Erhållna statliga bidrag,revenue,398,4,1,1,2025
+3987,Erhållna kommunala bidrag,revenue,398,4,1,1,2025
+3988,Erhållna offentliga bidrag för personal,revenue,398,4,1,1,2025
+3989,Övriga erhållna offentliga bidrag,revenue,398,4,1,1,2025
+399,"Övriga ersättningar, bidrag och intäkter",revenue,39,3,0,1,2025
+3990,"Övriga ersättningar, bidrag och intäkter",revenue,399,4,1,1,2025
+3991,Konfliktersättning,revenue,399,4,1,1,2025
+3992,Erhållna skadestånd,revenue,399,4,1,1,2025
+3993,Erhållna donationer och gåvor,revenue,399,4,1,1,2025
+3994,Försäkringsersättningar,revenue,399,4,1,1,2025
+3995,Erhållet ackord på skulder av rörelsekaraktär,revenue,399,4,1,1,2025
+3996,Erhållna reklambidrag,revenue,399,4,1,1,2025
+3997,Sjuklöneersättning,revenue,399,4,1,1,2025
+3998,Återbäring av överskott från försäkringsföretag,revenue,399,4,1,1,2025
+3999,Övriga rörelseintäkter,revenue,399,4,1,1,2025
+4,"Utgifter/kostnader för varor, material och vissa köpta tjänster",expense,,1,0,1,2025
+40,Inköp av varor och material,expense,4,2,0,1,2025
+400,Inköp av varor från Sverige,expense,40,3,0,1,2025
+4000,Inköp av varor från Sverige,expense,400,4,1,1,2025
+41,Inköp av varor och material,expense,4,2,0,1,2025
+42,Inköp av varor och material,expense,4,2,0,1,2025
+420,Sålda varor VMB,expense,42,3,0,1,2025
+4200,Sålda varor VMB,expense,420,4,1,1,2025
+421,Sålda varor VMB 25 %,expense,42,3,0,1,2025
+4211,Sålda varor positiv VMB 25 %,expense,421,4,1,1,2025
+4212,Sålda varor negativ VMB 25 %,expense,421,4,1,1,2025
+43,Inköp av varor och material,expense,4,2,0,1,2025
+44,Inköp av varor och material,expense,4,2,0,1,2025
+440,Momspliktiga inköp i Sverige,expense,44,3,0,1,2025
+4400,Momspliktiga inköp i Sverige,expense,440,4,1,1,2025
+441,"Inköpta varor i Sverige, omvänd betalningsskyldighet",expense,44,3,0,1,2025
+4415,"Inköpta varor i Sverige, omvänd betalningsskyldighet, 25 % moms",expense,441,4,1,1,2025
+4416,"Inköpta varor i Sverige, omvänd betalningsskyldighet, 12 % moms",expense,441,4,1,1,2025
+4417,"Inköpta varor i Sverige, omvänd betalningsskyldighet, 6 % moms",expense,441,4,1,1,2025
+442,"Inköpta tjänster i Sverige, omvänd betalningsskyldighet",expense,44,3,0,1,2025
+4425,"Inköpta tjänster i Sverige, omvänd betalningsskyldighet, 25 % moms",expense,442,4,1,1,2025
+4426,"Inköpta tjänster i Sverige, omvänd betalningsskyldighet, 12 % moms",expense,442,4,1,1,2025
+4427,"Inköpta tjänster i Sverige, omvänd betalningsskyldighet, 6 % moms",expense,442,4,1,1,2025
+45,Inköp av varor och material,expense,4,2,0,1,2025
+450,Övriga momspliktiga inköp,expense,45,3,0,1,2025
+4500,Övriga momspliktiga inköp,expense,450,4,1,1,2025
+451,Inköp av varor från annat EU-land,expense,45,3,0,1,2025
+4515,"Inköp av varor från annat EU-land, 25 %",expense,451,4,1,1,2025
+4516,"Inköp av varor från annat EU-land, 12 %",expense,451,4,1,1,2025
+4517,"Inköp av varor från annat EU-land, 6 %",expense,451,4,1,1,2025
+4518,"Inköp av varor från annat EU-land, momsfri",expense,451,4,1,1,2025
+453,Inköp av tjänster från ett land utanför EU,expense,45,3,0,1,2025
+4531,"Inköp av tjänster från ett land utanför EU, 25 % moms",expense,453,4,1,1,2025
+4532,"Inköp av tjänster från ett land utanför EU, 12 % moms",expense,453,4,1,1,2025
+4533,"Inköp av tjänster från ett land utanför EU, 6 % moms",expense,453,4,1,1,2025
+4535,"Inköp av tjänster från annat EU-land, 25 %",expense,453,4,1,1,2025
+4536,"Inköp av tjänster från annat EU-land, 12 %",expense,453,4,1,1,2025
+4537,"Inköp av tjänster från annat EU-land, 6 %",expense,453,4,1,1,2025
+4538,"Inköp av tjänster från annat EU-land, momsfri",expense,453,4,1,1,2025
+454,Import av varor,expense,45,3,0,1,2025
+4545,"Import av varor, 25 % moms",expense,454,4,1,1,2025
+4546,"Import av varor, 12 % moms",expense,454,4,1,1,2025
+4547,"Import av varor, 6 % moms",expense,454,4,1,1,2025
+46,"Legoarbeten, underentreprenader",expense,4,2,0,1,2025
+460,Legoarbeten och underentreprenader (gruppkonto),expense,46,3,0,1,2025
+4600,Legoarbeten och underentreprenader (gruppkonto),expense,460,4,1,1,2025
+47,Reduktion av inköpspriser,expense,4,2,0,1,2025
+470,Reduktion av inköpspriser (gruppkonto),expense,47,3,0,1,2025
+4700,Reduktion av inköpspriser (gruppkonto),expense,470,4,1,1,2025
+473,Erhållna rabatter,expense,47,3,0,1,2025
+4730,Erhållna rabatter,expense,473,4,1,1,2025
+4731,Erhållna kassarabatter,expense,473,4,1,1,2025
+4732,Erhållna mängdrabatter (inkl. bonus),expense,473,4,1,1,2025
+4733,Erhållet aktivitetsstöd,expense,473,4,1,1,2025
+479,Övriga reduktioner av inköpspriser,expense,47,3,0,1,2025
+4790,Övriga reduktioner av inköpspriser,expense,479,4,1,1,2025
+48,(Fri kontogrupp),expense,4,2,0,1,2025
+49,"Förändring av lager, produkter i arbete och pågående arbeten",expense,4,2,0,1,2025
+490,Förändring av lager (gruppkonto),expense,49,3,0,1,2025
+4900,Förändring av lager (gruppkonto),expense,490,4,1,1,2025
+491,Förändring av lager av råvaror,expense,49,3,0,1,2025
+4910,Förändring av lager av råvaror,expense,491,4,1,1,2025
+492,Förändring av lager av tillsatsmaterial och förnödenheter,expense,49,3,0,1,2025
+4920,Förändring av lager av tillsatsmaterial och förnödenheter,expense,492,4,1,1,2025
+494,Förändring av produkter i arbete,expense,49,3,0,1,2025
+4940,Förändring av produkter i arbete,expense,494,4,1,1,2025
+4944,"Förändring av produkter i arbete, material och utlägg",expense,494,4,1,1,2025
+4945,"Förändring av produkter i arbete, omkostnader",expense,494,4,1,1,2025
+4947,"Förändring av produkter i arbete, personalkostnader",expense,494,4,1,1,2025
+495,Förändring av lager av färdiga varor,expense,49,3,0,1,2025
+4950,Förändring av lager av färdiga varor,expense,495,4,1,1,2025
+496,Förändring av lager av handelsvaror,expense,49,3,0,1,2025
+4960,Förändring av lager av handelsvaror,expense,496,4,1,1,2025
+497,"Förändring av pågående arbeten, nedlagda kostnader",expense,49,3,0,1,2025
+4970,"Förändring av pågående arbeten, nedlagda kostnader",expense,497,4,1,1,2025
+4974,"Förändring av pågående arbeten, material och utlägg",expense,497,4,1,1,2025
+4975,"Förändring av pågående arbeten, omkostnader",expense,497,4,1,1,2025
+4977,"Förändring av pågående arbeten, personalkostnader",expense,497,4,1,1,2025
+498,Förändring av lager av värdepapper,expense,49,3,0,1,2025
+4980,Förändring av lager av värdepapper,expense,498,4,1,1,2025
+4981,Sålda värdepappers anskaffningsvärde,expense,498,4,1,1,2025
+4987,Nedskrivning av värdepapper,expense,498,4,1,1,2025
+4988,Återföring av nedskrivning av värdepapper,expense,498,4,1,1,2025
+5,Övriga externa rörelseutgifter/ kostnader,expense,,1,0,1,2025
+50,Lokalkostnader,expense,5,2,0,1,2025
+500,Lokalkostnader (gruppkonto),expense,50,3,0,1,2025
+5000,Lokalkostnader (gruppkonto),expense,500,4,1,1,2025
+501,Lokalhyra,expense,50,3,0,1,2025
+5010,Lokalhyra,expense,501,4,1,1,2025
+5011,Hyra för kontorslokaler,expense,501,4,1,1,2025
+5012,Hyra för garage,expense,501,4,1,1,2025
+5013,Hyra för lagerlokaler,expense,501,4,1,1,2025
+502,El för belysning,expense,50,3,0,1,2025
+5020,El för belysning,expense,502,4,1,1,2025
+503,Värme,expense,50,3,0,1,2025
+5030,Värme,expense,503,4,1,1,2025
+504,Vatten och avlopp,expense,50,3,0,1,2025
+5040,Vatten och avlopp,expense,504,4,1,1,2025
+505,Lokaltillbehör,expense,50,3,0,1,2025
+5050,Lokaltillbehör,expense,505,4,1,1,2025
+506,Städning och renhållning,expense,50,3,0,1,2025
+5060,Städning och renhållning,expense,506,4,1,1,2025
+5061,Städning,expense,506,4,1,1,2025
+5062,Sophämtning,expense,506,4,1,1,2025
+5063,Hyra för sopcontainer,expense,506,4,1,1,2025
+5064,Snöröjning,expense,506,4,1,1,2025
+5065,Trädgårdsskötsel,expense,506,4,1,1,2025
+507,Reparation och underhåll av lokaler,expense,50,3,0,1,2025
+5070,Reparation och underhåll av lokaler,expense,507,4,1,1,2025
+509,Övriga lokalkostnader,expense,50,3,0,1,2025
+5090,Övriga lokalkostnader,expense,509,4,1,1,2025
+5098,"Övriga lokalkostnader, avdragsgilla",expense,509,4,1,1,2025
+5099,"Övriga lokalkostnader, ej avdragsgilla",expense,509,4,1,1,2025
+51,Fastighetskostnader,expense,5,2,0,1,2025
+510,Fastighetskostnader (gruppkonto),expense,51,3,0,1,2025
+5100,Fastighetskostnader (gruppkonto),expense,510,4,1,1,2025
+511,Tomträttsavgäld/arrende,expense,51,3,0,1,2025
+5110,Tomträttsavgäld/arrende,expense,511,4,1,1,2025
+512,El för belysning,expense,51,3,0,1,2025
+5120,El för belysning,expense,512,4,1,1,2025
+513,Värme,expense,51,3,0,1,2025
+5130,Värme,expense,513,4,1,1,2025
+5131,Uppvärmning,expense,513,4,1,1,2025
+5132,Sotning,expense,513,4,1,1,2025
+514,Vatten och avlopp,expense,51,3,0,1,2025
+5140,Vatten och avlopp,expense,514,4,1,1,2025
+516,Städning och renhållning,expense,51,3,0,1,2025
+5160,Städning och renhållning,expense,516,4,1,1,2025
+5161,Städning,expense,516,4,1,1,2025
+5162,Sophämtning,expense,516,4,1,1,2025
+5163,Hyra för sopcontainer,expense,516,4,1,1,2025
+5164,Snöröjning,expense,516,4,1,1,2025
+5165,Trädgårdsskötsel,expense,516,4,1,1,2025
+517,Reparation och underhåll av fastighet,expense,51,3,0,1,2025
+5170,Reparation och underhåll av fastighet,expense,517,4,1,1,2025
+519,Övriga fastighetskostnader,expense,51,3,0,1,2025
+5190,Övriga fastighetskostnader,expense,519,4,1,1,2025
+5191,Fastighetsskatt/fastighetsavgift,expense,519,4,1,1,2025
+5192,Fastighetsförsäkringspremier,expense,519,4,1,1,2025
+5193,Fastighetsskötsel och förvaltning,expense,519,4,1,1,2025
+5198,"Övriga fastighetskostnader, avdragsgilla",expense,519,4,1,1,2025
+5199,"Övriga fastighetskostnader, ej avdragsgilla",expense,519,4,1,1,2025
+52,Hyra av anläggningstillgångar,expense,5,2,0,1,2025
+520,Hyra av anläggningstillgångar (gruppkonto),expense,52,3,0,1,2025
+5200,Hyra av anläggningstillgångar (gruppkonto),expense,520,4,1,1,2025
+521,Hyra av maskiner och andra tekniska anläggningar,expense,52,3,0,1,2025
+5210,Hyra av maskiner och andra tekniska anläggningar,expense,521,4,1,1,2025
+5211,Korttidshyra av maskiner och andra tekniska anläggningar,expense,521,4,1,1,2025
+5212,Leasing av maskiner och andra tekniska anläggningar,expense,521,4,1,1,2025
+522,Hyra av inventarier och verktyg,expense,52,3,0,1,2025
+5220,Hyra av inventarier och verktyg,expense,522,4,1,1,2025
+5221,Korttidshyra av inventarier och verktyg,expense,522,4,1,1,2025
+5222,Leasing av inventarier och verktyg,expense,522,4,1,1,2025
+525,Hyra av datorer,expense,52,3,0,1,2025
+5250,Hyra av datorer,expense,525,4,1,1,2025
+5251,Korttidshyra av datorer,expense,525,4,1,1,2025
+5252,Leasing av datorer,expense,525,4,1,1,2025
+529,Övriga hyreskostnader för anläggningstillgångar,expense,52,3,0,1,2025
+5290,Övriga hyreskostnader för anläggningstillgångar,expense,529,4,1,1,2025
+53,Energikostnader,expense,5,2,0,1,2025
+530,Energikostnader (gruppkonto),expense,53,3,0,1,2025
+5300,Energikostnader (gruppkonto),expense,530,4,1,1,2025
+531,El för drift,expense,53,3,0,1,2025
+5310,El för drift,expense,531,4,1,1,2025
+532,Gas,expense,53,3,0,1,2025
+5320,Gas,expense,532,4,1,1,2025
+533,Eldningsolja,expense,53,3,0,1,2025
+5330,Eldningsolja,expense,533,4,1,1,2025
+534,Stenkol och koks,expense,53,3,0,1,2025
+5340,Stenkol och koks,expense,534,4,1,1,2025
+535,"Torv, träkol, ved och annat träbränsle",expense,53,3,0,1,2025
+5350,"Torv, träkol, ved och annat träbränsle",expense,535,4,1,1,2025
+536,"Bensin, fotogen och motorbrännolja",expense,53,3,0,1,2025
+5360,"Bensin, fotogen och motorbrännolja",expense,536,4,1,1,2025
+537,"Fjärrvärme, kyla och ånga",expense,53,3,0,1,2025
+5370,"Fjärrvärme, kyla och ånga",expense,537,4,1,1,2025
+538,Vatten,expense,53,3,0,1,2025
+5380,Vatten,expense,538,4,1,1,2025
+539,Övriga energikostnader,expense,53,3,0,1,2025
+5390,Övriga energikostnader,expense,539,4,1,1,2025
+54,Förbrukningsinventarier och förbrukningsmaterial,expense,5,2,0,1,2025
+540,Förbrukningsinventarier och förbrukningsmaterial (gruppkonto),expense,54,3,0,1,2025
+5400,Förbrukningsinventarier och förbrukningsmaterial (gruppkonto),expense,540,4,1,1,2025
+541,Förbrukningsinventarier,expense,54,3,0,1,2025
+5410,Förbrukningsinventarier,expense,541,4,1,1,2025
+5411,Förbrukningsinventarier med en livslängd på mer än ett år,expense,541,4,1,1,2025
+5412,Förbrukningsinventarier med en livslängd på ett år eller mindre,expense,541,4,1,1,2025
+542,Programvaror,expense,54,3,0,1,2025
+5420,Programvaror,expense,542,4,1,1,2025
+543,Transportinventarier,expense,54,3,0,1,2025
+5430,Transportinventarier,expense,543,4,1,1,2025
+544,Förbrukningsemballage,expense,54,3,0,1,2025
+5440,Förbrukningsemballage,expense,544,4,1,1,2025
+546,Förbrukningsmaterial,expense,54,3,0,1,2025
+5460,Förbrukningsmaterial,expense,546,4,1,1,2025
+548,Arbetskläder och skyddsmaterial,expense,54,3,0,1,2025
+5480,Arbetskläder och skyddsmaterial,expense,548,4,1,1,2025
+549,Övriga förbrukningsinventarier och förbrukningsmaterial,expense,54,3,0,1,2025
+5490,Övriga förbrukningsinventarier och förbrukningsmaterial,expense,549,4,1,1,2025
+5491,Övriga förbrukningsinventarier med en livslängd på mer än ett år,expense,549,4,1,1,2025
+5492,Övriga förbrukningsinventarier med en livslängd på ett år eller mindre,expense,549,4,1,1,2025
+5493,Övrigt förbrukningsmaterial,expense,549,4,1,1,2025
+55,Reparation och underhåll,expense,5,2,0,1,2025
+550,Reparation och underhåll (gruppkonto),expense,55,3,0,1,2025
+5500,Reparation och underhåll (gruppkonto),expense,550,4,1,1,2025
+551,Reparation och underhåll av maskiner och andra tekniska anläggningar,expense,55,3,0,1,2025
+5510,Reparation och underhåll av maskiner och andra tekniska anläggningar,expense,551,4,1,1,2025
+552,"Reparation och underhåll av inventarier, verktyg och datorer m.m.",expense,55,3,0,1,2025
+5520,"Reparation och underhåll av inventarier, verktyg och datorer m.m.",expense,552,4,1,1,2025
+553,Reparation och underhåll av installationer,expense,55,3,0,1,2025
+5530,Reparation och underhåll av installationer,expense,553,4,1,1,2025
+555,Reparation och underhåll av förbrukningsinventarier,expense,55,3,0,1,2025
+5550,Reparation och underhåll av förbrukningsinventarier,expense,555,4,1,1,2025
+558,Underhåll och tvätt av arbetskläder,expense,55,3,0,1,2025
+5580,Underhåll och tvätt av arbetskläder,expense,558,4,1,1,2025
+559,Övriga kostnader för reparation och underhåll,expense,55,3,0,1,2025
+5590,Övriga kostnader för reparation och underhåll,expense,559,4,1,1,2025
+56,Kostnader för transportmedel,expense,5,2,0,1,2025
+560,Kostnader för transportmedel (gruppkonto),expense,56,3,0,1,2025
+5600,Kostnader för transportmedel (gruppkonto),expense,560,4,1,1,2025
+561,Personbilskostnader,expense,56,3,0,1,2025
+5610,Personbilskostnader,expense,561,4,1,1,2025
+5611,Drivmedel för personbilar,expense,561,4,1,1,2025
+5612,Försäkring och skatt för personbilar,expense,561,4,1,1,2025
+5613,Reparation och underhåll av personbilar,expense,561,4,1,1,2025
+5615,Leasing av personbilar,expense,561,4,1,1,2025
+5616,"Trängselskatt, avdragsgill",expense,561,4,1,1,2025
+5619,Övriga personbilskostnader,expense,561,4,1,1,2025
+562,Lastbilskostnader,expense,56,3,0,1,2025
+5620,Lastbilskostnader,expense,562,4,1,1,2025
+563,Truckkostnader,expense,56,3,0,1,2025
+5630,Truckkostnader,expense,563,4,1,1,2025
+564,Kostnader för arbetsmaskiner,expense,56,3,0,1,2025
+5640,Kostnader för arbetsmaskiner,expense,564,4,1,1,2025
+565,Traktorkostnader,expense,56,3,0,1,2025
+5650,Traktorkostnader,expense,565,4,1,1,2025
+566,"Motorcykel-, moped- och skoterkostnader",expense,56,3,0,1,2025
+5660,"Motorcykel-, moped- och skoterkostnader",expense,566,4,1,1,2025
+567,"Båt-, flygplans- och helikopterkostnader",expense,56,3,0,1,2025
+5670,"Båt-, flygplans- och helikopterkostnader",expense,567,4,1,1,2025
+569,Övriga kostnader för transportmedel,expense,56,3,0,1,2025
+5690,Övriga kostnader för transportmedel,expense,569,4,1,1,2025
+57,Frakter och transporter,expense,5,2,0,1,2025
+570,Frakter och transporter (gruppkonto),expense,57,3,0,1,2025
+5700,Frakter och transporter (gruppkonto),expense,570,4,1,1,2025
+571,"Frakter, transporter och försäkringar vid varudistribution",expense,57,3,0,1,2025
+5710,"Frakter, transporter och försäkringar vid varudistribution",expense,571,4,1,1,2025
+572,Tull- och speditionskostnader m.m.,expense,57,3,0,1,2025
+5720,Tull- och speditionskostnader m.m.,expense,572,4,1,1,2025
+573,Arbetstransporter,expense,57,3,0,1,2025
+5730,Arbetstransporter,expense,573,4,1,1,2025
+579,Övriga kostnader för frakter och transporter,expense,57,3,0,1,2025
+5790,Övriga kostnader för frakter och transporter,expense,579,4,1,1,2025
+58,Resekostnader,expense,5,2,0,1,2025
+580,Resekostnader (gruppkonto),expense,58,3,0,1,2025
+5800,Resekostnader (gruppkonto),expense,580,4,1,1,2025
+581,Biljetter,expense,58,3,0,1,2025
+5810,Biljetter,expense,581,4,1,1,2025
+582,Hyrbilskostnader,expense,58,3,0,1,2025
+5820,Hyrbilskostnader,expense,582,4,1,1,2025
+583,Kost och logi,expense,58,3,0,1,2025
+5830,Kost och logi,expense,583,4,1,1,2025
+5831,Kost och logi i Sverige,expense,583,4,1,1,2025
+5832,Kost och logi i utlandet,expense,583,4,1,1,2025
+589,Övriga resekostnader,expense,58,3,0,1,2025
+5890,Övriga resekostnader,expense,589,4,1,1,2025
+59,Reklam och PR,expense,5,2,0,1,2025
+590,Reklam och PR (gruppkonto),expense,59,3,0,1,2025
+5900,Reklam och PR (gruppkonto),expense,590,4,1,1,2025
+591,Annonsering,expense,59,3,0,1,2025
+5910,Annonsering,expense,591,4,1,1,2025
+592,Utomhus- och trafikreklam,expense,59,3,0,1,2025
+5920,Utomhus- och trafikreklam,expense,592,4,1,1,2025
+593,Reklamtrycksaker och direktreklam,expense,59,3,0,1,2025
+5930,Reklamtrycksaker och direktreklam,expense,593,4,1,1,2025
+594,Utställningar och mässor,expense,59,3,0,1,2025
+5940,Utställningar och mässor,expense,594,4,1,1,2025
+595,Butiksreklam och återförsäljarreklam,expense,59,3,0,1,2025
+5950,Butiksreklam och återförsäljarreklam,expense,595,4,1,1,2025
+596,"Varuprover, reklamgåvor, presentreklam och tävlingar",expense,59,3,0,1,2025
+5960,"Varuprover, reklamgåvor, presentreklam och tävlingar",expense,596,4,1,1,2025
+597,"Film-, radio-, TV- och Internetreklam",expense,59,3,0,1,2025
+5970,"Film-, radio-, TV- och Internetreklam",expense,597,4,1,1,2025
+598,"PR, institutionell reklam och sponsring",expense,59,3,0,1,2025
+5980,"PR, institutionell reklam och sponsring",expense,598,4,1,1,2025
+599,Övriga kostnader för reklam och PR,expense,59,3,0,1,2025
+5990,Övriga kostnader för reklam och PR,expense,599,4,1,1,2025
+6,Övriga externa rörelseutgifter/ kostnader,expense,,1,0,1,2025
+60,Övriga försäljningskostnader,expense,6,2,0,1,2025
+600,Övriga försäljningskostnader (gruppkonto),expense,60,3,0,1,2025
+6000,Övriga försäljningskostnader (gruppkonto),expense,600,4,1,1,2025
+601,"Kataloger, prislistor m.m.",expense,60,3,0,1,2025
+6010,"Kataloger, prislistor m.m.",expense,601,4,1,1,2025
+602,Egna facktidskrifter,expense,60,3,0,1,2025
+6020,Egna facktidskrifter,expense,602,4,1,1,2025
+603,Speciella orderkostnader,expense,60,3,0,1,2025
+6030,Speciella orderkostnader,expense,603,4,1,1,2025
+604,Kontokortsavgifter,expense,60,3,0,1,2025
+6040,Kontokortsavgifter,expense,604,4,1,1,2025
+605,Försäljningsprovisioner,expense,60,3,0,1,2025
+6050,Försäljningsprovisioner,expense,605,4,1,1,2025
+6055,Franchisekostnader o.dyl.,expense,605,4,1,1,2025
+606,Kreditförsäljningskostnader,expense,60,3,0,1,2025
+6060,Kreditförsäljningskostnader,expense,606,4,1,1,2025
+6061,Kreditupplysning,expense,606,4,1,1,2025
+6062,Inkasso och KFM-avgifter,expense,606,4,1,1,2025
+6063,Kreditförsäkringspremier,expense,606,4,1,1,2025
+6064,Factoringavgifter,expense,606,4,1,1,2025
+6069,Övriga kreditförsäljningskostnader,expense,606,4,1,1,2025
+607,Representation,expense,60,3,0,1,2025
+6070,Representation,expense,607,4,1,1,2025
+6071,"Representation, avdragsgill",expense,607,4,1,1,2025
+6072,"Representation, ej avdragsgill",expense,607,4,1,1,2025
+608,Bankgarantier,expense,60,3,0,1,2025
+6080,Bankgarantier,expense,608,4,1,1,2025
+609,Övriga försäljningskostnader,expense,60,3,0,1,2025
+6090,Övriga försäljningskostnader,expense,609,4,1,1,2025
+61,Kontorsmateriel och trycksaker,expense,6,2,0,1,2025
+610,Kontorsmateriel och trycksaker (gruppkonto),expense,61,3,0,1,2025
+6100,Kontorsmateriel och trycksaker (gruppkonto),expense,610,4,1,1,2025
+611,Kontorsmateriel,expense,61,3,0,1,2025
+6110,Kontorsmateriel,expense,611,4,1,1,2025
+615,Trycksaker,expense,61,3,0,1,2025
+6150,Trycksaker,expense,615,4,1,1,2025
+62,Tele och post,expense,6,2,0,1,2025
+620,Tele och post (gruppkonto),expense,62,3,0,1,2025
+6200,Tele och post (gruppkonto),expense,620,4,1,1,2025
+621,Telekommunikation,expense,62,3,0,1,2025
+6210,Telekommunikation,expense,621,4,1,1,2025
+6211,Fast telefoni,expense,621,4,1,1,2025
+6212,Mobiltelefon,expense,621,4,1,1,2025
+6213,Mobilsökning,expense,621,4,1,1,2025
+6214,Fax,expense,621,4,1,1,2025
+6215,Telex,expense,621,4,1,1,2025
+623,Datakommunikation,expense,62,3,0,1,2025
+6230,Datakommunikation,expense,623,4,1,1,2025
+625,Postbefordran,expense,62,3,0,1,2025
+6250,Postbefordran,expense,625,4,1,1,2025
+63,Företagsförsäkringar och övriga riskkostnader,expense,6,2,0,1,2025
+630,Företagsförsäkringar och övriga riskkostnader (gruppkonto),expense,63,3,0,1,2025
+6300,Företagsförsäkringar och övriga riskkostnader (gruppkonto),expense,630,4,1,1,2025
+631,Företagsförsäkringar,expense,63,3,0,1,2025
+6310,Företagsförsäkringar,expense,631,4,1,1,2025
+632,Självrisker vid skada,expense,63,3,0,1,2025
+6320,Självrisker vid skada,expense,632,4,1,1,2025
+633,Förluster i pågående arbeten,expense,63,3,0,1,2025
+6330,Förluster i pågående arbeten,expense,633,4,1,1,2025
+634,Lämnade skadestånd,expense,63,3,0,1,2025
+6340,Lämnade skadestånd,expense,634,4,1,1,2025
+6341,"Lämnade skadestånd, avdragsgilla",expense,634,4,1,1,2025
+6342,"Lämnade skadestånd, ej avdragsgilla",expense,634,4,1,1,2025
+635,Förluster på kundfordringar,expense,63,3,0,1,2025
+6350,Förluster på kundfordringar,expense,635,4,1,1,2025
+6351,Konstaterade förluster på kundfordringar,expense,635,4,1,1,2025
+6352,Befarade förluster på kundfordringar,expense,635,4,1,1,2025
+636,Garantikostnader,expense,63,3,0,1,2025
+6360,Garantikostnader,expense,636,4,1,1,2025
+6361,Förändring av garantiavsättning,expense,636,4,1,1,2025
+6362,Faktiska garantikostnader,expense,636,4,1,1,2025
+637,Kostnader för bevakning och larm,expense,63,3,0,1,2025
+6370,Kostnader för bevakning och larm,expense,637,4,1,1,2025
+638,Förluster på övriga kortfristiga fordringar,expense,63,3,0,1,2025
+6380,Förluster på övriga kortfristiga fordringar,expense,638,4,1,1,2025
+639,Övriga riskkostnader,expense,63,3,0,1,2025
+6390,Övriga riskkostnader,expense,639,4,1,1,2025
+64,Förvaltningskostnader,expense,6,2,0,1,2025
+640,Förvaltningskostnader (gruppkonto),expense,64,3,0,1,2025
+6400,Förvaltningskostnader (gruppkonto),expense,640,4,1,1,2025
+641,Styrelsearvoden som inte är lön,expense,64,3,0,1,2025
+6410,Styrelsearvoden som inte är lön,expense,641,4,1,1,2025
+642,Ersättningar till revisor,expense,64,3,0,1,2025
+6420,Ersättningar till revisor,expense,642,4,1,1,2025
+6421,Revision,expense,642,4,1,1,2025
+6422,Revisonsverksamhet utöver revision,expense,642,4,1,1,2025
+6423,Skatterådgivning – revisor,expense,642,4,1,1,2025
+6424,Övriga tjänster – revisor,expense,642,4,1,1,2025
+643,Management fees,expense,64,3,0,1,2025
+6430,Management fees,expense,643,4,1,1,2025
+644,Årsredovisning och delårsrapporter,expense,64,3,0,1,2025
+6440,Årsredovisning och delårsrapporter,expense,644,4,1,1,2025
+645,Bolagsstämma/års- eller föreningsstämma,expense,64,3,0,1,2025
+6450,Bolagsstämma/års- eller föreningsstämma,expense,645,4,1,1,2025
+649,Övriga förvaltningskostnader,expense,64,3,0,1,2025
+6490,Övriga förvaltningskostnader,expense,649,4,1,1,2025
+65,Övriga externa tjänster,expense,6,2,0,1,2025
+650,Övriga externa tjänster (gruppkonto),expense,65,3,0,1,2025
+6500,Övriga externa tjänster (gruppkonto),expense,650,4,1,1,2025
+651,Mätningskostnader,expense,65,3,0,1,2025
+6510,Mätningskostnader,expense,651,4,1,1,2025
+652,Ritnings- och kopieringskostnader,expense,65,3,0,1,2025
+6520,Ritnings- och kopieringskostnader,expense,652,4,1,1,2025
+653,Redovisningstjänster,expense,65,3,0,1,2025
+6530,Redovisningstjänster,expense,653,4,1,1,2025
+654,IT-tjänster,expense,65,3,0,1,2025
+6540,IT-tjänster,expense,654,4,1,1,2025
+655,Konsultarvoden,expense,65,3,0,1,2025
+6550,Konsultarvoden,expense,655,4,1,1,2025
+6551,Arkitekttjänster,expense,655,4,1,1,2025
+6552,Teknisk provning och analys,expense,655,4,1,1,2025
+6553,Tekniska konsulttjänster,expense,655,4,1,1,2025
+6554,Finansiell- och övrig ekonomisk rådgivning,expense,655,4,1,1,2025
+6555,Skatterådgivning inkl. insolvens- och konkursförvaltning,expense,655,4,1,1,2025
+6556,Köpta tjänster avseende forskning och utveckling,expense,655,4,1,1,2025
+6559,Övrig konsultverksamhet,expense,655,4,1,1,2025
+656,Serviceavgifter till branschorganisationer,expense,65,3,0,1,2025
+6560,Serviceavgifter till branschorganisationer,expense,656,4,1,1,2025
+657,Bankkostnader,expense,65,3,0,1,2025
+6570,Bankkostnader,expense,657,4,1,1,2025
+658,Advokat- och rättegångskostnader,expense,65,3,0,1,2025
+6580,Advokat- och rättegångskostnader,expense,658,4,1,1,2025
+659,Övriga externa tjänster,expense,65,3,0,1,2025
+6590,Övriga externa tjänster,expense,659,4,1,1,2025
+66,(Fri kontogrupp),expense,6,2,0,1,2025
+67,(Fri kontogrupp),expense,6,2,0,1,2025
+68,Inhyrd personal,expense,6,2,0,1,2025
+680,Inhyrd personal (gruppkonto),expense,68,3,0,1,2025
+6800,Inhyrd personal (gruppkonto),expense,680,4,1,1,2025
+681,Inhyrd produktionspersonal,expense,68,3,0,1,2025
+6810,Inhyrd produktionspersonal,expense,681,4,1,1,2025
+682,Inhyrd lagerpersonal,expense,68,3,0,1,2025
+6820,Inhyrd lagerpersonal,expense,682,4,1,1,2025
+683,Inhyrd transportpersonal,expense,68,3,0,1,2025
+6830,Inhyrd transportpersonal,expense,683,4,1,1,2025
+684,Inhyrd kontors- och ekonomipersonal,expense,68,3,0,1,2025
+6840,Inhyrd kontors- och ekonomipersonal,expense,684,4,1,1,2025
+685,Inhyrd IT-personal,expense,68,3,0,1,2025
+6850,Inhyrd IT-personal,expense,685,4,1,1,2025
+686,Inhyrd marknads- och försäljningspersonal,expense,68,3,0,1,2025
+6860,Inhyrd marknads- och försäljningspersonal,expense,686,4,1,1,2025
+687,Inhyrd restaurang- och butikspersonal,expense,68,3,0,1,2025
+6870,Inhyrd restaurang- och butikspersonal,expense,687,4,1,1,2025
+688,Inhyrda företagsledare,expense,68,3,0,1,2025
+6880,Inhyrda företagsledare,expense,688,4,1,1,2025
+689,Övrig inhyrd personal,expense,68,3,0,1,2025
+6890,Övrig inhyrd personal,expense,689,4,1,1,2025
+69,Övriga externa kostnader,expense,6,2,0,1,2025
+690,Övriga externa kostnader (gruppkonto),expense,69,3,0,1,2025
+6900,Övriga externa kostnader (gruppkonto),expense,690,4,1,1,2025
+691,Licensavgifter och royalties,expense,69,3,0,1,2025
+6910,Licensavgifter och royalties,expense,691,4,1,1,2025
+692,Kostnader för egna patent,expense,69,3,0,1,2025
+6920,Kostnader för egna patent,expense,692,4,1,1,2025
+693,Kostnader för varumärken m.m.,expense,69,3,0,1,2025
+6930,Kostnader för varumärken m.m.,expense,693,4,1,1,2025
+694,"Kontroll-, provnings- och stämpelavgifter",expense,69,3,0,1,2025
+6940,"Kontroll-, provnings- och stämpelavgifter",expense,694,4,1,1,2025
+695,Tillsynsavgifter myndigheter,expense,69,3,0,1,2025
+6950,Tillsynsavgifter myndigheter,expense,695,4,1,1,2025
+697,"Tidningar, tidskrifter och facklitteratur",expense,69,3,0,1,2025
+6970,"Tidningar, tidskrifter och facklitteratur",expense,697,4,1,1,2025
+698,Föreningsavgifter,expense,69,3,0,1,2025
+6980,Föreningsavgifter,expense,698,4,1,1,2025
+6981,"Föreningsavgifter, avdragsgilla",expense,698,4,1,1,2025
+6982,"Föreningsavgifter, ej avdragsgilla",expense,698,4,1,1,2025
+699,Övriga externa kostnader,expense,69,3,0,1,2025
+6990,Övriga externa kostnader,expense,699,4,1,1,2025
+6991,"Övriga externa kostnader, avdragsgilla",expense,699,4,1,1,2025
+6992,"Övriga externa kostnader, ej avdragsgilla",expense,699,4,1,1,2025
+6993,Lämnade bidrag och gåvor,expense,699,4,1,1,2025
+6996,Betald utländsk inkomstskatt,expense,699,4,1,1,2025
+6997,Obetald utländsk inkomstskatt,expense,699,4,1,1,2025
+6998,Utländsk moms,expense,699,4,1,1,2025
+6999,"Ingående moms, blandad verksamhet",expense,699,4,1,1,2025
+7,"Utgifter/kostnader för personal, avskrivningar m.m.",expense,,1,0,1,2025
+70,Löner till kollektivanställda,expense,7,2,0,1,2025
+700,Löner till kollektivanställda (gruppkonto),expense,70,3,0,1,2025
+7000,Löner till kollektivanställda (gruppkonto),expense,700,4,1,1,2025
+701,Löner till kollektivanställda,expense,70,3,0,1,2025
+7010,Löner till kollektivanställda,expense,701,4,1,1,2025
+7011,Löner till kollektivanställda,expense,701,4,1,1,2025
+7012,Vinstandelar till kollektivanställda,expense,701,4,1,1,2025
+7013,"Lön växa-stöd kollektivanställda 10,21 %",expense,701,4,1,1,2025
+7017,Avgångsvederlag till kollektivanställda,expense,701,4,1,1,2025
+7018,"Bruttolöneavdrag, kollektivanställda",expense,701,4,1,1,2025
+7019,Upplupna löner och vinstandelar till kollektivanställda,expense,701,4,1,1,2025
+703,Löner till kollektivanställda (utlandsanställda),expense,70,3,0,1,2025
+7030,Löner till kollektivanställda (utlandsanställda),expense,703,4,1,1,2025
+7031,Löner till kollektivanställda (utlandsanställda),expense,703,4,1,1,2025
+7032,Vinstandelar till kollektivanställda (utlandsanställda),expense,703,4,1,1,2025
+7037,Avgångsvederlag till kollektivanställda (utlandsanställda),expense,703,4,1,1,2025
+7038,"Bruttolöneavdrag, kollektivanställda (utlandsanställda)",expense,703,4,1,1,2025
+7039,Upplupna löner och vinstandelar till kollektivanställda (utlandsanställda),expense,703,4,1,1,2025
+708,Löner till kollektivanställda för ej arbetad tid,expense,70,3,0,1,2025
+7080,Löner till kollektivanställda för ej arbetad tid,expense,708,4,1,1,2025
+7081,Sjuklöner till kollektivanställda,expense,708,4,1,1,2025
+7082,Semesterlöner till kollektivanställda,expense,708,4,1,1,2025
+7083,Föräldraersättning till kollektivanställda,expense,708,4,1,1,2025
+7089,Övriga löner till kollektivanställda för ej arbetad tid,expense,708,4,1,1,2025
+709,Förändring av semesterlöneskuld,expense,70,3,0,1,2025
+7090,Förändring av semesterlöneskuld,expense,709,4,1,1,2025
+71,(Fri kontogrupp),expense,7,2,0,1,2025
+72,Löner till tjänstemän och företagsledare,expense,7,2,0,1,2025
+720,Löner till tjänstemän och företagsledare (gruppkonto),expense,72,3,0,1,2025
+7200,Löner till tjänstemän och företagsledare (gruppkonto),expense,720,4,1,1,2025
+721,Löner till tjänstemän,expense,72,3,0,1,2025
+7210,Löner till tjänstemän,expense,721,4,1,1,2025
+7211,Löner till tjänstemän,expense,721,4,1,1,2025
+7212,Vinstandelar till tjänstemän,expense,721,4,1,1,2025
+7213,"Lön växa-stöd tjänstemän 10,21 %",expense,721,4,1,1,2025
+7217,Avgångsvederlag till tjänstemän,expense,721,4,1,1,2025
+7218,"Bruttolöneavdrag, tjänstemän",expense,721,4,1,1,2025
+7219,Upplupna löner och vinstandelar till tjänstemän,expense,721,4,1,1,2025
+722,Löner till företagsledare,expense,72,3,0,1,2025
+7220,Löner till företagsledare,expense,722,4,1,1,2025
+7221,Löner till företagsledare,expense,722,4,1,1,2025
+7222,Tantiem till företagsledare,expense,722,4,1,1,2025
+7227,Avgångsvederlag till företagsledare,expense,722,4,1,1,2025
+7228,"Bruttolöneavdrag, företagsledare",expense,722,4,1,1,2025
+7229,Upplupna löner och tantiem till företagsledare,expense,722,4,1,1,2025
+723,Löner till tjänstemän och ftgsledare (utlandsanställda),expense,72,3,0,1,2025
+7230,Löner till tjänstemän och ftgsledare (utlandsanställda),expense,723,4,1,1,2025
+7231,Löner till tjänstemän och ftgsledare (utlandsanställda),expense,723,4,1,1,2025
+7232,Vinstandelar till tjänstemän och ftgsledare (utlandsanställda),expense,723,4,1,1,2025
+7237,Avgångsvederlag till tjänstemän och ftgsledare (utlandsanställda),expense,723,4,1,1,2025
+7238,"Bruttolöneavdrag, tjänstemän och ftgsledare (utlandsanställda)",expense,723,4,1,1,2025
+7239,Upplupna löner och vinstandelar till tjänstemän och ftgsledare (utlandsanställda),expense,723,4,1,1,2025
+724,Styrelsearvoden,expense,72,3,0,1,2025
+7240,Styrelsearvoden,expense,724,4,1,1,2025
+728,Löner till tjänstemän och företagsledare för ej arbetad tid,expense,72,3,0,1,2025
+7280,Löner till tjänstemän och företagsledare för ej arbetad tid,expense,728,4,1,1,2025
+7281,Sjuklöner till tjänstemän,expense,728,4,1,1,2025
+7282,Sjuklöner till företagsledare,expense,728,4,1,1,2025
+7283,Föräldraersättning till tjänstemän,expense,728,4,1,1,2025
+7284,Föräldraersättning till företagsledare,expense,728,4,1,1,2025
+7285,Semesterlöner till tjänstemän,expense,728,4,1,1,2025
+7286,Semesterlöner till företagsledare,expense,728,4,1,1,2025
+7288,Övriga löner till tjänstemän för ej arbetad tid,expense,728,4,1,1,2025
+7289,Övriga löner till företagsledare för ej arbetad tid,expense,728,4,1,1,2025
+729,Förändring av semesterlöneskuld,expense,72,3,0,1,2025
+7290,Förändring av semesterlöneskuld,expense,729,4,1,1,2025
+7291,Förändring av semesterlöneskuld till tjänstemän,expense,729,4,1,1,2025
+7292,Förändring av semesterlöneskuld till företagsledare,expense,729,4,1,1,2025
+73,Kostnadsersättningar och förmåner,expense,7,2,0,1,2025
+730,Kostnadsersättningar och förmåner (gruppkonto),expense,73,3,0,1,2025
+7300,Kostnadsersättningar och förmåner (gruppkonto),expense,730,4,1,1,2025
+731,Kontanta extraersättningar,expense,73,3,0,1,2025
+7310,Kontanta extraersättningar,expense,731,4,1,1,2025
+7311,Ersättningar för sammanträden m.m.,expense,731,4,1,1,2025
+7312,Ersättningar för förslagsverksamhet och uppfinningar,expense,731,4,1,1,2025
+7313,Ersättningar för/bidrag till bostadskostnader,expense,731,4,1,1,2025
+7314,Ersättningar för/bidrag till måltidskostnader,expense,731,4,1,1,2025
+7315,Ersättningar för/bidrag till resor till och från arbetsplatsen,expense,731,4,1,1,2025
+7316,Ersättningar för/bidrag till arbetskläder,expense,731,4,1,1,2025
+7317,Ersättningar för/bidrag till arbetsmaterial och arbetsverktyg,expense,731,4,1,1,2025
+7318,Felräkningspengar,expense,731,4,1,1,2025
+7319,Övriga kontanta extraersättningar,expense,731,4,1,1,2025
+732,Traktamenten vid tjänsteresa,expense,73,3,0,1,2025
+7320,Traktamenten vid tjänsteresa,expense,732,4,1,1,2025
+7321,"Skattefria traktamenten, Sverige",expense,732,4,1,1,2025
+7322,"Skattepliktiga traktamenten, Sverige",expense,732,4,1,1,2025
+7323,"Skattefria traktamenten, utlandet",expense,732,4,1,1,2025
+7324,"Skattepliktiga traktamenten, utlandet",expense,732,4,1,1,2025
+733,Bilersättningar,expense,73,3,0,1,2025
+7330,Bilersättningar,expense,733,4,1,1,2025
+7331,Skattefria bilersättningar,expense,733,4,1,1,2025
+7332,Skattepliktiga bilersättningar,expense,733,4,1,1,2025
+7333,"Ersättning för trängselskatt, skattefri",expense,733,4,1,1,2025
+735,Ersättningar för föreskrivna arbetskläder,expense,73,3,0,1,2025
+7350,Ersättningar för föreskrivna arbetskläder,expense,735,4,1,1,2025
+737,Representationsersättningar,expense,73,3,0,1,2025
+7370,Representationsersättningar,expense,737,4,1,1,2025
+738,Kostnader för förmåner till anställda,expense,73,3,0,1,2025
+7380,Kostnader för förmåner till anställda,expense,738,4,1,1,2025
+7381,Kostnader för fri bostad,expense,738,4,1,1,2025
+7382,Kostnader för fria eller subventionerade måltider,expense,738,4,1,1,2025
+7383,Kostnader för fria resor till och från arbetsplatsen,expense,738,4,1,1,2025
+7384,Kostnader för fria eller subventionerade arbetskläder,expense,738,4,1,1,2025
+7385,Kostnader för fri bil,expense,738,4,1,1,2025
+7386,Subventionerad ränta,expense,738,4,1,1,2025
+7387,Kostnader för lånedatorer,expense,738,4,1,1,2025
+7388,Anställdas ersättning för erhållna förmåner,expense,738,4,1,1,2025
+7389,Övriga kostnader för förmåner,expense,738,4,1,1,2025
+739,Övriga kostnadsersättningar och förmåner,expense,73,3,0,1,2025
+7390,Övriga kostnadsersättningar och förmåner,expense,739,4,1,1,2025
+7391,Kostnad för trängselskatteförmån,expense,739,4,1,1,2025
+7392,Kostnad för förmån av hushållsnära tjänster,expense,739,4,1,1,2025
+74,Pensionskostnader,expense,7,2,0,1,2025
+740,Pensionskostnader (gruppkonto),expense,74,3,0,1,2025
+7400,Pensionskostnader (gruppkonto),expense,740,4,1,1,2025
+741,Pensionsförsäkringspremier,expense,74,3,0,1,2025
+7410,Pensionsförsäkringspremier,expense,741,4,1,1,2025
+7411,Premier för kollektiva pensionsförsäkringar,expense,741,4,1,1,2025
+7412,Premier för individuella pensionsförsäkringar,expense,741,4,1,1,2025
+742,Förändring av pensionsskuld,expense,74,3,0,1,2025
+7420,Förändring av pensionsskuld,expense,742,4,1,1,2025
+743,Avdrag för räntedel i pensionskostnad,expense,74,3,0,1,2025
+7430,Avdrag för räntedel i pensionskostnad,expense,743,4,1,1,2025
+744,Förändring av pensionsstiftelsekapital,expense,74,3,0,1,2025
+7440,Förändring av pensionsstiftelsekapital,expense,744,4,1,1,2025
+7441,Överföring av medel till pensionsstiftelse,expense,744,4,1,1,2025
+7448,Gottgörelse från pensionsstiftelse,expense,744,4,1,1,2025
+746,Pensionsutbetalningar,expense,74,3,0,1,2025
+7460,Pensionsutbetalningar,expense,746,4,1,1,2025
+7461,Pensionsutbetalningar till f.d. kollektivanställda,expense,746,4,1,1,2025
+7462,Pensionsutbetalningar till f.d. tjänstemän,expense,746,4,1,1,2025
+7463,Pensionsutbetalningar till f.d. företagsledare,expense,746,4,1,1,2025
+747,Förvaltnings- och kreditförsäkringsavgifter,expense,74,3,0,1,2025
+7470,Förvaltnings- och kreditförsäkringsavgifter,expense,747,4,1,1,2025
+749,Övriga pensionskostnader,expense,74,3,0,1,2025
+7490,Övriga pensionskostnader,expense,749,4,1,1,2025
+75,Sociala och andra avgifter enligt lag och avtal,expense,7,2,0,1,2025
+750,Sociala och andra avgifter enligt lag och avtal (gruppkonto),expense,75,3,0,1,2025
+7500,Sociala och andra avgifter enligt lag och avtal (gruppkonto),expense,750,4,1,1,2025
+751,"Arbetsgivaravgifter 31,42 %",expense,75,3,0,1,2025
+7510,"Arbetsgivaravgifter 31,42 %",expense,751,4,1,1,2025
+7511,Arbetsgivaravgifter för löner och ersättningar,expense,751,4,1,1,2025
+7512,Arbetsgivaravgifter för förmånsvärden,expense,751,4,1,1,2025
+7515,Arbetsgivaravgifter på skattepliktiga kostnadsersättningar,expense,751,4,1,1,2025
+7516,Arbetsgivaravgifter på arvoden,expense,751,4,1,1,2025
+7518,Arbetsgivaravgifter på bruttolöneavdrag m.m.,expense,751,4,1,1,2025
+7519,Arbetsgivaravgifter för semester- och löneskulder,expense,751,4,1,1,2025
+753,Särskild löneskatt,expense,75,3,0,1,2025
+7530,Särskild löneskatt,expense,753,4,1,1,2025
+7531,Särskild löneskatt för vissa försäkringsersättningar m.m.,expense,753,4,1,1,2025
+7532,"Särskild löneskatt pensionskostnader, deklarationspost",expense,753,4,1,1,2025
+7533,Särskild löneskatt för pensionskostnader,expense,753,4,1,1,2025
+755,Avkastningsskatt på pensionsmedel,expense,75,3,0,1,2025
+7550,Avkastningsskatt på pensionsmedel,expense,755,4,1,1,2025
+7551,Avkastningsskatt 15 % försäkringsföretag m.fl. samt avsatt till pensioner,expense,755,4,1,1,2025
+7552,Avkastningsskatt 15 % utländska pensionsförsäkringar,expense,755,4,1,1,2025
+7553,Avkastningsskatt 30 % utländska försäkringsföretag m.fl.,expense,755,4,1,1,2025
+7554,Avkastningsskatt 30 % utländska kapitalförsäkringar,expense,755,4,1,1,2025
+757,Premier för arbetsmarknadsförsäkringar,expense,75,3,0,1,2025
+7570,Premier för arbetsmarknadsförsäkringar,expense,757,4,1,1,2025
+7571,Arbetsmarknadsförsäkringar,expense,757,4,1,1,2025
+7572,"Arbetsmarknadsförsäkringar pensionsförsäkringspremier, deklarationspost",expense,757,4,1,1,2025
+758,Gruppförsäkringspremier,expense,75,3,0,1,2025
+7580,Gruppförsäkringspremier,expense,758,4,1,1,2025
+7581,Grupplivförsäkringspremier,expense,758,4,1,1,2025
+7582,Gruppsjukförsäkringspremier,expense,758,4,1,1,2025
+7583,Gruppolycksfallsförsäkringspremier,expense,758,4,1,1,2025
+7589,Övriga gruppförsäkringspremier,expense,758,4,1,1,2025
+759,Övriga sociala och andra avgifter enligt lag och avtal,expense,75,3,0,1,2025
+7590,Övriga sociala och andra avgifter enligt lag och avtal,expense,759,4,1,1,2025
+76,Övriga personalkostnader,expense,7,2,0,1,2025
+760,Övriga personalkostnader (gruppkonto),expense,76,3,0,1,2025
+7600,Övriga personalkostnader (gruppkonto),expense,760,4,1,1,2025
+761,Utbildning,expense,76,3,0,1,2025
+7610,Utbildning,expense,761,4,1,1,2025
+762,Sjuk- och hälsovård,expense,76,3,0,1,2025
+7620,Sjuk- och hälsovård,expense,762,4,1,1,2025
+7621,"Sjuk- och hälsovård, avdragsgill",expense,762,4,1,1,2025
+7622,"Sjuk- och hälsovård, ej avdragsgill",expense,762,4,1,1,2025
+7623,"Sjukvårdsförsäkring, ej avdragsgill",expense,762,4,1,1,2025
+763,Personalrepresentation,expense,76,3,0,1,2025
+7630,Personalrepresentation,expense,763,4,1,1,2025
+7631,"Personalrepresentation, avdragsgill",expense,763,4,1,1,2025
+7632,"Personalrepresentation, ej avdragsgill",expense,763,4,1,1,2025
+765,Sjuklöneförsäkring,expense,76,3,0,1,2025
+7650,Sjuklöneförsäkring,expense,765,4,1,1,2025
+767,Förändring av personalstiftelsekapital,expense,76,3,0,1,2025
+7670,Förändring av personalstiftelsekapital,expense,767,4,1,1,2025
+7671,Avsättning till personalstiftelse,expense,767,4,1,1,2025
+7678,Gottgörelse från personalstiftelse,expense,767,4,1,1,2025
+769,Övriga personalkostnader,expense,76,3,0,1,2025
+7690,Övriga personalkostnader,expense,769,4,1,1,2025
+7691,Personalrekrytering,expense,769,4,1,1,2025
+7692,Begravningshjälp,expense,769,4,1,1,2025
+7693,Fritidsverksamhet,expense,769,4,1,1,2025
+7699,Övriga personalkostnader,expense,769,4,1,1,2025
+77,Nedskrivningar och återföring av nedskrivningar,expense,7,2,0,1,2025
+771,Nedskrivningar av immateriella anläggningstillgångar,expense,77,3,0,1,2025
+7710,Nedskrivningar av immateriella anläggningstillgångar,expense,771,4,1,1,2025
+772,Nedskrivningar av byggnader och mark,expense,77,3,0,1,2025
+7720,Nedskrivningar av byggnader och mark,expense,772,4,1,1,2025
+773,Nedskrivningar av maskiner och inventarier,expense,77,3,0,1,2025
+7730,Nedskrivningar av maskiner och inventarier,expense,773,4,1,1,2025
+774,Nedskrivningar av vissa omsättningstillgångar,expense,77,3,0,1,2025
+7740,Nedskrivningar av vissa omsättningstillgångar,expense,774,4,1,1,2025
+776,Återföring av nedskrivningar av immateriella anläggningstillgångar,expense,77,3,0,1,2025
+7760,Återföring av nedskrivningar av immateriella anläggningstillgångar,expense,776,4,1,1,2025
+777,Återföring av nedskrivningar av byggnader och mark,expense,77,3,0,1,2025
+7770,Återföring av nedskrivningar av byggnader och mark,expense,777,4,1,1,2025
+778,Återföring av nedskrivningar av maskiner och inventarier,expense,77,3,0,1,2025
+7780,Återföring av nedskrivningar av maskiner och inventarier,expense,778,4,1,1,2025
+779,Återföring av nedskrivningar av vissa omsättningstillgångar,expense,77,3,0,1,2025
+7790,Återföring av nedskrivningar av vissa omsättningstillgångar,expense,779,4,1,1,2025
+78,Avskrivningar enligt plan,expense,7,2,0,1,2025
+781,Avskrivningar på immateriella anläggningstillgångar,expense,78,3,0,1,2025
+7810,Avskrivningar på immateriella anläggningstillgångar,expense,781,4,1,1,2025
+7811,Avskrivningar på balanserade utgifter,expense,781,4,1,1,2025
+7812,Avskrivningar på koncessioner m.m.,expense,781,4,1,1,2025
+7813,Avskrivningar på patent,expense,781,4,1,1,2025
+7814,Avskrivningar på licenser,expense,781,4,1,1,2025
+7815,Avskrivningar på varumärken,expense,781,4,1,1,2025
+7816,Avskrivningar på hyresrätter,expense,781,4,1,1,2025
+7817,Avskrivningar på goodwill,expense,781,4,1,1,2025
+7819,Avskrivningar på övriga immateriella anläggningstillgångar,expense,781,4,1,1,2025
+782,Avskrivningar på byggnader och markanläggningar,expense,78,3,0,1,2025
+7820,Avskrivningar på byggnader och markanläggningar,expense,782,4,1,1,2025
+7821,Avskrivningar på byggnader,expense,782,4,1,1,2025
+7824,Avskrivningar på markanläggningar,expense,782,4,1,1,2025
+7829,Avskrivningar på övriga byggnader,expense,782,4,1,1,2025
+783,Avskrivningar på maskiner och inventarier,expense,78,3,0,1,2025
+7830,Avskrivningar på maskiner och inventarier,expense,783,4,1,1,2025
+7831,Avskrivningar på maskiner och andra tekniska anläggningar,expense,783,4,1,1,2025
+7832,Avskrivningar på inventarier och verktyg,expense,783,4,1,1,2025
+7833,Avskrivningar på installationer,expense,783,4,1,1,2025
+7834,Avskrivningar på bilar och andra transportmedel,expense,783,4,1,1,2025
+7835,Avskrivningar på datorer,expense,783,4,1,1,2025
+7836,Avskrivningar på leasade tillgångar,expense,783,4,1,1,2025
+7839,Avskrivningar på övriga maskiner och inventarier,expense,783,4,1,1,2025
+784,Avskrivningar på förbättringsutgifter på annans fastighet,expense,78,3,0,1,2025
+7840,Avskrivningar på förbättringsutgifter på annans fastighet,expense,784,4,1,1,2025
+79,Övriga rörelsekostnader,expense,7,2,0,1,2025
+794,Orealiserade positiva/negativa värdeförändringar på säkringsinstrument,expense,79,3,0,1,2025
+7940,Orealiserade positiva/negativa värdeförändringar på säkringsinstrument,expense,794,4,1,1,2025
+796,Valutakursförluster på fordringar och skulder av rörelsekaraktär,expense,79,3,0,1,2025
+7960,Valutakursförluster på fordringar och skulder av rörelsekaraktär,expense,796,4,1,1,2025
+797,Förlust vid avyttring av immateriella och materiella anläggningstillgångar,expense,79,3,0,1,2025
+7970,Förlust vid avyttring av immateriella och materiella anläggningstillgångar,expense,797,4,1,1,2025
+7971,Förlust vid avyttring av immateriella anläggningstillgångar,expense,797,4,1,1,2025
+7972,Förlust vid avyttring av byggnader och mark,expense,797,4,1,1,2025
+7973,Förlust vid avyttring av maskiner och inventarier,expense,797,4,1,1,2025
+799,Övriga rörelsekostnader,expense,79,3,0,1,2025
+7990,Övriga rörelsekostnader,expense,799,4,1,1,2025
+8,Finansiella och andra inkomster/ intäkter och utgifter/kostnader,expense,,1,0,1,2025
+80,Resultat från andelar i koncernföretag,expense,8,2,0,1,2025
+801,Utdelning på andelar i koncernföretag,expense,80,3,0,1,2025
+8010,Utdelning på andelar i koncernföretag,expense,801,4,1,1,2025
+8012,Utdelning på andelar i dotterföretag,expense,801,4,1,1,2025
+8016,"Emissionsinsats, koncernföretag",expense,801,4,1,1,2025
+802,Resultat vid försäljning av andelar i koncernföretag,expense,80,3,0,1,2025
+8020,Resultat vid försäljning av andelar i koncernföretag,expense,802,4,1,1,2025
+8022,Resultat vid försäljning av andelar i dotterföretag,expense,802,4,1,1,2025
+803,Resultatandelar från handelsbolag (dotterföretag),expense,80,3,0,1,2025
+8030,Resultatandelar från handelsbolag (dotterföretag),expense,803,4,1,1,2025
+807,Nedskrivningar av andelar i och långfristiga fordringar hos koncernföretag,expense,80,3,0,1,2025
+8070,Nedskrivningar av andelar i och långfristiga fordringar hos koncernföretag,expense,807,4,1,1,2025
+8072,Nedskrivningar av andelar i dotterföretag,expense,807,4,1,1,2025
+8076,Nedskrivningar av långfristiga fordringar hos moderföretag,expense,807,4,1,1,2025
+8077,Nedskrivningar av långfristiga fordringar hos dotterföretag,expense,807,4,1,1,2025
+808,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos koncernföretag,expense,80,3,0,1,2025
+8080,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos koncernföretag,expense,808,4,1,1,2025
+8082,Återföringar av nedskrivningar av andelar i dotterföretag,expense,808,4,1,1,2025
+8086,Återföringar av nedskrivningar av långfristiga fordringar hos moderföretag,expense,808,4,1,1,2025
+8087,Återföringar av nedskrivningar av långfristiga fordringar hos dotterföretag,expense,808,4,1,1,2025
+81,Resultat från andelar i intresseföretag,expense,8,2,0,1,2025
+811,"Utdelningar på andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",expense,81,3,0,1,2025
+8110,"Utdelningar på andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",expense,811,4,1,1,2025
+8111,Utdelningar på andelar i intresseföretag,expense,811,4,1,1,2025
+8112,Utdelningar på andelar i gemensamt styrda företag,expense,811,4,1,1,2025
+8113,Utdelningar på andelar i övriga företag som det finns ett ägarintresse i,expense,811,4,1,1,2025
+8116,"Emissionsinsats, intresseföretag",expense,811,4,1,1,2025
+8117,"Emissionsinsats, gemensamt styrda företag",expense,811,4,1,1,2025
+8118,"Emissionsinsats, övriga företag som det finns ett ägarintresse i",expense,811,4,1,1,2025
+812,"Resultat vid försäljning av andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",expense,81,3,0,1,2025
+8120,"Resultat vid försäljning av andelar i intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",expense,812,4,1,1,2025
+8121,Resultat vid försäljning av andelar i intresseföretag,expense,812,4,1,1,2025
+8122,Resultat vid försäljning av andelar i gemensamt styrda företag,expense,812,4,1,1,2025
+8123,Resultat vid försäljning av andelar i övriga företag som det finns ett ägarintresse i,expense,812,4,1,1,2025
+813,"Resultatandelar från handelsbolag (intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i)",expense,81,3,0,1,2025
+8130,"Resultatandelar från handelsbolag (intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i)",expense,813,4,1,1,2025
+8131,Resultatandelar från handelsbolag (intresseföretag),expense,813,4,1,1,2025
+8132,Resultatandelar från handelsbolag (gemensamt styrda företag),expense,813,4,1,1,2025
+8133,Resultatandelar från handelsbolag (övriga företag som det finns ett ägarintresse i),expense,813,4,1,1,2025
+817,"Nedskrivningar av andelar i och långfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",expense,81,3,0,1,2025
+8170,"Nedskrivningar av andelar i och långfristiga fordringar hos intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",expense,817,4,1,1,2025
+8171,Nedskrivningar av andelar i intresseföretag,expense,817,4,1,1,2025
+8172,Nedskrivningar av långfristiga fordringar hos intresseföretag,expense,817,4,1,1,2025
+8173,Nedskrivningar av andelar i gemensamt styrda företag,expense,817,4,1,1,2025
+8174,Nedskrivningar av långfristiga fordringar hos gemensamt styrda företag,expense,817,4,1,1,2025
+8176,Nedskrivningar av andelar i övriga företag som det finns ett ägarintresse i,expense,817,4,1,1,2025
+8177,Nedskrivningar av långfristiga fordringar hos övriga företag som det finns ett ägarintresse i,expense,817,4,1,1,2025
+818,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos intresseföretag,expense,81,3,0,1,2025
+8180,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos intresseföretag,expense,818,4,1,1,2025
+8181,Återföringar av nedskrivningar av andelar i intresseföretag,expense,818,4,1,1,2025
+8182,Återföringar av nedskrivningar av långfristiga fordringar hos intresseföretag,expense,818,4,1,1,2025
+8183,Återföringar av nedskrivningar av andelar i gemensamt styrda företag,expense,818,4,1,1,2025
+8184,Återföringar av nedskrivningar av långfristiga fordringar hos gemensamt styrda företag,expense,818,4,1,1,2025
+8186,Återföringar av nedskrivningar av andelar i övriga företag som det finns ett ägarintresse i,expense,818,4,1,1,2025
+8187,Återföringar av nedskrivningar av långfristiga fordringar hos övriga företag som det finns ett ägarintresse i,expense,818,4,1,1,2025
+82,Resultat från övriga värdepapper och långfristiga fordringar (anläggningstillgångar),expense,8,2,0,1,2025
+821,Utdelningar på andelar i andra företag,expense,82,3,0,1,2025
+8210,Utdelningar på andelar i andra företag,expense,821,4,1,1,2025
+8212,"Utdelningar, övriga företag",expense,821,4,1,1,2025
+8216,"Insatsemissioner, övriga företag",expense,821,4,1,1,2025
+822,Resultat vid försäljning av värdepapper i och långfristiga fordringar hos andra företag,expense,82,3,0,1,2025
+8220,Resultat vid försäljning av värdepapper i och långfristiga fordringar hos andra företag,expense,822,4,1,1,2025
+8221,Resultat vid försäljning av andelar i andra företag,expense,822,4,1,1,2025
+8222,Resultat vid försäljning av långfristiga fordringar hos andra företag,expense,822,4,1,1,2025
+8223,Resultat vid försäljning av derivat (långfristiga värdepappersinnehav),expense,822,4,1,1,2025
+823,Valutakursdifferenser på långfristiga fordringar,expense,82,3,0,1,2025
+8230,Valutakursdifferenser på långfristiga fordringar,expense,823,4,1,1,2025
+8231,Valutakursvinster på långfristiga fordringar,expense,823,4,1,1,2025
+8236,Valutakursförluster på långfristiga fordringar,expense,823,4,1,1,2025
+824,Resultatandelar från handelsbolag (andra företag),expense,82,3,0,1,2025
+8240,Resultatandelar från handelsbolag (andra företag),expense,824,4,1,1,2025
+825,Ränteintäkter från långfristiga fordringar hos och värdepapper i andra företag,expense,82,3,0,1,2025
+8250,Ränteintäkter från långfristiga fordringar hos och värdepapper i andra företag,expense,825,4,1,1,2025
+8251,Ränteintäkter från långfristiga fordringar,expense,825,4,1,1,2025
+8252,Ränteintäkter från övriga värdepapper,expense,825,4,1,1,2025
+8254,"Skattefria ränteintäkter, långfristiga tillgångar",expense,825,4,1,1,2025
+8255,Avkastningsskatt kapitalplacering,expense,825,4,1,1,2025
+826,Ränteintäkter från långfristiga fordringar hos koncernföretag,expense,82,3,0,1,2025
+8260,Ränteintäkter från långfristiga fordringar hos koncernföretag,expense,826,4,1,1,2025
+8261,Ränteintäkter från långfristiga fordringar hos moderföretag,expense,826,4,1,1,2025
+8262,Ränteintäkter från långfristiga fordringar hos dotterföretag,expense,826,4,1,1,2025
+8263,Ränteintäkter från långfristiga fordringar hos andra koncernföretag,expense,826,4,1,1,2025
+827,Nedskrivningar av innehav av andelar i och långfristiga fordringar hos andra företag,expense,82,3,0,1,2025
+8270,Nedskrivningar av innehav av andelar i och långfristiga fordringar hos andra företag,expense,827,4,1,1,2025
+8271,Nedskrivningar av andelar i andra företag,expense,827,4,1,1,2025
+8272,Nedskrivningar av långfristiga fordringar hos andra företag,expense,827,4,1,1,2025
+8273,Nedskrivningar av övriga värdepapper hos andra företag,expense,827,4,1,1,2025
+828,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos andra företag,expense,82,3,0,1,2025
+8280,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos andra företag,expense,828,4,1,1,2025
+8281,Återföringar av nedskrivningar av andelar i andra företag,expense,828,4,1,1,2025
+8282,Återföringar av nedskrivningar av långfristiga fordringar hos andra företag,expense,828,4,1,1,2025
+8283,Återföringar av nedskrivningar av övriga värdepapper i andra företag,expense,828,4,1,1,2025
+829,"Värdering till verkligt värde, anläggningstillgångar",expense,82,3,0,1,2025
+8290,"Värdering till verkligt värde, anläggningstillgångar",expense,829,4,1,1,2025
+8291,Orealiserade värdeförändringar på anläggningstillgångar,expense,829,4,1,1,2025
+8295,Orealiserade värdeförändringar på derivatinstrument,expense,829,4,1,1,2025
+83,Övriga ränteintäkter och liknande resultatposter,expense,8,2,0,1,2025
+831,Ränteintäkter från omsättningstillgångar,expense,83,3,0,1,2025
+8310,Ränteintäkter från omsättningstillgångar,expense,831,4,1,1,2025
+8311,Ränteintäkter från bank,expense,831,4,1,1,2025
+8312,Ränteintäkter från kortfristiga placeringar,expense,831,4,1,1,2025
+8313,Ränteintäkter från kortfristiga fordringar,expense,831,4,1,1,2025
+8314,Skattefria ränteintäkter,expense,831,4,1,1,2025
+8317,Ränteintäkter för dold räntekompensation,expense,831,4,1,1,2025
+8319,Övriga ränteintäkter från omsättningstillgångar,expense,831,4,1,1,2025
+832,"Värdering till verkligt värde, omsättningstillgångar",expense,83,3,0,1,2025
+8320,"Värdering till verkligt värde, omsättningstillgångar",expense,832,4,1,1,2025
+8321,Orealiserade värdeförändringar på omsättningstillgångar,expense,832,4,1,1,2025
+8325,Orealiserade värdeförändringar på derivatinstrument (oms.-tillg.),expense,832,4,1,1,2025
+833,Valutakursdifferenser på kortfristiga fordringar och placeringar,expense,83,3,0,1,2025
+8330,Valutakursdifferenser på kortfristiga fordringar och placeringar,expense,833,4,1,1,2025
+8331,Valutakursvinster på kortfristiga fordringar och placeringar,expense,833,4,1,1,2025
+8336,Valutakursförluster på kortfristiga fordringar och placeringar,expense,833,4,1,1,2025
+834,Utdelningar på kortfristiga placeringar,expense,83,3,0,1,2025
+8340,Utdelningar på kortfristiga placeringar,expense,834,4,1,1,2025
+835,Resultat vid försäljning av kortfristiga placeringar,expense,83,3,0,1,2025
+8350,Resultat vid försäljning av kortfristiga placeringar,expense,835,4,1,1,2025
+836,Övriga ränteintäkter från koncernföretag,expense,83,3,0,1,2025
+8360,Övriga ränteintäkter från koncernföretag,expense,836,4,1,1,2025
+8361,Övriga ränteintäkter från moderföretag,expense,836,4,1,1,2025
+8362,Övriga ränteintäkter från dotterföretag,expense,836,4,1,1,2025
+8363,Övriga ränteintäkter från andra koncernföretag,expense,836,4,1,1,2025
+837,Nedskrivningar av kortfristiga placeringar,expense,83,3,0,1,2025
+8370,Nedskrivningar av kortfristiga placeringar,expense,837,4,1,1,2025
+838,Återföringar av nedskrivningar av kortfristiga placeringar,expense,83,3,0,1,2025
+8380,Återföringar av nedskrivningar av kortfristiga placeringar,expense,838,4,1,1,2025
+839,Övriga finansiella intäkter,expense,83,3,0,1,2025
+8390,Övriga finansiella intäkter,expense,839,4,1,1,2025
+84,Räntekostnader och liknande resultatposter,expense,8,2,0,1,2025
+840,Räntekostnader (gruppkonto),expense,84,3,0,1,2025
+8400,Räntekostnader (gruppkonto),expense,840,4,1,1,2025
+841,Räntekostnader för långfristiga skulder,expense,84,3,0,1,2025
+8410,Räntekostnader för långfristiga skulder,expense,841,4,1,1,2025
+8411,"Räntekostnader för obligations-, förlags- och konvertibla lån",expense,841,4,1,1,2025
+8412,Räntedel i årets pensionskostnad,expense,841,4,1,1,2025
+8413,Räntekostnader för checkräkningskredit,expense,841,4,1,1,2025
+8415,Räntekostnader för andra skulder till kreditinstitut,expense,841,4,1,1,2025
+8417,Räntekostnader för dold räntekompensation m.m.,expense,841,4,1,1,2025
+8418,Avdragspost för räntesubventioner,expense,841,4,1,1,2025
+8419,Övriga räntekostnader för långfristiga skulder,expense,841,4,1,1,2025
+842,Räntekostnader för kortfristiga skulder,expense,84,3,0,1,2025
+8420,Räntekostnader för kortfristiga skulder,expense,842,4,1,1,2025
+8421,Räntekostnader till kreditinstitut,expense,842,4,1,1,2025
+8422,Dröjsmålsräntor för leverantörsskulder,expense,842,4,1,1,2025
+8423,Räntekostnader för skatter och avgifter,expense,842,4,1,1,2025
+8424,Räntekostnader byggnadskreditiv,expense,842,4,1,1,2025
+8429,Övriga räntekostnader för kortfristiga skulder,expense,842,4,1,1,2025
+843,Valutakursdifferenser på skulder,expense,84,3,0,1,2025
+8430,Valutakursdifferenser på skulder,expense,843,4,1,1,2025
+8431,Valutakursvinster på skulder,expense,843,4,1,1,2025
+8436,Valutakursförluster på skulder,expense,843,4,1,1,2025
+844,Erhållna räntebidrag,expense,84,3,0,1,2025
+8440,Erhållna räntebidrag,expense,844,4,1,1,2025
+845,Orealiserade värdeförändringar på skulder,expense,84,3,0,1,2025
+8450,Orealiserade värdeförändringar på skulder,expense,845,4,1,1,2025
+8451,Orealiserade värdeförändringar på skulder,expense,845,4,1,1,2025
+8455,Orealiserade värdeförändringar på säkringsinstrument,expense,845,4,1,1,2025
+846,Räntekostnader till koncernföretag,expense,84,3,0,1,2025
+8460,Räntekostnader till koncernföretag,expense,846,4,1,1,2025
+8461,Räntekostnader till moderföretag,expense,846,4,1,1,2025
+8462,Räntekostnader till dotterföretag,expense,846,4,1,1,2025
+8463,Räntekostnader till andra koncernföretag,expense,846,4,1,1,2025
+848,Aktiverade ränteutgifter,expense,84,3,0,1,2025
+8480,Aktiverade ränteutgifter,expense,848,4,1,1,2025
+849,Övriga skuldrelaterade poster,expense,84,3,0,1,2025
+8490,Övriga skuldrelaterade poster,expense,849,4,1,1,2025
+8491,Erhållet ackord på skulder till kreditinstitut m.m.,expense,849,4,1,1,2025
+85,(Fri kontogrupp),expense,8,2,0,1,2025
+86,(Fri kontogrupp),expense,8,2,0,1,2025
+87,(Fri kontogrupp),expense,8,2,0,1,2025
+88,Bokslutsdispositioner,expense,8,2,0,1,2025
+881,Förändring av periodiseringsfond,expense,88,3,0,1,2025
+8810,Förändring av periodiseringsfond,expense,881,4,1,1,2025
+8811,Avsättning till periodiseringsfond,expense,881,4,1,1,2025
+8819,Återföring från periodiseringsfond,expense,881,4,1,1,2025
+882,Mottagna koncernbidrag,expense,88,3,0,1,2025
+8820,Mottagna koncernbidrag,expense,882,4,1,1,2025
+883,Lämnade koncernbidrag,expense,88,3,0,1,2025
+8830,Lämnade koncernbidrag,expense,883,4,1,1,2025
+884,Lämnade gottgörelser,expense,88,3,0,1,2025
+8840,Lämnade gottgörelser,expense,884,4,1,1,2025
+885,Förändring av överavskrivningar,expense,88,3,0,1,2025
+8850,Förändring av överavskrivningar,expense,885,4,1,1,2025
+8851,"Förändring av överavskrivningar, immateriella anläggningstillgångar",expense,885,4,1,1,2025
+8852,"Förändring av överavskrivningar, byggnader och markanläggningar",expense,885,4,1,1,2025
+8853,"Förändring av överavskrivningar, maskiner och inventarier",expense,885,4,1,1,2025
+886,Förändring av ersättningsfond,expense,88,3,0,1,2025
+8860,Förändring av ersättningsfond,expense,886,4,1,1,2025
+8861,Avsättning till ersättningsfond för inventarier,expense,886,4,1,1,2025
+8862,Avsättning till ersättningsfond för byggnader och markanläggningar,expense,886,4,1,1,2025
+8864,Avsättning till ersättningsfond för djurlager i jordbruk och renskötsel,expense,886,4,1,1,2025
+8865,Ianspråktagande av ersättningsfond för avskrivningar,expense,886,4,1,1,2025
+8866,Ianspråktagande av ersättningsfond för annat än avskrivningar,expense,886,4,1,1,2025
+8869,Återföring från ersättningsfond,expense,886,4,1,1,2025
+889,Övriga bokslutsdispositioner,expense,88,3,0,1,2025
+8890,Övriga bokslutsdispositioner,expense,889,4,1,1,2025
+8892,Nedskrivningar av konsolideringskaraktär av anläggningstillgångar,expense,889,4,1,1,2025
+8896,Förändring av lagerreserv,expense,889,4,1,1,2025
+8899,Övriga bokslutsdispositioner,expense,889,4,1,1,2025
+89,Skatter och årets resultat,expense,8,2,0,1,2025
+891,Skatt på grund av ändrad beskattning,expense,89,3,0,1,2025
+8910,Skatt som belastar årets resultat,expense,891,4,1,1,2025
+892,Skatt som belastar årets resultat,expense,89,3,0,1,2025
+8920,Skatt på grund av ändrad beskattning,expense,892,4,1,1,2025
+893,Restituerad skatt,expense,89,3,0,1,2025
+8930,Restituerad skatt,expense,893,4,1,1,2025
+894,Uppskjuten skatt,expense,89,3,0,1,2025
+8940,Uppskjuten skatt,expense,894,4,1,1,2025
+898,Övriga skatter,expense,89,3,0,1,2025
+8980,Övriga skatter,expense,898,4,1,1,2025
+899,Resultat,expense,89,3,0,1,2025
+8990,Resultat,expense,899,4,1,1,2025
+8999,Årets resultat,expense,899,4,1,1,2025

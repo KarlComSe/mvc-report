@@ -21,7 +21,11 @@ class FinancialReportServiceTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->em = self::getContainer()->get('doctrine')->getManager();
+        /** @var \Doctrine\Bundle\DoctrineBundle\Registry $doctrine */
+        $doctrine = self::getContainer()->get('doctrine');
+        $em = $doctrine->getManager();
+        assert($em instanceof EntityManagerInterface);
+        $this->em = $em;
 
         $this->service = new FinancialReportService();
         $this->fixtureLoader = new AccountingFixtureLoader($this->em);
@@ -80,8 +84,8 @@ class FinancialReportServiceTest extends KernelTestCase
     public function testBalanceSheetWithAndWithoutClosingEntries(): void
     {
         $journal = $this->fixtureLoader->loadScenario('E');
-        $yearEndClosingService = new YearEndService($this->em, $this->service);
-        $journalEntry = $yearEndClosingService->closeIncomeStatement($journal, new DateTime('2025-12-31'));
+        $yearEndService = new YearEndService($this->em, $this->service);
+        $journalEntry = $yearEndService->closeIncomeStatement($journal, new DateTime('2025-12-31'));
 
         $journal->addJournalEntry($journalEntry);
 

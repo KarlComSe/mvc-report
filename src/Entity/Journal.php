@@ -19,23 +19,21 @@ class Journal
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $FirstDay = null;
+    private ?\DateTimeInterface $firstDay = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $LastDay = null;
+    private ?\DateTimeInterface $lastDay = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $ChartOfAccount = null;
+    #[ORM\ManyToOne(inversedBy: 'journals')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ChartOfAccounts $chartOfAccounts = null;
 
     /**
      * @var Collection<int, JournalEntry>
      */
-    #[ORM\OneToMany(targetEntity: JournalEntry::class, mappedBy: 'Journal', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: JournalEntry::class, mappedBy: 'journal', orphanRemoval: true)]
     private Collection $journalEntries;
 
-    /**
-     * @var Collection<int, Organization>
-     */
     #[ORM\ManyToOne(targetEntity: Organization::class, inversedBy: 'journals')]
     private ?Organization $organization = null;
 
@@ -51,36 +49,36 @@ class Journal
 
     public function getFirstDay(): ?\DateTimeInterface
     {
-        return $this->FirstDay;
+        return $this->firstDay;
     }
 
-    public function setFirstDay(\DateTimeInterface $FirstDay): static
+    public function setFirstDay(\DateTimeInterface $firstDay): static
     {
-        $this->FirstDay = $FirstDay;
+        $this->firstDay = $firstDay;
 
         return $this;
     }
 
     public function getLastDay(): ?\DateTimeInterface
     {
-        return $this->LastDay;
+        return $this->lastDay;
     }
 
-    public function setLastDay(\DateTimeInterface $LastDay): static
+    public function setLastDay(\DateTimeInterface $lastDay): static
     {
-        $this->LastDay = $LastDay;
+        $this->lastDay = $lastDay;
 
         return $this;
     }
 
-    public function getChartOfAccount(): ?string
+    public function getChartOfAccounts(): ?ChartOfAccounts
     {
-        return $this->ChartOfAccount;
+        return $this->chartOfAccounts;
     }
 
-    public function setChartOfAccount(?string $ChartOfAccount): static
+    public function setChartOfAccounts(?ChartOfAccounts $chartOfAccounts): static
     {
-        $this->ChartOfAccount = $ChartOfAccount;
+        $this->chartOfAccounts = $chartOfAccounts;
 
         return $this;
     }
@@ -115,16 +113,25 @@ class Journal
         return $this;
     }
 
-    /**
-     * @return Collection<int, Organization>
-     */
-    public function getOrganization(): Collection
+    public function getOrganization(): ?Organization
     {
         return $this->organization;
     }
 
-    public function setOrganization(?Organization $organization): void
+    public function setOrganization(?Organization $organization): static
     {
         $this->organization = $organization;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return sprintf(
+            'Journal %d (%s - %s)',
+            $this->id,
+            $this->firstDay?->format('Y-m-d'),
+            $this->lastDay?->format('Y-m-d')
+        );
     }
 }

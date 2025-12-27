@@ -4,11 +4,11 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\JournalLineItemRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Validator\Constraints as CustomAssert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: JournalLineItemRepository::class)]
+#[CustomAssert\ValidLineItem]
 #[ApiResource]
 class JournalLineItem
 {
@@ -17,116 +17,67 @@ class JournalLineItem
     #[ORM\Column]
     private ?int $id = null;
 
-    /**
-     * @var Collection<int, JournalEntry>
-     */
-    #[ORM\OneToMany(targetEntity: JournalEntry::class, mappedBy: 'journalLineItem')]
-    private Collection $JournalEntry;
+    #[ORM\ManyToOne(inversedBy: 'journalLineItems')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?JournalEntry $journalEntry = null;
 
-    /**
-     * @var Collection<int, Account>
-     */
-    #[ORM\OneToMany(targetEntity: Account::class, mappedBy: 'journalLineItem')]
-    private Collection $Account;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Account $account = null;
 
-    #[ORM\Column]
-    private ?float $DebitAmount = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $debitAmount = null;
 
-    #[ORM\Column]
-    private ?float $CreditAmount = null;
-
-    public function __construct()
-    {
-        $this->JournalEntry = new ArrayCollection();
-        $this->Account = new ArrayCollection();
-    }
+    #[ORM\Column(nullable: true)]
+    private ?float $creditAmount = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return Collection<int, JournalEntry>
-     */
-    public function getJournalEntry(): Collection
+    public function getJournalEntry(): ?JournalEntry
     {
-        return $this->JournalEntry;
+        return $this->journalEntry;
     }
 
-    public function addJournalEntry(JournalEntry $journalEntry): static
+    public function setJournalEntry(?JournalEntry $journalEntry): static
     {
-        if (!$this->JournalEntry->contains($journalEntry)) {
-            $this->JournalEntry->add($journalEntry);
-            $journalEntry->setJournalLineItem($this);
-        }
-
+        $this->journalEntry = $journalEntry;
         return $this;
     }
 
-    public function removeJournalEntry(JournalEntry $journalEntry): static
+    public function getAccount(): ?Account
     {
-        if ($this->JournalEntry->removeElement($journalEntry)) {
-            // set the owning side to null (unless already changed)
-            if ($journalEntry->getJournalLineItem() === $this) {
-                $journalEntry->setJournalLineItem(null);
-            }
-        }
-
-        return $this;
+        return $this->account;
     }
 
-    /**
-     * @return Collection<int, Account>
-     */
-    public function getAccount(): Collection
+    public function setAccount(Account $account): static
     {
-        return $this->Account;
-    }
-
-    public function addAccount(Account $account): static
-    {
-        if (!$this->Account->contains($account)) {
-            $this->Account->add($account);
-            $account->setJournalLineItem($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAccount(Account $account): static
-    {
-        if ($this->Account->removeElement($account)) {
-            // set the owning side to null (unless already changed)
-            if ($account->getJournalLineItem() === $this) {
-                $account->setJournalLineItem(null);
-            }
-        }
-
+        $this->account = $account;
         return $this;
     }
 
     public function getDebitAmount(): ?float
     {
-        return $this->DebitAmount;
+        return $this->debitAmount;
     }
 
-    public function setDebitAmount(float $DebitAmount): static
+    public function setDebitAmount(float $debitAmount): static
     {
-        $this->DebitAmount = $DebitAmount;
+        $this->debitAmount = $debitAmount;
 
         return $this;
     }
 
     public function getCreditAmount(): ?float
     {
-        return $this->CreditAmount;
+        return $this->creditAmount;
     }
 
-    public function setCreditAmount(float $CreditAmount): static
+    public function setCreditAmount(float $creditAmount): static
     {
-        $this->CreditAmount = $CreditAmount;
-
+        $this->creditAmount = $creditAmount;
         return $this;
     }
 }

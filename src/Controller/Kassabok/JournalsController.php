@@ -12,25 +12,19 @@ use App\Entity\Organization;
 use App\Entity\Journal;
 use App\Form\JournalCreateFormType;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class JournalsController extends AbstractController
 {
-    private $security;
-
-    public function __construct(Security $security)
+    #[Route('/proj/journals/{organization}', name: 'kassabok_journals', requirements: ['organization' => '\d+'])]
+    #[IsGranted('view', 'organization')]
+    public function journals(Request $request, EntityManagerInterface $entityManager, ?Organization $organization): Response
     {
-        $this->security = $security;
-    }
-
-    #[Route('/proj/journals/{id}', name: 'kassabok_journals')]
-    public function journals(Request $request, EntityManagerInterface $entityManager, Organization $organization): Response
-    {
-        $this->denyAccessUnlessGranted('ROLE_USER');
-
-        $jorunal = new Journal();
+        $journal = new Journal();
         $form = $this->createForm(JournalCreateFormType::class);
         $form->add('save', SubmitType::class, [
-            'label' => 'Lägg till',]);
+            'label' => 'Lägg till',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -39,29 +33,13 @@ class JournalsController extends AbstractController
 
             $entityManager->persist($journal);
             $entityManager->flush();
-            return $this->redirectToRoute('kassabok_journals', ['id' => $organization->getId()]);
+            return $this->redirectToRoute('kassabok_journals', ['organization' => $organization->getId()]);
         }
 
-        return $this->render('kassabok/journal/index.html.twig', [
+        return $this->render('kassabok/journals/index.html.twig', [
             'organization' => $organization,
             'journals' => $organization->getJournals(),
             'form' => $form,
         ]);
     }
-
-    // public function new(Request $request): Response
-    // {
-    //     $this->denyAccessUnlessGranted('ROLE_USER');
-
-    //     $journal = new Journal();
-
-    //     $form = $this->createForm(JournalCreateFormType::class);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $journal = $form->getData();
-
-    //         return $this->redirectToRoute('kassabok_journals');
-    //     }
-    // }
 }

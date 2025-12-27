@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use LogicException;
 use InvalidArgumentException;
+use DateTime;
 
 class YearEndServiceTest extends KernelTestCase
 {
@@ -19,7 +20,11 @@ class YearEndServiceTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->em = self::getContainer()->get('doctrine')->getManager();
+        /** @var \Doctrine\Bundle\DoctrineBundle\Registry $doctrine */
+        $doctrine = self::getContainer()->get('doctrine');
+        $em = $doctrine->getManager();
+        assert($em instanceof EntityManagerInterface);
+        $this->em = $em;
 
         $reportService = new FinancialReportService();
         $this->service = new YearEndService($this->em, $reportService);
@@ -50,7 +55,7 @@ class YearEndServiceTest extends KernelTestCase
 
         $closingEntry = $this->service->closeIncomeStatement(
             $journal,
-            new \DateTime('2025-12-31'),
+            new DateTime('2025-12-31'),
             'Årsbokslut 2025'
         );
 
@@ -95,7 +100,7 @@ class YearEndServiceTest extends KernelTestCase
 
         $closingEntry = $this->service->closeIncomeStatement(
             $journal,
-            new \DateTime('2025-12-31')
+            new DateTime('2025-12-31')
         );
 
         $retainedEarnings = $this->findLineItemForAccount($closingEntry, '2099');
@@ -131,7 +136,7 @@ class YearEndServiceTest extends KernelTestCase
 
         $closingEntry = $this->service->closeIncomeStatement(
             $journal,
-            new \DateTime('2025-12-31'),
+            new DateTime('2025-12-31'),
             'Årsbokslut 2025 - Positivt resultat'
         );
 
@@ -155,7 +160,7 @@ class YearEndServiceTest extends KernelTestCase
             '7510' => 4713
         ];
         foreach ($expenseAccounts as $accountNumber => $expectedAmount) {
-            $lineItem = $this->findLineItemForAccount($closingEntry, $accountNumber);
+            $lineItem = $this->findLineItemForAccount($closingEntry, (string)$accountNumber);
             $this->assertNotNull($lineItem, "Account $accountNumber should be in closing entry");
             $this->assertEquals(0, $lineItem->getDebitAmount());
             $this->assertEquals($expectedAmount, $lineItem->getCreditAmount());
@@ -190,7 +195,7 @@ class YearEndServiceTest extends KernelTestCase
 
         $closingEntry = $this->service->closeIncomeStatement(
             $journal,
-            new \DateTime('2025-12-31')
+            new DateTime('2025-12-31')
         );
 
         $this->assertNull($this->findLineItemForAccount($closingEntry, '3041'));
@@ -236,7 +241,7 @@ class YearEndServiceTest extends KernelTestCase
         $this->expectException(LogicException::class);
         $this->expectExceptionMessage('finns inte i din kontoplan');
 
-        $this->service->closeIncomeStatement($journal, new \DateTime('2025-12-31'));
+        $this->service->closeIncomeStatement($journal, new DateTime('2025-12-31'));
     }
 
     /**
@@ -256,7 +261,7 @@ class YearEndServiceTest extends KernelTestCase
 
         $closure1 = $this->service->closeIncomeStatement(
             $journal,
-            new \DateTime('2025-12-31')
+            new DateTime('2025-12-31')
         );
         $this->em->persist($closure1);
         $this->em->flush();
@@ -267,7 +272,7 @@ class YearEndServiceTest extends KernelTestCase
 
         $closure2 = $this->service->closeIncomeStatement(
             $journal,
-            new \DateTime('2025-12-31'),
+            new DateTime('2025-12-31'),
             'Rättning årsbokslut'
         );
 

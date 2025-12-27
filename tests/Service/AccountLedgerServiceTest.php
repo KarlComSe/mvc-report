@@ -21,7 +21,11 @@ class AccountLedgerServiceTest extends KernelTestCase
     protected function setUp(): void
     {
         self::bootKernel();
-        $this->em = self::getContainer()->get('doctrine')->getManager();
+        /** @var \Doctrine\Bundle\DoctrineBundle\Registry $doctrine */
+        $doctrine = self::getContainer()->get('doctrine');
+        $em = $doctrine->getManager();
+        assert($em instanceof EntityManagerInterface);
+        $this->em = $em;
 
         $this->fixtureLoader = new AccountingFixtureLoader($this->em);
         $this->service = new AccountLedgerService();
@@ -85,7 +89,8 @@ class AccountLedgerServiceTest extends KernelTestCase
 
         foreach ($result as $ledgerDataEntry) {
             $entries = $ledgerDataEntry['entries'];
-            for ($i = 0; $i < count($entries) - 1; $i++) {
+            $numberOfEntries = count($entries);
+            for ($i = 0; $i < $numberOfEntries - 1; $i++) {
                 $currentDate = $entries[$i]['date'];
                 $nextDate = $entries[$i + 1]['date'];
                 $this->assertLessThanOrEqual($nextDate, $currentDate);

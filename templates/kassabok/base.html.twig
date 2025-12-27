@@ -1,3 +1,4 @@
+{% import 'kassabok/_breadcrumbs.html.twig' as breadcrumb_helper %}
 <!DOCTYPE html>
 <html>
 
@@ -6,26 +7,134 @@
         Kassabok | {% block title %}{% endblock %}
     </title>
     {% block stylesheets %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     {% endblock %}
     <link rel="icon" href="{{ asset('images/kassabok/favicon.ico')}}">
+    <style>
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #2c3e50;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #2c3e50;
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+        }
+    </style>
     {% block javascripts %}
-        {% block importmap %}{{ importmap('app') }}{% endblock %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     {% endblock %}
 </head>
 
 <body>
-    <div class="col-lg-8 mx-auto p-4 py-md-5">
+    <div class="col-lg-8 mx-auto">
         <header>
             {% block navigation %}
             {% include 'kassabok/_nav.html.twig' %}
             {% endblock %}
         </header>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% block breadcrumb %}
+        {% endblock %}
+        {% endif %}
+
         {% block flash %}
         {% endblock %}
         {% block body %}
+        <div class="container mt-4">
+            <h1 class="hero-title py-1">Bokföring på webben</h1>
+
+            <video autoplay muted loop controls class="w-100 h-auto">
+                <source src="{{ asset('images/kassabok/video.mp4')}}" type="video/mp4" />
+            </video>
+
+            <div class="row mt-2 g-3">
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h3>Nästan klart</h3>
+                        <p>Missade deadline och sen dess har Kassabok varit nästan klar alldeles för länge sen.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h3>Komplicerat deluxe</h3>
+                        <p>Massor av oanvänd bra-att-ha funktionalitet finns gömd. Något kanske till och med är bra på riktigt.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h3>Bokföring</h3>
+                        <p>Dubbel bokföring. Balansräkning. Resultaträkning. Automagiska bokslutsdispositioner. BAS 2025.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <h3>Klart?</h3>
+                        <p>Jag blir aldrig klar, men nu är det dags att gå vidare.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .feature-box {
+                background: #fafafa;
+                border-left: 3px solid #2c3e50;
+                padding: 2rem;
+                height: 100%;
+                transition: all 0.3s ease;
+            }
+
+            .feature-box:hover {
+                background: #f5f5f5;
+                border-left-color: #3498db;
+                transform: translateX(5px);
+            }
+
+            .feature-number {
+                font-size: 0.875rem;
+                color: #95a5a6;
+                font-weight: 300;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+            }
+
+            .feature-box h3 {
+                font-size: 1.25rem;
+                font-weight: 400;
+                color: #2c3e50;
+                margin-bottom: 0.5rem;
+                letter-spacing: -0.02em;
+            }
+
+            .feature-box p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+                color: #5a6c7d;
+                margin: 0;
+                font-weight: 300;
+            }
+        </style>
         {% endblock %}
         {% block footer %}
-            {% include 'kassabok/_footer.html.twig' %}
+        {% include 'kassabok/_footer.html.twig' %}
         {% endblock %}

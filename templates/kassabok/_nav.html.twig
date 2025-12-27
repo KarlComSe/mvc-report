@@ -1,43 +1,34 @@
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand" href="#">Kassabok</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Visa / Göm meny">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="{{ path('kassabok_start') }}">Kassabok</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+      aria-controls="navbar" aria-expanded="false" aria-label="Visa / Göm meny">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Hem</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Funktioner</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Pris</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Sök" aria-label="Sök">
-        </form>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {# Home Link #}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('kassabok_start') }}">Hem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('kassabok_about') }}">Om projektet</a>
+        </li>
+      </ul>
+
+      {# Right side - User info or login button #}
+      <div class="d-flex align-items-center">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+          <a class="btn btn-primary btn-sm m-1" href="{{ path('kassabok_organization') }}">
+            <i class="bi bi-speedometer2"></i> Kontrollpanel
+          </a>
+        <a href="{{ path('kassabok_logout') }}" class="btn btn-outline-danger btn-sm m-1">Logga ut</a>
+        {% else %}
+        <a href="{{ path('kassabok_login') }}" class="btn btn-outline-primary btn-sm me-2 m-1">Logga in</a>
+        <a href="{{ path('kassabok_register') }}" class="btn btn-primary btn-sm m-1">Registrera</a>
+        {% endif %}
       </div>
     </div>
-  </nav>
-  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{ path('kassabok_organization') }}">Hej {{ app.user.email }}!</a></li>
-      <li class="breadcrumb-item"><a href="{{ path('kassabok_organization') }}">Organisationer</a></li>
-      <li class="breadcrumb-item active" aria-current="page"><a href="#">Vald organisation</a></li>
-      <li class="breadcrumb-item"><a href="#">Bokföring / Rapporter / etc</a></li>
-    </ol>
-  </nav>
-  {% endif %}
+  </div>
+</nav>

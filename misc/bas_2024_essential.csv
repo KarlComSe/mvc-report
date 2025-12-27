@@ -1,0 +1,126 @@
+account_number,name,type,is_standard,chart_version
+1910,Kassa,asset,1,2024
+1911,Huvudkassa,asset,1,2024
+1912,Kassa 2,asset,1,2024
+1913,Kassa 3,asset,1,2024
+1920,PlusGiro,asset,1,2024
+1930,Företagskonto/checkkonto/affärskonto,asset,1,2024
+1940,Övriga bankkonton,asset,1,2024
+1950,Bankcertifikat,asset,1,2024
+1960,Koncernkonto moderföretag,asset,1,2024
+1970,Särskilda bankkonton,asset,1,2024
+1972,Upphovsmannakonto,asset,1,2024
+1973,Skogskonto,asset,1,2024
+1974,Spärrade bankmedel,asset,1,2024
+1979,Övriga särskilda bankkonton,asset,1,2024
+1980,Valutakonton,asset,1,2024
+1990,Redovisningsmedel,asset,1,2024
+2410,Andra kortfristiga låneskulder till kreditinstitut,liability,1,2024
+2411,Kortfristiga lån från kreditinstitut,liability,1,2024
+2412,"Byggnadskreditiv, kortfristig del",liability,1,2024
+2417,Kortfristig del av långfristiga skulder till kreditinstitut,liability,1,2024
+2419,Övriga kortfristiga skulder till kreditinstitut,liability,1,2024
+2420,Förskott från kunder,liability,1,2024
+2421,Ej inlösta presentkort,liability,1,2024
+2429,Övriga förskott från kunder,liability,1,2024
+2430,Pågående arbeten,liability,1,2024
+2431,"Pågående arbeten, fakturering",liability,1,2024
+2438,"Pågående arbeten, nedlagda kostnader",liability,1,2024
+2439,Beräknad förändring av pågående arbeten,liability,1,2024
+2440,Leverantörsskulder,liability,1,2024
+2441,Leverantörsskulder,liability,1,2024
+2443,Konsignationsskulder,liability,1,2024
+2445,Tvistiga leverantörsskulder,liability,1,2024
+2448,Ej reskontraförda leverantörsskulder,liability,1,2024
+2450,Fakturerad men ej upparbetad intäkt,liability,1,2024
+2460,Leverantörsskulder till koncernföretag,liability,1,2024
+2461,Leverantörsskulder till moderföretag,liability,1,2024
+2462,Leverantörsskulder till dotterföretag,liability,1,2024
+2463,Leverantörsskulder till andra koncernföretag,liability,1,2024
+2470,"Leverantörsskulder till intresseföretag, gemensamt styrda företag och övriga företag som det finns ett ägarintresse i",liability,1,2024
+2471,Leverantörsskulder till intresseföretag,liability,1,2024
+2472,Leverantörsskulder till gemensamt styrda företag,liability,1,2024
+2473,Leverantörsskulder till övriga företag som det finns ett ägarintresse i,liability,1,2024
+2480,"Checkräkningskredit, kortfristig",liability,1,2024
+2490,"Övriga kortfristiga skulder till kreditinstitut, kunder och leverantörer",liability,1,2024
+2491,Avräkning spelarrangörer,liability,1,2024
+2492,Växelskulder,liability,1,2024
+2499,Andra övriga kortfristiga skulder,liability,1,2024
+2650,Redovisningskonto för moms,liability,1,2024
+3000,Försäljning inom Sverige,revenue,1,2024
+3001,"Försäljning inom Sverige, 25 % moms",revenue,1,2024
+3002,"Försäljning inom Sverige, 12 % moms",revenue,1,2024
+3003,"Försäljning inom Sverige, 6 % moms",revenue,1,2024
+3004,"Försäljning inom Sverige, momsfri",revenue,1,2024
+4000,Inköp av varor från Sverige,expense,1,2024
+5000,Lokalkostnader (gruppkonto),expense,1,2024
+5010,Lokalhyra,expense,1,2024
+5011,Hyra för kontorslokaler,expense,1,2024
+5012,Hyra för garage,expense,1,2024
+5013,Hyra för lagerlokaler,expense,1,2024
+5020,El för belysning,expense,1,2024
+5030,Värme,expense,1,2024
+5040,Vatten och avlopp,expense,1,2024
+5050,Lokaltillbehör,expense,1,2024
+5060,Städning och renhållning,expense,1,2024
+5061,Städning,expense,1,2024
+5062,Sophämtning,expense,1,2024
+5063,Hyra för sopcontainer,expense,1,2024
+5064,Snöröjning,expense,1,2024
+5065,Trädgårdsskötsel,expense,1,2024
+5070,Reparation och underhåll av lokaler,expense,1,2024
+5090,Övriga lokalkostnader,expense,1,2024
+5098,"Övriga lokalkostnader, avdragsgilla",expense,1,2024
+5099,"Övriga lokalkostnader, ej avdragsgilla",expense,1,2024
+6000,Övriga försäljningskostnader (gruppkonto),expense,1,2024
+6010,"Kataloger, prislistor m.m.",expense,1,2024
+6020,Egna facktidskrifter,expense,1,2024
+6030,Speciella orderkostnader,expense,1,2024
+6040,Kontokortsavgifter,expense,1,2024
+6050,Försäljningsprovisioner,expense,1,2024
+6055,Franchisekostnader o.dyl.,expense,1,2024
+6060,Kreditförsäljningskostnader,expense,1,2024
+6061,Kreditupplysning,expense,1,2024
+6062,Inkasso och KFM-avgifter,expense,1,2024
+6063,Kreditförsäkringspremier,expense,1,2024
+6064,Factoringavgifter,expense,1,2024
+6069,Övriga kreditförsäljningskostnader,expense,1,2024
+6070,Representation,expense,1,2024
+6071,"Representation, avdragsgill",expense,1,2024
+6072,"Representation, ej avdragsgill",expense,1,2024
+6080,Bankgarantier,expense,1,2024
+6090,Övriga försäljningskostnader,expense,1,2024
+7000,Löner till kollektivanställda (gruppkonto),expense,1,2024
+7010,Löner till kollektivanställda,expense,1,2024
+7011,Löner till kollektivanställda,expense,1,2024
+7012,Vinstandelar till kollektivanställda,expense,1,2024
+7013,"Lön växa-stöd kollektivanställda 10,21 %",expense,1,2024
+7017,Avgångsvederlag till kollektivanställda,expense,1,2024
+7018,"Bruttolöneavdrag, kollektivanställda",expense,1,2024
+7019,Upplupna löner och vinstandelar till kollektivanställda,expense,1,2024
+7030,Löner till kollektivanställda (utlandsanställda),expense,1,2024
+7031,Löner till kollektivanställda (utlandsanställda),expense,1,2024
+7032,Vinstandelar till kollektivanställda (utlandsanställda),expense,1,2024
+7037,Avgångsvederlag till kollektivanställda (utlandsanställda),expense,1,2024
+7038,"Bruttolöneavdrag, kollektivanställda (utlandsanställda)",expense,1,2024
+7039,Upplupna löner och vinstandelar till kollektivanställda (utlandsanställda),expense,1,2024
+7080,Löner till kollektivanställda för ej arbetad tid,expense,1,2024
+7081,Sjuklöner till kollektivanställda,expense,1,2024
+7082,Semesterlöner till kollektivanställda,expense,1,2024
+7083,Föräldraersättning till kollektivanställda,expense,1,2024
+7089,Övriga löner till kollektivanställda för ej arbetad tid,expense,1,2024
+7090,Förändring av semesterlöneskuld,expense,1,2024
+8010,Utdelning på andelar i koncernföretag,expense,1,2024
+8012,Utdelning på andelar i dotterföretag,expense,1,2024
+8016,"Emissionsinsats, koncernföretag",expense,1,2024
+8020,Resultat vid försäljning av andelar i koncernföretag,expense,1,2024
+8022,Resultat vid försäljning av andelar i dotterföretag,expense,1,2024
+8030,Resultatandelar från handelsbolag (dotterföretag),expense,1,2024
+8070,Nedskrivningar av andelar i och långfristiga fordringar hos koncernföretag,expense,1,2024
+8072,Nedskrivningar av andelar i dotterföretag,expense,1,2024
+8076,Nedskrivningar av långfristiga fordringar hos moderföretag,expense,1,2024
+8077,Nedskrivningar av långfristiga fordringar hos dotterföretag,expense,1,2024
+8080,Återföringar av nedskrivningar av andelar i och långfristiga fordringar hos koncernföretag,expense,1,2024
+8082,Återföringar av nedskrivningar av andelar i dotterföretag,expense,1,2024
+8086,Återföringar av nedskrivningar av långfristiga fordringar hos moderföretag,expense,1,2024
+8087,Återföringar av nedskrivningar av långfristiga fordringar hos dotterföretag,expense,1,2024

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /opt/me/report/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="_css/bootstrap.min.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="_css/nv.d3.min.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="_css/style.css?v=9.2.31" rel="stylesheet" type="text/css">
+  <link href="_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="index.html">/opt/me/report/src</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Service/YearEndService.php.html#14">App\Service\YearEndService</a></td><td class="text-right">67%</td></tr>
+       <tr><td><a href="Controller/Kassabok/SecurityController.php.html#11">App\Controller\Kassabok\SecurityController</a></td><td class="text-right">85%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Service/YearEndService.php.html#14">App\Service\YearEndService</a></td><td class="text-right">18</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Controller/Kassabok/SecurityController.php.html#28"><abbr title="App\Controller\Kassabok\SecurityController::logout">logout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/FinancialReportService.php.html#90"><abbr title="App\Service\FinancialReportService::getBalanceSheetWithoutClosingEntries">getBalanceSheetWithoutClosingEntries</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#64"><abbr title="App\Service\YearEndService::closeRevenueAccounts">closeRevenueAccounts</abbr></a></td><td class="text-right">11%</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#110"><abbr title="App\Service\YearEndService::transferNetIncomeToEquity">transferNetIncomeToEquity</abbr></a></td><td class="text-right">66%</td></tr>
+       <tr><td><a href="Controller/Kassabok/JournalController.php.html#66"><abbr title="App\Controller\Kassabok\JournalController::addYearEndClosure">addYearEndClosure</abbr></a></td><td class="text-right">79%</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#22"><abbr title="App\Service\YearEndService::closeIncomeStatement">closeIncomeStatement</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#87"><abbr title="App\Service\YearEndService::closeExpenseAccounts">closeExpenseAccounts</abbr></a></td><td class="text-right">88%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Service/YearEndService.php.html#64"><abbr title="App\Service\YearEndService::closeRevenueAccounts">closeRevenueAccounts</abbr></a></td><td class="text-right">9</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#110"><abbr title="App\Service\YearEndService::transferNetIncomeToEquity">transferNetIncomeToEquity</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Controller/Kassabok/JournalController.php.html#66"><abbr title="App\Controller\Kassabok\JournalController::addYearEndClosure">addYearEndClosure</abbr></a></td><td class="text-right">4</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#87"><abbr title="App\Service\YearEndService::closeExpenseAccounts">closeExpenseAccounts</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="Service/YearEndService.php.html#22"><abbr title="App\Service\YearEndService::closeIncomeStatement">closeIncomeStatement</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.31</a> using <a href="https://secure.php.net/" target="_top">PHP 8.3.28</a> and <a href="https://phpunit.de/">PHPUnit 9.6.19</a> at Wed Dec 24 11:30:01 UTC 2025.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="_js/jquery.min.js?v=9.2.31" type="text/javascript"></script>
+  <script src="_js/d3.min.js?v=9.2.31" type="text/javascript"></script>
+  <script src="_js/nv.d3.min.js?v=9.2.31" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,1,0,1,5,37], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([2,0,1,0,0,0,0,1,1,2,5,176], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Controller\/Kassabok\/AboutController.php.html#11\">App\\Controller\\Kassabok\\AboutController<\/a>"],[100,3,"<a href=\"Controller\/Kassabok\/FinancialReportsController.php.html#13\">App\\Controller\\Kassabok\\FinancialReportsController<\/a>"],[100,2,"<a href=\"Controller\/Kassabok\/JournalAccountLedgerController.php.html#17\">App\\Controller\\Kassabok\\JournalAccountLedgerController<\/a>"],[90,8,"<a href=\"Controller\/Kassabok\/JournalController.php.html#20\">App\\Controller\\Kassabok\\JournalController<\/a>"],[100,3,"<a href=\"Controller\/Kassabok\/JournalsController.php.html#17\">App\\Controller\\Kassabok\\JournalsController<\/a>"],[95.45454545454545,4,"<a href=\"Controller\/Kassabok\/OrganizationController.php.html#18\">App\\Controller\\Kassabok\\OrganizationController<\/a>"],[100,3,"<a href=\"Controller\/Kassabok\/RegistrationController.php.html#15\">App\\Controller\\Kassabok\\RegistrationController<\/a>"],[85.71428571428571,2,"<a href=\"Controller\/Kassabok\/SecurityController.php.html#11\">App\\Controller\\Kassabok\\SecurityController<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/StartController.php.html#11\">App\\Controller\\Kassabok\\StartController<\/a>"],[100,25,"<a href=\"Entity\/Account.php.html#10\">App\\Entity\\Account<\/a>"],[100,30,"<a href=\"Entity\/ChartOfAccounts.php.html#12\">App\\Entity\\ChartOfAccounts<\/a>"],[100,9,"<a href=\"Entity\/Currency.php.html#9\">App\\Entity\\Currency<\/a>"],[100,17,"<a href=\"Entity\/Journal.php.html#12\">App\\Entity\\Journal<\/a>"],[100,21,"<a href=\"Entity\/JournalEntry.php.html#13\">App\\Entity\\JournalEntry<\/a>"],[100,9,"<a href=\"Entity\/JournalLineItem.php.html#10\">App\\Entity\\JournalLineItem<\/a>"],[100,19,"<a href=\"Entity\/Organization.php.html#16\">App\\Entity\\Organization<\/a>"],[100,15,"<a href=\"Entity\/User.php.html#14\">App\\Entity\\User<\/a>"],[100,2,"<a href=\"Form\/CurrencyType.php.html#14\">App\\Form\\CurrencyType<\/a>"],[100,2,"<a href=\"Form\/JournalCreateFormType.php.html#14\">App\\Form\\JournalCreateFormType<\/a>"],[100,2,"<a href=\"Form\/JournalEntry.php.html#14\">App\\Form\\JournalEntryFormType<\/a>"],[100,2,"<a href=\"Form\/JournalLineItemType.php.html#14\">App\\Form\\JournalLineItemType<\/a>"],[100,1,"<a href=\"Form\/JournalYearEndClosureFormType.php.html#9\">App\\Form\\JournalYearEndClosureFormType<\/a>"],[100,2,"<a href=\"Form\/OrganizationFormType.php.html#11\">App\\Form\\OrganizationFormType<\/a>"],[100,2,"<a href=\"Form\/RegistrationFormType.php.html#15\">App\\Form\\RegistrationFormType<\/a>"],[100,0,"<a href=\"Kernel.php.html#8\">App\\Kernel<\/a>"],[100,1,"<a href=\"Repository\/AccountRepository.php.html#12\">App\\Repository\\AccountRepository<\/a>"],[100,3,"<a href=\"Repository\/ChartOfAccountsRepository.php.html#12\">App\\Repository\\ChartOfAccountsRepository<\/a>"],[100,1,"<a href=\"Repository\/CurrencyRepository.php.html#12\">App\\Repository\\CurrencyRepository<\/a>"],[100,1,"<a href=\"Repository\/JournalEntryRepository.php.html#12\">App\\Repository\\JournalEntryRepository<\/a>"],[100,1,"<a href=\"Repository\/JournalLineItemRepository.php.html#12\">App\\Repository\\JournalLineItemRepository<\/a>"],[100,1,"<a href=\"Repository\/JournalRepository.php.html#12\">App\\Repository\\JournalRepository<\/a>"],[100,2,"<a href=\"Repository\/OrganizationRepository.php.html#13\">App\\Repository\\OrganizationRepository<\/a>"],[100,3,"<a href=\"Repository\/UserRepository.php.html#15\">App\\Repository\\UserRepository<\/a>"],[93.75,6,"<a href=\"Security\/JournalVoter.php.html#13\">App\\Security\\JournalVoter<\/a>"],[93.75,6,"<a href=\"Security\/OrganizationVoter.php.html#13\">App\\Security\\OrganizationVoter<\/a>"],[100,8,"<a href=\"Service\/AccountLedgerService.php.html#7\">App\\Service\\AccountLedgerService<\/a>"],[96.5909090909091,24,"<a href=\"Service\/FinancialReportService.php.html#9\">App\\Service\\FinancialReportService<\/a>"],[67.3076923076923,13,"<a href=\"Service\/YearEndService.php.html#14\">App\\Service\\YearEndService<\/a>"],[100,1,"<a href=\"Validator\/Constraints\/BalancedJournalEntry.php.html#7\">App\\Validator\\Constraints\\BalancedJournalEntry<\/a>"],[100,5,"<a href=\"Validator\/Constraints\/BalancedJournalEntryValidator.php.html#11\">App\\Validator\\Constraints\\BalancedJournalEntryValidator<\/a>"],[100,1,"<a href=\"Validator\/Constraints\/ValidLineItem.php.html#7\">App\\Validator\\Constraints\\ValidLineItem<\/a>"],[100,11,"<a href=\"Validator\/Constraints\/ValidLineItemValidator.php.html#10\">App\\Validator\\Constraints\\ValidLineItemValidator<\/a>"],[100,1,"<a href=\"Validator\/Constraints\/WithinFiscalYear.php.html#7\">App\\Validator\\Constraints\\WithinFiscalYear<\/a>"],[100,9,"<a href=\"Validator\/Constraints\/WithinFiscalYearValidator.php.html#12\">App\\Validator\\Constraints\\WithinFiscalYearValidator<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[100,1,"<a href=\"Controller\/Kassabok\/AboutController.php.html#13\">App\\Controller\\Kassabok\\AboutController::index<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/FinancialReportsController.php.html#15\">App\\Controller\\Kassabok\\FinancialReportsController::__construct<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/FinancialReportsController.php.html#20\">App\\Controller\\Kassabok\\FinancialReportsController::incomeStatement<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/FinancialReportsController.php.html#35\">App\\Controller\\Kassabok\\FinancialReportsController::balanceSheet<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/JournalAccountLedgerController.php.html#19\">App\\Controller\\Kassabok\\JournalAccountLedgerController::__construct<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/JournalAccountLedgerController.php.html#23\">App\\Controller\\Kassabok\\JournalAccountLedgerController::journalAccountLedger<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/JournalController.php.html#22\">App\\Controller\\Kassabok\\JournalController::journal<\/a>"],[100,3,"<a href=\"Controller\/Kassabok\/JournalController.php.html#36\">App\\Controller\\Kassabok\\JournalController::addEntry<\/a>"],[79.16666666666666,4,"<a href=\"Controller\/Kassabok\/JournalController.php.html#66\">App\\Controller\\Kassabok\\JournalController::addYearEndClosure<\/a>"],[100,3,"<a href=\"Controller\/Kassabok\/JournalsController.php.html#19\">App\\Controller\\Kassabok\\JournalsController::journals<\/a>"],[95.45454545454545,4,"<a href=\"Controller\/Kassabok\/OrganizationController.php.html#20\">App\\Controller\\Kassabok\\OrganizationController::index<\/a>"],[100,3,"<a href=\"Controller\/Kassabok\/RegistrationController.php.html#17\">App\\Controller\\Kassabok\\RegistrationController::register<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/SecurityController.php.html#13\">App\\Controller\\Kassabok\\SecurityController::login<\/a>"],[0,1,"<a href=\"Controller\/Kassabok\/SecurityController.php.html#28\">App\\Controller\\Kassabok\\SecurityController::logout<\/a>"],[100,1,"<a href=\"Controller\/Kassabok\/StartController.php.html#13\">App\\Controller\\Kassabok\\StartController::index<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#87\">App\\Entity\\Account::getId<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#92\">App\\Entity\\Account::getAccountNumber<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#97\">App\\Entity\\Account::setAccountNumber<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#104\">App\\Entity\\Account::getName<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#109\">App\\Entity\\Account::setName<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#116\">App\\Entity\\Account::getDescription<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#121\">App\\Entity\\Account::setDescription<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#127\">App\\Entity\\Account::getType<\/a>"],[100,2,"<a href=\"Entity\/Account.php.html#132\">App\\Entity\\Account::setType<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#141\">App\\Entity\\Account::getTypeName<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#146\">App\\Entity\\Account::isStandard<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#151\">App\\Entity\\Account::setIsStandard<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#157\">App\\Entity\\Account::getChartOfAccounts<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#162\">App\\Entity\\Account::setChartOfAccounts<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#168\">App\\Entity\\Account::getFullName<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#173\">App\\Entity\\Account::__toString<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#182\">App\\Entity\\Account::getParentAccountNumber<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#187\">App\\Entity\\Account::setParentAccountNumber<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#193\">App\\Entity\\Account::getHierarchyLevel<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#198\">App\\Entity\\Account::setHierarchyLevel<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#204\">App\\Entity\\Account::isDetailAccount<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#209\">App\\Entity\\Account::setIsDetailAccount<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#224\">App\\Entity\\Account::getIndentedName<\/a>"],[100,1,"<a href=\"Entity\/Account.php.html#235\">App\\Entity\\Account::canHaveTransactions<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#60\">App\\Entity\\ChartOfAccounts::__construct<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#68\">App\\Entity\\ChartOfAccounts::getId<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#73\">App\\Entity\\ChartOfAccounts::getName<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#78\">App\\Entity\\ChartOfAccounts::setName<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#88\">App\\Entity\\ChartOfAccounts::getBasVersion<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#97\">App\\Entity\\ChartOfAccounts::setBasVersion<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#103\">App\\Entity\\ChartOfAccounts::isStandard<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#108\">App\\Entity\\ChartOfAccounts::setIsStandard<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#114\">App\\Entity\\ChartOfAccounts::getOrganization<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#119\">App\\Entity\\ChartOfAccounts::setOrganization<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#125\">App\\Entity\\ChartOfAccounts::getBasedOn<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#130\">App\\Entity\\ChartOfAccounts::setBasedOn<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#139\">App\\Entity\\ChartOfAccounts::getCustomVersions<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#147\">App\\Entity\\ChartOfAccounts::getAccounts<\/a>"],[100,2,"<a href=\"Entity\/ChartOfAccounts.php.html#152\">App\\Entity\\ChartOfAccounts::addAccount<\/a>"],[100,3,"<a href=\"Entity\/ChartOfAccounts.php.html#161\">App\\Entity\\ChartOfAccounts::removeAccount<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#174\">App\\Entity\\ChartOfAccounts::getJournals<\/a>"],[100,2,"<a href=\"Entity\/ChartOfAccounts.php.html#179\">App\\Entity\\ChartOfAccounts::addJournal<\/a>"],[100,3,"<a href=\"Entity\/ChartOfAccounts.php.html#188\">App\\Entity\\ChartOfAccounts::removeJournal<\/a>"],[100,1,"<a href=\"Entity\/ChartOfAccounts.php.html#198\">App\\Entity\\ChartOfAccounts::getCreatedAt<\/a>"],[100,2,"<a href=\"Entity\/ChartOfAccounts.php.html#203\">App\\Entity\\ChartOfAccounts::__toString<\/a>"],[100,2,"<a href=\"Entity\/ChartOfAccounts.php.html#212\">App\\Entity\\ChartOfAccounts::getDisplayName<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#29\">App\\Entity\\Currency::getId<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#34\">App\\Entity\\Currency::getAlpabethicCode<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#39\">App\\Entity\\Currency::setAlpabethicCode<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#46\">App\\Entity\\Currency::getDecimalDigits<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#51\">App\\Entity\\Currency::setDecimalDigits<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#58\">App\\Entity\\Currency::getNumericCode<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#63\">App\\Entity\\Currency::setNumericCode<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#70\">App\\Entity\\Currency::getEntity<\/a>"],[100,1,"<a href=\"Entity\/Currency.php.html#75\">App\\Entity\\Currency::setEntity<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#40\">App\\Entity\\Journal::__construct<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#45\">App\\Entity\\Journal::getId<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#50\">App\\Entity\\Journal::getFirstDay<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#55\">App\\Entity\\Journal::setFirstDay<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#62\">App\\Entity\\Journal::getLastDay<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#67\">App\\Entity\\Journal::setLastDay<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#74\">App\\Entity\\Journal::getChartOfAccounts<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#79\">App\\Entity\\Journal::setChartOfAccounts<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#89\">App\\Entity\\Journal::getJournalEntries<\/a>"],[100,2,"<a href=\"Entity\/Journal.php.html#94\">App\\Entity\\Journal::addJournalEntry<\/a>"],[100,3,"<a href=\"Entity\/Journal.php.html#104\">App\\Entity\\Journal::removeJournalEntry<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#116\">App\\Entity\\Journal::getOrganization<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#121\">App\\Entity\\Journal::setOrganization<\/a>"],[100,1,"<a href=\"Entity\/Journal.php.html#128\">App\\Entity\\Journal::__toString<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#44\">App\\Entity\\JournalEntry::__construct<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#49\">App\\Entity\\JournalEntry::isClosingEntry<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#54\">App\\Entity\\JournalEntry::setIsClosingEntry<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#60\">App\\Entity\\JournalEntry::getId<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#65\">App\\Entity\\JournalEntry::getTitle<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#70\">App\\Entity\\JournalEntry::setTitle<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#77\">App\\Entity\\JournalEntry::getDate<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#82\">App\\Entity\\JournalEntry::setDate<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#89\">App\\Entity\\JournalEntry::getAmount<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#94\">App\\Entity\\JournalEntry::setAmount<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#101\">App\\Entity\\JournalEntry::getJournal<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#106\">App\\Entity\\JournalEntry::setJournal<\/a>"],[100,1,"<a href=\"Entity\/JournalEntry.php.html#115\">App\\Entity\\JournalEntry::getJournalLineItems<\/a>"],[100,2,"<a href=\"Entity\/JournalEntry.php.html#120\">App\\Entity\\JournalEntry::addJournalLineItem<\/a>"],[100,3,"<a href=\"Entity\/JournalEntry.php.html#130\">App\\Entity\\JournalEntry::removeJournalLineItem<\/a>"],[100,3,"<a href=\"Entity\/JournalEntry.php.html#142\">App\\Entity\\JournalEntry::setJournalLineItems<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#34\">App\\Entity\\JournalLineItem::getId<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#39\">App\\Entity\\JournalLineItem::getJournalEntry<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#44\">App\\Entity\\JournalLineItem::setJournalEntry<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#50\">App\\Entity\\JournalLineItem::getAccount<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#55\">App\\Entity\\JournalLineItem::setAccount<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#61\">App\\Entity\\JournalLineItem::getDebitAmount<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#66\">App\\Entity\\JournalLineItem::setDebitAmount<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#73\">App\\Entity\\JournalLineItem::getCreditAmount<\/a>"],[100,1,"<a href=\"Entity\/JournalLineItem.php.html#78\">App\\Entity\\JournalLineItem::setCreditAmount<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#56\">App\\Entity\\Organization::__construct<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#63\">App\\Entity\\Organization::getId<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#68\">App\\Entity\\Organization::getName<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#73\">App\\Entity\\Organization::setName<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#83\">App\\Entity\\Organization::getUsers<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#88\">App\\Entity\\Organization::isUserInOrganization<\/a>"],[100,2,"<a href=\"Entity\/Organization.php.html#97\">App\\Entity\\Organization::addUser<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#106\">App\\Entity\\Organization::removeUser<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#113\">App\\Entity\\Organization::getJournals<\/a>"],[100,2,"<a href=\"Entity\/Organization.php.html#118\">App\\Entity\\Organization::addJournal<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#127\">App\\Entity\\Organization::removeJournal<\/a>"],[100,1,"<a href=\"Entity\/Organization.php.html#136\">App\\Entity\\Organization::getChartOfAccounts<\/a>"],[100,2,"<a href=\"Entity\/Organization.php.html#141\">App\\Entity\\Organization::addChartOfAccount<\/a>"],[100,3,"<a href=\"Entity\/Organization.php.html#150\">App\\Entity\\Organization::removeChartOfAccount<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#46\">App\\Entity\\User::__construct<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#51\">App\\Entity\\User::getId<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#56\">App\\Entity\\User::getEmail<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#61\">App\\Entity\\User::setEmail<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#73\">App\\Entity\\User::getUserIdentifier<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#83\">App\\Entity\\User::getRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#95\">App\\Entity\\User::setRoles<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#105\">App\\Entity\\User::getPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#110\">App\\Entity\\User::setPassword<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#120\">App\\Entity\\User::eraseCredentials<\/a>"],[100,1,"<a href=\"Entity\/User.php.html#129\">App\\Entity\\User::getOrganizations<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#134\">App\\Entity\\User::addOrganization<\/a>"],[100,2,"<a href=\"Entity\/User.php.html#144\">App\\Entity\\User::removeOrganization<\/a>"],[100,1,"<a href=\"Form\/CurrencyType.php.html#19\">App\\Form\\CurrencyType::buildForm<\/a>"],[100,1,"<a href=\"Form\/CurrencyType.php.html#29\">App\\Form\\CurrencyType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/JournalCreateFormType.php.html#19\">App\\Form\\JournalCreateFormType::buildForm<\/a>"],[100,1,"<a href=\"Form\/JournalCreateFormType.php.html#45\">App\\Form\\JournalCreateFormType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/JournalEntry.php.html#16\">App\\Form\\JournalEntryFormType::buildForm<\/a>"],[100,1,"<a href=\"Form\/JournalEntry.php.html#51\">App\\Form\\JournalEntryFormType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/JournalLineItemType.php.html#19\">App\\Form\\JournalLineItemType::buildForm<\/a>"],[100,1,"<a href=\"Form\/JournalLineItemType.php.html#60\">App\\Form\\JournalLineItemType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/JournalYearEndClosureFormType.php.html#14\">App\\Form\\JournalYearEndClosureFormType::buildForm<\/a>"],[100,1,"<a href=\"Form\/OrganizationFormType.php.html#16\">App\\Form\\OrganizationFormType::buildForm<\/a>"],[100,1,"<a href=\"Form\/OrganizationFormType.php.html#25\">App\\Form\\OrganizationFormType::configureOptions<\/a>"],[100,1,"<a href=\"Form\/RegistrationFormType.php.html#20\">App\\Form\\RegistrationFormType::buildForm<\/a>"],[100,1,"<a href=\"Form\/RegistrationFormType.php.html#52\">App\\Form\\RegistrationFormType::configureOptions<\/a>"],[100,1,"<a href=\"Repository\/AccountRepository.php.html#14\">App\\Repository\\AccountRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/ChartOfAccountsRepository.php.html#14\">App\\Repository\\ChartOfAccountsRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/ChartOfAccountsRepository.php.html#23\">App\\Repository\\ChartOfAccountsRepository::findStandardCharts<\/a>"],[100,1,"<a href=\"Repository\/ChartOfAccountsRepository.php.html#36\">App\\Repository\\ChartOfAccountsRepository::findByVersion<\/a>"],[100,1,"<a href=\"Repository\/CurrencyRepository.php.html#14\">App\\Repository\\CurrencyRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/JournalEntryRepository.php.html#14\">App\\Repository\\JournalEntryRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/JournalLineItemRepository.php.html#14\">App\\Repository\\JournalLineItemRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/JournalRepository.php.html#14\">App\\Repository\\JournalRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/OrganizationRepository.php.html#15\">App\\Repository\\OrganizationRepository::__construct<\/a>"],[100,1,"<a href=\"Repository\/OrganizationRepository.php.html#22\">App\\Repository\\OrganizationRepository::findByUser<\/a>"],[100,1,"<a href=\"Repository\/UserRepository.php.html#17\">App\\Repository\\UserRepository::__construct<\/a>"],[100,2,"<a href=\"Repository\/UserRepository.php.html#25\">App\\Repository\\UserRepository::upgradePassword<\/a>"],[100,3,"<a href=\"Security\/JournalVoter.php.html#18\">App\\Security\\JournalVoter::supports<\/a>"],[90.9090909090909,3,"<a href=\"Security\/JournalVoter.php.html#31\">App\\Security\\JournalVoter::voteOnAttribute<\/a>"],[100,3,"<a href=\"Security\/OrganizationVoter.php.html#18\">App\\Security\\OrganizationVoter::supports<\/a>"],[90.9090909090909,3,"<a href=\"Security\/OrganizationVoter.php.html#31\">App\\Security\\OrganizationVoter::voteOnAttribute<\/a>"],[100,8,"<a href=\"Service\/AccountLedgerService.php.html#12\">App\\Service\\AccountLedgerService::getCompleteAccountLedger<\/a>"],[100,1,"<a href=\"Service\/FinancialReportService.php.html#20\">App\\Service\\FinancialReportService::getIncomeStatement<\/a>"],[100,1,"<a href=\"Service\/FinancialReportService.php.html#28\">App\\Service\\FinancialReportService::getIncomeStatementWithClosingEntries<\/a>"],[95.45454545454545,7,"<a href=\"Service\/FinancialReportService.php.html#37\">App\\Service\\FinancialReportService::buildIncomeStatement<\/a>"],[100,1,"<a href=\"Service\/FinancialReportService.php.html#82\">App\\Service\\FinancialReportService::getBalanceSheet<\/a>"],[0,1,"<a href=\"Service\/FinancialReportService.php.html#90\">App\\Service\\FinancialReportService::getBalanceSheetWithoutClosingEntries<\/a>"],[96.55172413793103,5,"<a href=\"Service\/FinancialReportService.php.html#99\">App\\Service\\FinancialReportService::buildBalanceSheet<\/a>"],[100,2,"<a href=\"Service\/FinancialReportService.php.html#148\">App\\Service\\FinancialReportService::addToAccountGroup<\/a>"],[100,2,"<a href=\"Service\/FinancialReportService.php.html#170\">App\\Service\\FinancialReportService::buildHierarchy<\/a>"],[100,2,"<a href=\"Service\/FinancialReportService.php.html#195\">App\\Service\\FinancialReportService::calculateAccountBalance<\/a>"],[100,2,"<a href=\"Service\/FinancialReportService.php.html#210\">App\\Service\\FinancialReportService::calculateTotalForAccountType<\/a>"],[100,1,"<a href=\"Service\/YearEndService.php.html#16\">App\\Service\\YearEndService::__construct<\/a>"],[83.33333333333334,2,"<a href=\"Service\/YearEndService.php.html#22\">App\\Service\\YearEndService::closeIncomeStatement<\/a>"],[11.11111111111111,3,"<a href=\"Service\/YearEndService.php.html#64\">App\\Service\\YearEndService::closeRevenueAccounts<\/a>"],[88.88888888888889,3,"<a href=\"Service\/YearEndService.php.html#87\">App\\Service\\YearEndService::closeExpenseAccounts<\/a>"],[66.66666666666666,4,"<a href=\"Service\/YearEndService.php.html#110\">App\\Service\\YearEndService::transferNetIncomeToEquity<\/a>"],[100,1,"<a href=\"Validator\/Constraints\/BalancedJournalEntry.php.html#12\">App\\Validator\\Constraints\\BalancedJournalEntry::getTargets<\/a>"],[100,5,"<a href=\"Validator\/Constraints\/BalancedJournalEntryValidator.php.html#13\">App\\Validator\\Constraints\\BalancedJournalEntryValidator::validate<\/a>"],[100,1,"<a href=\"Validator\/Constraints\/ValidLineItem.php.html#14\">App\\Validator\\Constraints\\ValidLineItem::getTargets<\/a>"],[100,4,"<a href=\"Validator\/Constraints\/ValidLineItemValidator.php.html#12\">App\\Validator\\Constraints\\ValidLineItemValidator::validate<\/a>"],[100,7,"<a href=\"Validator\/Constraints\/ValidLineItemValidator.php.html#43\">App\\Validator\\Constraints\\ValidLineItemValidator::validateAmounts<\/a>"],[100,1,"<a href=\"Validator\/Constraints\/WithinFiscalYear.php.html#12\">App\\Validator\\Constraints\\WithinFiscalYear::getTargets<\/a>"],[100,9,"<a href=\"Validator\/Constraints\/WithinFiscalYearValidator.php.html#17\">App\\Validator\\Constraints\\WithinFiscalYearValidator::validate<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

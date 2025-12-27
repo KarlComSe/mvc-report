@@ -9,27 +9,24 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Organization;
+use App\Repository\OrganizationRepository;
 use App\Form\OrganizationFormType;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use App\Entity\User;
 use Symfony\Bundle\SecurityBundle\Security;
 
 class OrganizationController extends AbstractController
 {
-    private $security;
-
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
-
     #[Route('/proj/organization', name: 'kassabok_organization')]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, OrganizationRepository $orgRepository): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
 
         $organization = new Organization();
         $form = $this->createForm(OrganizationFormType::class);
         $form->add('save', SubmitType::class, [
-            'label' => 'Lägg till',]);
+            'label' => 'Lägg till',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -40,27 +37,15 @@ class OrganizationController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('kassabok_organization');
         }
+        /** @var User $user */
+        $user = $this->getUser();
 
-        return $this->render('kassabok/organization/index.html.twig', [
+        $organizations = $orgRepository->findByUser($user);
+
+        return $this->render('kassabok/organizations/index.html.twig', [
             'controller_name' => 'OrganizationController',
-            'organizations' => $entityManager->getRepository(Organization::class)->findByUser($this->getUser()),
+            'organizations' => $organizations,
             'form' => $form,
         ]);
     }
-
-    // public function new(Request $request): Response
-    // {
-    //     $this->denyAccessUnlessGranted('ROLE_USER');
-
-    //     $organization = new Organization();
-
-    //     $form = $this->createForm(OrganizationFormType::class);
-    //     $form->handleRequest($request);
-
-    //     if ($form->isSubmitted() && $form->isValid()) {
-    //         $organization = $form->getData();
-
-    //         return $this->redirectToRoute('kassabok_organization');
-    //     }
-    // }
 }

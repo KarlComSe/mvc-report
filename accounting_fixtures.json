@@ -1,0 +1,797 @@
+{
+  "scenarios": [
+    {
+      "scenario": {
+        "id": "A",
+        "name": "Negativt resultat",
+        "currency": "SEK"
+      },
+      "transactions": [
+        {
+          "id": 1,
+          "description": "Aktiekapital insatt",
+          "lines": [
+            { "account": 1930, "debit": 25000, "credit": 0 },
+            { "account": 2081, "debit": 0, "credit": 25000 }
+          ]
+        },
+        {
+          "id": 2,
+          "description": "Bankavgift",
+          "lines": [
+            { "account": 6570, "debit": 100, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 100 }
+          ]
+        },
+        {
+          "id": 3,
+          "description": "Programvara (IT-tjänst)",
+          "lines": [
+            { "account": 6540, "debit": 1000, "credit": 0 },
+            { "account": 2641, "debit": 250, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 1250 }
+          ]
+        },
+        {
+          "id": 4,
+          "description": "Fakturering webbutveckling",
+          "lines": [
+            { "account": 1510, "debit": 12500, "credit": 0 },
+            { "account": 3041, "debit": 0, "credit": 10000 },
+            { "account": 2611, "debit": 0, "credit": 2500 }
+          ]
+        },
+        {
+          "id": 5,
+          "description": "Kund betalar faktura",
+          "lines": [
+            { "account": 1930, "debit": 12500, "credit": 0 },
+            { "account": 1510, "debit": 0, "credit": 12500 }
+          ]
+        },
+        {
+          "id": 6,
+          "description": "Bruttolön",
+          "lines": [
+            { "account": 7010, "debit": 8000, "credit": 0 },
+            { "account": 2710, "debit": 0, "credit": 8000 }
+          ]
+        },
+        {
+          "id": 7,
+          "description": "Utbetalning nettolön",
+          "lines": [
+            { "account": 2710, "debit": 6000, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 6000 }
+          ]
+        },
+        {
+          "id": 8,
+          "description": "Arbetsgivaravgifter",
+          "lines": [
+            { "account": 7510, "debit": 2514, "credit": 0 },
+            { "account": 2731, "debit": 0, "credit": 2514 }
+          ]
+        },
+        {
+          "id": 9,
+          "description": "Momsavräkning",
+          "lines": [
+            { "account": 2611, "debit": 2500, "credit": 0 },
+            { "account": 2641, "debit": 0, "credit": 250 },
+            { "account": 2650, "debit": 0, "credit": 2250 }
+          ]
+        },
+        {
+          "id": 10,
+          "description": "Betalning moms och arbetsgivaravgifter",
+          "lines": [
+            { "account": 2650, "debit": 2250, "credit": 0 },
+            { "account": 2731, "debit": 2514, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 4764 }
+          ]
+        }
+      ],
+      "profit_and_loss": {
+        "revenues": [
+          { "account": 3041, "description": "Försäljning tjänster, 25% moms", "amount": 10000 }
+        ],
+        "expenses": [
+          { "account": 6570, "description": "Bankavgifter", "amount": 100 },
+          { "account": 6540, "description": "Konsulttjänster och företagsledning", "amount": 1000 },
+          { "account": 7010, "description": "Löner till tjänstemän", "amount": 8000 },
+          { "account": 7510, "description": "Arbetsgivaravgifter", "amount": 2514 }
+        ],
+        "total_revenues": 10000,
+        "total_expenses": 11614,
+        "net_result": -1614
+      },
+      "balance_sheet": {
+        "assets": {
+          "current_assets": {
+            "accounts_receivable": [
+              { "account": 1510, "description": "Kundfordringar", "amount": 0 }
+            ],
+            "cash_and_bank": [
+              { "account": 1930, "description": "Företagskonto/checkkonto", "amount": 24886 }
+            ],
+            "total_current_assets": 24886
+          },
+          "total_assets": 24886
+        },
+        "equity_and_liabilities": {
+          "equity": [
+            { "account": 2081, "description": "Aktiekapital", "amount": 25000 },
+            { "account": 8999, "description": "Årets resultat", "amount": -1614 }
+          ],
+          "current_liabilities": {
+            "vat_and_taxes": [
+              { "account": 2650, "description": "Redovisningskonto för moms", "amount": 0 },
+              { "account": 2611, "description": "Utgående moms, 25%", "amount": 0 },
+              { "account": 2641, "description": "Ingående moms", "amount": 0 }
+            ],
+            "employee_withholdings": [
+              { "account": 2710, "description": "Personalens källskatt", "amount": 2000 },
+              { "account": 2731, "description": "Avräkning arbetsgivaravgifter", "amount": 0 }
+            ],
+            "total_current_liabilities": 2000
+          },
+          "total_equity": 23386,
+          "total_liabilities": 2000,
+          "total_equity_and_liabilities": 25386
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "B",
+        "name": "Negativt resultat",
+        "currency": "SEK"
+      },
+      "transactions": [
+        {
+          "id": 1,
+          "description": "Aktiekapital insatt",
+          "lines": [
+            { "account": 1930, "debit": 25000, "credit": 0 },
+            { "account": 2081, "debit": 0, "credit": 25000 }
+          ]
+        },
+        {
+          "id": 2,
+          "description": "Bankavgift",
+          "lines": [
+            { "account": 6570, "debit": 100, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 100 }
+          ]
+        },
+        {
+          "id": 3,
+          "description": "Programvara (IT-tjänst)",
+          "lines": [
+            { "account": 6540, "debit": 1500, "credit": 0 },
+            { "account": 2641, "debit": 375, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 1875 }
+          ]
+        },
+        {
+          "id": 4,
+          "description": "Fakturering webbutveckling",
+          "lines": [
+            { "account": 1510, "debit": 6250, "credit": 0 },
+            { "account": 3041, "debit": 0, "credit": 5000 },
+            { "account": 2611, "debit": 0, "credit": 1250 }
+          ]
+        },
+        {
+          "id": 5,
+          "description": "Kund betalar faktura",
+          "lines": [
+            { "account": 1930, "debit": 6250, "credit": 0 },
+            { "account": 1510, "debit": 0, "credit": 6250 }
+          ]
+        },
+        {
+          "id": 6,
+          "description": "Bruttolön",
+          "lines": [
+            { "account": 7010, "debit": 10000, "credit": 0 },
+            { "account": 2710, "debit": 0, "credit": 10000 }
+          ]
+        },
+        {
+          "id": 7,
+          "description": "Utbetalning nettolön",
+          "lines": [
+            { "account": 2710, "debit": 7500, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 7500 }
+          ]
+        },
+        {
+          "id": 8,
+          "description": "Arbetsgivaravgifter",
+          "lines": [
+            { "account": 7510, "debit": 3142, "credit": 0 },
+            { "account": 2731, "debit": 0, "credit": 3142 }
+          ]
+        },
+        {
+          "id": 9,
+          "description": "Momsavräkning",
+          "lines": [
+            { "account": 2611, "debit": 1250, "credit": 0 },
+            { "account": 2641, "debit": 0, "credit": 375 },
+            { "account": 2650, "debit": 0, "credit": 875 }
+          ]
+        },
+        {
+          "id": 10,
+          "description": "Betalning moms och arbetsgivaravgifter",
+          "lines": [
+            { "account": 2650, "debit": 875, "credit": 0 },
+            { "account": 2731, "debit": 3142, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 4017 }
+          ]
+        }
+      ],
+      "profit_and_loss": {
+        "revenues": [
+          { "account": 3041, "description": "Försäljning tjänster, 25% moms", "amount": 5000 }
+        ],
+        "expenses": [
+          { "account": 6570, "description": "Bankavgifter", "amount": 100 },
+          { "account": 6540, "description": "Konsulttjänster och företagsledning", "amount": 1500 },
+          { "account": 7010, "description": "Löner till tjänstemän", "amount": 10000 },
+          { "account": 7510, "description": "Arbetsgivaravgifter", "amount": 3142 }
+        ],
+        "total_revenues": 5000,
+        "total_expenses": 14742,
+        "net_result": -9742
+      },
+      "balance_sheet": {
+        "assets": {
+          "current_assets": {
+            "accounts_receivable": [
+              { "account": 1510, "description": "Kundfordringar", "amount": 0 }
+            ],
+            "cash_and_bank": [
+              { "account": 1930, "description": "Företagskonto/checkkonto", "amount": 17858 }
+            ],
+            "total_current_assets": 17858
+          },
+          "total_assets": 17858
+        },
+        "equity_and_liabilities": {
+          "equity": [
+            { "account": 2081, "description": "Aktiekapital", "amount": 25000 },
+            { "account": 8999, "description": "Årets resultat", "amount": -9742 }
+          ],
+          "current_liabilities": {
+            "vat_and_taxes": [
+              { "account": 2650, "description": "Redovisningskonto för moms", "amount": 0 },
+              { "account": 2611, "description": "Utgående moms, 25%", "amount": 0 },
+              { "account": 2641, "description": "Ingående moms", "amount": 0 }
+            ],
+            "employee_withholdings": [
+              { "account": 2710, "description": "Personalens källskatt", "amount": 2500 },
+              { "account": 2731, "description": "Avräkning arbetsgivaravgifter", "amount": 0 }
+            ],
+            "total_current_liabilities": 2500
+          },
+          "total_equity": 15258,
+          "total_liabilities": 2500,
+          "total_equity_and_liabilities": 17758
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "C",
+        "name": "Enkel - endast kostnader",
+        "currency": "SEK"
+      },
+      "transactions": [
+        {
+          "id": 1,
+          "description": "Aktiekapital insatt",
+          "lines": [
+            { "account": 1930, "debit": 50000, "credit": 0 },
+            { "account": 2081, "debit": 0, "credit": 50000 }
+          ]
+        },
+        {
+          "id": 2,
+          "description": "Kontorsmaterial",
+          "lines": [
+            { "account": 6100, "debit": 500, "credit": 0 },
+            { "account": 2641, "debit": 125, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 625 }
+          ]
+        },
+        {
+          "id": 3,
+          "description": "Hyra lokal",
+          "lines": [
+            { "account": 5010, "debit": 5000, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 5000 }
+          ]
+        },
+        {
+          "id": 4,
+          "description": "El och uppvärmning",
+          "lines": [
+            { "account": 5060, "debit": 800, "credit": 0 },
+            { "account": 2641, "debit": 200, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 1000 }
+          ]
+        },
+        {
+          "id": 5,
+          "description": "Momsavräkning",
+          "lines": [
+            { "account": 2650, "debit": 325, "credit": 0 },
+            { "account": 2641, "debit": 0, "credit": 325 }
+          ]
+        },
+        {
+          "id": 6,
+          "description": "Betalning moms",
+          "lines": [
+            { "account": 1930, "debit": 325, "credit": 0 },
+            { "account": 2650, "debit": 0, "credit": 325 }
+          ]
+        }
+      ],
+      "profit_and_loss": {
+        "revenues": [],
+        "expenses": [
+          { "account": 5010, "description": "Lokalhyra", "amount": 5000 },
+          { "account": 5060, "description": "El för belysning", "amount": 800 },
+          { "account": 6100, "description": "Kontorsmaterial och blanketter", "amount": 500 }
+        ],
+        "total_revenues": 0,
+        "total_expenses": 6300,
+        "net_result": -6300
+      },
+      "balance_sheet": {
+        "assets": {
+          "current_assets": {
+            "cash_and_bank": [
+              { "account": 1930, "description": "Företagskonto/checkkonto", "amount": 43700 }
+            ],
+            "total_current_assets": 43700
+          },
+          "total_assets": 43700
+        },
+        "equity_and_liabilities": {
+          "equity": [
+            { "account": 2081, "description": "Aktiekapital", "amount": 50000 },
+            { "account": 8999, "description": "Årets resultat", "amount": -6300 }
+          ],
+          "current_liabilities": {
+            "vat_and_taxes": [
+              { "account": 2650, "description": "Redovisningskonto för moms", "amount": 0 },
+              { "account": 2641, "description": "Ingående moms", "amount": 0 }
+            ],
+            "total_current_liabilities": 0
+          },
+          "total_equity": 43700,
+          "total_liabilities": 0,
+          "total_equity_and_liabilities": 43700
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "D",
+        "name": "Enkel med rättning",
+        "currency": "SEK"
+      },
+      "transactions": [
+        {
+          "id": 1,
+          "description": "Aktiekapital insatt",
+          "lines": [
+            { "account": 1930, "debit": 50000, "credit": 0 },
+            { "account": 2081, "debit": 0, "credit": 50000 }
+          ]
+        },
+        {
+          "id": 2,
+          "description": "Kontorsmaterial (FELAKTIG BOKNING)",
+          "lines": [
+            { "account": 6100, "debit": 0, "credit": 500 },
+            { "account": 2641, "debit": 0, "credit": 125 },
+            { "account": 1930, "debit": 625, "credit": 0 }
+          ]
+        },
+        {
+          "id": 3,
+          "description": "Rättning: Återför felaktig kontorsmaterial",
+          "lines": [
+            { "account": 6100, "debit": 500, "credit": 0 },
+            { "account": 2641, "debit": 125, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 625 }
+          ]
+        },
+        {
+          "id": 4,
+          "description": "Rättning: Korrekt bokning kontorsmaterial",
+          "lines": [
+            { "account": 6100, "debit": 500, "credit": 0 },
+            { "account": 2641, "debit": 125, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 625 }
+          ]
+        },
+        {
+          "id": 5,
+          "description": "Telefoni och internet",
+          "lines": [
+            { "account": 6230, "debit": 400, "credit": 0 },
+            { "account": 2641, "debit": 100, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 500 }
+          ]
+        },
+        {
+          "id": 6,
+          "description": "Representation med kunder",
+          "lines": [
+            { "account": 6420, "debit": 800, "credit": 0 },
+            { "account": 2641, "debit": 200, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 1000 }
+          ]
+        },
+        {
+          "id": 7,
+          "description": "Momsavräkning",
+          "lines": [
+            { "account": 2650, "debit": 425, "credit": 0 },
+            { "account": 2641, "debit": 0, "credit": 425 }
+          ]
+        },
+        {
+          "id": 8,
+          "description": "Betalning moms",
+          "lines": [
+            { "account": 1930, "debit": 425, "credit": 0 },
+            { "account": 2650, "debit": 0, "credit": 425 }
+          ]
+        }
+      ],
+      "profit_and_loss": {
+        "revenues": [],
+        "expenses": [
+          { "account": 6100, "description": "Kontorsmaterial och blanketter", "amount": 500 },
+          { "account": 6230, "description": "Telefon", "amount": 400 },
+          { "account": 6420, "description": "Representation, avdragsgill", "amount": 800 }
+        ],
+        "total_revenues": 0,
+        "total_expenses": 1700,
+        "net_result": -1700
+      },
+      "balance_sheet": {
+        "assets": {
+          "current_assets": {
+            "cash_and_bank": [
+              { "account": 1930, "description": "Företagskonto/checkkonto", "amount": 48725 }
+            ],
+            "total_current_assets": 48725
+          },
+          "total_assets": 48725
+        },
+        "equity_and_liabilities": {
+          "equity": [
+            { "account": 2081, "description": "Aktiekapital", "amount": 50000 },
+            { "account": 8999, "description": "Årets resultat", "amount": -1700 }
+          ],
+          "current_liabilities": {
+            "vat_and_taxes": [
+              { "account": 2650, "description": "Redovisningskonto för moms", "amount": 0 },
+              { "account": 2641, "description": "Ingående moms", "amount": 425 }
+            ],
+            "total_current_liabilities": 425
+          },
+          "total_equity": 48300,
+          "total_liabilities": 425,
+          "total_equity_and_liabilities": 48725
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "E",
+        "name": "Positivt resultat",
+        "currency": "SEK"
+      },
+      "transactions": [
+        {
+          "id": 1,
+          "description": "Aktiekapital insatt",
+          "lines": [
+            { "account": 1930, "debit": 50000, "credit": 0 },
+            { "account": 2081, "debit": 0, "credit": 50000 }
+          ]
+        },
+        {
+          "id": 2,
+          "description": "Fakturering webbutveckling projekt 1",
+          "lines": [
+            { "account": 1510, "debit": 31250, "credit": 0 },
+            { "account": 3041, "debit": 0, "credit": 25000 },
+            { "account": 2611, "debit": 0, "credit": 6250 }
+          ]
+        },
+        {
+          "id": 3,
+          "description": "Fakturering konsulttjänster projekt 2",
+          "lines": [
+            { "account": 1510, "debit": 31250, "credit": 0 },
+            { "account": 3041, "debit": 0, "credit": 25000 },
+            { "account": 2611, "debit": 0, "credit": 6250 }
+          ]
+        },
+        {
+          "id": 4,
+          "description": "Kund betalar faktura projekt 1",
+          "lines": [
+            { "account": 1930, "debit": 31250, "credit": 0 },
+            { "account": 1510, "debit": 0, "credit": 31250 }
+          ]
+        },
+        {
+          "id": 5,
+          "description": "Kund betalar faktura projekt 2",
+          "lines": [
+            { "account": 1930, "debit": 31250, "credit": 0 },
+            { "account": 1510, "debit": 0, "credit": 31250 }
+          ]
+        },
+        {
+          "id": 6,
+          "description": "Bankavgift",
+          "lines": [
+            { "account": 6570, "debit": 100, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 100 }
+          ]
+        },
+        {
+          "id": 7,
+          "description": "Hyra lokal",
+          "lines": [
+            { "account": 5010, "debit": 8000, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 8000 }
+          ]
+        },
+        {
+          "id": 8,
+          "description": "Kontorsmaterial",
+          "lines": [
+            { "account": 6100, "debit": 500, "credit": 0 },
+            { "account": 2641, "debit": 125, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 625 }
+          ]
+        },
+        {
+          "id": 9,
+          "description": "IT-konsulttjänster",
+          "lines": [
+            { "account": 6540, "debit": 2000, "credit": 0 },
+            { "account": 2641, "debit": 500, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 2500 }
+          ]
+        },
+        {
+          "id": 10,
+          "description": "Bruttolön",
+          "lines": [
+            { "account": 7010, "debit": 15000, "credit": 0 },
+            { "account": 2710, "debit": 0, "credit": 15000 }
+          ]
+        },
+        {
+          "id": 11,
+          "description": "Utbetalning nettolön",
+          "lines": [
+            { "account": 2710, "debit": 11250, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 11250 }
+          ]
+        },
+        {
+          "id": 12,
+          "description": "Arbetsgivaravgifter",
+          "lines": [
+            { "account": 7510, "debit": 4713, "credit": 0 },
+            { "account": 2731, "debit": 0, "credit": 4713 }
+          ]
+        },
+        {
+          "id": 13,
+          "description": "Momsavräkning",
+          "lines": [
+            { "account": 2611, "debit": 12500, "credit": 0 },
+            { "account": 2641, "debit": 0, "credit": 625 },
+            { "account": 2650, "debit": 0, "credit": 11875 }
+          ]
+        },
+        {
+          "id": 14,
+          "description": "Betalning moms och arbetsgivaravgifter",
+          "lines": [
+            { "account": 2650, "debit": 11875, "credit": 0 },
+            { "account": 2731, "debit": 4713, "credit": 0 },
+            { "account": 1930, "debit": 0, "credit": 16588 }
+          ]
+        }
+      ],
+      "profit_and_loss": {
+        "revenues": [
+          { "account": 3041, "description": "Försäljning tjänster, 25% moms", "amount": 50000 }
+        ],
+        "expenses": [
+          { "account": 5010, "description": "Lokalhyra", "amount": 8000 },
+          { "account": 6100, "description": "Kontorsmaterial och blanketter", "amount": 500 },
+          { "account": 6540, "description": "Konsulttjänster och företagsledning", "amount": 2000 },
+          { "account": 6570, "description": "Bankavgifter", "amount": 100 },
+          { "account": 7010, "description": "Löner till tjänstemän", "amount": 15000 },
+          { "account": 7510, "description": "Arbetsgivaravgifter", "amount": 4713 }
+        ],
+        "total_revenues": 50000,
+        "total_expenses": 30313,
+        "net_result": 19687
+      },
+      "balance_sheet": {
+        "assets": {
+          "current_assets": {
+            "accounts_receivable": [
+              { "account": 1510, "description": "Kundfordringar", "amount": 0 }
+            ],
+            "cash_and_bank": [
+              { "account": 1930, "description": "Företagskonto/checkkonto", "amount": 73437 }
+            ],
+            "total_current_assets": 73437
+          },
+          "total_assets": 73437
+        },
+        "equity_and_liabilities": {
+          "equity": [
+            { "account": 2081, "description": "Aktiekapital", "amount": 50000 },
+            { "account": 8999, "description": "Årets resultat", "amount": 19687 }
+          ],
+          "current_liabilities": {
+            "vat_and_taxes": [
+              { "account": 2650, "description": "Redovisningskonto för moms", "amount": 0 },
+              { "account": 2611, "description": "Utgående moms, 25%", "amount": 0 },
+              { "account": 2641, "description": "Ingående moms", "amount": 0 }
+            ],
+            "employee_withholdings": [
+              { "account": 2710, "description": "Personalens källskatt", "amount": 3750 },
+              { "account": 2731, "description": "Avräkning arbetsgivaravgifter", "amount": 0 }
+            ],
+            "total_current_liabilities": 3750
+          },
+          "total_equity": 69687,
+          "total_liabilities": 3750,
+          "total_equity_and_liabilities": 73437
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "F",
+        "name": "Sorting test - varied dates",
+        "currency": "SEK"
+      },
+      "transactions": [
+        {
+          "id": 1,
+          "date": "2025-01-15",
+          "description": "Försäljning kontant",
+          "lines": [
+            { "account": 1910, "debit": 500, "credit": 0 },
+            { "account": 3000, "debit": 0, "credit": 500 }
+          ]
+        },
+        {
+          "id": 2,
+          "date": "2025-01-10",
+          "description": "Kontorsmaterial",
+          "lines": [
+            { "account": 6000, "debit": 200, "credit": 0 },
+            { "account": 1910, "debit": 0, "credit": 200 }
+          ]
+        },
+        {
+          "id": 3,
+          "date": "2025-01-10",
+          "description": "Fika",
+          "lines": [
+            { "account": 6000, "debit": 50, "credit": 0 },
+            { "account": 1910, "debit": 0, "credit": 50 }
+          ]
+        },
+        {
+          "id": 4,
+          "date": "2025-01-20",
+          "description": "Hyra januari",
+          "lines": [
+            { "account": 7000, "debit": 1000, "credit": 0 },
+            { "account": 1910, "debit": 0, "credit": 1000 }
+          ]
+        }
+      ],
+      "profit_and_loss": {
+        "revenues": [
+          { "account": 3000, "description": "Försäljning", "amount": 500 }
+        ],
+        "expenses": [
+          { "account": 6000, "description": "Övriga kostnader", "amount": 250 },
+          { "account": 7000, "description": "Lokalkostnader", "amount": 1000 }
+        ],
+        "total_revenues": 500,
+        "total_expenses": 1250,
+        "net_result": -750
+      },
+      "balance_sheet": {
+        "assets": {
+          "current_assets": {
+            "cash_and_bank": [
+              { "account": 1910, "description": "Kassa", "amount": -750 }
+            ],
+            "total_current_assets": -750
+          },
+          "total_assets": -750
+        },
+        "equity_and_liabilities": {
+          "equity": [],
+          "current_liabilities": {},
+          "total_equity": 0,
+          "total_liabilities": 0,
+          "total_equity_and_liabilities": 0
+        }
+      },
+      "notes": {
+        "purpose": "Test scenario for date sorting and ID tiebreaking",
+        "sorting_features": [
+          "Entry 2 (Jan 10, ID 2) should come before Entry 3 (Jan 10, ID 3) - ID tiebreaker",
+          "Entry 1 (Jan 15) should come after Jan 10 entries - date sorting",
+          "Entry 4 (Jan 20) should be last - latest date"
+        ]
+      }
+    }
+  ],
+  "account_descriptions": {
+    "1510": "Kundfordringar",
+    "1910": "Kassa",
+    "1930": "Företagskonto/checkkonto",
+    "2081": "Aktiekapital",
+    "2099": "Årets resultat",
+    "2611": "Utgående moms, 25%",
+    "2641": "Ingående moms",
+    "2650": "Redovisningskonto för moms",
+    "2710": "Personalens källskatt",
+    "2731": "Avräkning arbetsgivaravgifter",
+    "3000": "Försäljning",
+    "3041": "Försäljning tjänster, 25% moms",
+    "5010": "Lokalhyra",
+    "5060": "El för belysning",
+    "6000": "Övriga kostnader",
+    "6100": "Kontorsmaterial och blanketter",
+    "6230": "Telefon",
+    "6420": "Representation, avdragsgill",
+    "6540": "Konsulttjänster och företagsledning",
+    "6570": "Bankavgifter",
+    "7000": "Lokalkostnader",
+    "7010": "Löner till tjänstemän",
+    "7510": "Arbetsgivaravgifter",
+    "8999": "Årets resultat"
+  },
+  "notes": {
+    "scenario_a": "Standard scenario med positivt kassaflöde men negativt resultat",
+    "scenario_b": "Scenario med större förlust",
+    "scenario_c": "Förenklad scenario med endast kostnader - hyra, el och kontorsmaterial",
+    "scenario_d": "Förenklad scenario som demonstrerar felaktig bokning och rättning. Transaktion 2 bokades med debet/kredit omvänt, vilket sedan rättas genom återföring (transaktion 3) och korrekt bokning (transaktion 4)",
+    "scenario_e": "Scenario med positivt resultat (vinst). Företaget har totala intäkter på 50,000 SEK och kostnader på 30,313 SEK, vilket ger ett nettoresultat på +19,687 SEK.",
+    "scenario_f": "Test scenario för datumsortering och ID-tiebreaker. Transaktioner har olika datum (10 jan, 15 jan, 20 jan) för att testa kronologisk sortering och två transaktioner samma datum för att testa ID-sortering. Används för att validera AccountLedgerService sorteringsfunktionalitet.",
+    "correction_pattern": "När en transaktion bokats felaktigt, rättas det genom att: 1) Återföra den felaktiga transaktionen med motsatt tecken, 2) Boka korrekt transaktion. Detta ger en verifieringskedja."
+  }
+}

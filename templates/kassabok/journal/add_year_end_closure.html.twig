@@ -1,0 +1,92 @@
+{% extends 'kassabok/base.html.twig' %}
+{% import 'kassabok/_breadcrumbs.html.twig' as breadcrumb_helper %}
+{% block title %}Nollställ resultatkonton{% endblock %}
+
+{% block breadcrumb %}
+{{ breadcrumb_helper.trail([
+{ label: 'Kontrollpanel', path: path('kassabok_organization') },
+{ label: journal.organization.name, path: path('kassabok_journals', {organization: journal.organization.id}) },
+{ label: 'Lägg till verifikat', path: null }
+]) }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    {# Journal information #}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Kassabok för {{ journal.organization.name }}</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>Räkenskapsår:</strong>
+                    {{ journal.firstDay|date('Y-m-d') }} - {{ journal.lastDay|date('Y-m-d') }}
+                </div>
+                <div class="col-md-4">
+                    <strong>Kontoplan:</strong> {{ journal.chartOfAccounts.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Nollställ resultatkonton</h2>
+
+    {# Flash messages #}
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    {# Information card #}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="bi bi-info-circle"></i> Om årsbokslut
+            </h5>
+            <p>
+                Denna funktion kommer att skapa ett verifikat som nollställer alla resultatkonton
+                (intäkter och kostnader) och för över årets resultat till balansräkningen.
+            </p>
+            <p class="mb-0">
+                <strong>OBS:</strong> Detta bör endast göras vid räkenskapsårets slut,
+                den {{ journal.lastDay|date('Y-m-d') }}.
+            </p>
+            <ul>
+                <li>Ett verifikat kommer att skapas automatiskt</li>
+                <li>Alla intäkts- och kostnadskonton kommer att nollställas</li>
+                <li>Årets resultat kommer att föras över till eget kapital</li>
+            </ul>
+        </div>
+    </div>
+
+    {# Form #}
+    {% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+    {{ form_start(form, {'attr': {'data-turbo': 'false', 'onsubmit': 'return confirm("Är du säker på att du vill skapa
+    årsbokslutet? Denna åtgärd skapar ett nytt verifikat.");'}}) }}
+
+<div class="d-flex gap-2">
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary mt-3'}}) }}
+    <a href="{{ path('kassabok_journal', {organization: journal.organization.id, journal: journal.id}) }}"
+        class="btn btn-secondary mt-3">
+        Avbryt
+    </a>
+</div>
+
+    {{ form_end(form) }}
+</div>
+
+<style>
+    .card-title i {
+        margin-right: 0.5rem;
+    }
+</style>
+{% endblock %}

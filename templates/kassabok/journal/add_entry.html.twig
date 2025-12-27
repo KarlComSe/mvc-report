@@ -1,0 +1,284 @@
+{% extends 'kassabok/base.html.twig' %}
+{% import 'kassabok/_breadcrumbs.html.twig' as breadcrumb_helper %}
+
+{% block title %}Lägg till verifikat{% endblock %}
+
+{% block breadcrumb %}
+{{ breadcrumb_helper.trail([
+{ label: 'Kontrollpanel', path: path('kassabok_organization') },
+{ label: journal.organization.name, path: path('kassabok_journals', {organization: journal.organization.id}) },
+{ label: 'Lägg till verifikat', path: null }
+]) }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    {# Journal information #}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Kassabok för {{ journal.organization.name }}</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>Räkenskapsår:</strong>
+                    {{ journal.firstDay|date('Y-m-d') }} - {{ journal.lastDay|date('Y-m-d') }}
+                </div>
+                <div class="col-md-4">
+                    <strong>Kontoplan:</strong> {{ journal.chartOfAccounts.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Lägg till verifikat</h2>
+
+    {# Flash messages #}
+    {% for message in app.flashes('success') %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    {# Form #}
+    {% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+    {{ form_start(form, {'attr': {'data-turbo': 'false'}}) }}
+
+    <div class="row mb-3">
+        <div class="col-md-8">
+            {{ form_row(form.title) }}
+        </div>
+        <div class="col-md-4">
+            {{ form_row(form.date) }}
+        </div>
+    </div>
+    {# {% if form.vars.errors|length > 0 %}
+    <div class="alert alert-danger">
+        {{ form_errors(form) }}
+    </div>
+    {% endif %} #}
+    {# Line items section #}
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Konteringar</h5>
+            <button type="button" class="btn btn-sm btn-success" id="add-line-item">
+                <i class="bi bi-plus-circle"></i> Lägg till rad
+            </button>
+        </div>
+        <div class="card-body">
+            <p class="text-muted small">
+                <strong>Tips:</strong> Det totala beloppet på debet måste vara lika med kredit.
+                Endast ett av fälten (Debet eller Kredit) ska fyllas i per rad.
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%;">Konto</th>
+                            <th style="width: 20%;">Debet</th>
+                            <th style="width: 20%;">Kredit</th>
+                            <th style="width: 10%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="line-items-container"
+                        data-prototype="{{ form_widget(form.journalLineItems.vars.prototype)|e('html_attr') }}"
+                        data-index="{{ form.journalLineItems|length }}">
+                        {% for lineItem in form.journalLineItems %}
+                        <tr class="line-item-row">
+                            <td>
+                                {{ form_widget(lineItem.account) }}
+                                {{ form_errors(lineItem.account) }}
+                            </td>
+                            <td>
+                                {{ form_widget(lineItem.debitAmount) }}
+                                {{ form_errors(lineItem.debitAmount) }}
+                            </td>
+                            <td>
+                                {{ form_widget(lineItem.creditAmount) }}
+                                {{ form_errors(lineItem.creditAmount) }}
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger remove-line-item">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr class="table-secondary">
+                            <th class="text-end">Totalt:</th>
+                            <th id="total-debit">0.00</th>
+                            <th id="total-credit">0.00</th>
+                            <th></th>
+                        </tr>
+                        <tr id="balance-row">
+                            <td colspan="4" class="text-center">
+                                <span id="balance-message" class="badge bg-secondary">Lägg till konteringar</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {{ form_row(form.save) }}
+
+    {{ form_end(form)}}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', initializeJournalEntryForm);
+    document.addEventListener('turbo:load', initializeJournalEntryForm);
+
+    function initializeJournalEntryForm() {
+        const container = document.getElementById('line-items-container');
+        const addButton = document.getElementById('add-line-item');
+
+        if (container.dataset.initialized === 'true') {
+            return;
+        }
+        container.dataset.initialized = 'true';
+
+        let index = parseInt(container.dataset.index);
+
+        // Function to add a new line item
+        addButton.addEventListener('click', addLine);
+
+        function addLine() {
+            const prototype = container.dataset.prototype;
+            const newForm = prototype.replace(/__name__/g, index);
+
+            // Create temporary div to parse HTML
+            const temp = document.createElement('div');
+            temp.innerHTML = newForm;
+
+            // Create new row
+            const tr = document.createElement('tr');
+            tr.className = 'line-item-row';
+
+            // Find the form elements in the prototype
+            const accountSelect = temp.querySelector('select');
+            const debitInput = temp.querySelector('input[name*="debitAmount"]');
+            const creditInput = temp.querySelector('input[name*="creditAmount"]');
+
+            // Build the row
+            const td1 = document.createElement('td');
+            if (accountSelect) td1.appendChild(accountSelect);
+
+            const td2 = document.createElement('td');
+            if (debitInput) td2.appendChild(debitInput);
+
+            const td3 = document.createElement('td');
+            if (creditInput) td3.appendChild(creditInput);
+
+            const td4 = document.createElement('td');
+            td4.innerHTML = '<button type="button" class="btn btn-sm btn-danger remove-line-item">Ta bort</button>';
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+
+            container.appendChild(tr);
+            index++;
+            container.dataset.index = index;
+
+            attachRemoveHandler(tr.querySelector('.remove-line-item'));
+            attachCalculationHandlers(tr);
+            calculateTotals();
+        };
+
+        // Function to attach remove handler
+        function attachRemoveHandler(button) {
+            if (!button) return;
+            button.addEventListener('click', function () {
+                this.closest('tr').remove();
+                calculateTotals();
+            });
+        }
+
+        // Function to attach calculation handlers
+        function attachCalculationHandlers(row) {
+            const inputs = row.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', calculateTotals);
+            });
+        }
+
+        // Attach handlers to existing rows
+        document.querySelectorAll('.remove-line-item').forEach(attachRemoveHandler);
+        document.querySelectorAll('.line-item-row').forEach(attachCalculationHandlers);
+
+        // Calculate totals
+        function calculateTotals() {
+            let totalDebit = 0;
+            let totalCredit = 0;
+
+            document.querySelectorAll('.line-item-row').forEach(row => {
+                const debitInput = row.querySelector('input[name*="[debitAmount]"]');
+                const creditInput = row.querySelector('input[name*="[creditAmount]"]');
+
+                if (debitInput && debitInput.value) {
+                    totalDebit += parseFloat(debitInput.value) || 0;
+                }
+                if (creditInput && creditInput.value) {
+                    totalCredit += parseFloat(creditInput.value) || 0;
+                }
+            });
+
+            document.getElementById('total-debit').textContent = totalDebit.toFixed(2);
+            document.getElementById('total-credit').textContent = totalCredit.toFixed(2);
+
+            // Update balance message
+            const balanceMessage = document.getElementById('balance-message');
+            const difference = Math.abs(totalDebit - totalCredit);
+
+            if (totalDebit === 0 && totalCredit === 0) {
+                balanceMessage.textContent = 'Lägg till konteringar';
+                balanceMessage.className = 'badge bg-secondary';
+            } else if (difference < 0.01) {
+                balanceMessage.textContent = 'Balanserat (Debet = Kredit)';
+                balanceMessage.className = 'badge bg-success';
+            } else {
+                balanceMessage.textContent = `Obalanserat (Skillnad: ${difference.toFixed(2)} kr)`;
+                balanceMessage.className = 'badge bg-danger';
+            }
+        }
+
+        // Initial calculation
+        calculateTotals();
+
+        // Add first row automatically if container is empty
+        if (container.children.length === 0) {
+            addLine();
+            addLine(); // Add two rows to start with
+        }
+    };
+</script>
+
+<style>
+    .line-item-row input,
+    .line-item-row select {
+        font-size: 0.9rem;
+    }
+
+    .table th,
+    .table td {
+        vertical-align: middle;
+    }
+
+    #balance-row {
+        font-weight: bold;
+    }
+</style>
+{% endblock %}

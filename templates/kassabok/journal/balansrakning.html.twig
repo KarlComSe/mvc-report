@@ -1,0 +1,229 @@
+{% extends 'kassabok/base.html.twig' %}
+{% import 'kassabok/_breadcrumbs.html.twig' as breadcrumb_helper %}
+{% block title %}Balansräkning - {{ journal.organization.name }}{% endblock %}
+{% block breadcrumb %}
+{{ breadcrumb_helper.trail([
+{ label: 'Kontrollpanel', path: path('kassabok_organization') },
+{ label: journal.organization.name, path: path('kassabok_journals', {organization: journal.organization.id}) },
+{ label: 'Balansräkning', path: null }
+]) }}
+{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    {# Report header #}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h2 class="mb-0">Balansräkning</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Organisation:</strong> {{ organization.name }}
+                </div>
+                <div class="col-md-6">
+                    <strong>Per datum:</strong> {{ journal.lastDay|date('Y-m-d') }}
+                </div>
+            </div>
+            {% if not report.balanced %}
+                <div class="alert alert-warning mt-3 mb-0">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <strong>Varning:</strong> Balansräkningen är inte i balans. Tillgångar måste vara lika med Skulder + Eget kapital.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {# Balance Sheet #}
+    <div class="row">
+        {# Left side: Assets #}
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Tillgångar</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 20%;">Konto</th>
+                                    <th style="width: 50%;">Namn</th>
+                                    <th style="width: 30%;" class="text-end">Belopp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if report.assets|length > 0 %}
+                                    {% for accountData in report.assets %}
+                                        <tr>
+                                            <td>{{ accountData.account.accountNumber }}</td>
+                                            <td>{{ accountData.account.name }}</td>
+                                            <td class="text-end">
+                                                {{ accountData.balance|number_format(2, ',', ' ') }} kr
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="3" class="text-muted text-center">
+                                            <em>Inga tillgångar registrerade</em>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                            <tfoot class="table-primary fw-bold">
+                                <tr>
+                                    <td colspan="2" class="text-end">Summa tillgångar:</td>
+                                    <td class="text-end">{{ report.totalAssets|number_format(2, ',', ' ') }} kr</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Right side: Liabilities and Equity #}
+        <div class="col-md-6">
+            {# Equity Section #}
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">Eget kapital</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 20%;">Konto</th>
+                                    <th style="width: 50%;">Namn</th>
+                                    <th style="width: 30%;" class="text-end">Belopp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if report.equity|length > 0 %}
+                                    {% for accountData in report.equity %}
+                                        <tr>
+                                            <td>{{ accountData.account.accountNumber }}</td>
+                                            <td>{{ accountData.account.name }}</td>
+                                            <td class="text-end">
+                                                {{ accountData.balance|number_format(2, ',', ' ') }} kr
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="3" class="text-muted text-center">
+                                            <em>Inget eget kapital registrerat</em>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                            <tfoot class="table-secondary fw-bold">
+                                <tr>
+                                    <td colspan="2" class="text-end">Summa eget kapital:</td>
+                                    <td class="text-end">{{ report.totalEquity|number_format(2, ',', ' ') }} kr</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            {# Liabilities Section #}
+            <div class="card mb-4">
+                <div class="card-header bg-warning">
+                    <h4 class="mb-0">Skulder</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th style="width: 20%;">Konto</th>
+                                    <th style="width: 50%;">Namn</th>
+                                    <th style="width: 30%;" class="text-end">Belopp</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if report.liabilities|length > 0 %}
+                                    {% for accountData in report.liabilities %}
+                                        <tr>
+                                            <td>{{ accountData.account.accountNumber }}</td>
+                                            <td>{{ accountData.account.name }}</td>
+                                            <td class="text-end">
+                                                {{ accountData.balance|number_format(2, ',', ' ') }} kr
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="3" class="text-muted text-center">
+                                            <em>Inga skulder registrerade</em>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                            <tfoot class="table-secondary fw-bold">
+                                <tr>
+                                    <td colspan="2" class="text-end">Summa skulder:</td>
+                                    <td class="text-end">{{ report.totalLiabilities|number_format(2, ',', ' ') }} kr</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            {# Total Equity + Liabilities #}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm mb-0">
+                            <tbody>
+                                <tr class="table-primary fw-bold fs-5">
+                                    <td colspan="2" class="text-end">Summa eget kapital och skulder:</td>
+                                    <td class="text-end" style="width: 30%;">
+                                        {{ (report.totalEquity + report.totalLiabilities)|number_format(2, ',', ' ') }} kr
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Balance verification #}
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-sm mb-0">
+                    <tbody>
+                        <tr class="{% if report.balanced %}table-success{% else %}table-danger{% endif %} fw-bold">
+                            <td class="text-end">
+                                {% if report.balanced %}
+                                    <i class="bi bi-check-circle"></i> Balansen stämmer
+                                {% else %}
+                                    <i class="bi bi-x-circle"></i> Balansen stämmer inte
+                                {% endif %}
+                            </td>
+                            <td class="text-end" style="width: 30%;">
+                                Differens: {{ (report.totalAssets - (report.totalEquity + report.totalLiabilities))|number_format(2, ',', ' ') }} kr
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {# Back button #}
+    <div class="mb-4">
+        <a href="{{ path('kassabok_journals', {organization: organization.id}) }}" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Tillbaka till kassaböcker
+        </a>
+    </div>
+</div>
+{% endblock %}

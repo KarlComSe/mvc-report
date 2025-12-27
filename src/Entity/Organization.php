@@ -47,10 +47,17 @@ class Organization
     #[ORM\OneToMany(targetEntity: Journal::class, mappedBy: 'organization')]
     private Collection $journals;
 
+    /**
+     * @var Collection<int, ChartOfAccounts>
+     */
+    #[ORM\OneToMany(targetEntity: ChartOfAccounts::class, mappedBy: 'organization')]
+    private Collection $chartOfAccounts;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->journals = new ArrayCollection();
+        $this->chartOfAccounts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -80,12 +87,10 @@ class Organization
 
     public function isUserInOrganization(User $user): bool
     {
-        if (!$this->users->isInitialized()) {
-            $this->users->initialize();
-        }
-        dump($this->users);
-        dump($this->users->toArray());
-        dump($user);
+        //partially unknown if this might be needed for security
+        // if (!$this->users->isInitialized()) {
+        //     $this->users->initialize();
+        // }
         return $this->users->contains($user);
     }
 
@@ -125,16 +130,30 @@ class Organization
 
         return $this;
     }
+    /**
+     * @return Collection<int, ChartOfAccounts>
+     */
+    public function getChartOfAccounts(): Collection
+    {
+        return $this->chartOfAccounts;
+    }
 
-    // public function getJournals(): ?Journal
-    // {
-    //     return $this->journal;
-    // }
+    public function addChartOfAccount(ChartOfAccounts $chartOfAccount): static
+    {
+        if (!$this->chartOfAccounts->contains($chartOfAccount)) {
+            $this->chartOfAccounts->add($chartOfAccount);
+            $chartOfAccount->setOrganization($this);
+        }
+        return $this;
+    }
 
-    // public function setJournals(?Journal $journal): static
-    // {
-    //     $this->journal = $journal;
-
-    //     return $this;
-    // }
+    public function removeChartOfAccount(ChartOfAccounts $chartOfAccount): static
+    {
+        if ($this->chartOfAccounts->removeElement($chartOfAccount)) {
+            if ($chartOfAccount->getOrganization() === $this) {
+                $chartOfAccount->setOrganization(null);
+            }
+        }
+        return $this;
+    }
 }

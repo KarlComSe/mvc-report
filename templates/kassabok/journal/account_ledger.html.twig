@@ -1,0 +1,95 @@
+{% extends 'kassabok/base.html.twig' %}
+{% import 'kassabok/_breadcrumbs.html.twig' as breadcrumb_helper %}
+
+
+{% block title %}{{ journal.organization.name }} - Grundbok{% endblock %}
+
+{% block breadcrumb %}
+{{ breadcrumb_helper.trail([
+{ label: 'Kontrollpanel', path: path('kassabok_organization') },
+{ label: journal.organization.name, path: path('kassabok_journals', {organization: journal.organization.id}) },
+{ label: 'Grundbok', path: null }
+]) }}
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-4">
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Grundbok för {{ organization.name }}</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Räkenskapsår:</strong> {{ journal.firstDay|date('Y-m-d') }} - {{ journal.lastDay|date('Y-m-d') }}
+            </p>
+        </div>
+    </div>
+
+    <h2 class="mb-4">Grundbok (efter konto)</h2>
+
+    {% if ledgerData|length > 0 %}
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            {% for accountData in ledgerData %}
+            {# Account Header #}
+            <thead class="table-primary">
+                <tr>
+                    <th colspan="6">
+                        <h5 class="mb-0">{{ accountData.accountNumber }} - {{ accountData.accountName }} - {{
+                            accountData.typeName }} </h5>
+                    </th>
+                </tr>
+                <tr class="table-light">
+                    <th style="width: 8%;">Ver#</th>
+                    <th style="width: 12%;">Datum</th>
+                    <th style="width: 35%;">Beskrivning</th>
+                    <th style="width: 15%;" class="text-end">Debet</th>
+                    <th style="width: 15%;" class="text-end">Kredit</th>
+                    <th style="width: 15%;" class="text-end">Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in accountData.entries %}
+                <tr>
+                    <td>{{ entry.verificationNumber }}</td>
+                    <td>{{ entry.date|date('Y-m-d') }}</td>
+                    <td>{{ entry.description }}</td>
+                    <td class="text-end">
+                        {% if entry.debit > 0 %}
+                        {{ entry.debit|number_format(2, ',', ' ') }}
+                        {% endif %}
+                    </td>
+                    <td class="text-end">
+                        {% if entry.credit > 0 %}
+                        {{ entry.credit|number_format(2, ',', ' ') }}
+                        {% endif %}
+                    </td>
+                    <td class="text-end"><strong>{{ entry.balance|number_format(2, ',', ' ') }}</strong></td>
+                </tr>
+                {% endfor %}
+
+                {# Summary row #}
+                <tr class="table-secondary fw-bold">
+                    <td colspan="3" class="text-end">Summa</td>
+                    <td class="text-end">{{ accountData.summary.totalDebit|number_format(2, ',', ' ') }}</td>
+                    <td class="text-end">{{ accountData.summary.totalCredit|number_format(2, ',', ' ') }}</td>
+                    <td class="text-end">{{ accountData.summary.finalBalance|number_format(2, ',', ' ') }}</td>
+                </tr>
+
+                {# Spacing between accounts #}
+                <tr>
+                    <td colspan="6" style="height: 20px; background-color: #f8f9fa;"></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <strong>Ingen bokföring ännu.</strong>
+        Det finns inga transaktioner att visa i grundboken.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -27,6 +27,28 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <exclude>
+            <!-- Exclude earlier course assignments (not part of Kassabok project) -->
+            <directory suffix=".php">src/Dice</directory>
+            <directory suffix=".php">src/Observer</directory>
+            <directory suffix=".php">src/EventListener</directory>
+            <directory suffix=".php">src/Command/</directory>
+            <file>src/Controller/LuckyController.php</file>
+            <file>src/Controller/CardController.php</file>
+            <file>src/Controller/GameController.php</file>
+            <file>src/Controller/DeckApiController.php</file>
+            <file>src/Controller/CurrencyController.php</file>
+            <file>src/Controller/ApiController.php</file>
+            <file>src/Controller/AboutController.php</file>
+            <file>src/Controller/ReportController.php</file>
+            <file>src/Controller/IndexController.php</file>
+            <file>src/Service/DeckService.php</file>
+            <file>src/Service/QuoteService.php</file>
+            <!-- Exclude card game models from earlier assignments -->
+            <directory suffix=".php">src/Model</directory>
+            <!-- Exclude API resources if not part of your project -->
+            <directory suffix=".php">src/ApiResource</directory>
+        </exclude>
           <report>
             <clover outputFile="docs/coverage.clover"/>
             <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
@@ -42,5 +64,6 @@
     </logging>
 
     <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
     </extensions>
 </phpunit>

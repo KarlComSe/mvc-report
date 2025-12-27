@@ -1,0 +1,85 @@
+{% extends 'kassabok/base.html.twig' %}
+{% import 'kassabok/_breadcrumbs.html.twig' as breadcrumb_helper %}
+
+{% block title %}{{ organization.name }} - Kassaböcker{% endblock %}
+
+{% block breadcrumb %}
+{{ breadcrumb_helper.trail([
+{ label: 'Kontrollpanel', path: path('kassabok_organization') },
+{ label: organization.name, path: null }
+]) }}
+{% endblock %}
+
+
+{% block body %}
+<div class="container mt-4">
+    <h2>Kassaböcker för {{ organization.name }}</h2>
+
+    {# Existing journals #}
+    {% if journals|length > 0 %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Befintliga kassaböcker</h5>
+        </div>
+        <div class="list-group list-group-flush">
+            {% for journal in journals %}
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between align-items-start gap-3">
+                    <div class="flex-shrink-0">
+                        <h6 class="mb-1">
+                            Räkenskapsår: {{ journal.firstDay|date('Y-m-d') }} - {{ journal.lastDay|date('Y-m-d') }}
+                        </h6>
+                        <p class="mb-1 text-muted">
+                            <strong>Kontoplan:</strong> {{ journal.chartOfAccounts.name }} |
+                            <strong>Verifikat:</strong> {{ journal.journalEntries|length }}
+                        </p>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-end gap-2">
+                        <a href="{{ path('kassabok_journal', {organization: organization.id, journal: journal.id}) }}"
+                            class="btn btn-primary btn-sm">
+                            Huvudbok / kassabok
+                        </a>
+                        <a href="{{ path('kassabok_add_entry', {journal: journal.id}) }}" class="btn btn-light btn-sm">
+                            Lägg till verifikat
+                        </a>
+                        <a href="{{ path('kassabok_add_year_end_closure', {journal: journal.id}) }}"
+                            class="btn btn-dark btn-sm">
+                            Nollställ
+                        </a>
+                        <a href="{{ path('kassabok_accountledger', {organization: organization.id, journal: journal.id}) }}"
+                            class="btn btn-success btn-sm">
+                            Grundbok
+                        </a>
+                        <a href="{{ path('kassabok_resultatrakning', {organization: organization.id, journal: journal.id}) }}"
+                            class="btn btn-info btn-sm">
+                            Resultaträkning
+                        </a>
+                        <a href="{{ path('kassabok_balansrakning', {organization: organization.id, journal: journal.id}) }}"
+                            class="btn btn-warning btn-sm">
+                            Balansräkning
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info mb-4">
+        <strong>Ingen kassabok än.</strong>
+        Skapa din första kassabok nedan.
+    </div>
+    {% endif %}
+
+    {# Create new journal form #}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Skapa ny kassabok</h5>
+        </div>
+        <div class="card-body">
+            {% form_theme form 'bootstrap_5_layout.html.twig' %}
+            {{ form(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
