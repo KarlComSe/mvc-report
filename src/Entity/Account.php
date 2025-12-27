@@ -138,7 +138,7 @@ class Account
         return $this;
     }
 
-    public function getTypeName(): string
+    public function getTypeName(): ?string
     {
         return self::TYPES[$this->type] ?? $this->type;
     }

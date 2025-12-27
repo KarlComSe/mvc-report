@@ -220,7 +220,7 @@ class ChartOfAccounts
     /**
      * Get the base chart name and version for display
      */
-    public function getDisplayName(): string
+    public function getDisplayName(): ?string
     {
         if ($this->organization) {
             return $this->name . ' - ' . $this->organization->getName();
