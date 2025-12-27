@@ -39,6 +39,8 @@
 ./tools/phpdoc/
 .idea/
 data.db
+*.db
 *.backup
 *.env.test
+/migrations/
 Notes.md
