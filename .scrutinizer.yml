@@ -12,6 +12,8 @@ build:
             environment:
                 php:
                     version: 8.3.3
+                    ini:
+                        memory_limit: 512M
             dependencies:
                 after:
                     - php bin/console doctrine:schema:create --no-interaction
